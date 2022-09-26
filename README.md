@@ -304,7 +304,7 @@ Note that these submissions are *incremental*. This means that your work towards
 * Fifo Broadcast: November 20th 2022, 23:59
 * 3rd yet-to-be-announced deliverable: December 18th 2022, 23:59
 
-** These deadlines are definitive. The website does not accept new submissions past the specified deadline.**
+**These deadlines are definitive. The website does not accept new submissions past the specified deadline.**
 
 ### Submissions
 Submit your deliverable by uploading it to [this](https://cs451-submissions.epfl.ch:8083) website. Use EPFL’s VPN if you cannot access the submission website.
@@ -319,6 +319,7 @@ Students registered to ISA-Academia and/or Moodle will receive by email a passph
 Read more about how to upload your deliverable to the submission website [here](https://docs.google.com/document/d/1Ai3tQeaTLD0p_2HrVTlONOUskoEExj1HdVOlfIbHdXQ).
 
 The website runs a simple test to evaluate your submission. Further tests will be ran after the submission deadline.
+
 **Only submissions that pass the website test will be graded.**
 
 If your submission passes the initial validation, we will evaluate it based on two criteria: correctness and performance. We prioritize correctness: a correct implementation (i.e., that passes all the test cases) will receive (at least) a score of 4-out-of-6. The rest 2-out-of-6 is given based on the perfomance of your implementation compared to the perfomance of the implemantions submitted by your colleagues. The fastest correct implementation will receive a perfect score (6). Incorrect implementations receive a score below 4, depending on the number of tests they fail to pass.
