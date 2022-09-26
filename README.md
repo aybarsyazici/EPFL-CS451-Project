@@ -304,14 +304,14 @@ Note that these submissions are *incremental*. This means that your work towards
 * Fifo Broadcast: November 20th 2022, 23:59
 * 3rd yet-to-be-announced deliverable: December 18th 2022, 23:59
 
-**These deadlines are definitive. The website does not accept new submissions past the specified deadline.**
-
 ### Submissions
 Submit your deliverable by uploading it to [this](https://cs451-submissions.epfl.ch:8083) website. Use EPFL’s VPN if you cannot access the submission website.
 
 The website stores the submission, tests it and then provides with feedback.
 We advise you to submit regularly, in order to avoid “silly” mistakes (e.g., hardcoding the OUTPUT path).
 Do not use the website to develop (e.g., submit 100 times a day) your project!
+
+**These deadlines mentioned above are definitive. The website does not accept new submissions past the specified deadline.**
 
 **We do not accept submissions over email. Submissions sent over email will not be considered.**
 
