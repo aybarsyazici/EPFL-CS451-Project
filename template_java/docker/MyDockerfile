@@ -1,0 +1,5 @@
+FROM da_image:latest
+COPY ./ /tmp
+WORKDIR /
+ENTRYPOINT ["build.sh"]
+ENTRYPOINT ["java", "-jar", "/tmp/bin/da_proc.jar"]
