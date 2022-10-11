@@ -14,7 +14,7 @@ public class FairLossLinks implements Deliverer {
     private static final int THREAD_NUMBER =  Math.max(Runtime.getRuntime().availableProcessors(),2);
     private final UDPReceiver receiver;
     private final Deliverer deliverer;
-    private final ExecutorService pool = Executors.newFixedThreadPool(1024);
+    private final ExecutorService pool = Executors.newFixedThreadPool(THREAD_NUMBER);
 
     FairLossLinks(int port, Deliverer deliverer){ // Create a new receiver
         this.receiver = new UDPReceiver(port, this);

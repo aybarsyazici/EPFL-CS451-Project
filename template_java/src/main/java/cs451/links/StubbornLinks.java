@@ -37,7 +37,7 @@ public class StubbornLinks implements Deliverer {
             @Override
             public void run() {
                 try{
-                    (new ArrayList<>(alreadySent)).parallelStream().forEach(m -> fairLoss.send(m.getMessage(),m.getHost()));
+                    (new ArrayList<>(alreadySent)).forEach(m -> fairLoss.send(m.getMessage(),m.getHost()));
                 }
                 catch (Exception e) {e.printStackTrace();}
             }
@@ -49,7 +49,6 @@ public class StubbornLinks implements Deliverer {
             fairLoss.send(message, host);
             return;
         }
-        System.out.println("Sending new payload message" + message);
         alreadySent.add(new MessageExtension(message, host));
     }
 
@@ -62,11 +61,10 @@ public class StubbornLinks implements Deliverer {
     public void deliver(Message message) {
         Host senderHost = hosts.get(message.getOriginalSender());
         if(message.getOriginalSender() == message.getReceiverId()){ // I have sent this message and received it back.
-            alreadySent.remove(new MessageExtension(message, senderHost));
-            System.out.println("Stubborn links successfully sent message with id: " + message.getId());
+            boolean removed = alreadySent.remove(new MessageExtension(message, senderHost));
+            if(removed) {System.out.println("Stubborn links successfully sent message with id: " + message.getId());}
         }
         else{
-            System.out.println("NEW MESSAGE WOO");
             deliverer.deliver(message);
             send(new Message(message, message.getReceiverId(), message.getOriginalSender()), senderHost);
             // To inform the original sender of this message I need a way to access the hosts array.
