@@ -1,5 +1,7 @@
 package cs451;
 
+import cs451.udp.Message;
+
 import java.io.*;
 
 public class Main {
@@ -74,6 +76,7 @@ public class Main {
         System.out.println("Number of messages: " + nmOfMessages);
         System.out.println("Deliver target: " + deliverTarget);
         if(pr.getId() != deliverTarget){
+            System.out.println("Process ID: " + pr.getId() + " Deliver Target: " + deliverTarget);
             for(int i = 1; i < nmOfMessages+1; i++){
                 pr.send(new Message(i, pr.getId(), deliverTarget, pr.getId(), ("Hello World! " + i)));
             }

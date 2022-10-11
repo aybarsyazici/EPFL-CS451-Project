@@ -1,15 +1,15 @@
-package cs451;
+package cs451.udp;
 
+import javax.sound.midi.Receiver;
 import java.io.Serializable;
 
 public class Message implements Serializable {
     private final int id;
     private final int senderId;
     private final int receiverId;
-
     private final int originalSender;
-
     private final String content;
+    private final Boolean ack;
 
     public Message(int id, int senderId, int receiverId, int originalSender, String content) {
         this.id = id;
@@ -17,6 +17,16 @@ public class Message implements Serializable {
         this.receiverId = receiverId;
         this.originalSender = originalSender;
         this.content = content;
+        this.ack = false;
+    }
+
+    public Message(Message message, int newSender, int newReceiver){
+        this.id = message.getId();
+        this.senderId = newSender;
+        this.receiverId = newReceiver;
+        this.originalSender = message.getOriginalSender();
+        this.content = message.getContent();
+        this.ack = true;
     }
 
     public int getId() {
@@ -34,6 +44,9 @@ public class Message implements Serializable {
     public int getOriginalSender() {
         return originalSender;
     }
+    public Boolean isAckMessage(){
+        return ack;
+    }
 
     public String getContent() {
         return content;
@@ -46,8 +59,7 @@ public class Message implements Serializable {
 
         Message message = (Message) o;
 
-        if (id == message.getId() && originalSender == message.getOriginalSender()) return true;
-        return false;
+        return id == message.getId() && originalSender == message.getOriginalSender();
     }
 
     @Override
@@ -58,6 +70,7 @@ public class Message implements Serializable {
                 ", receiverId=" + receiverId +
                 ", originalSender=" + originalSender +
                 ", payload=" + content +
+                ", isAck=" + ack +
                 '}';
     }
 }

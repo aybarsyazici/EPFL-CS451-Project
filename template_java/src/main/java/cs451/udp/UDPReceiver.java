@@ -1,7 +1,6 @@
 package cs451.udp;
 
 import cs451.Deliverer;
-import cs451.Message;
 
 import java.io.ByteArrayInputStream;
 import java.io.ObjectInputStream;

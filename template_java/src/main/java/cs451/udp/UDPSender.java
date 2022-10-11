@@ -1,18 +1,15 @@
 package cs451.udp;
 
-import cs451.Message;
-
 import java.io.ByteArrayOutputStream;
 import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class UDPSender extends Thread{
+public class UDPSender implements Runnable{
     private DatagramSocket socket;
     private InetAddress address;
     private int port;
-
     private byte[] buf;
 
     public UDPSender(String ip, int port, Message message) {
@@ -38,6 +35,7 @@ public class UDPSender extends Thread{
         catch (Exception e){
             e.printStackTrace();
         }
+        close();
     }
 
     public void close(){

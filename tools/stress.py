@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 
 import argparse
-import os, atexit
+import os
+import atexit
 import textwrap
 import time
-import threading, subprocess
+import threading
+import subprocess
 
 
 import signal
@@ -16,10 +18,12 @@ from collections import defaultdict, OrderedDict
 
 PROCESSES_BASE_IP = 11000
 
+
 class ProcessState(Enum):
     RUNNING = 1
     STOPPED = 2
     TERMINATED = 3
+
 
 class ProcessInfo:
     def __init__(self, handle):
@@ -62,6 +66,7 @@ class ProcessInfo:
 
         return False
 
+
 class AtomicSaturatedCounter:
     def __init__(self, saturation, initial=0):
         self._saturation = saturation
@@ -75,6 +80,7 @@ class AtomicSaturatedCounter:
                 return True
             else:
                 return False
+
 
 class Validation:
     def __init__(self, procs, msgs):
@@ -107,6 +113,7 @@ class Validation:
 
         return (hostsfile, configfile)
 
+
 class StressTest:
     def __init__(self, procs, concurrency, attempts, attemptsRatio):
         self.processes = len(procs)
@@ -117,7 +124,8 @@ class StressTest:
         self.attempts = attempts
         self.attemptsRatio = attemptsRatio
 
-        maxTerminatedProcesses = self.processes // 2 if self.processes % 2 == 1 else (self.processes - 1) // 2
+        maxTerminatedProcesses = self.processes // 2 if self.processes % 2 == 1 else (
+            self.processes - 1) // 2
         self.terminatedProcs = AtomicSaturatedCounter(maxTerminatedProcesses)
 
     def stress(self):
@@ -125,8 +133,9 @@ class StressTest:
         random.shuffle(selectProc)
 
         selectOp = [ProcessState.STOPPED] * int(1000 * self.attemptsRatio['STOP']) + \
-                    [ProcessState.RUNNING] * int(1000 * self.attemptsRatio['CONT']) + \
-                    [ProcessState.TERMINATED] * int(1000 * self.attemptsRatio['TERM'])
+            [ProcessState.RUNNING] * int(1000 * self.attemptsRatio['CONT']) + \
+            [ProcessState.TERMINATED] * \
+            int(1000 * self.attemptsRatio['TERM'])
         random.shuffle(selectOp)
 
         successfulAttempts = 0
@@ -149,7 +158,8 @@ class StressTest:
                     info.handle.send_signal(ProcessInfo.stateToSignal(op))
                     info.state = op
                     successfulAttempts += 1
-                    print("Sending {} to process {}".format(ProcessInfo.stateToSignalStr(op), proc))
+                    print("Sending {} to process {}".format(
+                        ProcessInfo.stateToSignalStr(op), proc))
 
                     # if op == ProcessState.TERMINATED and proc not in terminatedProcs:
                     #     if len(terminatedProcs) < maxTerminatedProcesses:
@@ -173,9 +183,11 @@ class StressTest:
             with info.lock:
                 if info.state != ProcessState.TERMINATED:
                     if info.state == ProcessState.STOPPED:
-                        info.handle.send_signal(ProcessInfo.stateToSignal(ProcessState.RUNNING))
+                        info.handle.send_signal(
+                            ProcessInfo.stateToSignal(ProcessState.RUNNING))
 
-                    info.handle.send_signal(ProcessInfo.stateToSignal(ProcessState.TERMINATED))
+                    info.handle.send_signal(
+                        ProcessInfo.stateToSignal(ProcessState.TERMINATED))
 
         return False
 
@@ -184,15 +196,18 @@ class StressTest:
             with info.lock:
                 if info.state != ProcessState.TERMINATED:
                     if info.state == ProcessState.STOPPED:
-                        info.handle.send_signal(ProcessInfo.stateToSignal(ProcessState.RUNNING))
+                        info.handle.send_signal(
+                            ProcessInfo.stateToSignal(ProcessState.RUNNING))
 
     def run(self):
         if self.concurrency > 1:
-            threads = [threading.Thread(target=self.stress) for _ in range(self.concurrency)]
+            threads = [threading.Thread(target=self.stress)
+                       for _ in range(self.concurrency)]
             [p.start() for p in threads]
             [p.join() for p in threads]
         else:
             self.stress()
+
 
 def startProcesses(processes, runscript, hostsFilePath, configFilePath, outputDir):
     runscriptPath = os.path.abspath(runscript)
@@ -215,27 +230,31 @@ def startProcesses(processes, runscript, hostsFilePath, configFilePath, outputDi
     elif os.path.exists(bin_java):
         cmd = ['java', '-jar', bin_java]
     else:
-        raise Exception("`{}` could not find a binary to execute. Make sure you build before validating".format(runscriptPath))
+        raise Exception(
+            "`{}` could not find a binary to execute. Make sure you build before validating".format(runscriptPath))
 
     procs = []
     for pid in range(1, processes+1):
         cmd_ext = ['--id', str(pid),
                    '--hosts', hostsFilePath,
-                   '--output', os.path.join(outputDirPath, 'proc{:02d}.output'.format(pid)),
+                   '--output', os.path.join(outputDirPath,
+                                            'proc{:02d}.output'.format(pid)),
                    configFilePath]
 
-        stdoutFd = open(os.path.join(outputDirPath, 'proc{:02d}.stdout'.format(pid)), "w")
-        stderrFd = open(os.path.join(outputDirPath, 'proc{:02d}.stderr'.format(pid)), "w")
+        stdoutFd = open(os.path.join(
+            outputDirPath, 'proc{:02d}.stdout'.format(pid)), "w")
+        stderrFd = open(os.path.join(
+            outputDirPath, 'proc{:02d}.stderr'.format(pid)), "w")
 
-
-        procs.append((pid, subprocess.Popen(cmd + cmd_ext, stdout=stdoutFd, stderr=stderrFd)))
+        procs.append((pid, subprocess.Popen(
+            cmd + cmd_ext, stdout=stdoutFd, stderr=stderrFd)))
 
     return procs
+
 
 def main(processes, messages, runscript, testType, logsDir, testConfig):
     if not os.path.isdir(logsDir):
         raise ValueError('Directory `{}` does not exist'.format(logsDir))
-
 
     validation = Validation(processes, messages)
     if testType == "perfect":
@@ -247,7 +266,8 @@ def main(processes, messages, runscript, testType, logsDir, testConfig):
 
     try:
         # Start the processes and get their PIDs
-        procs = startProcesses(processes, runscript, hostsFile, configFile, logsDir)
+        procs = startProcesses(processes, runscript,
+                               hostsFile, configFile, logsDir)
 
         # Create the stress test
         st = StressTest(procs,
@@ -256,7 +276,8 @@ def main(processes, messages, runscript, testType, logsDir, testConfig):
                         testConfig['attemptsDistribution'])
 
         for (logicalPID, procHandle) in procs:
-            print("Process with logicalPID {} has PID {}".format(logicalPID, procHandle.pid))
+            print("Process with logicalPID {} has PID {}".format(
+                logicalPID, procHandle.pid))
 
         st.run()
         print("StressTest is complete.")
@@ -276,10 +297,12 @@ def main(processes, messages, runscript, testType, logsDir, testConfig):
             procHandle.wait()
 
             with mutex:
-                print("Process {} exited with {}".format(logicalPID, procHandle.returncode))
+                print("Process {} exited with {}".format(
+                    logicalPID, procHandle.returncode))
 
         # Monitor which processes have exited
-        monitors = [threading.Thread(target=waitForProcess, args=(logicalPID, procHandle, mutex)) for (logicalPID, procHandle) in procs]
+        monitors = [threading.Thread(target=waitForProcess, args=(
+            logicalPID, procHandle, mutex)) for (logicalPID, procHandle) in procs]
         [p.start() for p in monitors]
         [p.join() for p in monitors]
 
@@ -287,6 +310,7 @@ def main(processes, messages, runscript, testType, logsDir, testConfig):
         if procs is not None:
             for _, p in procs:
                 p.kill()
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -337,13 +361,15 @@ if __name__ == "__main__":
     results = parser.parse_args()
 
     testConfig = {
-        'concurrency' : 8, # How many threads are interferring with the running processes
-        'attempts' : 8, # How many interferring attempts each threads does
-        'attemptsDistribution' : { # Probability with which an interferring thread will
-            'STOP': 0.48,          # select an interferring action (make sure they add up to 1)
-            'CONT': 0.48,
-            'TERM':0.04
+        'concurrency': 8,  # How many threads are interferring with the running processes
+        'attempts': 8,  # How many interferring attempts each threads does
+        'attemptsDistribution': {  # Probability with which an interferring thread will
+            # select an interferring action (make sure they add up to 1)
+            'STOP': 0.01,
+            'CONT': 0.99,
+            'TERM': 0.0
         }
     }
 
-    main(results.processes, results.messages, results.runscript, results.testType, results.logsDir, testConfig)
+    main(results.processes, results.messages, results.runscript,
+         results.testType, results.logsDir, testConfig)
