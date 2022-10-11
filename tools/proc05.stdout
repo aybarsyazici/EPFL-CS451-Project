@@ -1,6 +1,6 @@
-My PID: 25337
+My PID: 20964
 
-From a new terminal type `kill -SIGINT 25337` or `kill -SIGTERM 25337` to stop processing packets
+From a new terminal type `kill -SIGINT 20964` or `kill -SIGTERM 20964` to stop processing packets
 
 OUTPUT:  /shared/tools/proc05.output
 My ID: 5
@@ -106,7 +106,6 @@ Sending new payload messageMessage{id=38, senderId=5, receiverId=1, originalSend
 Sending new payload messageMessage{id=39, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 39, isAck=false}
 Sending new payload messageMessage{id=40, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 40, isAck=false}
 Sending new payload messageMessage{id=41, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 41, isAck=false}
-Stubborn links successfully sent message with id: 1
 Sending new payload messageMessage{id=42, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 42, isAck=false}
 Sending new payload messageMessage{id=43, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 43, isAck=false}
 Sending new payload messageMessage{id=44, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 44, isAck=false}
@@ -221,6 +220,7 @@ Sending new payload messageMessage{id=152, senderId=5, receiverId=1, originalSen
 Sending new payload messageMessage{id=153, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 153, isAck=false}
 Sending new payload messageMessage{id=154, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 154, isAck=false}
 Sending new payload messageMessage{id=155, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 155, isAck=false}
+Stubborn links successfully sent message with id: 1
 Sending new payload messageMessage{id=156, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 156, isAck=false}
 Sending new payload messageMessage{id=157, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 157, isAck=false}
 Sending new payload messageMessage{id=158, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 158, isAck=false}
@@ -306,14 +306,20 @@ Sending new payload messageMessage{id=237, senderId=5, receiverId=1, originalSen
 Sending new payload messageMessage{id=238, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 238, isAck=false}
 Sending new payload messageMessage{id=239, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 239, isAck=false}
 Sending new payload messageMessage{id=240, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 240, isAck=false}
+Stubborn links successfully sent message with id: 5
+Stubborn links successfully sent message with id: 4
 Sending new payload messageMessage{id=241, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 241, isAck=false}
 Sending new payload messageMessage{id=242, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 242, isAck=false}
+Stubborn links successfully sent message with id: 1
 Sending new payload messageMessage{id=243, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 243, isAck=false}
 Sending new payload messageMessage{id=244, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 244, isAck=false}
 Sending new payload messageMessage{id=245, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 245, isAck=false}
 Sending new payload messageMessage{id=246, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 246, isAck=false}
 Sending new payload messageMessage{id=247, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 247, isAck=false}
+Stubborn links successfully sent message with id: 6
+Stubborn links successfully sent message with id: 2
 Sending new payload messageMessage{id=248, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 248, isAck=false}
+Stubborn links successfully sent message with id: 7
 Sending new payload messageMessage{id=249, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 249, isAck=false}
 Sending new payload messageMessage{id=250, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 250, isAck=false}
 Sending new payload messageMessage{id=251, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 251, isAck=false}
@@ -383,22 +389,26 @@ Sending new payload messageMessage{id=314, senderId=5, receiverId=1, originalSen
 Sending new payload messageMessage{id=315, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 315, isAck=false}
 Sending new payload messageMessage{id=316, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 316, isAck=false}
 Sending new payload messageMessage{id=317, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 317, isAck=false}
+Stubborn links successfully sent message with id: 6
 Sending new payload messageMessage{id=318, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 318, isAck=false}
 Sending new payload messageMessage{id=319, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 319, isAck=false}
 Sending new payload messageMessage{id=320, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 320, isAck=false}
 Sending new payload messageMessage{id=321, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 321, isAck=false}
+Stubborn links successfully sent message with id: 7
 Sending new payload messageMessage{id=322, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 322, isAck=false}
 Sending new payload messageMessage{id=323, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 323, isAck=false}
 Sending new payload messageMessage{id=324, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 324, isAck=false}
 Sending new payload messageMessage{id=325, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 325, isAck=false}
 Sending new payload messageMessage{id=326, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 326, isAck=false}
 Sending new payload messageMessage{id=327, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 327, isAck=false}
+Stubborn links successfully sent message with id: 4
 Sending new payload messageMessage{id=328, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 328, isAck=false}
 Sending new payload messageMessage{id=329, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 329, isAck=false}
 Sending new payload messageMessage{id=330, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 330, isAck=false}
 Sending new payload messageMessage{id=331, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 331, isAck=false}
 Sending new payload messageMessage{id=332, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 332, isAck=false}
 Sending new payload messageMessage{id=333, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 333, isAck=false}
+Stubborn links successfully sent message with id: 8
 Sending new payload messageMessage{id=334, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 334, isAck=false}
 Sending new payload messageMessage{id=335, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 335, isAck=false}
 Sending new payload messageMessage{id=336, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 336, isAck=false}
@@ -422,13 +432,19 @@ Sending new payload messageMessage{id=353, senderId=5, receiverId=1, originalSen
 Sending new payload messageMessage{id=354, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 354, isAck=false}
 Sending new payload messageMessage{id=355, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 355, isAck=false}
 Sending new payload messageMessage{id=356, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 356, isAck=false}
+Stubborn links successfully sent message with id: 73
 Sending new payload messageMessage{id=357, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 357, isAck=false}
 Sending new payload messageMessage{id=358, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 358, isAck=false}
 Sending new payload messageMessage{id=359, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 359, isAck=false}
 Sending new payload messageMessage{id=360, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 360, isAck=false}
 Sending new payload messageMessage{id=361, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 361, isAck=false}
+Stubborn links successfully sent message with id: 40
+Stubborn links successfully sent message with id: 41
+Stubborn links successfully sent message with id: 42
+Stubborn links successfully sent message with id: 26
 Sending new payload messageMessage{id=362, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 362, isAck=false}
 Sending new payload messageMessage{id=363, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 363, isAck=false}
+Stubborn links successfully sent message with id: 27
 Sending new payload messageMessage{id=364, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 364, isAck=false}
 Sending new payload messageMessage{id=365, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 365, isAck=false}
 Sending new payload messageMessage{id=366, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 366, isAck=false}
@@ -436,6 +452,7 @@ Sending new payload messageMessage{id=367, senderId=5, receiverId=1, originalSen
 Sending new payload messageMessage{id=368, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 368, isAck=false}
 Sending new payload messageMessage{id=369, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 369, isAck=false}
 Sending new payload messageMessage{id=370, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 370, isAck=false}
+Stubborn links successfully sent message with id: 38
 Sending new payload messageMessage{id=371, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 371, isAck=false}
 Sending new payload messageMessage{id=372, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 372, isAck=false}
 Sending new payload messageMessage{id=373, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 373, isAck=false}
@@ -443,6 +460,7 @@ Sending new payload messageMessage{id=374, senderId=5, receiverId=1, originalSen
 Sending new payload messageMessage{id=375, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 375, isAck=false}
 Sending new payload messageMessage{id=376, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 376, isAck=false}
 Sending new payload messageMessage{id=377, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 377, isAck=false}
+Stubborn links successfully sent message with id: 37
 Sending new payload messageMessage{id=378, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 378, isAck=false}
 Sending new payload messageMessage{id=379, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 379, isAck=false}
 Sending new payload messageMessage{id=380, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 380, isAck=false}
@@ -665,17 +683,20 @@ Sending new payload messageMessage{id=596, senderId=5, receiverId=1, originalSen
 Sending new payload messageMessage{id=597, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 597, isAck=false}
 Sending new payload messageMessage{id=598, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 598, isAck=false}
 Sending new payload messageMessage{id=599, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 599, isAck=false}
+Stubborn links successfully sent message with id: 161
 Sending new payload messageMessage{id=600, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 600, isAck=false}
 Sending new payload messageMessage{id=601, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 601, isAck=false}
 Sending new payload messageMessage{id=602, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 602, isAck=false}
 Sending new payload messageMessage{id=603, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 603, isAck=false}
 Sending new payload messageMessage{id=604, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 604, isAck=false}
+Stubborn links successfully sent message with id: 162
 Sending new payload messageMessage{id=605, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 605, isAck=false}
 Sending new payload messageMessage{id=606, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 606, isAck=false}
 Sending new payload messageMessage{id=607, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 607, isAck=false}
 Sending new payload messageMessage{id=608, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 608, isAck=false}
 Sending new payload messageMessage{id=609, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 609, isAck=false}
 Sending new payload messageMessage{id=610, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 610, isAck=false}
+Stubborn links successfully sent message with id: 163
 Sending new payload messageMessage{id=611, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 611, isAck=false}
 Sending new payload messageMessage{id=612, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 612, isAck=false}
 Sending new payload messageMessage{id=613, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 613, isAck=false}
@@ -691,6 +712,7 @@ Sending new payload messageMessage{id=622, senderId=5, receiverId=1, originalSen
 Sending new payload messageMessage{id=623, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 623, isAck=false}
 Sending new payload messageMessage{id=624, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 624, isAck=false}
 Sending new payload messageMessage{id=625, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 625, isAck=false}
+Stubborn links successfully sent message with id: 164
 Sending new payload messageMessage{id=626, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 626, isAck=false}
 Sending new payload messageMessage{id=627, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 627, isAck=false}
 Sending new payload messageMessage{id=628, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 628, isAck=false}
@@ -698,6 +720,7 @@ Sending new payload messageMessage{id=629, senderId=5, receiverId=1, originalSen
 Sending new payload messageMessage{id=630, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 630, isAck=false}
 Sending new payload messageMessage{id=631, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 631, isAck=false}
 Sending new payload messageMessage{id=632, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 632, isAck=false}
+Stubborn links successfully sent message with id: 150
 Sending new payload messageMessage{id=633, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 633, isAck=false}
 Sending new payload messageMessage{id=634, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 634, isAck=false}
 Sending new payload messageMessage{id=635, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 635, isAck=false}
@@ -712,11 +735,13 @@ Sending new payload messageMessage{id=643, senderId=5, receiverId=1, originalSen
 Sending new payload messageMessage{id=644, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 644, isAck=false}
 Sending new payload messageMessage{id=645, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 645, isAck=false}
 Sending new payload messageMessage{id=646, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 646, isAck=false}
+Stubborn links successfully sent message with id: 39
 Sending new payload messageMessage{id=647, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 647, isAck=false}
 Sending new payload messageMessage{id=648, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 648, isAck=false}
 Sending new payload messageMessage{id=649, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 649, isAck=false}
 Sending new payload messageMessage{id=650, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 650, isAck=false}
 Sending new payload messageMessage{id=651, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 651, isAck=false}
+Stubborn links successfully sent message with id: 135
 Sending new payload messageMessage{id=652, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 652, isAck=false}
 Sending new payload messageMessage{id=653, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 653, isAck=false}
 Sending new payload messageMessage{id=654, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 654, isAck=false}
@@ -725,9 +750,13 @@ Sending new payload messageMessage{id=656, senderId=5, receiverId=1, originalSen
 Sending new payload messageMessage{id=657, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 657, isAck=false}
 Sending new payload messageMessage{id=658, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 658, isAck=false}
 Sending new payload messageMessage{id=659, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 659, isAck=false}
+Stubborn links successfully sent message with id: 136
 Sending new payload messageMessage{id=660, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 660, isAck=false}
 Sending new payload messageMessage{id=661, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 661, isAck=false}
 Sending new payload messageMessage{id=662, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 662, isAck=false}
+Stubborn links successfully sent message with id: 137
+Stubborn links successfully sent message with id: 138
+Stubborn links successfully sent message with id: 139
 Sending new payload messageMessage{id=663, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 663, isAck=false}
 Sending new payload messageMessage{id=664, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 664, isAck=false}
 Sending new payload messageMessage{id=665, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 665, isAck=false}
@@ -742,18 +771,22 @@ Sending new payload messageMessage{id=673, senderId=5, receiverId=1, originalSen
 Sending new payload messageMessage{id=674, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 674, isAck=false}
 Sending new payload messageMessage{id=675, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 675, isAck=false}
 Sending new payload messageMessage{id=676, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 676, isAck=false}
+Stubborn links successfully sent message with id: 140
 Sending new payload messageMessage{id=677, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 677, isAck=false}
 Sending new payload messageMessage{id=678, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 678, isAck=false}
 Sending new payload messageMessage{id=679, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 679, isAck=false}
 Sending new payload messageMessage{id=680, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 680, isAck=false}
 Sending new payload messageMessage{id=681, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 681, isAck=false}
+Stubborn links successfully sent message with id: 141
 Sending new payload messageMessage{id=682, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 682, isAck=false}
 Sending new payload messageMessage{id=683, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 683, isAck=false}
 Sending new payload messageMessage{id=684, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 684, isAck=false}
 Sending new payload messageMessage{id=685, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 685, isAck=false}
+Stubborn links successfully sent message with id: 143
 Sending new payload messageMessage{id=686, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 686, isAck=false}
 Sending new payload messageMessage{id=687, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 687, isAck=false}
 Sending new payload messageMessage{id=688, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 688, isAck=false}
+Stubborn links successfully sent message with id: 142
 Sending new payload messageMessage{id=689, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 689, isAck=false}
 Sending new payload messageMessage{id=690, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 690, isAck=false}
 Sending new payload messageMessage{id=691, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 691, isAck=false}
@@ -802,6 +835,7 @@ Sending new payload messageMessage{id=733, senderId=5, receiverId=1, originalSen
 Sending new payload messageMessage{id=734, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 734, isAck=false}
 Sending new payload messageMessage{id=735, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 735, isAck=false}
 Sending new payload messageMessage{id=736, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 736, isAck=false}
+Stubborn links successfully sent message with id: 217
 Sending new payload messageMessage{id=737, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 737, isAck=false}
 Sending new payload messageMessage{id=738, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 738, isAck=false}
 Sending new payload messageMessage{id=739, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 739, isAck=false}
@@ -1228,11 +1262,13 @@ Sending new payload messageMessage{id=1159, senderId=5, receiverId=1, originalSe
 Sending new payload messageMessage{id=1160, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1160, isAck=false}
 Sending new payload messageMessage{id=1161, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1161, isAck=false}
 Sending new payload messageMessage{id=1162, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1162, isAck=false}
+Stubborn links successfully sent message with id: 28
 Sending new payload messageMessage{id=1163, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1163, isAck=false}
 Sending new payload messageMessage{id=1164, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1164, isAck=false}
 Sending new payload messageMessage{id=1165, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1165, isAck=false}
 Sending new payload messageMessage{id=1166, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1166, isAck=false}
 Sending new payload messageMessage{id=1167, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1167, isAck=false}
+Stubborn links successfully sent message with id: 8
 Sending new payload messageMessage{id=1168, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1168, isAck=false}
 Sending new payload messageMessage{id=1169, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1169, isAck=false}
 Sending new payload messageMessage{id=1170, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1170, isAck=false}
@@ -1244,6 +1280,7 @@ Sending new payload messageMessage{id=1175, senderId=5, receiverId=1, originalSe
 Sending new payload messageMessage{id=1176, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1176, isAck=false}
 Sending new payload messageMessage{id=1177, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1177, isAck=false}
 Sending new payload messageMessage{id=1178, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1178, isAck=false}
+Stubborn links successfully sent message with id: 63
 Sending new payload messageMessage{id=1179, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1179, isAck=false}
 Sending new payload messageMessage{id=1180, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1180, isAck=false}
 Sending new payload messageMessage{id=1181, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1181, isAck=false}
@@ -1261,9 +1298,11 @@ Sending new payload messageMessage{id=1192, senderId=5, receiverId=1, originalSe
 Sending new payload messageMessage{id=1193, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1193, isAck=false}
 Sending new payload messageMessage{id=1194, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1194, isAck=false}
 Sending new payload messageMessage{id=1195, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1195, isAck=false}
+Stubborn links successfully sent message with id: 62
 Sending new payload messageMessage{id=1196, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1196, isAck=false}
 Sending new payload messageMessage{id=1197, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1197, isAck=false}
 Sending new payload messageMessage{id=1198, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1198, isAck=false}
+Stubborn links successfully sent message with id: 61
 Sending new payload messageMessage{id=1199, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1199, isAck=false}
 Sending new payload messageMessage{id=1200, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1200, isAck=false}
 Sending new payload messageMessage{id=1201, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1201, isAck=false}
@@ -1273,13 +1312,19 @@ Sending new payload messageMessage{id=1204, senderId=5, receiverId=1, originalSe
 Sending new payload messageMessage{id=1205, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1205, isAck=false}
 Sending new payload messageMessage{id=1206, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1206, isAck=false}
 Sending new payload messageMessage{id=1207, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1207, isAck=false}
+Stubborn links successfully sent message with id: 60
 Sending new payload messageMessage{id=1208, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1208, isAck=false}
+Stubborn links successfully sent message with id: 59
 Sending new payload messageMessage{id=1209, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1209, isAck=false}
+Stubborn links successfully sent message with id: 68
+Stubborn links successfully sent message with id: 249
 Sending new payload messageMessage{id=1210, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1210, isAck=false}
 Sending new payload messageMessage{id=1211, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1211, isAck=false}
 Sending new payload messageMessage{id=1212, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1212, isAck=false}
+Stubborn links successfully sent message with id: 197
 Sending new payload messageMessage{id=1213, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1213, isAck=false}
 Sending new payload messageMessage{id=1214, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1214, isAck=false}
+Stubborn links successfully sent message with id: 67
 Sending new payload messageMessage{id=1215, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1215, isAck=false}
 Sending new payload messageMessage{id=1216, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1216, isAck=false}
 Sending new payload messageMessage{id=1217, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 1217, isAck=false}
@@ -2098,6 +2143,7 @@ Sending new payload messageMessage{id=2029, senderId=5, receiverId=1, originalSe
 Sending new payload messageMessage{id=2030, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 2030, isAck=false}
 Sending new payload messageMessage{id=2031, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 2031, isAck=false}
 Sending new payload messageMessage{id=2032, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 2032, isAck=false}
+Stubborn links successfully sent message with id: 228
 Sending new payload messageMessage{id=2033, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 2033, isAck=false}
 Sending new payload messageMessage{id=2034, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 2034, isAck=false}
 Sending new payload messageMessage{id=2035, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 2035, isAck=false}
@@ -3653,6 +3699,7 @@ Sending new payload messageMessage{id=3584, senderId=5, receiverId=1, originalSe
 Sending new payload messageMessage{id=3585, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3585, isAck=false}
 Sending new payload messageMessage{id=3586, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3586, isAck=false}
 Sending new payload messageMessage{id=3587, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3587, isAck=false}
+Stubborn links successfully sent message with id: 1700
 Sending new payload messageMessage{id=3588, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3588, isAck=false}
 Sending new payload messageMessage{id=3589, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3589, isAck=false}
 Sending new payload messageMessage{id=3590, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3590, isAck=false}
@@ -3661,6 +3708,8 @@ Sending new payload messageMessage{id=3592, senderId=5, receiverId=1, originalSe
 Sending new payload messageMessage{id=3593, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3593, isAck=false}
 Sending new payload messageMessage{id=3594, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3594, isAck=false}
 Sending new payload messageMessage{id=3595, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3595, isAck=false}
+Stubborn links successfully sent message with id: 1699
+Stubborn links successfully sent message with id: 1701
 Sending new payload messageMessage{id=3596, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3596, isAck=false}
 Sending new payload messageMessage{id=3597, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3597, isAck=false}
 Sending new payload messageMessage{id=3598, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3598, isAck=false}
@@ -3677,6 +3726,7 @@ Sending new payload messageMessage{id=3608, senderId=5, receiverId=1, originalSe
 Sending new payload messageMessage{id=3609, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3609, isAck=false}
 Sending new payload messageMessage{id=3610, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3610, isAck=false}
 Sending new payload messageMessage{id=3611, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3611, isAck=false}
+Stubborn links successfully sent message with id: 1702
 Sending new payload messageMessage{id=3612, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3612, isAck=false}
 Sending new payload messageMessage{id=3613, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3613, isAck=false}
 Sending new payload messageMessage{id=3614, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3614, isAck=false}
@@ -3779,6 +3829,7 @@ Sending new payload messageMessage{id=3710, senderId=5, receiverId=1, originalSe
 Sending new payload messageMessage{id=3711, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3711, isAck=false}
 Sending new payload messageMessage{id=3712, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3712, isAck=false}
 Sending new payload messageMessage{id=3713, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3713, isAck=false}
+Stubborn links successfully sent message with id: 1703
 Sending new payload messageMessage{id=3714, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3714, isAck=false}
 Sending new payload messageMessage{id=3715, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3715, isAck=false}
 Sending new payload messageMessage{id=3716, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3716, isAck=false}
@@ -3849,6 +3900,7 @@ Sending new payload messageMessage{id=3780, senderId=5, receiverId=1, originalSe
 Sending new payload messageMessage{id=3781, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3781, isAck=false}
 Sending new payload messageMessage{id=3782, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3782, isAck=false}
 Sending new payload messageMessage{id=3783, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3783, isAck=false}
+Stubborn links successfully sent message with id: 1704
 Sending new payload messageMessage{id=3784, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3784, isAck=false}
 Sending new payload messageMessage{id=3785, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3785, isAck=false}
 Sending new payload messageMessage{id=3786, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3786, isAck=false}
@@ -3860,6 +3912,7 @@ Sending new payload messageMessage{id=3791, senderId=5, receiverId=1, originalSe
 Sending new payload messageMessage{id=3792, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3792, isAck=false}
 Sending new payload messageMessage{id=3793, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3793, isAck=false}
 Sending new payload messageMessage{id=3794, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3794, isAck=false}
+Stubborn links successfully sent message with id: 1705
 Sending new payload messageMessage{id=3795, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3795, isAck=false}
 Sending new payload messageMessage{id=3796, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3796, isAck=false}
 Sending new payload messageMessage{id=3797, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3797, isAck=false}
@@ -4066,5 +4119,58 @@ Sending new payload messageMessage{id=3997, senderId=5, receiverId=1, originalSe
 Sending new payload messageMessage{id=3998, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3998, isAck=false}
 Sending new payload messageMessage{id=3999, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 3999, isAck=false}
 Sending new payload messageMessage{id=4000, senderId=5, receiverId=1, originalSender=5, payload=Hello World! 4000, isAck=false}
+Stubborn links successfully sent message with id: 176
+Stubborn links successfully sent message with id: 177
+Stubborn links successfully sent message with id: 178
+Stubborn links successfully sent message with id: 179
+Stubborn links successfully sent message with id: 180
+Stubborn links successfully sent message with id: 181
+Stubborn links successfully sent message with id: 3315
+Stubborn links successfully sent message with id: 3941
+Stubborn links successfully sent message with id: 1719
+Stubborn links successfully sent message with id: 1720
+Stubborn links successfully sent message with id: 298
+Stubborn links successfully sent message with id: 1721
+Stubborn links successfully sent message with id: 299
+Stubborn links successfully sent message with id: 1722
+Stubborn links successfully sent message with id: 300
+Stubborn links successfully sent message with id: 1723
+Stubborn links successfully sent message with id: 1724
+Stubborn links successfully sent message with id: 1725
+Stubborn links successfully sent message with id: 1726
+Stubborn links successfully sent message with id: 1727
+Stubborn links successfully sent message with id: 301
+Stubborn links successfully sent message with id: 1728
+Stubborn links successfully sent message with id: 302
+Stubborn links successfully sent message with id: 1729
+Stubborn links successfully sent message with id: 303
+Stubborn links successfully sent message with id: 1730
+Stubborn links successfully sent message with id: 1731
+Stubborn links successfully sent message with id: 1732
+Stubborn links successfully sent message with id: 1733
+Stubborn links successfully sent message with id: 1734
+Stubborn links successfully sent message with id: 1735
+Stubborn links successfully sent message with id: 1736
+Stubborn links successfully sent message with id: 1737
+Stubborn links successfully sent message with id: 1738
+Stubborn links successfully sent message with id: 1739
+Stubborn links successfully sent message with id: 1740
+Stubborn links successfully sent message with id: 1741
+Stubborn links successfully sent message with id: 1742
+Stubborn links successfully sent message with id: 1743
+Stubborn links successfully sent message with id: 1744
+Stubborn links successfully sent message with id: 1745
+Stubborn links successfully sent message with id: 1746
+Stubborn links successfully sent message with id: 1747
+Stubborn links successfully sent message with id: 1748
+Stubborn links successfully sent message with id: 2139
+Stubborn links successfully sent message with id: 2140
+Stubborn links successfully sent message with id: 2141
+Stubborn links successfully sent message with id: 2142
+Stubborn links successfully sent message with id: 2143
+Stubborn links successfully sent message with id: 2144
+Stubborn links successfully sent message with id: 2145
+Stubborn links successfully sent message with id: 2146
 Immediately stopping network packet processing.
 Writing output.
+Stubborn links successfully sent message with id: 2147

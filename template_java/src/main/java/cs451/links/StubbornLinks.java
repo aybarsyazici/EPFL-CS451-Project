@@ -7,31 +7,39 @@ import cs451.udp.MessageExtension;
 import cs451.udp.MessageType;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantLock;
 
 public class StubbornLinks implements Deliverer {
     private final FairLossLinks fairLoss;
     private final Deliverer deliverer;
-    private final Map<Integer, Host> hosts;
-    private final List<MessageExtension> alreadySent;
+    private final Timer timer;
+    private final HashMap<Integer, Host> hosts;
+    private final ConcurrentLinkedQueue<MessageExtension> alreadySent;
     // We need to keep the list of the messages we have already sent
     // Pass through the array -> check if they have been received by the other end.
     // if they are not received we send them again
     // Repeat continuously till they have been acknowledged, i.e., received and delivered by the other end.
 
-    public StubbornLinks(int port, Deliverer deliverer, Map<Integer, Host> hosts) {
+    public StubbornLinks(int port, Deliverer deliverer, HashMap<Integer, Host> hosts) {
         this.fairLoss = new FairLossLinks(port, this);
         this.deliverer = deliverer;
-        this.alreadySent = new ArrayList<>();
+        this.alreadySent = new ConcurrentLinkedQueue<>();
         this.hosts = hosts;
+        this.timer = new Timer();
     }
 
     public void start(){
         fairLoss.start();
-        Timer timer = new Timer();
         timer.schedule(new TimerTask() {
             @Override
             public void run() {
-                alreadySent.parallelStream().forEach(m -> fairLoss.send(m.getMessage(),m.getHost()));
+                try{
+                    (new ArrayList<>(alreadySent)).parallelStream().forEach(m -> fairLoss.send(m.getMessage(),m.getHost()));
+                }
+                catch (Exception e) {e.printStackTrace();}
             }
         }, 100, 50);
     }
@@ -46,6 +54,7 @@ public class StubbornLinks implements Deliverer {
     }
 
     public void stop(){
+        timer.cancel();
         fairLoss.stop();
     }
 

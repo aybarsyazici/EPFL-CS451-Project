@@ -8,12 +8,13 @@ import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Process implements Deliverer {
     private int id;
     private int port;
-    private Map<Integer, Host> hosts;
+    private HashMap<Integer, Host> hosts;
     private PerfectLinks links;
     private String output;
     private final ConcurrentLinkedQueue<String> logs = new ConcurrentLinkedQueue<>();

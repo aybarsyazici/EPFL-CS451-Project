@@ -6,15 +6,15 @@ import cs451.udp.Message;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import java.util.HashMap;
 
 public class PerfectLinks implements Deliverer {
     private final StubbornLinks stubbornLinks;
     private final Deliverer deliverer;
-    private final Map<Integer, Host> hosts;
+    private final HashMap<Integer, Host> hosts;
     private final List<Message> delivered;
 
-    public PerfectLinks(int port, Deliverer deliverer, Map<Integer, Host> hosts) {
+    public PerfectLinks(int port, Deliverer deliverer, HashMap<Integer, Host> hosts) {
         this.stubbornLinks = new StubbornLinks(port, this, hosts);
         this.deliverer = deliverer;
         delivered = new ArrayList<>();
