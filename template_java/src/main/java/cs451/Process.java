@@ -10,8 +10,8 @@ import java.util.List;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 public class Process implements Deliverer {
-    private final int id;
-    private final HashMap<Integer, Host> hosts;
+    private final byte id;
+    private final HashMap<Byte, Host> hosts;
     private final PerfectLinks links;
     private final String output;
     private int lastSentMessageId;
@@ -20,12 +20,12 @@ public class Process implements Deliverer {
     private long count;
 
 
-    public Process(int id, int port,
+    public Process(byte id, int port,
                    List<Host> hostList, String output) {
         this.id = id;
         this.hosts = new HashMap<>();
         for(Host host : hostList){
-            hosts.put(host.getId(), host);
+            hosts.put((byte)host.getId(), host);
         }
         this.links = new PerfectLinks(port, this, this.hosts);
         this.output = output;
@@ -33,7 +33,7 @@ public class Process implements Deliverer {
         this.lastSentMessageId = 1;
     }
 
-    public void send(int messageCount, int destinationId){
+    public void send(int messageCount, byte destinationId){
         this.messageCount = messageCount;
         Host host = this.hosts.get(destinationId);
         if(host == null) return;

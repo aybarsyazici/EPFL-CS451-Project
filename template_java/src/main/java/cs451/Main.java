@@ -47,7 +47,7 @@ public class Main {
             System.out.println("Human-readable Port: " + host.getPort());
             System.out.println();
             if(host.getId() == parser.myId()){
-                pr = new Process(host.getId(), host.getPort(), parser.hosts(), parser.output());
+                pr = new Process((byte)host.getId(), host.getPort(), parser.hosts(), parser.output());
             }
         }
         System.out.println();
@@ -85,7 +85,7 @@ public class Main {
         System.out.println("Deliver target: " + deliverTarget);
         if(pr.getId() != deliverTarget){
             System.out.println("Process ID: " + pr.getId() + " Deliver Target: " + deliverTarget);
-            pr.send(nmOfMessages, deliverTarget);
+            pr.send(nmOfMessages, (byte)deliverTarget);
         }
         else {
             pr.setMessageCount(nmOfMessages);

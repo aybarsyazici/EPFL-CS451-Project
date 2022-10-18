@@ -13,7 +13,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 // Implementation of Fair Loss Links using UDP sockets
 public class FairLossLinks implements Deliverer {
-    private static final int THREAD_NUMBER =  Math.max(Runtime.getRuntime().availableProcessors(),100);
+    private static final int THREAD_NUMBER =  Math.max(Runtime.getRuntime().availableProcessors(),20);
     private final UDPReceiver receiver;
     private final Deliverer deliverer;
     private final ExecutorService pool = Executors.newFixedThreadPool(THREAD_NUMBER);

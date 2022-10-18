@@ -10,9 +10,9 @@ import java.util.Map;
 public class PerfectLinks implements Deliverer {
     private final StubbornLinks stubbornLinks;
     private final Deliverer deliverer;
-    private final Map<Map.Entry<Integer, Integer>, Message> delivered;
+    private final Map<Map.Entry<Byte, Integer>, Message> delivered;
 
-    public PerfectLinks(int port, Deliverer deliverer, HashMap<Integer, Host> hosts) {
+    public PerfectLinks(int port, Deliverer deliverer, HashMap<Byte, Host> hosts) {
         this.stubbornLinks = new StubbornLinks(port, this, hosts);
         this.deliverer = deliverer;
         delivered = new HashMap<>();

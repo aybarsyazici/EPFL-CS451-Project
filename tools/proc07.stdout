@@ -1,6 +1,6 @@
-My PID: 86
+My PID: 7190
 
-From a new terminal type `kill -SIGINT 86` or `kill -SIGTERM 86` to stop processing packets
+From a new terminal type `kill -SIGINT 7190` or `kill -SIGTERM 7190` to stop processing packets
 
 OUTPUT:  /shared/tools/proc07.output
 My ID: 7
@@ -36,7 +36,7 @@ Human-readable IP: 127.0.0.1
 Human-readable Port: 11007
 
 UDPReceiver: Created socket on port 11007
-THREAD NUMBER: 100
+THREAD NUMBER: 20
 8
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11008
@@ -64,8 +64,12 @@ Doing some initialization
 
 Broadcasting and delivering messages...
 
-Number of messages: 4000
+Number of messages: 50000
 Deliver target: 1
 Process ID: 7 Deliver Target: 1
+Sent 10k messages.
+Sent 10k messages.
+Sent 10k messages.
+Sent 10k messages.
+Sent 10k messages.
 Immediately stopping network packet processing.
-Writing output.

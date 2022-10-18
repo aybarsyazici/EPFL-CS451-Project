@@ -35,10 +35,10 @@ public class UDPReceiver extends Thread{
                 // String mesg = new String(packet.getData(), 0, packet.getLength());
                 try{
                     // Convert the packet data to Message
-                    ByteArrayInputStream in = new ByteArrayInputStream(packet.getData());
-                    ObjectInputStream is = new ObjectInputStream(in);
-                    Message message = (Message) is.readObject();
-                    deliverer.deliver(message);
+                    // ByteArrayInputStream in = new ByteArrayInputStream(packet.getData());
+                    // ObjectInputStream is = new ObjectInputStream(in);
+                    // Message message = (Message) is.readObject();
+                    deliverer.deliver(Message.fromByteArray(packet.getData()));
                 }
                 catch (Exception e){
                     e.printStackTrace();

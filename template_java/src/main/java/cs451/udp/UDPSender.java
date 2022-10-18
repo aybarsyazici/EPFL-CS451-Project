@@ -17,11 +17,12 @@ public class UDPSender implements Runnable{
             this.port = port;
             this.address = InetAddress.getByName(ip);
             this.socket = socket;
-            ByteArrayOutputStream baos = new ByteArrayOutputStream(256);
-            ObjectOutputStream oos = new ObjectOutputStream(baos);
-            oos.writeObject(message);
-            this.buf = baos.toByteArray();
-            oos.close();
+            // ByteArrayOutputStream baos = new ByteArrayOutputStream(256);
+            // ObjectOutputStream oos = new ObjectOutputStream(baos);
+            // oos.writeObject(message);
+            // this.buf = baos.toByteArray();
+            // oos.close();
+            this.buf = message.toByteArray();
         }
         catch (Exception e){
             e.printStackTrace();

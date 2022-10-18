@@ -2,15 +2,17 @@ package cs451.udp;
 
 import javax.sound.midi.Receiver;
 import java.io.Serializable;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
 
 public class Message implements Serializable {
     private final int id;
-    private final int senderId;
-    private final int receiverId;
-    private final int originalSender;
+    private final byte senderId;
+    private final byte receiverId;
+    private final byte originalSender;
     private final Boolean ack;
 
-    public Message(int id, int senderId, int receiverId, int originalSender) {
+    public Message(int id, byte senderId, byte receiverId, byte originalSender) {
         this.id = id;
         this.senderId = senderId;
         this.receiverId = receiverId;
@@ -18,7 +20,7 @@ public class Message implements Serializable {
         this.ack = false;
     }
 
-    public Message(Message message, int newSender, int newReceiver){
+    public Message(Message message, byte newSender, byte newReceiver){
         this.id = message.getId();
         this.senderId = newSender;
         this.receiverId = newReceiver;
@@ -30,15 +32,15 @@ public class Message implements Serializable {
         return id;
     }
 
-    public int getSenderId() {
+    public byte getSenderId() {
         return senderId;
     }
 
-    public int getReceiverId() {
+    public byte getReceiverId() {
         return receiverId;
     }
 
-    public int getOriginalSender() {
+    public byte getOriginalSender() {
         return originalSender;
     }
     public Boolean isAckMessage(){
@@ -65,4 +67,22 @@ public class Message implements Serializable {
                 ", isAck=" + ack +
                 '}';
     }
+
+    // Convert object to byteArray
+    public byte[] toByteArray() {
+        byte[] bytes = new byte[8];
+        ByteBuffer.wrap(bytes).order(ByteOrder.BIG_ENDIAN).putInt(id).put(senderId).put(receiverId).put(originalSender);
+        return bytes;
+    }
+
+    // Convert byteArray to object
+    public static Message fromByteArray(byte[] bytes) {
+        ByteBuffer buffer = ByteBuffer.wrap(bytes).order(ByteOrder.BIG_ENDIAN);
+        int id = buffer.getInt();
+        byte senderId = buffer.get();
+        byte receiverId = buffer.get();
+        byte originalSender = buffer.get();
+        return new Message(id, senderId, receiverId, originalSender);
+    }
+
 }

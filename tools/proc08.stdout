@@ -1,6 +1,6 @@
-My PID: 94
+My PID: 7202
 
-From a new terminal type `kill -SIGINT 94` or `kill -SIGTERM 94` to stop processing packets
+From a new terminal type `kill -SIGINT 7202` or `kill -SIGTERM 7202` to stop processing packets
 
 OUTPUT:  /shared/tools/proc08.output
 My ID: 8
@@ -40,7 +40,7 @@ Human-readable IP: 127.0.0.1
 Human-readable Port: 11008
 
 UDPReceiver: Created socket on port 11008
-THREAD NUMBER: 100
+THREAD NUMBER: 20
 9
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11009
@@ -64,8 +64,13 @@ Doing some initialization
 
 Broadcasting and delivering messages...
 
-Number of messages: 4000
+Number of messages: 50000
 Deliver target: 1
 Process ID: 8 Deliver Target: 1
+Sent 10k messages.
+Sent 10k messages.
+Sent 10k messages.
+Sent 10k messages.
+Sent 10k messages.
 Immediately stopping network packet processing.
 Writing output.

@@ -6,24 +6,24 @@ import cs451.udp.Message;
 import cs451.udp.MessageExtension;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class StubbornLinks implements Deliverer {
     private final FairLossLinks fairLoss;
     private final Deliverer deliverer;
     private final Timer timer;
-    private final HashMap<Integer, Host> hosts;
-    private final ConcurrentLinkedQueue<MessageExtension> alreadySent;
+    private final HashMap<Byte, Host> hosts;
+    private final ConcurrentHashMap<Integer,MessageExtension> alreadySent;
     private int count;
     // We need to keep the list of the messages we have already sent
     // Pass through the array -> check if they have been received by the other end.
     // if they are not received we send them again
     // Repeat continuously till they have been acknowledged, i.e., received and delivered by the other end.
 
-    public StubbornLinks(int port, Deliverer deliverer, HashMap<Integer, Host> hosts) {
+    public StubbornLinks(int port, Deliverer deliverer, HashMap<Byte, Host> hosts) {
         this.fairLoss = new FairLossLinks(port, this);
         this.deliverer = deliverer;
-        this.alreadySent = new ConcurrentLinkedQueue<>();
+        this.alreadySent = new ConcurrentHashMap<>();
         this.hosts = hosts;
         this.count = 0;
         this.timer = new Timer();
@@ -35,11 +35,12 @@ public class StubbornLinks implements Deliverer {
             @Override
             public void run() {
                 try{
-                    (new ArrayList<>(alreadySent)).forEach(m -> fairLoss.send(m.getMessage(),m.getHost()));
+                    (new ArrayList<>(Arrays.asList(alreadySent.values().toArray()))).
+                            forEach(m -> fairLoss.send(((MessageExtension)m).getMessage(),((MessageExtension)m).getHost()));
                 }
                 catch (Exception e) {e.printStackTrace();}
             }
-        }, 100, 10);
+        }, 100, 200);
     }
 
     public void send(Message message, Host host){
@@ -47,7 +48,7 @@ public class StubbornLinks implements Deliverer {
             fairLoss.send(message, host);
             return;
         }
-        alreadySent.add(new MessageExtension(message, host));
+        alreadySent.put(message.getId(), new MessageExtension(message, host));
     }
 
     public void stop(){
@@ -59,11 +60,13 @@ public class StubbornLinks implements Deliverer {
     public void deliver(Message message) {
         Host senderHost = hosts.get(message.getOriginalSender());
         if(message.getOriginalSender() == message.getReceiverId()){ // I have sent this message and received it back.
-            boolean removed = alreadySent.remove(new MessageExtension(message, senderHost));
-            // if(removed) {System.out.println("Stubborn links successfully sent message with id: " + message.getId());}
-            count += 1;
-            if(count == 10000){
-                System.out.println("Finished.");
+            if(alreadySent.containsKey(message.getId())) {
+                alreadySent.remove(message.getId());
+                count += 1;
+                if(count == 10000){
+                    System.out.println("Sent 10k messages.");
+                    count = 0;
+                }
             }
         }
         else{
