@@ -22,7 +22,6 @@ public class FairLossLinks implements Deliverer {
         System.out.println("THREAD NUMBER: " + THREAD_NUMBER);
     }
 
-    // TODO: Maybe implement multiple sockets for sending?
     void send(Message message, Host host){ // Create a new sender and send message
         UDPSender sender = new UDPSender(host.getIp(), host.getPort(), message);
         pool.submit(sender);

@@ -8,15 +8,13 @@ public class Message implements Serializable {
     private final int senderId;
     private final int receiverId;
     private final int originalSender;
-    private final String content;
     private final Boolean ack;
 
-    public Message(int id, int senderId, int receiverId, int originalSender, String content) {
+    public Message(int id, int senderId, int receiverId, int originalSender) {
         this.id = id;
         this.senderId = senderId;
         this.receiverId = receiverId;
         this.originalSender = originalSender;
-        this.content = content;
         this.ack = false;
     }
 
@@ -25,7 +23,6 @@ public class Message implements Serializable {
         this.senderId = newSender;
         this.receiverId = newReceiver;
         this.originalSender = message.getOriginalSender();
-        this.content = message.getContent();
         this.ack = true;
     }
 
@@ -48,10 +45,6 @@ public class Message implements Serializable {
         return ack;
     }
 
-    public String getContent() {
-        return content;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -69,7 +62,6 @@ public class Message implements Serializable {
                 ", senderId=" + senderId +
                 ", receiverId=" + receiverId +
                 ", originalSender=" + originalSender +
-                ", payload=" + content +
                 ", isAck=" + ack +
                 '}';
     }

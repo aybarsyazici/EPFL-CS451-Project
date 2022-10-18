@@ -77,9 +77,10 @@ public class Main {
         System.out.println("Deliver target: " + deliverTarget);
         if(pr.getId() != deliverTarget){
             System.out.println("Process ID: " + pr.getId() + " Deliver Target: " + deliverTarget);
-            for(int i = 1; i < nmOfMessages+1; i++){
-                pr.send(new Message(i, pr.getId(), deliverTarget, pr.getId(), ("Hello World! " + i)));
-            }
+            pr.send(nmOfMessages, deliverTarget);
+        }
+        else {
+            pr.setMessageCount(nmOfMessages);
         }
         // After a process finishes broadcasting,
         // it waits forever for the delivery of messages.

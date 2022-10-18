@@ -4,13 +4,9 @@ import cs451.Deliverer;
 import cs451.Host;
 import cs451.udp.Message;
 import cs451.udp.MessageExtension;
-import cs451.udp.MessageType;
 
 import java.util.*;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantLock;
 
 public class StubbornLinks implements Deliverer {
     private final FairLossLinks fairLoss;
@@ -18,6 +14,7 @@ public class StubbornLinks implements Deliverer {
     private final Timer timer;
     private final HashMap<Integer, Host> hosts;
     private final ConcurrentLinkedQueue<MessageExtension> alreadySent;
+    private int count;
     // We need to keep the list of the messages we have already sent
     // Pass through the array -> check if they have been received by the other end.
     // if they are not received we send them again
@@ -28,6 +25,7 @@ public class StubbornLinks implements Deliverer {
         this.deliverer = deliverer;
         this.alreadySent = new ConcurrentLinkedQueue<>();
         this.hosts = hosts;
+        this.count = 0;
         this.timer = new Timer();
     }
 
@@ -62,7 +60,11 @@ public class StubbornLinks implements Deliverer {
         Host senderHost = hosts.get(message.getOriginalSender());
         if(message.getOriginalSender() == message.getReceiverId()){ // I have sent this message and received it back.
             boolean removed = alreadySent.remove(new MessageExtension(message, senderHost));
-            if(removed) {System.out.println("Stubborn links successfully sent message with id: " + message.getId());}
+            // if(removed) {System.out.println("Stubborn links successfully sent message with id: " + message.getId());}
+            count += 1;
+            if(count == 10000){
+                System.out.println("Finished.");
+            }
         }
         else{
             deliverer.deliver(message);

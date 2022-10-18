@@ -4,21 +4,19 @@ import cs451.Deliverer;
 import cs451.Host;
 import cs451.udp.Message;
 
-import java.util.ArrayList;
-import java.util.List;
 import java.util.HashMap;
+import java.util.Map;
 
 public class PerfectLinks implements Deliverer {
     private final StubbornLinks stubbornLinks;
     private final Deliverer deliverer;
-    private final HashMap<Integer, Host> hosts;
-    private final List<Message> delivered;
+    private final Map<Map.Entry<Integer, Integer>, Message> delivered;
 
     public PerfectLinks(int port, Deliverer deliverer, HashMap<Integer, Host> hosts) {
         this.stubbornLinks = new StubbornLinks(port, this, hosts);
         this.deliverer = deliverer;
-        delivered = new ArrayList<>();
-        this.hosts = hosts;
+        delivered = new HashMap<>();
+        // just passed to stubbornLinks for acknowledgment.
     }
 
     public void send(Message message, Host host){
@@ -35,8 +33,8 @@ public class PerfectLinks implements Deliverer {
 
     @Override
     public void deliver(Message message) {
-        if(!delivered.contains(message)){
-            delivered.add(message);
+        if(!delivered.containsKey(Map.entry(message.getOriginalSender(), message.getId()))){
+            delivered.put(Map.entry(message.getOriginalSender(), message.getId()), message);
             deliverer.deliver(message);
         }
     }
