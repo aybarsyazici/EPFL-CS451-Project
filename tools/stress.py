@@ -246,6 +246,14 @@ def startProcesses(processes, runscript, hostsFilePath, configFilePath, outputDi
         stderrFd = open(os.path.join(
             outputDirPath, 'proc{:02d}.stderr'.format(pid)), "w")
 
+        # generate random number between 9000 and 10000 inclusive
+        port = random.randint(9000, 10000)
+        port = str(port)
+        print("JMX port: {}".format(port))
+        print("____________")
+        # jmx_cmd = ['-Dcom.sun.management.jmxremote', '-Dcom.sun.management.jmxremote.port='+port, '-Dcom.sun.management.jmxremote.rmi.port='+port,
+        # '-Djava.rmi.server.hostname=0.0.0.0', '-Dcom.sun.management.jmxremote.ssl=false', '-Dcom.sun.management.jmxremote.authenticate=false']
+
         procs.append((pid, subprocess.Popen(
             cmd + cmd_ext, stdout=stdoutFd, stderr=stderrFd)))
 

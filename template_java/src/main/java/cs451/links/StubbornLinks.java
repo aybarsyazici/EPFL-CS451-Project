@@ -39,7 +39,7 @@ public class StubbornLinks implements Deliverer {
                 }
                 catch (Exception e) {e.printStackTrace();}
             }
-        }, 100, 50);
+        }, 100, 10);
     }
 
     public void send(Message message, Host host){

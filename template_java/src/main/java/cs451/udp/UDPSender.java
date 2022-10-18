@@ -12,15 +12,16 @@ public class UDPSender implements Runnable{
     private int port;
     private byte[] buf;
 
-    public UDPSender(String ip, int port, Message message) {
+    public UDPSender(String ip, int port, Message message, DatagramSocket socket) {
         try {
-            this.socket = new DatagramSocket();
             this.port = port;
             this.address = InetAddress.getByName(ip);
-            final ByteArrayOutputStream baos = new ByteArrayOutputStream(256);
-            final ObjectOutputStream oos = new ObjectOutputStream(baos);
+            this.socket = socket;
+            ByteArrayOutputStream baos = new ByteArrayOutputStream(256);
+            ObjectOutputStream oos = new ObjectOutputStream(baos);
             oos.writeObject(message);
             this.buf = baos.toByteArray();
+            oos.close();
         }
         catch (Exception e){
             e.printStackTrace();
@@ -35,7 +36,6 @@ public class UDPSender implements Runnable{
         catch (Exception e){
             e.printStackTrace();
         }
-        close();
     }
 
     public void close(){
