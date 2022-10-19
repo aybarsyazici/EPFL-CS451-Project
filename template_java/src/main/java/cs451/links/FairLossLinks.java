@@ -9,11 +9,12 @@ import cs451.udp.UDPSender;
 import java.net.DatagramSocket;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.Future;
 import java.util.concurrent.ThreadLocalRandom;
 
 // Implementation of Fair Loss Links using UDP sockets
 public class FairLossLinks implements Deliverer {
-    private static final int THREAD_NUMBER =  Math.max(Runtime.getRuntime().availableProcessors(),20);
+    private static final int THREAD_NUMBER =  Runtime.getRuntime().availableProcessors() + 1;
     private final UDPReceiver receiver;
     private final Deliverer deliverer;
     private final ExecutorService pool = Executors.newFixedThreadPool(THREAD_NUMBER);
@@ -43,7 +44,7 @@ public class FairLossLinks implements Deliverer {
 
     void send(Message message, Host host){ // Create a new sender and send message
         int socketId = ThreadLocalRandom.current().nextInt(sockets.length); // Choose a socket to send the message
-        pool.submit(new UDPSender(host.getIp(), host.getPort(), message, sockets[socketId])); // Send the message on the given socket
+        pool.submit(new UDPSender(host.getIp(), host.getPort(), message, sockets[socketId]));
     }
 
     void start(){

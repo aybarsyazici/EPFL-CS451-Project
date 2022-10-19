@@ -6,7 +6,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
-public class UDPSender implements Runnable{
+public class UDPSender extends Thread{
     private DatagramSocket socket;
     private InetAddress address;
     private int port;

@@ -10,7 +10,7 @@ import java.util.Map;
 public class PerfectLinks implements Deliverer {
     private final StubbornLinks stubbornLinks;
     private final Deliverer deliverer;
-    private final Map<Map.Entry<Byte, Integer>, Message> delivered;
+    private final Map<Byte, Map<Integer, Boolean>> delivered;
 
     public PerfectLinks(int port, Deliverer deliverer, HashMap<Byte, Host> hosts) {
         this.stubbornLinks = new StubbornLinks(port, this, hosts);
@@ -33,9 +33,16 @@ public class PerfectLinks implements Deliverer {
 
     @Override
     public void deliver(Message message) {
-        if(!delivered.containsKey(Map.entry(message.getOriginalSender(), message.getId()))){
-            delivered.put(Map.entry(message.getOriginalSender(), message.getId()), message);
+        if(!delivered.containsKey(message.getSenderId())) {
+            delivered.put(message.getSenderId(), new HashMap<>());
+            delivered.get(message.getSenderId()).put(message.getId(), true);
             deliverer.deliver(message);
+        }
+        else{
+            if(!delivered.get(message.getSenderId()).containsKey(message.getId())) {
+                deliverer.deliver(message);
+                delivered.get(message.getSenderId()).put(message.getId(), true);
+            }
         }
     }
 }
