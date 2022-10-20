@@ -1,0 +1,71 @@
+My PID: 64785
+
+From a new terminal type `kill -SIGINT 64785` or `kill -SIGTERM 64785` to stop processing packets
+
+OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/proc04.output
+My ID: 4
+
+List of resolved hosts is:
+==========================
+1
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11001
+
+2
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11002
+
+3
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11003
+
+4
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11004
+
+UDPReceiver: Created socket on port 11004
+THREAD NUMBER: 10
+5
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11005
+
+6
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11006
+
+7
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11007
+
+8
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11008
+
+9
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11009
+
+10
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11010
+
+
+Path to output:
+===============
+/Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/proc04.output
+
+Path to config:
+===============
+./config
+
+null
+===============
+Doing some initialization
+
+Broadcasting and delivering messages...
+
+Number of messages: 500000
+Deliver target: 1
+Process ID: 4 Deliver Target: 1
+Immediately stopping network packet processing.
+Writing output.

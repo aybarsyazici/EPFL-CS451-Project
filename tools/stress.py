@@ -255,7 +255,7 @@ def startProcesses(processes, runscript, hostsFilePath, configFilePath, outputDi
         #           '-Djava.rmi.server.hostname=0.0.0.0', '-Dcom.sun.management.jmxremote.ssl=false', '-Dcom.sun.management.jmxremote.authenticate=false', '-Xmx4g']
 
         procs.append((pid, subprocess.Popen(
-            cmd + jmx_cmd + cmd_ext, stdout=stdoutFd, stderr=stderrFd)))
+            cmd + cmd_ext, stdout=stdoutFd, stderr=stderrFd)))
 
     return procs
 

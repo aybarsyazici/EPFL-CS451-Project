@@ -15,6 +15,9 @@ public class Main {
 
         //write/flush output file if necessary
         System.out.println("Writing output.");
+        while(pr.isWriting()){
+            // System.out.println("Currently waiting.");
+        } // Wait for the current writing to finish
         pr.writeOutput();
     }
 

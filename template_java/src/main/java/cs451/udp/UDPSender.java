@@ -1,7 +1,5 @@
 package cs451.udp;
 
-import java.io.ByteArrayOutputStream;
-import java.io.ObjectOutputStream;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
@@ -12,7 +10,10 @@ public class UDPSender extends Thread{
     private int port;
     private byte[] buf;
 
-    public UDPSender(String ip, int port, Message message, DatagramSocket socket) {
+    private UDPObserver observer;
+    private int messageId;
+
+    public UDPSender(String ip, int port, Message message, DatagramSocket socket, UDPObserver udpObserver) {
         try {
             this.port = port;
             this.address = InetAddress.getByName(ip);
@@ -23,6 +24,8 @@ public class UDPSender extends Thread{
             // this.buf = baos.toByteArray();
             // oos.close();
             this.buf = message.toByteArray();
+            this.messageId = message.getId();
+            this.observer = udpObserver;
         }
         catch (Exception e){
             e.printStackTrace();
@@ -37,6 +40,8 @@ public class UDPSender extends Thread{
         catch (Exception e){
             e.printStackTrace();
         }
+        observer.onUDPSenderExecuted(this.messageId);
+        buf = null;
     }
 
     public void close(){
