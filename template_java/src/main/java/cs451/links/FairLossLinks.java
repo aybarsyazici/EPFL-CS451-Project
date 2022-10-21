@@ -8,6 +8,7 @@ import cs451.udp.UDPReceiver;
 import cs451.udp.UDPSender;
 
 import java.net.DatagramSocket;
+import java.util.Map;
 import java.util.concurrent.*;
 
 // Implementation of Fair Loss Links using UDP sockets
@@ -17,7 +18,7 @@ public class FairLossLinks implements Deliverer, UDPObserver {
 
     private final Deliverer deliverer;
     private final ExecutorService pool;
-    private final ConcurrentHashMap<Integer, Boolean> messagesInTheQueue;
+    private final ConcurrentHashMap<Map.Entry<Byte,Integer>, Boolean> messagesInTheQueue;
     // These sockets will be used by udp senders to send messages, each udp sender runs in a separate thread
     // and each thread has its own socket
     private final DatagramSocket[] sockets;
@@ -47,7 +48,7 @@ public class FairLossLinks implements Deliverer, UDPObserver {
 
     void send(Message message, Host host){ // Create a new sender and send message
         int socketId = ThreadLocalRandom.current().nextInt(sockets.length); // Choose a socket to send the message
-        messagesInTheQueue.put(message.getId(), true);
+        messagesInTheQueue.put(Map.entry(message.getSenderId(), message.getId()), true);
         pool.submit(new UDPSender(host.getIp(), host.getPort(), message, sockets[socketId], this));
     }
 
@@ -68,8 +69,8 @@ public class FairLossLinks implements Deliverer, UDPObserver {
         return tasksToDo >= THREAD_NUMBER;
     }
 
-    Boolean isInQueue(int id){
-        return messagesInTheQueue.containsKey(id);
+    Boolean isInQueue(byte senderId, int messageId){
+        return messagesInTheQueue.containsKey(Map.entry(senderId, messageId));
     }
 
     @Override
@@ -78,8 +79,8 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     }
 
     @Override
-    public void onUDPSenderExecuted(int messageId) {
+    public void onUDPSenderExecuted(byte senderId, int messageId) {
         // System.out.println("Message with id: " + messageId + " has been sent.");
-        messagesInTheQueue.remove(messageId);
+        messagesInTheQueue.remove(Map.entry(senderId, messageId));
     }
 }

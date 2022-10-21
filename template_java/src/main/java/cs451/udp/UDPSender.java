@@ -12,6 +12,7 @@ public class UDPSender extends Thread{
 
     private UDPObserver observer;
     private int messageId;
+    private byte senderId;
 
     public UDPSender(String ip, int port, Message message, DatagramSocket socket, UDPObserver udpObserver) {
         try {
@@ -25,6 +26,7 @@ public class UDPSender extends Thread{
             // oos.close();
             this.buf = message.toByteArray();
             this.messageId = message.getId();
+            this.senderId = message.getSenderId();
             this.observer = udpObserver;
         }
         catch (Exception e){
@@ -40,7 +42,7 @@ public class UDPSender extends Thread{
         catch (Exception e){
             e.printStackTrace();
         }
-        observer.onUDPSenderExecuted(this.messageId);
+        observer.onUDPSenderExecuted(this.senderId, this.messageId);
         buf = null;
     }
 

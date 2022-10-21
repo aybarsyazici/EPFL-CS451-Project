@@ -1,6 +1,6 @@
-My PID: 70307
+My PID: 84555
 
-From a new terminal type `kill -SIGINT 70307` or `kill -SIGTERM 70307` to stop processing packets
+From a new terminal type `kill -SIGINT 84555` or `kill -SIGTERM 84555` to stop processing packets
 
 OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/proc01.output
 My ID: 1
@@ -11,6 +11,7 @@ List of resolved hosts is:
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11001
 
+Sliding window size: 6058
 UDPReceiver: Created socket on port 11001
 THREAD NUMBER: 10
 2
@@ -169,6 +170,46 @@ Human-readable Port: 11039
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11040
 
+41
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11041
+
+42
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11042
+
+43
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11043
+
+44
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11044
+
+45
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11045
+
+46
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11046
+
+47
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11047
+
+48
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11048
+
+49
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11049
+
+50
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11050
+
 
 Path to output:
 ===============
@@ -184,7 +225,7 @@ Doing some initialization
 
 Broadcasting and delivering messages...
 
-Number of messages: 100000
+Number of messages: 50000
 Deliver target: 1
 Process 1 received 5000 messages
 Process 1 received 10000 messages
@@ -245,6 +286,7 @@ Process 1 received 280000 messages
 Process 1 received 285000 messages
 Process 1 received 290000 messages
 Process 1 received 295000 messages
+Moving sliding window to 6058
 Process 1 received 300000 messages
 Process 1 received 305000 messages
 Process 1 received 310000 messages
@@ -304,6 +346,7 @@ Process 1 received 575000 messages
 Process 1 received 580000 messages
 Process 1 received 585000 messages
 Process 1 received 590000 messages
+Moving sliding window to 12116
 Process 1 received 595000 messages
 Process 1 received 600000 messages
 Process 1 received 605000 messages
@@ -364,6 +407,7 @@ Process 1 received 875000 messages
 Process 1 received 880000 messages
 Process 1 received 885000 messages
 Process 1 received 890000 messages
+Moving sliding window to 18174
 Process 1 received 895000 messages
 Process 1 received 900000 messages
 Process 1 received 905000 messages
@@ -423,6 +467,7 @@ Process 1 received 1170000 messages
 Process 1 received 1175000 messages
 Process 1 received 1180000 messages
 Process 1 received 1185000 messages
+Moving sliding window to 24232
 Process 1 received 1190000 messages
 Process 1 received 1195000 messages
 Process 1 received 1200000 messages
@@ -482,6 +527,7 @@ Process 1 received 1465000 messages
 Process 1 received 1470000 messages
 Process 1 received 1475000 messages
 Process 1 received 1480000 messages
+Moving sliding window to 30290
 Process 1 received 1485000 messages
 Process 1 received 1490000 messages
 Process 1 received 1495000 messages
@@ -542,6 +588,7 @@ Process 1 received 1765000 messages
 Process 1 received 1770000 messages
 Process 1 received 1775000 messages
 Process 1 received 1780000 messages
+Moving sliding window to 36348
 Process 1 received 1785000 messages
 Process 1 received 1790000 messages
 Process 1 received 1795000 messages
@@ -601,6 +648,7 @@ Process 1 received 2060000 messages
 Process 1 received 2065000 messages
 Process 1 received 2070000 messages
 Process 1 received 2075000 messages
+Moving sliding window to 42406
 Process 1 received 2080000 messages
 Process 1 received 2085000 messages
 Process 1 received 2090000 messages
@@ -660,6 +708,7 @@ Process 1 received 2355000 messages
 Process 1 received 2360000 messages
 Process 1 received 2365000 messages
 Process 1 received 2370000 messages
+Moving sliding window to 48464
 Process 1 received 2375000 messages
 Process 1 received 2380000 messages
 Process 1 received 2385000 messages
@@ -676,295 +725,6 @@ Process 1 received 2435000 messages
 Process 1 received 2440000 messages
 Process 1 received 2445000 messages
 Process 1 received 2450000 messages
-Process 1 received 2455000 messages
-Process 1 received 2460000 messages
-Process 1 received 2465000 messages
-Process 1 received 2470000 messages
-Process 1 received 2475000 messages
-Process 1 received 2480000 messages
-Process 1 received 2485000 messages
-Process 1 received 2490000 messages
-Process 1 received 2495000 messages
-Process 1 received 2500000 messages
-Process 1 received 2505000 messages
-Process 1 received 2510000 messages
-Process 1 received 2515000 messages
-Process 1 received 2520000 messages
-Process 1 received 2525000 messages
-Process 1 received 2530000 messages
-Process 1 received 2535000 messages
-Process 1 received 2540000 messages
-Process 1 received 2545000 messages
-Process 1 received 2550000 messages
-Process 1 received 2555000 messages
-Process 1 received 2560000 messages
-Process 1 received 2565000 messages
-Process 1 received 2570000 messages
-Process 1 received 2575000 messages
-Process 1 received 2580000 messages
-Process 1 received 2585000 messages
-Process 1 received 2590000 messages
-Process 1 received 2595000 messages
-Process 1 received 2600000 messages
-Process 1 received 2605000 messages
-Process 1 received 2610000 messages
-Process 1 received 2615000 messages
-Process 1 received 2620000 messages
-Process 1 received 2625000 messages
-Process 1 received 2630000 messages
-Process 1 received 2635000 messages
-Profiler Agent: Waiting for connection on port 5140 (Protocol version: 20)
-Profiler Agent: Established connection with the tool
-Process 1 received 2640000 messages
-Process 1 received 2645000 messages
-Profiler Agent: Local accelerated session
-Process 1 received 2650000 messages
-Process 1 received 2655000 messages
-Process 1 received 2660000 messages
-Process 1 received 2665000 messages
-Process 1 received 2670000 messages
-Process 1 received 2675000 messages
-Process 1 received 2680000 messages
-Process 1 received 2685000 messages
-Process 1 received 2690000 messages
-Process 1 received 2695000 messages
-Process 1 received 2700000 messages
-Process 1 received 2705000 messages
-Process 1 received 2710000 messages
-Process 1 received 2715000 messages
-Process 1 received 2720000 messages
-Process 1 received 2725000 messages
-Process 1 received 2730000 messages
-Process 1 received 2735000 messages
-Process 1 received 2740000 messages
-Process 1 received 2745000 messages
-Process 1 received 2750000 messages
-Process 1 received 2755000 messages
-Process 1 received 2760000 messages
-Process 1 received 2765000 messages
-Process 1 received 2770000 messages
-Process 1 received 2775000 messages
-Process 1 received 2780000 messages
-Process 1 received 2785000 messages
-Process 1 received 2790000 messages
-Process 1 received 2795000 messages
-Process 1 received 2800000 messages
-Process 1 received 2805000 messages
-Process 1 received 2810000 messages
-Process 1 received 2815000 messages
-Process 1 received 2820000 messages
-Process 1 received 2825000 messages
-Process 1 received 2830000 messages
-Process 1 received 2835000 messages
-Process 1 received 2840000 messages
-Process 1 received 2845000 messages
-Process 1 received 2850000 messages
-Process 1 received 2855000 messages
-Process 1 received 2860000 messages
-Process 1 received 2865000 messages
-Process 1 received 2870000 messages
-Process 1 received 2875000 messages
-Process 1 received 2880000 messages
-Process 1 received 2885000 messages
-Process 1 received 2890000 messages
-Process 1 received 2895000 messages
-Process 1 received 2900000 messages
-Process 1 received 2905000 messages
-Process 1 received 2910000 messages
-Process 1 received 2915000 messages
-Process 1 received 2920000 messages
-Process 1 received 2925000 messages
-Process 1 received 2930000 messages
-Process 1 received 2935000 messages
-Process 1 received 2940000 messages
-Process 1 received 2945000 messages
-Process 1 received 2950000 messages
-Process 1 received 2955000 messages
-Process 1 received 2960000 messages
-Process 1 received 2965000 messages
-Process 1 received 2970000 messages
-Process 1 received 2975000 messages
-Process 1 received 2980000 messages
-Process 1 received 2985000 messages
-Process 1 received 2990000 messages
-Process 1 received 2995000 messages
-Process 1 received 3000000 messages
-Process 1 received 3005000 messages
-Process 1 received 3010000 messages
-Process 1 received 3015000 messages
-Process 1 received 3020000 messages
-Process 1 received 3025000 messages
-Process 1 received 3030000 messages
-Process 1 received 3035000 messages
-Process 1 received 3040000 messages
-Process 1 received 3045000 messages
-Process 1 received 3050000 messages
-Process 1 received 3055000 messages
-Process 1 received 3060000 messages
-Process 1 received 3065000 messages
-Process 1 received 3070000 messages
-Process 1 received 3075000 messages
-Process 1 received 3080000 messages
-Process 1 received 3085000 messages
-Process 1 received 3090000 messages
-Process 1 received 3095000 messages
-Process 1 received 3100000 messages
-Process 1 received 3105000 messages
-Process 1 received 3110000 messages
-Process 1 received 3115000 messages
-Process 1 received 3120000 messages
-Process 1 received 3125000 messages
-Process 1 received 3130000 messages
-Process 1 received 3135000 messages
-Process 1 received 3140000 messages
-Process 1 received 3145000 messages
-Process 1 received 3150000 messages
-Process 1 received 3155000 messages
-Process 1 received 3160000 messages
-Process 1 received 3165000 messages
-Process 1 received 3170000 messages
-Process 1 received 3175000 messages
-Process 1 received 3180000 messages
-Process 1 received 3185000 messages
-Process 1 received 3190000 messages
-Process 1 received 3195000 messages
-Process 1 received 3200000 messages
-Process 1 received 3205000 messages
-Process 1 received 3210000 messages
-Process 1 received 3215000 messages
-Process 1 received 3220000 messages
-Process 1 received 3225000 messages
-Process 1 received 3230000 messages
-Process 1 received 3235000 messages
-Process 1 received 3240000 messages
-Process 1 received 3245000 messages
-Process 1 received 3250000 messages
-Process 1 received 3255000 messages
-Process 1 received 3260000 messages
-Process 1 received 3265000 messages
-Process 1 received 3270000 messages
-Process 1 received 3275000 messages
-Process 1 received 3280000 messages
-Process 1 received 3285000 messages
-Process 1 received 3290000 messages
-Process 1 received 3295000 messages
-Process 1 received 3300000 messages
-Process 1 received 3305000 messages
-Process 1 received 3310000 messages
-Process 1 received 3315000 messages
-Process 1 received 3320000 messages
-Process 1 received 3325000 messages
-Process 1 received 3330000 messages
-Process 1 received 3335000 messages
-Process 1 received 3340000 messages
-Process 1 received 3345000 messages
-Process 1 received 3350000 messages
-Process 1 received 3355000 messages
-Process 1 received 3360000 messages
-Process 1 received 3365000 messages
-Process 1 received 3370000 messages
-Process 1 received 3375000 messages
-Process 1 received 3380000 messages
-Process 1 received 3385000 messages
-Process 1 received 3390000 messages
-Process 1 received 3395000 messages
-Process 1 received 3400000 messages
-Process 1 received 3405000 messages
-Process 1 received 3410000 messages
-Process 1 received 3415000 messages
-Process 1 received 3420000 messages
-Process 1 received 3425000 messages
-Process 1 received 3430000 messages
-Process 1 received 3435000 messages
-Process 1 received 3440000 messages
-Process 1 received 3445000 messages
-Process 1 received 3450000 messages
-Process 1 received 3455000 messages
-Process 1 received 3460000 messages
-Process 1 received 3465000 messages
-Process 1 received 3470000 messages
-Process 1 received 3475000 messages
-Process 1 received 3480000 messages
-Process 1 received 3485000 messages
-Process 1 received 3490000 messages
-Process 1 received 3495000 messages
-Process 1 received 3500000 messages
-Process 1 received 3505000 messages
-Process 1 received 3510000 messages
-Process 1 received 3515000 messages
-Process 1 received 3520000 messages
-Process 1 received 3525000 messages
-Process 1 received 3530000 messages
-Process 1 received 3535000 messages
-Process 1 received 3540000 messages
-Process 1 received 3545000 messages
-Process 1 received 3550000 messages
-Process 1 received 3555000 messages
-Process 1 received 3560000 messages
-Process 1 received 3565000 messages
-Process 1 received 3570000 messages
-Process 1 received 3575000 messages
-Process 1 received 3580000 messages
-Process 1 received 3585000 messages
-Process 1 received 3590000 messages
-Process 1 received 3595000 messages
-Process 1 received 3600000 messages
-Process 1 received 3605000 messages
-Process 1 received 3610000 messages
-Process 1 received 3615000 messages
-Process 1 received 3620000 messages
-Process 1 received 3625000 messages
-Process 1 received 3630000 messages
-Process 1 received 3635000 messages
-Process 1 received 3640000 messages
-Process 1 received 3645000 messages
-Process 1 received 3650000 messages
-Process 1 received 3655000 messages
-Process 1 received 3660000 messages
-Process 1 received 3665000 messages
-Process 1 received 3670000 messages
-Process 1 received 3675000 messages
-Process 1 received 3680000 messages
-Process 1 received 3685000 messages
-Process 1 received 3690000 messages
-Process 1 received 3695000 messages
-Process 1 received 3700000 messages
-Process 1 received 3705000 messages
-Process 1 received 3710000 messages
-Process 1 received 3715000 messages
-Process 1 received 3720000 messages
-Process 1 received 3725000 messages
-Process 1 received 3730000 messages
-Process 1 received 3735000 messages
-Process 1 received 3740000 messages
-Process 1 received 3745000 messages
-Process 1 received 3750000 messages
-Process 1 received 3755000 messages
-Process 1 received 3760000 messages
-Process 1 received 3765000 messages
-Process 1 received 3770000 messages
-Process 1 received 3775000 messages
-Process 1 received 3780000 messages
-Process 1 received 3785000 messages
-Process 1 received 3790000 messages
-Process 1 received 3795000 messages
-Process 1 received 3800000 messages
-Process 1 received 3805000 messages
-Process 1 received 3810000 messages
-Process 1 received 3815000 messages
-Process 1 received 3820000 messages
-Process 1 received 3825000 messages
-Process 1 received 3830000 messages
-Process 1 received 3835000 messages
-Process 1 received 3840000 messages
-Process 1 received 3845000 messages
-Process 1 received 3850000 messages
-Process 1 received 3855000 messages
-Process 1 received 3860000 messages
-Process 1 received 3865000 messages
-Process 1 received 3870000 messages
-Process 1 received 3875000 messages
-Process 1 received 3880000 messages
-Process 1 received 3885000 messages
-Process 1 received 3890000 messages
-Process 1 received 3895000 messages
+Process 1 received all messages!
+Immediately stopping network packet processing.
+Writing output.

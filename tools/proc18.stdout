@@ -1,6 +1,6 @@
-My PID: 70324
+My PID: 84572
 
-From a new terminal type `kill -SIGINT 70324` or `kill -SIGTERM 70324` to stop processing packets
+From a new terminal type `kill -SIGINT 84572` or `kill -SIGTERM 84572` to stop processing packets
 
 OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/proc18.output
 My ID: 18
@@ -79,6 +79,7 @@ Human-readable Port: 11017
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11018
 
+Sliding window size: 6058
 UDPReceiver: Created socket on port 11018
 THREAD NUMBER: 10
 19
@@ -169,6 +170,46 @@ Human-readable Port: 11039
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11040
 
+41
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11041
+
+42
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11042
+
+43
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11043
+
+44
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11044
+
+45
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11045
+
+46
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11046
+
+47
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11047
+
+48
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11048
+
+49
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11049
+
+50
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11050
+
 
 Path to output:
 ===============
@@ -184,6 +225,26 @@ Doing some initialization
 
 Broadcasting and delivering messages...
 
-Number of messages: 100000
+Number of messages: 50000
 Deliver target: 1
 Process ID: 18 Deliver Target: 1
+Sent 5000 messages.
+Sliding window of 1 is now 12116
+Sent 10000 messages.
+Sliding window of 1 is now 18174
+Sent 15000 messages.
+Sliding window of 1 is now 24232
+Sent 20000 messages.
+Sliding window of 1 is now 30290
+Sent 25000 messages.
+Sent 30000 messages.
+Sliding window of 1 is now 36348
+Sent 35000 messages.
+Sliding window of 1 is now 42406
+Sent 40000 messages.
+Sliding window of 1 is now 48464
+Sent 45000 messages.
+Sliding window of 1 is now 54522
+Sent 50000 messages.
+Immediately stopping network packet processing.
+Writing output.

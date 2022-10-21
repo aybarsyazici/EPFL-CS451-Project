@@ -43,7 +43,7 @@ public class Process implements Deliverer {
             @Override
             public void run() {
                 try {
-                    if(logs.size() > 400000 && !writing.get()){
+                    if(logs.size() > 300000 && !writing.get()){
                         writing.compareAndSet(false, true);
                         // Copy logs to a new queue
                         lock.lock();
