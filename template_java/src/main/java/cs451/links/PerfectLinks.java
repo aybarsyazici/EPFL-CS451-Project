@@ -73,7 +73,7 @@ public class PerfectLinks implements Deliverer {
                 }
                 if(allReceived){
                     // Move the sliding window
-                    System.out.println("Moving sliding window to " + slidingWindowEnd);
+                    // System.out.println("Moving sliding window to " + slidingWindowEnd);
                     slidingWindowStart += slidingWindowSize;
                     slidingWindowEnd += slidingWindowSize;
                     // Remove the messages from the delivered map

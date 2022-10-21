@@ -148,14 +148,14 @@ public class StubbornLinks implements Deliverer {
                     messagesDelivered[message.getSenderId()]++; // Successfully delivered this message.
                     if(messagesDelivered[message.getSenderId()] >= slidingWindows[message.getSenderId()]){
                         slidingWindows[message.getSenderId()] += this.slidingWindowSize;
-                        System.out.println("Sliding window of " + message.getSenderId() + " is now " + slidingWindows[message.getSenderId()]);
+                        // System.out.println("Sliding window of " + message.getSenderId() + " is now " + slidingWindows[message.getSenderId()]);
                     }
                     // runnerTasks.remove(message.getId());
                 }
-                count += 1;
-                if (count % 5000 == 0) {
-                    System.out.println("Sent " + count + " messages.");
-                }
+                // count += 1;
+                // if (count % 5000 == 0) {
+                   // System.out.println("Sent " + count + " messages.");
+                // }
             }
         } else {
             deliverer.deliver(message);
