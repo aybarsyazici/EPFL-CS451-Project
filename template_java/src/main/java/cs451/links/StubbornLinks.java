@@ -7,6 +7,7 @@ import cs451.udp.MessageExtension;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicLong;
 
 public class StubbornLinks implements Deliverer {
     private final FairLossLinks fairLoss;
@@ -39,10 +40,10 @@ public class StubbornLinks implements Deliverer {
            return;
        }
         // System.out.println("Queue not full.");
-        long usedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+        AtomicLong usedMemory = new AtomicLong(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
         // System.out.println("Used memory: " + usedMemory + " bytes and messages left to send: " + arrayToLoop.size());
-        var maxMemory = 1900000000 / hosts.size();
-        if (!isAck && usedMemory > maxMemory) {
+        var maxMemory = 1800000000 / hosts.size(); // 200Mb is left for the non heap memories of the programs
+        if (!isAck && usedMemory.get() > maxMemory) {
             try {
                 Runtime.getRuntime().gc();
             } catch (Exception e) {
@@ -55,6 +56,15 @@ public class StubbornLinks implements Deliverer {
                 forEach(m -> {
                     MessageExtension me = (MessageExtension) m;
                     if (!fairLoss.isInQueue(me.getMessage().getId())) {
+                        usedMemory.set(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
+                        if (!isAck && usedMemory.get() > maxMemory) {
+                            try {
+                                Runtime.getRuntime().gc();
+                            } catch (Exception e) {
+                                e.printStackTrace();
+                            }
+                            return;
+                        }
                         fairLoss.send(me.getMessage(), me.getHost());
                         if(isAck) {
                             ackMessagesToBeSent.remove(me.getMessage().getId());
@@ -88,7 +98,7 @@ public class StubbornLinks implements Deliverer {
                     e.printStackTrace();
                 }
             }
-        }, 100, 300);
+        }, 100, 500);
     }
 
     public void send(Message message, Host host) {

@@ -1,6 +1,6 @@
-My PID: 64785
+My PID: 70310
 
-From a new terminal type `kill -SIGINT 64785` or `kill -SIGTERM 64785` to stop processing packets
+From a new terminal type `kill -SIGINT 70310` or `kill -SIGTERM 70310` to stop processing packets
 
 OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/proc04.output
 My ID: 4
@@ -49,6 +49,126 @@ Human-readable Port: 11009
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11010
 
+11
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11011
+
+12
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11012
+
+13
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11013
+
+14
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11014
+
+15
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11015
+
+16
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11016
+
+17
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11017
+
+18
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11018
+
+19
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11019
+
+20
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11020
+
+21
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11021
+
+22
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11022
+
+23
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11023
+
+24
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11024
+
+25
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11025
+
+26
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11026
+
+27
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11027
+
+28
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11028
+
+29
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11029
+
+30
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11030
+
+31
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11031
+
+32
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11032
+
+33
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11033
+
+34
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11034
+
+35
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11035
+
+36
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11036
+
+37
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11037
+
+38
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11038
+
+39
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11039
+
+40
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11040
+
 
 Path to output:
 ===============
@@ -64,8 +184,6 @@ Doing some initialization
 
 Broadcasting and delivering messages...
 
-Number of messages: 500000
+Number of messages: 100000
 Deliver target: 1
 Process ID: 4 Deliver Target: 1
-Immediately stopping network packet processing.
-Writing output.
