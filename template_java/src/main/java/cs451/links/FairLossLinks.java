@@ -48,7 +48,7 @@ public class FairLossLinks implements Deliverer, UDPObserver {
 
     void send(Message message, Host host){ // Create a new sender and send message
         int socketId = ThreadLocalRandom.current().nextInt(sockets.length); // Choose a socket to send the message
-        messagesInTheQueue.put(Map.entry(message.getSenderId(), message.getId()), true);
+        messagesInTheQueue.put(Map.entry(message.getReceiverId(), message.getId()), true);
         pool.submit(new UDPSender(host.getIp(), host.getPort(), message, sockets[socketId], this));
     }
 
@@ -58,6 +58,9 @@ public class FairLossLinks implements Deliverer, UDPObserver {
 
     void stop(){
         receiver.haltReceiving();
+        for(int i = 0; i < sockets.length; i++){
+            sockets[i].close();
+        }
     }
 
     boolean isQueueFull(){
@@ -69,8 +72,8 @@ public class FairLossLinks implements Deliverer, UDPObserver {
         return tasksToDo >= THREAD_NUMBER;
     }
 
-    Boolean isInQueue(byte senderId, int messageId){
-        return messagesInTheQueue.containsKey(Map.entry(senderId, messageId));
+    Boolean isInQueue(byte receiverId, int messageId){
+        return messagesInTheQueue.containsKey(Map.entry(receiverId, messageId));
     }
 
     @Override
@@ -79,8 +82,8 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     }
 
     @Override
-    public void onUDPSenderExecuted(byte senderId, int messageId) {
+    public void onUDPSenderExecuted(byte receiverId, int messageId) {
         // System.out.println("Message with id: " + messageId + " has been sent.");
-        messagesInTheQueue.remove(Map.entry(senderId, messageId));
+        messagesInTheQueue.remove(Map.entry(receiverId, messageId));
     }
 }

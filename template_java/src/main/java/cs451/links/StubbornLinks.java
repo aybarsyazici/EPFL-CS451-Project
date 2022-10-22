@@ -69,7 +69,7 @@ public class StubbornLinks implements Deliverer {
         (messages).
                 forEach(m -> {
                     MessageExtension me = (MessageExtension) m;
-                    if (!fairLoss.isInQueue(me.getMessage().getSenderId(),me.getMessage().getId())) {
+                    if (!fairLoss.isInQueue(me.getMessage().getReceiverId(),me.getMessage().getId())) {
                         usedMemory.set(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
                         if (!isAck && usedMemory.get() > maxMemory) {
                             try {
@@ -88,12 +88,10 @@ public class StubbornLinks implements Deliverer {
                         }
                         fairLoss.send(me.getMessage(), me.getHost());
                         if(isAck) {
-                            ackMessagesToBeSent.remove(Map.entry(me.getMessage().getSenderId(), me.getMessage().getId()));
+                            ackMessagesToBeSent.remove(Map.entry(me.getMessage().getReceiverId(), me.getMessage().getId()));
                         }
                         // System.out.println("Sending " + me.getMessage().getId());
-                    } // else {
-                        // System.out.println("Message " + me.getMessage().getId() + " is already in the queue.");
-                    // }
+                    }
                 });
         // System.out.println("_____________________________________________________________");
     }
@@ -124,7 +122,7 @@ public class StubbornLinks implements Deliverer {
 
     public void send(Message message, Host host) {
         if (message.isAckMessage()) {
-            ackMessagesToBeSent.put(Map.entry(message.getSenderId(),message.getId()), new MessageExtension(message, host));
+            ackMessagesToBeSent.put(Map.entry(message.getReceiverId(),message.getId()), new MessageExtension(message, host));
             return;
         }
         messageToBeSent.put(message.getId(), new MessageExtension(message, host));
@@ -152,10 +150,10 @@ public class StubbornLinks implements Deliverer {
                     }
                     // runnerTasks.remove(message.getId());
                 }
-                  count += 1;
-                  if (count % 5000 == 0) {
-                     System.out.println("Sent " + count + " messages.");
-                  }
+                // count += 1;
+                // if (count % 5000 == 0) {
+                    // System.out.println("Sent " + count + " messages.");
+                // }
             }
         } else {
             deliverer.deliver(message);

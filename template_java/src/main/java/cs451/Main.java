@@ -15,9 +15,7 @@ public class Main {
 
         //write/flush output file if necessary
         System.out.println("Writing output.");
-        while(pr.isWriting()){
-            // System.out.println("Currently waiting.");
-        } // Wait for the current writing to finish
+        while(pr.isWriting()){} // Wait for the current writing to finish
         pr.writeOutput();
     }
 
@@ -58,6 +56,8 @@ public class Main {
         System.out.println("Path to output:");
         System.out.println("===============");
         System.out.println(parser.output() + "\n");
+        boolean deletedSuccess = new File(parser.output()).delete();
+        System.out.println("Deleted old output file: " + deletedSuccess + "\n");
 
         System.out.println("Path to config:");
         System.out.println("===============");

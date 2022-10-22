@@ -75,7 +75,7 @@ public class Process implements Deliverer {
         Host host = this.hosts.get(destinationId);
         if(host == null) return;
         // var maxMemory = 2000000000 / hosts.size(); // 2GB Memory divided per process, for some reason this didn't work...
-        var maxMemory = 900000000 / hosts.size(); // 1.2GB Memory divided per process
+        var maxMemory = 1100000000 / hosts.size(); // 1.2GB Memory divided per process
         while(lastSentMessageId < messageCount + 1){
              var usedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
              // System.out.println("Used memory: " + usedMemory);
@@ -89,11 +89,12 @@ public class Process implements Deliverer {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                continue;
             }
-            links.send(new Message(lastSentMessageId, id, destinationId, id), host);
-            logs.add("b " + lastSentMessageId + "\n");
-            lastSentMessageId++;
+             else{
+                 links.send(new Message(lastSentMessageId, id, destinationId, id), host);
+                 logs.add("b " + lastSentMessageId + "\n");
+                 lastSentMessageId++;
+             }
         }
     }
 
@@ -152,9 +153,9 @@ public class Process implements Deliverer {
         logs.add("d " + message.getSenderId() + " " + message.getId() + "\n");
         lock.unlock();
         count += 1;
-         if(count % 5000 == 0){
-              System.out.println("Process " + id + " received " + count + " messages");
-         }
+        // if(count % 5000 == 0){
+            // System.out.println("Process " + id + " received " + count + " messages");
+        // }
         if(count == (this.hosts.size()-1)*this.messageCount){ System.out.println("Process " + this.id + " received all messages!"); }
     }
 
