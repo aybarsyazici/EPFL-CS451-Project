@@ -63,14 +63,7 @@ public class Main {
         System.out.println("===============");
         System.out.println(parser.config() + "\n");
 
-        try {
-            var a = System.getProperty("com.sun.management.jmxremote.localConnectorAddress");
-            System.out.println(a);
-        }   catch (Exception e){
-            e.printStackTrace();
-        }
         System.out.println("===============");
-
         System.out.println("Doing some initialization\n");
         pr.startProcessing();
         BufferedReader brTest = null;

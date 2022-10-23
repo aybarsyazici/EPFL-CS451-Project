@@ -19,9 +19,11 @@ public class Process implements Deliverer {
     private int lastSentMessageId;
     private long messageCount;
     private final ConcurrentLinkedQueue<String> logs;
-    Queue<String> intermediateLogs;
+    private ConcurrentLinkedQueue<String> intermediateLogs;
     private long count;
     private final AtomicBoolean writing;
+
+    private final Timer logChecker;
 
     Lock lock = new ReentrantLock();
 
@@ -39,27 +41,29 @@ public class Process implements Deliverer {
         this.lastSentMessageId = 1;
         logs = new ConcurrentLinkedQueue<>();
         this.writing = new AtomicBoolean(false);
-        new Timer().schedule(new TimerTask() {
+        // Copy logs to a new queue
+        // Dequeue from logs and write to file
+        logChecker = new Timer();
+        logChecker.schedule(new TimerTask() {
             @Override
             public void run() {
                 try {
-                    if(logs.size() > 300000 && !writing.get()){
+                    if (logs.size() > 300000 && !writing.get()) {
                         writing.compareAndSet(false, true);
                         // Copy logs to a new queue
                         lock.lock();
-                        intermediateLogs = new LinkedList<>(logs);
+                        intermediateLogs = new ConcurrentLinkedQueue<>(logs);
                         logs.clear();
                         lock.unlock();
                         try (var outputStream = new FileOutputStream(output, true)) {
                             // Dequeue from logs and write to file
-                            while(!intermediateLogs.isEmpty()){
+                            while (!intermediateLogs.isEmpty()) {
                                 outputStream.write(intermediateLogs.peek().getBytes());
                                 intermediateLogs.remove();
                             }
                         } catch (IOException e) {
                             e.printStackTrace();
-                        }
-                        finally {
+                        } finally {
                             writing.compareAndSet(true, false);
                         }
                     }
@@ -67,7 +71,7 @@ public class Process implements Deliverer {
                     e.printStackTrace();
                 }
             }
-        }, 6000, 5000);
+        }, 5000, 6000);
     }
 
     public void send(int messageCount, byte destinationId){
@@ -77,11 +81,11 @@ public class Process implements Deliverer {
         // var maxMemory = 2000000000 / hosts.size(); // 2GB Memory divided per process, for some reason this didn't work...
         var maxMemory = 1100000000 / hosts.size(); // 1.2GB Memory divided per process
         while(lastSentMessageId < messageCount + 1){
-             var usedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-             // System.out.println("Used memory: " + usedMemory);
-             // System.out.println("Max memory: " + maxMemory);
-             // System.out.println("Last sent message id: " + lastSentMessageId);
-             if(usedMemory > maxMemory){
+            var usedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
+            // System.out.println("Used memory: " + usedMemory);
+            // System.out.println("Max memory: " + maxMemory);
+            // System.out.println("Last sent message id: " + lastSentMessageId);
+            if(usedMemory > maxMemory){
                 // System.out.println("Waiting for memory to be freed");
                 try {
                     Runtime.getRuntime().gc();
@@ -90,12 +94,13 @@ public class Process implements Deliverer {
                     e.printStackTrace();
                 }
             }
-             else{
-                 links.send(new Message(lastSentMessageId, id, destinationId, id), host);
-                 logs.add("b " + lastSentMessageId + "\n");
-                 lastSentMessageId++;
-             }
+            else{
+                links.send(new Message(lastSentMessageId, id, destinationId, id), host);
+                logs.add("b " + lastSentMessageId + "\n");
+                lastSentMessageId++;
+            }
         }
+        System.out.println("Broadcasted all messages!");
     }
 
     public int getId() {
@@ -112,6 +117,7 @@ public class Process implements Deliverer {
 
     public void stopProcessing(){
         links.stop();
+        logChecker.cancel();
     }
 
     public void startProcessing(){
@@ -121,21 +127,14 @@ public class Process implements Deliverer {
     // Write to output file
     public void writeOutput() {
         try (var outputStream = new FileOutputStream(output, true)) {
-            logs.forEach(s -> {
-                try {
-                    outputStream.write(s.getBytes());
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            });
-            if(intermediateLogs != null){
-                intermediateLogs.forEach(s -> {
-                    try {
-                        outputStream.write(s.getBytes());
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                });
+            while(!logs.isEmpty()){
+                outputStream.write(logs.poll().getBytes());
+            }
+            if(intermediateLogs == null){
+                return;
+            }
+            while(!intermediateLogs.isEmpty()){
+                outputStream.write(intermediateLogs.poll().getBytes());
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -152,10 +151,10 @@ public class Process implements Deliverer {
         lock.lock();
         logs.add("d " + message.getSenderId() + " " + message.getId() + "\n");
         lock.unlock();
-        count += 1;
-        // if(count % 5000 == 0){
-            // System.out.println("Process " + id + " received " + count + " messages");
-        // }
+//        count += 1;
+//        if(count % 5000 == 0){
+//            System.out.println("Process " + id + " received " + count + " messages");
+//        }
         if(count == (this.hosts.size()-1)*this.messageCount){ System.out.println("Process " + this.id + " received all messages!"); }
     }
 
