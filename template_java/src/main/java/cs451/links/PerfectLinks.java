@@ -2,7 +2,7 @@ package cs451.links;
 
 import cs451.Deliverer;
 import cs451.Host;
-import cs451.udp.Message;
+import cs451.Message.Message;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +20,7 @@ public class PerfectLinks implements Deliverer {
     public PerfectLinks(int port, Deliverer deliverer, HashMap<Byte, Host> hosts) {
         // 1.9 GB divided by number of hosts is the memory available to this process then each node is 32 bytes
         var availableMemory = (1900000000 / hosts.size());
-        var numberOfMessages = availableMemory / 128;
+        var numberOfMessages = availableMemory / 256;
         this.slidingWindowSize = numberOfMessages/(hosts.size()-1);
         System.out.println("Sliding window size: " + slidingWindowSize);
         this.stubbornLinks = new StubbornLinks(port, this, hosts.size(), slidingWindowSize);

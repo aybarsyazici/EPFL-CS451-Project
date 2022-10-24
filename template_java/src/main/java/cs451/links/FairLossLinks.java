@@ -2,7 +2,9 @@ package cs451.links;
 
 import cs451.Deliverer;
 import cs451.Host;
-import cs451.udp.Message;
+import cs451.Message.Message;
+import cs451.Message.MessagePackage;
+import cs451.udp.UDPBulkSender;
 import cs451.udp.UDPObserver;
 import cs451.udp.UDPReceiver;
 import cs451.udp.UDPSender;
@@ -27,8 +29,8 @@ public class FairLossLinks implements Deliverer, UDPObserver {
 
 
 
-    FairLossLinks(int port, Deliverer deliverer, int hostSize){ // Create a new receiver
-        this.receiver = new UDPReceiver(port, this);
+    FairLossLinks(int port, Deliverer deliverer, int hostSize, int maxMemory){ // Create a new receiver
+        this.receiver = new UDPReceiver(port, this, maxMemory);
         this.deliverer = deliverer;
         this.THREAD_NUMBER = Math.min(800/hostSize, Runtime.getRuntime().availableProcessors());
         this.pool = Executors.newFixedThreadPool(THREAD_NUMBER);
@@ -46,10 +48,20 @@ public class FairLossLinks implements Deliverer, UDPObserver {
         messagesInTheQueue = new ConcurrentHashMap<>();
     }
 
-    void send(Message message, Host host){ // Create a new sender and send message
+    void send(MessagePackage messagePackage, Host host){ // Create a new sender and send message
         int socketId = ThreadLocalRandom.current().nextInt(sockets.length); // Choose a socket to send the message
-        messagesInTheQueue.put(Map.entry(message.getReceiverId(), message.getId()), true);
-        pool.submit(new UDPSender(host.getIp(), host.getPort(), message, sockets[socketId], this));
+        for (Message message : messagePackage.getMessages()){
+            messagesInTheQueue.put(Map.entry(message.getReceiverId(), message.getId()), true);
+        }
+        pool.submit(
+                new UDPBulkSender(
+                        host.getIp(),
+                        host.getPort(),
+                        (byte)host.getId(),
+                        messagePackage.toBytes(),
+                        messagePackage.getMessageIds(),
+                        sockets[socketId],
+                        this));
     }
 
     void start(){

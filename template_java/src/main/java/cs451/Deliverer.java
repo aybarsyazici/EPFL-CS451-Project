@@ -1,6 +1,6 @@
 package cs451;
 
-import cs451.udp.Message;
+import cs451.Message.Message;
 
 public interface Deliverer {
     void deliver(Message message);

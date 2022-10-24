@@ -1,5 +1,7 @@
 package cs451.udp;
 
+import cs451.Message.Message;
+
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;

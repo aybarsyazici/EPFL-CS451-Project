@@ -1,7 +1,7 @@
 package cs451;
 
 import cs451.links.PerfectLinks;
-import cs451.udp.Message;
+import cs451.Message.Message;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -48,7 +48,7 @@ public class Process implements Deliverer {
             @Override
             public void run() {
                 try {
-                    if (logs.size() > 300000 && !writing.get()) {
+                    if (logs.size() > 3000000/ hosts.size() && !writing.get()) {
                         writing.compareAndSet(false, true);
                         // Copy logs to a new queue
                         lock.lock();
@@ -151,10 +151,10 @@ public class Process implements Deliverer {
         lock.lock();
         logs.add("d " + message.getSenderId() + " " + message.getId() + "\n");
         lock.unlock();
-//        count += 1;
-//        if(count % 5000 == 0){
-//            System.out.println("Process " + id + " received " + count + " messages");
-//        }
+        count += 1;
+        if(count % 5000 == 0){
+            System.out.println("Process " + id + " received " + count + " messages");
+        }
         if(count == (this.hosts.size()-1)*this.messageCount){ System.out.println("Process " + this.id + " received all messages!"); }
     }
 

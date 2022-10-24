@@ -1,7 +1,5 @@
 package cs451;
 
-import cs451.udp.Message;
-
 import java.io.*;
 
 public class Main {
