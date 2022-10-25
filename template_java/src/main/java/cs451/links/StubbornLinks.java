@@ -59,7 +59,7 @@ public class StubbornLinks implements Deliverer {
                     e.printStackTrace();
                 }
                 try{
-                    Thread.sleep(400);
+                    Thread.sleep(300);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -76,7 +76,7 @@ public class StubbornLinks implements Deliverer {
                     e.printStackTrace();
                 }
                 try{
-                    Thread.sleep(500);
+                    Thread.sleep(1000);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -116,7 +116,7 @@ public class StubbornLinks implements Deliverer {
                             return;
                         }
                         messagesToSend.add(m.getMessage());
-                        if(messagesToSend.size() == 64){
+                        if(messagesToSend.size() == 8){
                             fairLoss.send(new MessagePackage(messagesToSend), m.getHost());
                             messagesToSend.clear();
                         }
@@ -138,7 +138,7 @@ public class StubbornLinks implements Deliverer {
                     if (!fairLoss.isInQueue(m.getMessage().getReceiverId(),m.getMessage().getId())) {
                         messagesToSend.add(m.getMessage());
                         ackMessagesToBeSent.get(m.getMessage().getReceiverId()).remove(m.getMessage().getId());
-                        if(messagesToSend.size() == 64){
+                        if(messagesToSend.size() == 8){
                             fairLoss.send(new MessagePackage(messagesToSend), m.getHost());
                             messagesToSend.clear();
                         }

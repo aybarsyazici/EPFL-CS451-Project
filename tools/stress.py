@@ -235,6 +235,7 @@ def startProcesses(processes, runscript, hostsFilePath, configFilePath, outputDi
             "`{}` could not find a binary to execute. Make sure you build before validating".format(runscriptPath))
 
     procs = []
+    jmx_ports = []
     for pid in range(1, processes+1):
         cmd_ext = ['--id', str(pid),
                    '--hosts', hostsFilePath,
@@ -247,8 +248,11 @@ def startProcesses(processes, runscript, hostsFilePath, configFilePath, outputDi
         stderrFd = open(os.path.join(
             outputDirPath, 'proc{:02d}.stderr'.format(pid)), "w")
 
-        # generate random number between 9000 and 10000 inclusive
+        # generate random number between 1000 and 10000 inclusive that is not in jmx_ports and push it into jmx_ports
         port = random.randint(1000, 10000)
+        while port in jmx_ports:
+            port = random.randint(1000, 10000)
+        jmx_ports.append(port)
         port = str(port)
         print("PID: {} JMX port: {}".format(pid, port))
         print("____________")

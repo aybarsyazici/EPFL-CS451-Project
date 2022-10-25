@@ -6,6 +6,7 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
+/* DEPRECATED SINCE THE IMPLEMENTATION OF UDPBULKSENDER */
 public class UDPSender extends Thread{
     private DatagramSocket socket;
     private InetAddress address;

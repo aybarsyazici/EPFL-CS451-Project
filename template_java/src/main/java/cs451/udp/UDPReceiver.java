@@ -11,16 +11,18 @@ import java.util.concurrent.atomic.AtomicLong;
 
 public class UDPReceiver extends Thread{
     private boolean running;
-    private byte[] buf = new byte[256];
+    private byte[] buf = new byte[64];
     private DatagramSocket socket;
     private final Deliverer deliverer;
     private final int maxMemory;
-    AtomicLong usedMemory;
+    private final AtomicLong usedMemory;
+    private final DatagramPacket packet;
 
 
     public UDPReceiver(int port, Deliverer deliverer, int maxMemory){
         this.maxMemory = maxMemory;
         this.deliverer = deliverer;
+        this.packet = new DatagramPacket(buf, buf.length);
         usedMemory = new AtomicLong(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
         try{
             this.socket = new DatagramSocket(port);
@@ -40,7 +42,6 @@ public class UDPReceiver extends Thread{
                     Runtime.getRuntime().gc();
                     continue;
                 }
-                DatagramPacket packet = new DatagramPacket(buf, buf.length);
                 socket.receive(packet);
                 MessagePackage messagePackage = MessagePackage.fromBytes(packet.getData());
                 for(Message message : messagePackage.getMessages()){
@@ -48,7 +49,6 @@ public class UDPReceiver extends Thread{
                     deliverer.deliver(message);
                 }
                 messagePackage = null;
-
             }
             catch (Exception e){
                 e.printStackTrace();
