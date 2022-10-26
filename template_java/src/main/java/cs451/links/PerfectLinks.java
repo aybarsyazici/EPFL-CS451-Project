@@ -17,13 +17,13 @@ public class PerfectLinks implements Deliverer {
     private int[] deliveredMessageCount;
     private final HashMap<Byte, Host> hosts;
 
-    public PerfectLinks(int port, Deliverer deliverer, HashMap<Byte, Host> hosts) {
+    public PerfectLinks(int port, Deliverer deliverer, HashMap<Byte, Host> hosts, boolean extraMemory) {
         // 1.9 GB divided by number of hosts is the memory available to this process then each node is 32 bytes
         var availableMemory = (1900000000 / hosts.size());
         var numberOfMessages = availableMemory / 256;
         this.slidingWindowSize = numberOfMessages/(hosts.size()-1);
         System.out.println("Sliding window size: " + slidingWindowSize);
-        this.stubbornLinks = new StubbornLinks(port, this, hosts.size(), slidingWindowSize);
+        this.stubbornLinks = new StubbornLinks(port, this, hosts.size(), slidingWindowSize, extraMemory);
         this.hosts = hosts;
         this.deliverer = deliverer;
         delivered = new HashMap<>();
@@ -53,26 +53,26 @@ public class PerfectLinks implements Deliverer {
         if(!delivered.containsKey(message.getSenderId())) {
             delivered.put(message.getSenderId(), new HashMap<>());
         }
-        if(message.getId() <= slidingWindowStart[message.getSenderId()-1]){
+        if(message.getId() <= slidingWindowStart[message.getSenderId()]){
             send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getSenderId())); // Send ACK message
         }
-        if(message.getId() > slidingWindowStart[message.getSenderId()-1] && message.getId() <= slidingWindowStart[message.getSenderId()-1] + slidingWindowSize){
+        if(message.getId() > slidingWindowStart[message.getSenderId()] && message.getId() <= slidingWindowStart[message.getSenderId()] + slidingWindowSize){
             send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getSenderId())); // Send ACK message
             if(!delivered.get(message.getSenderId()).containsKey(message.getId())){
                 deliverer.deliver(message);
                 delivered.get(message.getSenderId()).put(message.getId(), true);
-                deliveredMessageCount[message.getSenderId()-1] += 1;
-                if(deliveredMessageCount[message.getSenderId()-1] < slidingWindowSize){
+                deliveredMessageCount[message.getSenderId()] += 1;
+                if(deliveredMessageCount[message.getSenderId()] < slidingWindowSize){
                     return;
                 }
                 // Check if this process has delivered all the messages in the sliding window
                 if(delivered.get(message.getSenderId()).size() == slidingWindowSize){
                     // If yes, then increment the sliding window start
-                    slidingWindowStart[message.getSenderId()-1] += slidingWindowSize;
+                    slidingWindowStart[message.getSenderId()] += slidingWindowSize;
                     // printSlidingWindows();
                     // Remove all the messages from the delivered map
                     delivered.get(message.getSenderId()).clear();
-                    deliveredMessageCount[message.getSenderId()-1] = 0;
+                    deliveredMessageCount[message.getSenderId()] = 0;
                 }
             }
         }

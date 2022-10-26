@@ -32,9 +32,9 @@ public class StubbornLinks implements Deliverer {
     private final int maxMemory;
     AtomicBoolean isRunning;
 
-    public StubbornLinks(int port, Deliverer deliverer, int hostSize, int slidingWindowSize) {
+    public StubbornLinks(int port, Deliverer deliverer, int hostSize, int slidingWindowSize, boolean extraMemory) {
         this.maxMemory = 1800000000 / hostSize; // 200Mb is left for the non heap memories of the programs
-        this.fairLoss = new FairLossLinks(port, this, hostSize, maxMemory);
+        this.fairLoss = new FairLossLinks(port, this, hostSize, maxMemory, extraMemory);
         this.deliverer = deliverer;
         this.messageToBeSent = new ConcurrentHashMap<>();
         this.ackMessagesToBeSent = new ConcurrentHashMap<>();
@@ -59,7 +59,7 @@ public class StubbornLinks implements Deliverer {
                     e.printStackTrace();
                 }
                 try{
-                    Thread.sleep(300);
+                    Thread.sleep(400);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -76,7 +76,7 @@ public class StubbornLinks implements Deliverer {
                     e.printStackTrace();
                 }
                 try{
-                    Thread.sleep(1000);
+                    Thread.sleep(250);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -110,7 +110,7 @@ public class StubbornLinks implements Deliverer {
                             }
                             return;
                         }
-                        var slidingWindowSize = slidingWindows[m.getMessage().getReceiverId()-1];
+                        var slidingWindowSize = slidingWindows[m.getMessage().getReceiverId()];
                         if(m.getMessage().getId() > slidingWindowSize){
                             // System.out.println("Message " + me.getMessage().getId() + " is not in the sliding window of " + me.getMessage().getReceiverId() + " which is " + slidingWindowSize);
                             return;
@@ -179,10 +179,10 @@ public class StubbornLinks implements Deliverer {
                     e.printStackTrace();
                 } finally {
                     messageToBeSent.remove(message.getId());
-                    messagesDelivered[message.getSenderId()-1]++; // Successfully delivered this message.
-                    if(messagesDelivered[message.getSenderId()-1] >= slidingWindows[message.getSenderId()-1]){
-                        slidingWindows[message.getSenderId()-1] += this.slidingWindowSize;
-                        // System.out.println("Sliding window of " + message.getSenderId() + " is now " + slidingWindows[message.getSenderId()-1]);
+                    messagesDelivered[message.getSenderId()]++; // Successfully delivered this message.
+                    if(messagesDelivered[message.getSenderId()] >= slidingWindows[message.getSenderId()]){
+                        slidingWindows[message.getSenderId()] += this.slidingWindowSize;
+                        // System.out.println("Sliding window of " + message.getSenderId() + " is now " + slidingWindows[message.getSenderId()]);
                     }
                 }
                  count += 1;

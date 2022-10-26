@@ -53,4 +53,8 @@ public class Host {
         return port;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
 }

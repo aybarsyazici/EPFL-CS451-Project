@@ -1,6 +1,7 @@
 package cs451;
 
 import java.io.*;
+import java.util.List;
 
 public class Main {
 
@@ -31,6 +32,17 @@ public class Main {
         parser.parse();
 
         initSignalHandlers();
+        BufferedReader brTest = null;
+        String text = null;
+        try {
+            brTest = new BufferedReader(new FileReader(parser.config()));
+            text = brTest.readLine();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        int nmOfMessages = Integer.parseInt(text.substring(0, text.indexOf(" ")));
+        int deliverTarget = Integer.parseInt(text.substring(text.indexOf(" ") + 1)) - 1; // We need the Id to be 0-based so we have -1 here.
 
         // example
         long pid = ProcessHandle.current().pid();
@@ -40,13 +52,17 @@ public class Main {
         System.out.println("My ID: " + parser.myId() + "\n");
         System.out.println("List of resolved hosts is:");
         System.out.println("==========================");
-        for (Host host: parser.hosts()) {
+        List<Host> hostList = parser.hosts();
+        for(Host host: hostList){
+            host.setId(host.getId() - 1); // To prevent overflow in Id, as the max Id is 128 and the max byte is 127.
+        }
+        for (Host host: hostList) {
             System.out.println(host.getId());
             System.out.println("Human-readable IP: " + host.getIp());
             System.out.println("Human-readable Port: " + host.getPort());
             System.out.println();
-            if(host.getId() == parser.myId()){
-                pr = new Process((byte)host.getId(), host.getPort(), parser.hosts(), parser.output());
+            if(host.getId() == (parser.myId()-1)){
+                pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), deliverTarget == host.getId());
             }
         }
         System.out.println();
@@ -64,17 +80,7 @@ public class Main {
         System.out.println("===============");
         System.out.println("Doing some initialization\n");
         pr.startProcessing();
-        BufferedReader brTest = null;
-        String text = null;
-        try {
-            brTest = new BufferedReader(new FileReader(parser.config()));
-            text = brTest.readLine();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
         System.out.println("Broadcasting and delivering messages...\n");
-        int nmOfMessages = Integer.parseInt(text.substring(0, text.indexOf(" ")));
-        int deliverTarget = Integer.parseInt(text.substring(text.indexOf(" ") + 1));
         System.out.println("Number of messages: " + nmOfMessages);
         System.out.println("Deliver target: " + deliverTarget);
         if(pr.getId() != deliverTarget){

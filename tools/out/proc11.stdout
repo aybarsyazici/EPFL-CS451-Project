@@ -1,0 +1,152 @@
+Listening for transport dt_socket at address: 5692
+My PID: 26860
+
+From a new terminal type `kill -SIGINT 26860` or `kill -SIGTERM 26860` to stop processing packets
+
+OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/out/proc11.output
+My ID: 11
+
+List of resolved hosts is:
+==========================
+1
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11001
+
+2
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11002
+
+3
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11003
+
+4
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11004
+
+5
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11005
+
+6
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11006
+
+7
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11007
+
+8
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11008
+
+9
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11009
+
+10
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11010
+
+11
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11011
+
+Sliding window size: 8530
+UDPReceiver: Created socket on port 11011
+THREAD NUMBER: 2
+12
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11012
+
+13
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11013
+
+14
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11014
+
+15
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11015
+
+16
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11016
+
+17
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11017
+
+18
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11018
+
+19
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11019
+
+20
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11020
+
+21
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11021
+
+22
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11022
+
+23
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11023
+
+24
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11024
+
+25
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11025
+
+26
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11026
+
+27
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11027
+
+28
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11028
+
+29
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11029
+
+30
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11030
+
+
+Path to output:
+===============
+/Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/out/proc11.output
+
+Deleted old output file: false
+
+Path to config:
+===============
+./out/config
+
+===============
+Doing some initialization
+
+Broadcasting and delivering messages...
+
+Number of messages: 500000
+Deliver target: 1
+Process ID: 11 Deliver Target: 1

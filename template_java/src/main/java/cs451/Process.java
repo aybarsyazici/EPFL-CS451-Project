@@ -29,13 +29,13 @@ public class Process implements Deliverer {
 
 
     public Process(byte id, int port,
-                   List<Host> hostList, String output) {
+                   List<Host> hostList, String output, boolean extraMemory) {
         this.id = id;
         this.hosts = new HashMap<>();
         for(Host host : hostList){
             hosts.put((byte)host.getId(), host);
         }
-        this.links = new PerfectLinks(port, this, this.hosts);
+        this.links = new PerfectLinks(port, this, this.hosts, extraMemory);
         this.output = output;
         this.count = 0;
         this.lastSentMessageId = 1;

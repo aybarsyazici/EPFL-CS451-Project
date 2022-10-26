@@ -19,8 +19,8 @@ public class UDPReceiver extends Thread{
     private final DatagramPacket packet;
 
 
-    public UDPReceiver(int port, Deliverer deliverer, int maxMemory){
-        this.maxMemory = maxMemory;
+    public UDPReceiver(int port, Deliverer deliverer, int maxMemory, boolean extraMemory){
+        this.maxMemory = maxMemory + (extraMemory ? 5000000 : 0);
         this.deliverer = deliverer;
         this.packet = new DatagramPacket(buf, buf.length);
         usedMemory = new AtomicLong(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
@@ -38,7 +38,7 @@ public class UDPReceiver extends Thread{
         while(running){
             try {
                 usedMemory.set(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
-                if (usedMemory.get() >= maxMemory + 5000000){
+                if (usedMemory.get() >= maxMemory){
                     Runtime.getRuntime().gc();
                     continue;
                 }

@@ -29,9 +29,10 @@ public class FairLossLinks implements Deliverer, UDPObserver {
 
 
 
-    FairLossLinks(int port, Deliverer deliverer, int hostSize, int maxMemory){ // Create a new receiver
-        this.receiver = new UDPReceiver(port, this, maxMemory);
+    FairLossLinks(int port, Deliverer deliverer, int hostSize, int maxMemory, boolean extraMemory){ // Create a new receiver
+        this.receiver = new UDPReceiver(port, this, maxMemory,extraMemory);
         this.deliverer = deliverer;
+        // this.THREAD_NUMBER = 2;
         this.THREAD_NUMBER = Math.min(800/hostSize, Runtime.getRuntime().availableProcessors());
         this.pool = Executors.newFixedThreadPool(THREAD_NUMBER);
         System.out.println("THREAD NUMBER: " + THREAD_NUMBER);
@@ -81,7 +82,7 @@ public class FairLossLinks implements Deliverer, UDPObserver {
         long taskCount = threadPoolExecutor.getTaskCount();
         long completedTaskCount = threadPoolExecutor.getCompletedTaskCount();
         long tasksToDo = taskCount - completedTaskCount - activeCount;
-        return tasksToDo >= THREAD_NUMBER;
+        return tasksToDo >= THREAD_NUMBER*2;
     }
 
     Boolean isInQueue(byte receiverId, int messageId){
