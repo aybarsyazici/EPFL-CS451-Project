@@ -149,12 +149,12 @@ public class Process implements Deliverer {
     public void deliver(Message message) {
         // System.out.println("HELLO! I'm process " + id + " and I received message: " + message);
         lock.lock();
-        logs.add("d " + message.getSenderId() + " " + message.getId() + "\n");
+        logs.add("d " + (message.getSenderId()+1) + " " + message.getId() + "\n");
         lock.unlock();
         count += 1;
-        if(count % 5000 == 0){
-            System.out.println("Process " + id + " received " + count + " messages");
-        }
+//        if(count % 5000 == 0){
+//            System.out.println("Process " + id + " received " + count + " messages");
+//        }
         if(count == (this.hosts.size()-1)*this.messageCount){ System.out.println("Process " + this.id + " received all messages!"); }
     }
 

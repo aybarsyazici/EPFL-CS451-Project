@@ -185,10 +185,10 @@ public class StubbornLinks implements Deliverer {
                         // System.out.println("Sliding window of " + message.getSenderId() + " is now " + slidingWindows[message.getSenderId()]);
                     }
                 }
-                 count += 1;
-                 if (count % 5000 == 0) {
-                     System.out.println("Sent " + count + " messages.");
-                 }
+//                 count += 1;
+//                 if (count % 5000 == 0) {
+//                     System.out.println("Sent " + count + " messages.");
+//                 }
             }
         } else {
             deliverer.deliver(message);

@@ -84,7 +84,7 @@ public class Main {
         System.out.println("Number of messages: " + nmOfMessages);
         System.out.println("Deliver target: " + deliverTarget);
         if(pr.getId() != deliverTarget){
-            System.out.println("Process ID: " + pr.getId() + " Deliver Target: " + deliverTarget);
+            System.out.println("Process ID: " + (pr.getId()+1) + " Deliver Target: " + deliverTarget + 1);
             pr.send(nmOfMessages, (byte)deliverTarget);
         }
         else {

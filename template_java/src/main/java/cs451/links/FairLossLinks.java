@@ -27,9 +27,7 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     // idea: Maybe instead of having sockets here we can have an array of UDP Senders
     // will this improve performance ? I am not sure.
 
-
-
-    FairLossLinks(int port, Deliverer deliverer, int hostSize, int maxMemory, boolean extraMemory){ // Create a new receiver
+    FairLossLinks(int port, Deliverer deliverer, int hostSize, int maxMemory, boolean extraMemory){
         this.receiver = new UDPReceiver(port, this, maxMemory,extraMemory);
         this.deliverer = deliverer;
         // this.THREAD_NUMBER = 2;
