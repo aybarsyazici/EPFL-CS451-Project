@@ -32,14 +32,16 @@ public class StubbornLinks implements Deliverer {
     private final Runnable ackSendThread;
     private final int maxMemory;
     private AtomicBoolean isRunning;
+    private final int messageCount;
 
     Acknowledger acknowledger;
 
-    public StubbornLinks(int port, Deliverer deliverer, int hostSize, int slidingWindowSize, boolean extraMemory, Acknowledger acknowledger) {
+    public StubbornLinks(int port, Deliverer deliverer, int hostSize, int slidingWindowSize, boolean extraMemory, Acknowledger acknowledger, int messageCount) {
         this.maxMemory = 1800000000 / hostSize; // 200Mb is left for the non heap memories of the programs
         this.fairLoss = new FairLossLinks(port, this, hostSize, maxMemory, extraMemory);
         this.deliverer = deliverer;
         this.acknowledger = acknowledger;
+        this.messageCount = messageCount;
         this.messageToBeSent = new ConcurrentHashMap<>();
         this.ackMessagesToBeSent = new ConcurrentHashMap<>();
         this.slidingWindows = new int[hostSize]; // Keep the sliding window of each host
@@ -173,6 +175,10 @@ public class StubbornLinks implements Deliverer {
         fairLoss.stop();
     }
 
+    public void stopSenders(){
+        this.isRunning.compareAndSet(true, false);
+    }
+
     @Override
     public void deliver(Message message) {
         if (message.getOriginalSender() == message.getReceiverId()) { // I have sent this message and received it back.
@@ -191,8 +197,11 @@ public class StubbornLinks implements Deliverer {
                     }
                 }
                  count += 1;
-                 if (count % 5000 == 0) {
-                     System.out.println("Sent " + count + " messages.");
+                 // if (count % 5000 == 0) {
+                     // System.out.println("Sent " + count + " messages.");
+                 // }
+                 if(count == messageCount){
+                     acknowledger.stopSenders();
                  }
             }
         } else {

@@ -32,7 +32,7 @@ public class Process implements Deliverer, Acknowledger{
 
 
     public Process(byte id, int port,
-                   List<Host> hostList, String output, boolean extraMemory) {
+                   List<Host> hostList, String output, boolean extraMemory, int messageCount) {
         this.id = id;
         this.hosts = new HashMap<>();
         for(Host host : hostList){
@@ -44,9 +44,10 @@ public class Process implements Deliverer, Acknowledger{
         this.slidingWindowSize = numberOfMessages/(hosts.size()-1);
         this.sendWindow = new AtomicInteger(slidingWindowSize);
         System.out.println("Sliding window size: " + slidingWindowSize);
-        this.links = new PerfectLinks(port, this, this.hosts, slidingWindowSize,extraMemory, this);
+        this.links = new PerfectLinks(port, this, this.hosts, slidingWindowSize,extraMemory, this, messageCount);
         this.output = output;
         this.count = 0;
+        this.messageCount = messageCount;
         this.lastSentMessageId = 1;
         logs = new ConcurrentLinkedQueue<>();
         this.writing = new AtomicBoolean(false);
@@ -163,6 +164,12 @@ public class Process implements Deliverer, Acknowledger{
     @Override
     public void slideSendWindow() {
         sendWindow.addAndGet(slidingWindowSize);
+    }
+
+    @Override
+    public void stopSenders(){
+        links.stopSenders();
+        // System.out.println("Process " + (id+1) + " stopped sending messages.");
     }
 
 }

@@ -62,7 +62,7 @@ public class Main {
             System.out.println("Human-readable Port: " + host.getPort());
             System.out.println();
             if(host.getId() == (parser.myId()-1)){
-                pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), deliverTarget == host.getId());
+                pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), deliverTarget == host.getId(), nmOfMessages);
             }
         }
         System.out.println();
@@ -86,9 +86,6 @@ public class Main {
         if(pr.getId() != deliverTarget){
             System.out.println("Process ID: " + (pr.getId()+1) + " Deliver Target: " + (deliverTarget + 1));
             pr.send(nmOfMessages, (byte)deliverTarget);
-        }
-        else {
-            pr.setMessageCount(nmOfMessages);
         }
         // After a process finishes broadcasting,
         // it waits forever for the delivery of messages.

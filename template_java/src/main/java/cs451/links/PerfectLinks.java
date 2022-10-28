@@ -18,8 +18,14 @@ public class PerfectLinks implements Deliverer {
     private int[] deliveredMessageCount;
     private final HashMap<Byte, Host> hosts;
 
-    public PerfectLinks(int port, Deliverer deliverer, HashMap<Byte, Host> hosts, int slidingWindowSize, boolean extraMemory, Acknowledger acknowledger) {
-        this.stubbornLinks = new StubbornLinks(port, this, hosts.size(), slidingWindowSize, extraMemory, acknowledger);
+    public PerfectLinks(int port,
+                        Deliverer deliverer,
+                        HashMap<Byte, Host> hosts,
+                        int slidingWindowSize,
+                        boolean extraMemory,
+                        Acknowledger acknowledger,
+                        int messageCount) {
+        this.stubbornLinks = new StubbornLinks(port, this, hosts.size(), slidingWindowSize, extraMemory, acknowledger, messageCount);
         this.slidingWindowSize = slidingWindowSize;
         this.hosts = hosts;
         this.deliverer = deliverer;
@@ -38,6 +44,10 @@ public class PerfectLinks implements Deliverer {
 
     public void stop(){
         stubbornLinks.stop();
+    }
+
+    public void stopSenders() {
+        stubbornLinks.stopSenders();
     }
 
     public void start(){
