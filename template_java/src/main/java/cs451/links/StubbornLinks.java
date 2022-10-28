@@ -1,5 +1,6 @@
 package cs451.links;
 
+import cs451.Acknowledger;
 import cs451.Deliverer;
 import cs451.Host;
 import cs451.Message.Message;
@@ -30,12 +31,15 @@ public class StubbornLinks implements Deliverer {
     private final Runnable msgSendThread;
     private final Runnable ackSendThread;
     private final int maxMemory;
-    AtomicBoolean isRunning;
+    private AtomicBoolean isRunning;
 
-    public StubbornLinks(int port, Deliverer deliverer, int hostSize, int slidingWindowSize, boolean extraMemory) {
+    Acknowledger acknowledger;
+
+    public StubbornLinks(int port, Deliverer deliverer, int hostSize, int slidingWindowSize, boolean extraMemory, Acknowledger acknowledger) {
         this.maxMemory = 1800000000 / hostSize; // 200Mb is left for the non heap memories of the programs
         this.fairLoss = new FairLossLinks(port, this, hostSize, maxMemory, extraMemory);
         this.deliverer = deliverer;
+        this.acknowledger = acknowledger;
         this.messageToBeSent = new ConcurrentHashMap<>();
         this.ackMessagesToBeSent = new ConcurrentHashMap<>();
         this.slidingWindows = new int[hostSize]; // Keep the sliding window of each host
@@ -59,7 +63,7 @@ public class StubbornLinks implements Deliverer {
                     e.printStackTrace();
                 }
                 try{
-                    Thread.sleep(400);
+                    Thread.sleep(250);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -76,7 +80,7 @@ public class StubbornLinks implements Deliverer {
                     e.printStackTrace();
                 }
                 try{
-                    Thread.sleep(250);
+                    Thread.sleep(200);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -182,13 +186,14 @@ public class StubbornLinks implements Deliverer {
                     messagesDelivered[message.getSenderId()]++; // Successfully delivered this message.
                     if(messagesDelivered[message.getSenderId()] >= slidingWindows[message.getSenderId()]){
                         slidingWindows[message.getSenderId()] += this.slidingWindowSize;
+                        acknowledger.slideSendWindow();
                         // System.out.println("Sliding window of " + message.getSenderId() + " is now " + slidingWindows[message.getSenderId()]);
                     }
                 }
-//                 count += 1;
-//                 if (count % 5000 == 0) {
-//                     System.out.println("Sent " + count + " messages.");
-//                 }
+                 count += 1;
+                 if (count % 5000 == 0) {
+                     System.out.println("Sent " + count + " messages.");
+                 }
             }
         } else {
             deliverer.deliver(message);

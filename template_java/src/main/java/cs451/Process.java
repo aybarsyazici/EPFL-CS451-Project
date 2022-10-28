@@ -8,10 +8,11 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Process implements Deliverer {
+public class Process implements Deliverer, Acknowledger{
     private final byte id;
     private final HashMap<Byte, Host> hosts;
     private final PerfectLinks links;
@@ -25,6 +26,8 @@ public class Process implements Deliverer {
 
     private final Timer logChecker;
 
+    private AtomicInteger sendWindow;
+    private final int slidingWindowSize;
     Lock lock = new ReentrantLock();
 
 
@@ -35,7 +38,13 @@ public class Process implements Deliverer {
         for(Host host : hostList){
             hosts.put((byte)host.getId(), host);
         }
-        this.links = new PerfectLinks(port, this, this.hosts, extraMemory);
+        // 1.9 GB divided by number of hosts is the memory available to this process then each node is 32 bytes
+        var availableMemory = (1900000000 / hosts.size());
+        var numberOfMessages = availableMemory / 256;
+        this.slidingWindowSize = numberOfMessages/(hosts.size()-1);
+        this.sendWindow = new AtomicInteger(slidingWindowSize);
+        System.out.println("Sliding window size: " + slidingWindowSize);
+        this.links = new PerfectLinks(port, this, this.hosts, slidingWindowSize,extraMemory, this);
         this.output = output;
         this.count = 0;
         this.lastSentMessageId = 1;
@@ -78,18 +87,11 @@ public class Process implements Deliverer {
         this.messageCount = messageCount;
         Host host = this.hosts.get(destinationId);
         if(host == null) return;
-        // var maxMemory = 2000000000 / hosts.size(); // 2GB Memory divided per process, for some reason this didn't work...
-        var maxMemory = 1100000000 / hosts.size(); // 1.2GB Memory divided per process
         while(lastSentMessageId < messageCount + 1){
-            var usedMemory = Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory();
-            // System.out.println("Used memory: " + usedMemory);
-            // System.out.println("Max memory: " + maxMemory);
-            // System.out.println("Last sent message id: " + lastSentMessageId);
-            if(usedMemory > maxMemory){
-                // System.out.println("Waiting for memory to be freed");
+            if(lastSentMessageId > sendWindow.get()){
                 try {
                     Runtime.getRuntime().gc();
-                    Thread.sleep(1000);
+                    Thread.sleep(200);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -152,10 +154,15 @@ public class Process implements Deliverer {
         logs.add("d " + (message.getSenderId()+1) + " " + message.getId() + "\n");
         lock.unlock();
         count += 1;
-//        if(count % 5000 == 0){
-//            System.out.println("Process " + id + " received " + count + " messages");
-//        }
+        if(count % 5000 == 0){
+            System.out.println("Process " + id + " received " + count + " messages");
+        }
         if(count == (this.hosts.size()-1)*this.messageCount){ System.out.println("Process " + this.id + " received all messages!"); }
+    }
+
+    @Override
+    public void slideSendWindow() {
+        sendWindow.addAndGet(slidingWindowSize);
     }
 
 }

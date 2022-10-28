@@ -14,13 +14,13 @@ public class UDPReceiver extends Thread{
     private byte[] buf = new byte[64];
     private DatagramSocket socket;
     private final Deliverer deliverer;
-    private final int maxMemory;
+    private final long maxMemory;
     private final AtomicLong usedMemory;
     private final DatagramPacket packet;
 
 
-    public UDPReceiver(int port, Deliverer deliverer, int maxMemory, boolean extraMemory){
-        this.maxMemory = maxMemory + (extraMemory ? 5000000 : 0);
+    public UDPReceiver(int port, Deliverer deliverer, int maxMemory, int hostSize, boolean extraMemory){
+        this.maxMemory = maxMemory + (extraMemory ? 2560000000L/hostSize : 0);
         this.deliverer = deliverer;
         this.packet = new DatagramPacket(buf, buf.length);
         usedMemory = new AtomicLong(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
