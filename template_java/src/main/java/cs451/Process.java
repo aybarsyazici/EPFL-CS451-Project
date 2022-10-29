@@ -42,8 +42,7 @@ public class Process implements Deliverer, Acknowledger{
         }
         // 1.9 GB divided by number of hosts is the memory available to this process then each node is 32 bytes
         var availableMemory = (1900000000 / hosts.size());
-        var numberOfMessages = availableMemory / 64;
-        this.slidingWindowSize = numberOfMessages/(hosts.size()-1);
+        this.slidingWindowSize = availableMemory / 1024;
         this.sendWindow = new AtomicInteger(slidingWindowSize);
         System.out.println("Sliding window size: " + slidingWindowSize);
         this.links = new PerfectLinks(port, this, this.hosts, slidingWindowSize,extraMemory, this, messageCount);
