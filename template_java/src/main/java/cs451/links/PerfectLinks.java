@@ -79,6 +79,7 @@ public class PerfectLinks implements Deliverer {
                     // Remove all the messages from the delivered map
                     delivered.get(message.getSenderId()).clear();
                     deliveredMessageCount[message.getSenderId()] = 0;
+                    System.gc();
                 }
             }
         }

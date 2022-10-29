@@ -27,6 +27,8 @@ public class Process implements Deliverer, Acknowledger{
     private final Timer logChecker;
 
     private AtomicInteger sendWindow;
+
+    private AtomicBoolean sendersStopped;
     private final int slidingWindowSize;
     Lock lock = new ReentrantLock();
 
@@ -40,7 +42,7 @@ public class Process implements Deliverer, Acknowledger{
         }
         // 1.9 GB divided by number of hosts is the memory available to this process then each node is 32 bytes
         var availableMemory = (1900000000 / hosts.size());
-        var numberOfMessages = availableMemory / 256;
+        var numberOfMessages = availableMemory / 64;
         this.slidingWindowSize = numberOfMessages/(hosts.size()-1);
         this.sendWindow = new AtomicInteger(slidingWindowSize);
         System.out.println("Sliding window size: " + slidingWindowSize);
@@ -48,6 +50,7 @@ public class Process implements Deliverer, Acknowledger{
         this.output = output;
         this.count = 0;
         this.messageCount = messageCount;
+        this.sendersStopped = new AtomicBoolean(false);
         this.lastSentMessageId = 1;
         logs = new ConcurrentLinkedQueue<>();
         this.writing = new AtomicBoolean(false);
@@ -79,6 +82,11 @@ public class Process implements Deliverer, Acknowledger{
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
+                }
+                finally {
+                    if(sendersStopped.get()){
+                        System.gc();
+                    }
                 }
             }
         }, 5000, 6000);
@@ -158,17 +166,23 @@ public class Process implements Deliverer, Acknowledger{
         if(count % 5000 == 0){
             System.out.println("Process " + id + " received " + count + " messages");
         }
-        if(count == (this.hosts.size()-1)*this.messageCount){ System.out.println("Process " + this.id + " received all messages!"); }
+        if(count == (this.hosts.size()-1)*this.messageCount){
+            System.out.println("Process " + this.id + " received all messages!");
+            System.gc();
+        }
     }
 
     @Override
     public void slideSendWindow() {
         sendWindow.addAndGet(slidingWindowSize);
+        System.gc();
     }
 
     @Override
     public void stopSenders(){
         links.stopSenders();
+        System.gc();
+        this.sendersStopped.compareAndSet(false, true);
         // System.out.println("Process " + (id+1) + " stopped sending messages.");
     }
 

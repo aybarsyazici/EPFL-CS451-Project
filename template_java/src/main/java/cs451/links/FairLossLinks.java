@@ -17,10 +17,8 @@ import java.util.concurrent.*;
 public class FairLossLinks implements Deliverer, UDPObserver {
     private final int THREAD_NUMBER;
     private final UDPReceiver receiver;
-
     private final Deliverer deliverer;
     private final ExecutorService pool;
-    private final int hostSize;
     private final ConcurrentHashMap<Map.Entry<Byte,Integer>, Boolean> messagesInTheQueue;
     // These sockets will be used by udp senders to send messages, each udp sender runs in a separate thread
     // and each thread has its own socket
@@ -31,7 +29,6 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     FairLossLinks(int port, Deliverer deliverer, int hostSize, int maxMemory, boolean extraMemory){
         this.receiver = new UDPReceiver(port, this, maxMemory, hostSize, extraMemory);
         this.deliverer = deliverer;
-        this.hostSize = hostSize;
         // this.THREAD_NUMBER = 2;
         int maxThreads = (1024-(6*hostSize))/hostSize; /* 1024 is the total max amount of threads
         Each process has 6 threads (main, logChecker, sender, ackSender, Receiver and finally the signal handler )
