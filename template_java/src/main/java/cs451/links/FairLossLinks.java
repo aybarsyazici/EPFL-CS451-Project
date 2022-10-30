@@ -20,19 +20,18 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     private final Deliverer deliverer;
     private final ExecutorService pool;
     private final ConcurrentHashMap<Map.Entry<Byte,Integer>, Boolean> messagesInTheQueue;
+    private final DatagramSocket[] sockets;
     // These sockets will be used by udp senders to send messages, each udp sender runs in a separate thread
     // and each thread has its own socket
-    private final DatagramSocket[] sockets;
-    // idea: Maybe instead of having sockets here we can have an array of UDP Senders
-    // will this improve performance ? I am not sure.
 
     FairLossLinks(int port, Deliverer deliverer, int hostSize, int maxMemory, boolean extraMemory){
         this.receiver = new UDPReceiver(port, this, maxMemory, hostSize, extraMemory);
         this.deliverer = deliverer;
-        // this.THREAD_NUMBER = 2;
-        int maxThreads = (1024-(6*hostSize))/hostSize; /* 1024 is the total max amount of threads
-        Each process has 6 threads (main, logChecker, sender, ackSender, Receiver and finally the signal handler )
-        so for each running process we by default have 6 threads, so we have 1024-6*hostSize threads left
+        int maxThreads = (900-(5*hostSize))/hostSize; /* 1024 is the total max amount of threads
+        Each process has 5 threads (main, logChecker, messageSender, Receiver and finally the signal handler )
+        so for each running process we by default have 5 threads. We also leave some thread count for threads that Java might be spawning
+        So in total the size of the thread pool at max can be 900 - 5*hostSize, and we divide this between the hosts that we have
+        so that each host has a thread pool of size (900 - 5*hostSize) / hostSize
         */
         this.THREAD_NUMBER = Math.min(maxThreads, Runtime.getRuntime().availableProcessors());
         this.pool = Executors.newFixedThreadPool(THREAD_NUMBER);
@@ -72,6 +71,7 @@ public class FairLossLinks implements Deliverer, UDPObserver {
 
     void stop(){
         receiver.haltReceiving();
+        pool.shutdownNow();
         for(int i = 0; i < sockets.length; i++){
             sockets[i].close();
         }

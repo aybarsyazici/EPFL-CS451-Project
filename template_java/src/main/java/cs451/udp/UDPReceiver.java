@@ -17,9 +17,11 @@ public class UDPReceiver extends Thread{
     private final long maxMemory;
     private final AtomicLong usedMemory;
     private final DatagramPacket packet;
+    private int count;
 
     public UDPReceiver(int port, Deliverer deliverer, int maxMemory, int hostSize, boolean extraMemory){
-        this.maxMemory = maxMemory + (extraMemory ? Math.min(2560000000L/hostSize,300000000) : 0);
+        this.maxMemory = maxMemory + ( extraMemory ? calculateExtraMemory(hostSize) : 0);
+        this.count = 0;
         this.deliverer = deliverer;
         this.packet = new DatagramPacket(buf, buf.length);
         usedMemory = new AtomicLong(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
@@ -38,7 +40,11 @@ public class UDPReceiver extends Thread{
             try {
                 usedMemory.set(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
                 if (usedMemory.get() >= maxMemory){
-                    Runtime.getRuntime().gc();
+                    count++;
+                    if(count==5){
+                        count = 0;
+                        Runtime.getRuntime().gc();
+                    }
                     continue;
                 }
                 socket.receive(packet);
@@ -58,5 +64,32 @@ public class UDPReceiver extends Thread{
     public void haltReceiving(){
         running = false;
         socket.close();
+    }
+
+    private long calculateExtraMemory(int hostSize){
+        if(hostSize <= 5){
+            return 200000000; //200MB
+        }
+        else if(hostSize <= 8){
+            return 250000000; //250MB
+        }
+        else if(hostSize <= 30){
+            return 300000000; //300MB
+        }
+        else if(hostSize <= 50){
+            return 400000000; //400MB
+        }
+        else if(hostSize <= 60){
+            return 300000000; //300MB
+        }
+        else if(hostSize <= 70){
+            return 250000000; //250MB
+        }
+        else if(hostSize <= 80){
+            return 200000000; //200MB
+        }
+        else{
+            return Math.min(8960000000L/hostSize,100000000);
+        }
     }
 }

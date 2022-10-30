@@ -22,14 +22,12 @@ public class StubbornLinks implements Deliverer {
     private final int slidingWindowSize;
     private final ConcurrentHashMap<Integer, MessageExtension> messageToBeSent;
     private final ConcurrentHashMap<Byte, ConcurrentHashMap<Integer,MessageExtension>> ackMessagesToBeSent;
-    // private final ConcurrentHashMap<Integer, ConcurrentLinkedQueue<Future>> runnerTasks;
     private int count;
     // We need to keep the list of the messages we have already sent
     // Pass through the array -> check if they have been received by the other end.
     // if they are not received we send them again
     // Repeat continuously till they have been acknowledged, i.e., received and delivered by the other end.
     private final Runnable msgSendThread;
-    private final Runnable ackSendThread;
     private final int maxMemory;
     private AtomicBoolean isRunning;
     private final int messageCount;
@@ -57,49 +55,53 @@ public class StubbornLinks implements Deliverer {
         this.hostSize = hostSize;
         this.count = 0;
         this.isRunning = new AtomicBoolean(true);
-        this.msgSendThread = () -> {
-            while(isRunning.get()){
-                try {
-                    sendMessagesToBeSent(new ArrayList<>(messageToBeSent.values()));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                try{
-                    Thread.sleep(250);
-                }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        };
-        this.ackSendThread = () -> {
-            while(isRunning.get()){
-                try {
-                    for (var host : ackMessagesToBeSent.keySet()) {
-                        sendAckMessagesToBeSent(new ArrayList<>(ackMessagesToBeSent.get(host).values()));
+        if(extraMemory){
+            this.msgSendThread = () -> {
+                while(isRunning.get()){
+                    try {
+                        for (var host : ackMessagesToBeSent.keySet()) {
+                            sendAckMessagesToBeSent(new ArrayList<>(ackMessagesToBeSent.get(host).values()));
+                        }
+                    } catch (Exception e) {
+                        e.printStackTrace();
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
+                    try{
+                        Thread.sleep(100);
+                    }
+                    catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
-                try{
-                    Thread.sleep(200);
+            };
+        }
+        else{
+            this.msgSendThread = () -> {
+                while(isRunning.get()){
+                    try {
+                        sendMessagesToBeSent(new ArrayList<>(messageToBeSent.values()));
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    try{
+                        Thread.sleep(150);
+                    }
+                    catch (Exception e){
+                        e.printStackTrace();
+                    }
                 }
-                catch (Exception e){
-                    e.printStackTrace();
-                }
-            }
-        };
+            };
+        }
     }
 
     private void sendMessagesToBeSent(ArrayList<MessageExtension> messages){
         if(messages.size() == 0) return;
         var usedMemory = new AtomicLong(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
         if (usedMemory.get() > maxMemory) {
-            try {
-                Runtime.getRuntime().gc();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+//            try {
+//                Runtime.getRuntime().gc();
+//            } catch (Exception e) {
+//                e.printStackTrace();
+//            }
             return;
         }
         List<Message> messagesToSend = new ArrayList<>();
@@ -109,11 +111,11 @@ public class StubbornLinks implements Deliverer {
                     if (!fairLoss.isInQueue(m.getMessage().getReceiverId(),m.getMessage().getId())) {
                         usedMemory.set(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
                         if (usedMemory.get() > maxMemory) {
-                            try {
-                                Runtime.getRuntime().gc();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
+//                            try {
+//                                Runtime.getRuntime().gc();
+//                            } catch (Exception e) {
+//                                e.printStackTrace();
+//                            }
                             return;
                         }
                         var slidingWindowSize = slidingWindows[m.getMessage().getReceiverId()];
@@ -157,8 +159,7 @@ public class StubbornLinks implements Deliverer {
 
     public void start() {
         fairLoss.start();
-        new Thread(msgSendThread).start();
-        new Thread(ackSendThread).start();
+        new Thread(msgSendThread, "Message send thread").start();
     }
 
     public void send(Message message, Host host) {
