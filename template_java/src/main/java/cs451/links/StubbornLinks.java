@@ -27,6 +27,7 @@ public class StubbornLinks implements Deliverer {
     // if they are not received we send them again
     // Repeat continuously till they have been acknowledged, i.e., received and delivered by the other end.
     private final Runnable msgSendThread;
+    private final Runnable ackMsgSendThread;
     private final int maxMemory;
     private AtomicBoolean isRunning;
     private final int messageCount;
@@ -53,44 +54,40 @@ public class StubbornLinks implements Deliverer {
         // this.runnerTasks = new ConcurrentHashMap<>();
         this.count = 0;
         this.isRunning = new AtomicBoolean(true);
-        if(extraMemory){
-            this.msgSendThread = () -> {
-                while(isRunning.get()){
-                    try {
-                        for (var host : ackMessagesToBeSent.keySet()) {
-                            sendAckMessagesToBeSent(new ArrayList<>(ackMessagesToBeSent.get(host).values()));
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
+        this.ackMsgSendThread = () -> {
+            while(isRunning.get()){
+                try {
+                    for (var host : ackMessagesToBeSent.keySet()) {
+                        sendAckMessagesToBeSent(new ArrayList<>(ackMessagesToBeSent.get(host).values()));
                     }
-                    try{
-                        Thread.sleep(100);
-                    }
-                    catch (Exception e){
-                        e.printStackTrace();
-                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
-            };
-        }
-        else{
-            this.msgSendThread = () -> {
-                while(isRunning.get()){
-                    try {
-                        for (var host : messageToBeSent.keySet()) {
-                            sendMessagesToBeSent(new ArrayList<>(messageToBeSent.get(host).values()));
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    try{
-                        Thread.sleep(150);
-                    }
-                    catch (Exception e){
-                        e.printStackTrace();
-                    }
+                try{
+                    Thread.sleep(100);
                 }
-            };
-        }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        };
+        this.msgSendThread = () -> {
+            while(isRunning.get()){
+                try {
+                    for (var host : messageToBeSent.keySet()) {
+                        sendMessagesToBeSent(new ArrayList<>(messageToBeSent.get(host).values()));
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                try{
+                    Thread.sleep(150);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        };
     }
 
     private void sendMessagesToBeSent(ArrayList<MessageExtension> messages){
@@ -109,7 +106,8 @@ public class StubbornLinks implements Deliverer {
                             return;
                         }
                         var slidingWindowSize = slidingWindows[m.getMessage().getReceiverId()];
-                        if(m.getMessage().getId() > slidingWindowSize){
+                        if(m.getMessage().getOriginalSender() == m.getMessage().getSenderId() &&
+                                m.getMessage().getId() > slidingWindowSize){
                             // System.out.println("Message " + me.getMessage().getId() + " is not in the sliding window of " + me.getMessage().getReceiverId() + " which is " + slidingWindowSize);
                             return;
                         }
@@ -150,6 +148,7 @@ public class StubbornLinks implements Deliverer {
     public void start() {
         fairLoss.start();
         new Thread(msgSendThread, "Message send thread").start();
+        new Thread(ackMsgSendThread, "Ack message send thread").start();
     }
 
     public void send(Message message, Host host) {
@@ -176,25 +175,19 @@ public class StubbornLinks implements Deliverer {
         if (message.isAckMessage()) { // I have sent this message and received it back.
             messageToBeSent.computeIfAbsent(message.getSenderId(), k -> new ConcurrentHashMap<>());
             if (messageToBeSent.get(message.getSenderId()).containsKey(message.getId())) {
-                try {
-                    // runnerTasks.get(message.getId()).forEach(f -> f.cancel(false));
-                } catch (Exception e) {
-                    e.printStackTrace();
-                } finally {
-                    messageToBeSent.get(message.getSenderId()).remove(message.getId());
+                messageToBeSent.get(message.getSenderId()).remove(message.getId());
+                if(message.getOriginalSender() == message.getReceiverId()){
                     messagesDelivered[message.getSenderId()]++; // Successfully delivered this message.
                     if(messagesDelivered[message.getSenderId()] >= slidingWindows[message.getSenderId()]){
+                        System.out.println("Sliding window of " + message.getSenderId() + " is increased by 1.");
                         slidingWindows[message.getSenderId()] += this.slidingWindowSize;
                         acknowledger.slideSendWindow(message.getSenderId());
                     }
+                    count += 1;
+                    if (count % 5000 == 0) {
+                        System.out.println("Sent " + count + " messages.");
+                    }
                 }
-                 count += 1;
-                  if (count % 5000 == 0) {
-                      System.out.println("Sent " + count + " messages.");
-                  }
-                 if(count == messageCount){
-                     acknowledger.stopSenders();
-                 }
             }
         } else {
             deliverer.deliver(message);

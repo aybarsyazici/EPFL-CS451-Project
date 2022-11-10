@@ -11,7 +11,6 @@ public class PerfectLinks implements Deliverer {
     private final StubbornLinks stubbornLinks;
     private final Deliverer deliverer;
     private final HashSet<Integer>[] delivered;
-
     private int[] slidingWindowStart;
     private final int slidingWindowSize;
     private int[] deliveredMessageCount;
@@ -56,26 +55,32 @@ public class PerfectLinks implements Deliverer {
 
     @Override
     public void deliver(Message message) {
-        if(message.getId() <= slidingWindowStart[message.getSenderId()]){
-            send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getSenderId())); // Send ACK message
+        if(message.getId() <= slidingWindowStart[message.getOriginalSender()]){
+            send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
+            if(message.getOriginalSender() != message.getSenderId()){
+                send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
+            }
         }
-        if(message.getId() > slidingWindowStart[message.getSenderId()] && message.getId() <= slidingWindowStart[message.getSenderId()] + slidingWindowSize){
-            send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getSenderId())); // Send ACK message
-            if(!delivered[message.getSenderId()].contains(message.getId())){
+        if(message.getId() > slidingWindowStart[message.getOriginalSender()] && message.getId() <= slidingWindowStart[message.getOriginalSender()] + slidingWindowSize){
+            send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
+            if(message.getOriginalSender() != message.getSenderId()){
+                send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
+            }
+            if(!delivered[message.getOriginalSender()].contains(message.getId())){
                 deliverer.deliver(message);
-                delivered[message.getSenderId()].add(message.getId());
-                deliveredMessageCount[message.getSenderId()] += 1;
-                if(deliveredMessageCount[message.getSenderId()] < slidingWindowSize){
+                delivered[message.getOriginalSender()].add(message.getId());
+                deliveredMessageCount[message.getOriginalSender()] += 1;
+                if(deliveredMessageCount[message.getOriginalSender()] < slidingWindowSize){
                     return;
                 }
                 // Check if this process has delivered all the messages in the sliding window
-                if(delivered[message.getSenderId()].size() == slidingWindowSize){
+                if(delivered[message.getOriginalSender()].size() == slidingWindowSize){
                     // If yes, then increment the sliding window start
-                    slidingWindowStart[message.getSenderId()] += slidingWindowSize;
+                    slidingWindowStart[message.getOriginalSender()] += slidingWindowSize;
                     // printSlidingWindows();
                     // Remove all the messages from the delivered map
-                    delivered[message.getSenderId()].clear();
-                    deliveredMessageCount[message.getSenderId()] = 0;
+                    delivered[message.getOriginalSender()].clear();
+                    deliveredMessageCount[message.getOriginalSender()] = 0;
                     System.gc();
                 }
             }

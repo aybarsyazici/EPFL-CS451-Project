@@ -41,8 +41,7 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-        int nmOfMessages = Integer.parseInt(text.substring(0, text.indexOf(" ")));
-        int deliverTarget = Integer.parseInt(text.substring(text.indexOf(" ") + 1)) - 1; // We need the Id to be 0-based so we have -1 here.
+        int nmOfMessages = Integer.parseInt(text);
 
         // example
         long pid = ProcessHandle.current().pid();
@@ -62,7 +61,7 @@ public class Main {
             System.out.println("Human-readable Port: " + host.getPort());
             System.out.println();
             if(host.getId() == (parser.myId()-1)){
-                pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), deliverTarget == host.getId(), nmOfMessages);
+                pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), false, nmOfMessages);
             }
         }
         System.out.println();
@@ -82,11 +81,10 @@ public class Main {
         pr.startProcessing();
         System.out.println("Broadcasting and delivering messages...\n");
         System.out.println("Number of messages: " + nmOfMessages);
-        System.out.println("Deliver target: " + deliverTarget);
-        if(pr.getId() != deliverTarget){
-            System.out.println("Process ID: " + (pr.getId()+1) + " Deliver Target: " + (deliverTarget + 1));
-            pr.send(nmOfMessages, (byte)deliverTarget);
-        }
+
+        System.out.println("Process ID: " + (pr.getId()+1));
+        pr.send(nmOfMessages);
+
         // After a process finishes broadcasting,
         // it waits forever for the delivery of messages.
         while (true) {

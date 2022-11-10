@@ -1,5 +1,6 @@
 package cs451;
 
+import cs451.broadcast.BestEffortBroadcast;
 import cs451.links.PerfectLinks;
 import cs451.Message.Message;
 
@@ -13,46 +14,35 @@ import java.util.concurrent.atomic.AtomicIntegerArray;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Process implements Deliverer, Acknowledger{
+public class Process implements Deliverer, Logger{
     private final byte id;
-    private final HashMap<Byte, Host> hosts;
-    private final PerfectLinks links;
+    private final BestEffortBroadcast broadcast;
     private final String output;
-    private int lastSentMessageId;
-    private long messageCount;
+
     private final ConcurrentLinkedQueue<String> logs;
     private ConcurrentLinkedQueue<String> intermediateLogs;
     private long count;
     private final AtomicBoolean writing;
 
     private final Timer logChecker;
-
-    private AtomicIntegerArray sendWindow;
-
+    private final int hostSize;
     private AtomicBoolean sendersStopped;
-    private final int slidingWindowSize;
+
     Lock lock = new ReentrantLock();
 
 
     public Process(byte id, int port,
                    List<Host> hostList, String output, boolean extraMemory, int messageCount) {
         this.id = id;
-        this.hosts = new HashMap<>();
-        this.sendWindow = new AtomicIntegerArray(hostList.size());
-        this.slidingWindowSize = calcWindowSize(hostList.size());
-        for(Host host : hostList){
-            hosts.put((byte)host.getId(), host);
-            sendWindow.set(host.getId(), slidingWindowSize);
-        }
-        System.out.println("Sliding window size: " + slidingWindowSize);
-        this.links = new PerfectLinks(port, this, this.hosts, slidingWindowSize,extraMemory, this, messageCount);
         this.output = output;
         this.count = 0;
-        this.messageCount = messageCount;
         this.sendersStopped = new AtomicBoolean(false);
-        this.lastSentMessageId = 1;
+        int slidingWindowSize = calcWindowSize(hostList.size());
+        System.out.println("Sliding window size: " + slidingWindowSize);
         logs = new ConcurrentLinkedQueue<>();
+        this.hostSize = hostList.size();
         this.writing = new AtomicBoolean(false);
+        this.broadcast = new BestEffortBroadcast(id, port, hostList, extraMemory, slidingWindowSize, this, this);
         // Copy logs to a new queue
         // Dequeue from logs and write to file
         logChecker = new Timer();
@@ -60,7 +50,7 @@ public class Process implements Deliverer, Acknowledger{
             @Override
             public void run() {
                 try {
-                    if (logs.size() > 3000000/ hosts.size() && !writing.get()) {
+                    if (logs.size() > 3000000/ hostSize && !writing.get()) {
                         writing.compareAndSet(false, true);
                         // Copy logs to a new queue
                         lock.lock();
@@ -91,25 +81,8 @@ public class Process implements Deliverer, Acknowledger{
         }, 5000, 6000);
     }
 
-    public void send(int messageCount, byte destinationId){
-        this.messageCount = messageCount;
-        Host host = this.hosts.get(destinationId);
-        if(host == null) return;
-        while(lastSentMessageId < messageCount + 1){
-            if(lastSentMessageId > sendWindow.get(destinationId)){
-                try {
-                    Runtime.getRuntime().gc();
-                    Thread.sleep(300);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
-            else{
-                links.send(new Message(lastSentMessageId, id, destinationId, id), host);
-                logs.add("b " + lastSentMessageId + "\n");
-                lastSentMessageId++;
-            }
-        }
+    public void send(int messageCount){
+        broadcast.send(messageCount);
         System.out.println("Broadcasted all messages!");
     }
 
@@ -117,21 +90,14 @@ public class Process implements Deliverer, Acknowledger{
         return id;
     }
 
-    public void setMessageCount(long messageCount) {
-        this.messageCount = messageCount;
-    }
-
-    public PerfectLinks getLinks() {
-        return links;
-    }
 
     public void stopProcessing(){
-        links.stop();
+        broadcast.stop();
         logChecker.cancel();
     }
 
     public void startProcessing(){
-        links.start();
+        broadcast.start();
     }
 
     // Write to output file
@@ -159,31 +125,14 @@ public class Process implements Deliverer, Acknowledger{
     public void deliver(Message message) {
         // System.out.println("HELLO! I'm process " + id + " and I received message: " + message);
         lock.lock();
-        logs.add("d " + (message.getSenderId()+1) + " " + message.getId() + "\n");
+        logs.add("d " + (message.getOriginalSender()+1) + " " + message.getId() + "\n");
         lock.unlock();
         count += 1;
         if(count % 5000 == 0){
             System.out.println("Process " + id + " received " + count + " messages");
         }
-        if(count == (this.hosts.size()-1)*this.messageCount){
-            System.out.println("Process " + this.id + " received all messages!");
-            System.gc();
-        }
     }
 
-    @Override
-    public void slideSendWindow(byte destinationId) {
-        sendWindow.addAndGet(destinationId,slidingWindowSize);
-        System.out.println("Process " + id + " slid send window for process " + destinationId + " to " + sendWindow.get(destinationId));
-    }
-
-    @Override
-    public void stopSenders(){
-        links.stopSenders();
-        System.gc();
-        this.sendersStopped.compareAndSet(false, true);
-        // System.out.println("Process " + (id+1) + " stopped sending messages.");
-    }
 
     private int calcWindowSize(int hostSize){
         //return Math.min(255000/hostSize, 2000);
@@ -234,4 +183,8 @@ public class Process implements Deliverer, Acknowledger{
 
     }
 
+    @Override
+    public void logBroadcast(int messageId) {
+        logs.add("b " + messageId + "\n");
+    }
 }
