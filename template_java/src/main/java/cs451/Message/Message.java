@@ -20,6 +20,14 @@ public class Message implements Serializable {
         this.ack = false;
     }
 
+    public Message(int id, byte senderId, byte receiverId, byte originalSender, Boolean ack) {
+        this.id = id;
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.originalSender = originalSender;
+        this.ack = ack;
+    }
+
     public Message(Message message, byte newSender, byte newReceiver){
         this.id = message.getId();
         this.senderId = newSender;
@@ -71,7 +79,7 @@ public class Message implements Serializable {
     // Convert object to byteArray
     public byte[] toByteArray() {
         byte[] bytes = new byte[8];
-        ByteBuffer.wrap(bytes).order(ByteOrder.BIG_ENDIAN).putInt(id).put(senderId).put(receiverId).put(originalSender);
+        ByteBuffer.wrap(bytes).order(ByteOrder.BIG_ENDIAN).putInt(id).put(senderId).put(receiverId).put(originalSender).put(ack ? (byte) 1 : (byte) 0);
         return bytes;
     }
 
@@ -82,7 +90,8 @@ public class Message implements Serializable {
         byte senderId = buffer.get();
         byte receiverId = buffer.get();
         byte originalSender = buffer.get();
-        return new Message(id, senderId, receiverId, originalSender);
+        byte ack = buffer.get();
+        return new Message(id, senderId, receiverId, originalSender, ack == 1);
     }
 
 }

@@ -1,4 +1,4 @@
-with open('./out/proc01.output') as f:
+with open('./out/proc20.output') as f:
     seen = set()
     count = 0
     for line in f:

@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import argparse
-from distutils.log import debug
 import os
 import atexit
 import textwrap
@@ -97,7 +96,7 @@ class Validation:
                 hosts.write("{} localhost {}\n".format(i, PROCESSES_BASE_IP+i))
 
         with open(configfile, 'w') as config:
-            config.write("{} 1\n".format(self.messages))
+            config.write("{} 20\n".format(self.messages))
 
         return (hostsfile, configfile)
 
@@ -229,7 +228,7 @@ def startProcesses(processes, runscript, hostsFilePath, configFilePath, outputDi
     if os.path.exists(bin_cpp):
         cmd = [bin_cpp]
     elif os.path.exists(bin_java):
-        cmd = ['java']
+        cmd = ['java', '-jar', bin_java]
     else:
         raise Exception(
             "`{}` could not find a binary to execute. Make sure you build before validating".format(runscriptPath))
@@ -258,11 +257,11 @@ def startProcesses(processes, runscript, hostsFilePath, configFilePath, outputDi
         print("____________")
         # jmx_cmd = ['-Dcom.sun.management.jmxremote', '-Dcom.sun.management.jmxremote.port='+port, '-Dcom.sun.management.jmxremote.rmi.port='+port,
         #           '-Djava.rmi.server.hostname=0.0.0.0', '-Dcom.sun.management.jmxremote.ssl=false', '-Dcom.sun.management.jmxremote.authenticate=false', '-Xmx4g', '-jar', bin_java]
-        debug_cmd = [
-            '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:'+port, '-jar', bin_java]
+        # debug_cmd = [
+        #    '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:'+port, '-jar', bin_java]
 
         procs.append((pid, subprocess.Popen(
-            cmd + debug_cmd + cmd_ext, stdout=stdoutFd, stderr=stderrFd)))
+            cmd + cmd_ext, stdout=stdoutFd, stderr=stderrFd)))
 
     return procs
 

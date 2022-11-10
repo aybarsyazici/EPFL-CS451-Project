@@ -9,6 +9,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicInteger;
+import java.util.concurrent.atomic.AtomicIntegerArray;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -26,7 +27,7 @@ public class Process implements Deliverer, Acknowledger{
 
     private final Timer logChecker;
 
-    private AtomicInteger sendWindow;
+    private AtomicIntegerArray sendWindow;
 
     private AtomicBoolean sendersStopped;
     private final int slidingWindowSize;
@@ -37,11 +38,12 @@ public class Process implements Deliverer, Acknowledger{
                    List<Host> hostList, String output, boolean extraMemory, int messageCount) {
         this.id = id;
         this.hosts = new HashMap<>();
+        this.sendWindow = new AtomicIntegerArray(hostList.size());
+        this.slidingWindowSize = calcWindowSize(hostList.size());
         for(Host host : hostList){
             hosts.put((byte)host.getId(), host);
+            sendWindow.set(host.getId(), slidingWindowSize);
         }
-        this.slidingWindowSize = calcWindowSize(hosts.size());
-        this.sendWindow = new AtomicInteger(slidingWindowSize);
         System.out.println("Sliding window size: " + slidingWindowSize);
         this.links = new PerfectLinks(port, this, this.hosts, slidingWindowSize,extraMemory, this, messageCount);
         this.output = output;
@@ -94,7 +96,7 @@ public class Process implements Deliverer, Acknowledger{
         Host host = this.hosts.get(destinationId);
         if(host == null) return;
         while(lastSentMessageId < messageCount + 1){
-            if(lastSentMessageId > sendWindow.get()){
+            if(lastSentMessageId > sendWindow.get(destinationId)){
                 try {
                     Runtime.getRuntime().gc();
                     Thread.sleep(300);
@@ -160,9 +162,9 @@ public class Process implements Deliverer, Acknowledger{
         logs.add("d " + (message.getSenderId()+1) + " " + message.getId() + "\n");
         lock.unlock();
         count += 1;
-//        if(count % 5000 == 0){
-//            System.out.println("Process " + id + " received " + count + " messages");
-//        }
+        if(count % 5000 == 0){
+            System.out.println("Process " + id + " received " + count + " messages");
+        }
         if(count == (this.hosts.size()-1)*this.messageCount){
             System.out.println("Process " + this.id + " received all messages!");
             System.gc();
@@ -170,8 +172,9 @@ public class Process implements Deliverer, Acknowledger{
     }
 
     @Override
-    public void slideSendWindow() {
-        sendWindow.addAndGet(slidingWindowSize);
+    public void slideSendWindow(byte destinationId) {
+        sendWindow.addAndGet(destinationId,slidingWindowSize);
+        System.out.println("Process " + id + " slid send window for process " + destinationId + " to " + sendWindow.get(destinationId));
     }
 
     @Override

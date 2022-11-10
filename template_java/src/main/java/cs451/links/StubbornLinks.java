@@ -15,12 +15,11 @@ import java.util.concurrent.atomic.AtomicLong;
 public class StubbornLinks implements Deliverer {
     private final FairLossLinks fairLoss;
     private final Deliverer deliverer;
-    private final int hostSize;
     private final int[] slidingWindows;
     private final int[] messagesDelivered;
 
     private final int slidingWindowSize;
-    private final ConcurrentHashMap<Integer, MessageExtension> messageToBeSent;
+    private final ConcurrentHashMap<Byte, ConcurrentHashMap<Integer,MessageExtension>> messageToBeSent;
     private final ConcurrentHashMap<Byte, ConcurrentHashMap<Integer,MessageExtension>> ackMessagesToBeSent;
     private int count;
     // We need to keep the list of the messages we have already sent
@@ -52,7 +51,6 @@ public class StubbornLinks implements Deliverer {
             messagesDelivered[i] = 0;
         }
         // this.runnerTasks = new ConcurrentHashMap<>();
-        this.hostSize = hostSize;
         this.count = 0;
         this.isRunning = new AtomicBoolean(true);
         if(extraMemory){
@@ -78,7 +76,9 @@ public class StubbornLinks implements Deliverer {
             this.msgSendThread = () -> {
                 while(isRunning.get()){
                     try {
-                        sendMessagesToBeSent(new ArrayList<>(messageToBeSent.values()));
+                        for (var host : messageToBeSent.keySet()) {
+                            sendMessagesToBeSent(new ArrayList<>(messageToBeSent.get(host).values()));
+                        }
                     } catch (Exception e) {
                         e.printStackTrace();
                     }
@@ -97,11 +97,6 @@ public class StubbornLinks implements Deliverer {
         if(messages.size() == 0) return;
         var usedMemory = new AtomicLong(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
         if (usedMemory.get() > maxMemory) {
-//            try {
-//                Runtime.getRuntime().gc();
-//            } catch (Exception e) {
-//                e.printStackTrace();
-//            }
             return;
         }
         List<Message> messagesToSend = new ArrayList<>();
@@ -111,11 +106,6 @@ public class StubbornLinks implements Deliverer {
                     if (!fairLoss.isInQueue(m.getMessage().getReceiverId(),m.getMessage().getId())) {
                         usedMemory.set(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
                         if (usedMemory.get() > maxMemory) {
-//                            try {
-//                                Runtime.getRuntime().gc();
-//                            } catch (Exception e) {
-//                                e.printStackTrace();
-//                            }
                             return;
                         }
                         var slidingWindowSize = slidingWindows[m.getMessage().getReceiverId()];
@@ -168,7 +158,8 @@ public class StubbornLinks implements Deliverer {
             ackMessagesToBeSent.get(message.getReceiverId()).put(message.getId(), new MessageExtension(message, host));
             return;
         }
-        messageToBeSent.put(message.getId(), new MessageExtension(message, host));
+        messageToBeSent.computeIfAbsent(message.getReceiverId(), k -> new ConcurrentHashMap<>());
+        messageToBeSent.get(message.getReceiverId()).put(message.getId(), new MessageExtension(message, host));
     }
 
     public void stop() {
@@ -182,25 +173,25 @@ public class StubbornLinks implements Deliverer {
 
     @Override
     public void deliver(Message message) {
-        if (message.getOriginalSender() == message.getReceiverId()) { // I have sent this message and received it back.
-            if (messageToBeSent.containsKey(message.getId())) {
+        if (message.isAckMessage()) { // I have sent this message and received it back.
+            messageToBeSent.computeIfAbsent(message.getSenderId(), k -> new ConcurrentHashMap<>());
+            if (messageToBeSent.get(message.getSenderId()).containsKey(message.getId())) {
                 try {
                     // runnerTasks.get(message.getId()).forEach(f -> f.cancel(false));
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    messageToBeSent.remove(message.getId());
+                    messageToBeSent.get(message.getSenderId()).remove(message.getId());
                     messagesDelivered[message.getSenderId()]++; // Successfully delivered this message.
                     if(messagesDelivered[message.getSenderId()] >= slidingWindows[message.getSenderId()]){
                         slidingWindows[message.getSenderId()] += this.slidingWindowSize;
-                        acknowledger.slideSendWindow();
-                        // System.out.println("Sliding window of " + message.getSenderId() + " is now " + slidingWindows[message.getSenderId()]);
+                        acknowledger.slideSendWindow(message.getSenderId());
                     }
                 }
                  count += 1;
-                 // if (count % 5000 == 0) {
-                     // System.out.println("Sent " + count + " messages.");
-                 // }
+                  if (count % 5000 == 0) {
+                      System.out.println("Sent " + count + " messages.");
+                  }
                  if(count == messageCount){
                      acknowledger.stopSenders();
                  }
