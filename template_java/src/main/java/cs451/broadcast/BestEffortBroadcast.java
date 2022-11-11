@@ -8,6 +8,7 @@ import cs451.Message.Message;
 import cs451.links.PerfectLinks;
 
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
@@ -15,8 +16,6 @@ public class BestEffortBroadcast  implements Deliverer, Acknowledger {
     private PerfectLinks perfectLinks;
 
     private Deliverer deliverer;
-    private Logger logger;
-
     private byte id;
     private int[] lastSentMessageId;
 
@@ -26,30 +25,27 @@ public class BestEffortBroadcast  implements Deliverer, Acknowledger {
 
     private final HashMap<Byte, Host> hosts;
 
-
-    public BestEffortBroadcast(byte id, int port, List<Host> hostList, boolean extraMemory, int slidingWindowSize, Logger logger, Deliverer deliverer){
-        this.hosts = new HashMap<>();
-        this.sendWindow = new AtomicIntegerArray(hostList.size());
+    public BestEffortBroadcast(byte id, int port, HashMap<Byte, Host> hosts, boolean extraMemory, int slidingWindowSize, Deliverer deliverer){
+        this.sendWindow = new AtomicIntegerArray(hosts.size());
         this.deliverer = deliverer;
-        this.lastSentMessageId = new int[hostList.size()];
+        this.lastSentMessageId = new int[hosts.size()];
         this.slidingWindowSize = slidingWindowSize;
         this.id = id;
-
-        for(Host host : hostList){
-            hosts.put((byte)host.getId(), host);
+        this.hosts = hosts;
+        for (Host host : hosts.values()){
             sendWindow.set(host.getId(), slidingWindowSize);
             this.lastSentMessageId[host.getId()] = 1;
         }
-
-        this.perfectLinks = new PerfectLinks(port, this, this.hosts, slidingWindowSize,false, this, messageCount);
-
-
+        this.perfectLinks = new PerfectLinks(port, this,
+                this.hosts, slidingWindowSize,false,
+                this, messageCount);
     }
 
     public void send(int messageCount){
         this.messageCount = messageCount;
         // Iterate over all hosts
         while(true){
+            boolean sleep = true;
             for(byte hostId : hosts.keySet()){
                 // Send message to all hosts
                 if(hostId == id) continue;
@@ -57,15 +53,16 @@ public class BestEffortBroadcast  implements Deliverer, Acknowledger {
                     if(!(lastSentMessageId[hostId] > sendWindow.get(hostId))){
                         perfectLinks.send(new Message(lastSentMessageId[hostId], id, hostId, id), hosts.get(hostId));
                         lastSentMessageId[hostId]++;
+                        sleep = false;
                     }
-                    else{
-                        try {
-                            Runtime.getRuntime().gc();
-                            Thread.sleep(200);
-                        } catch (InterruptedException e) {
-                            e.printStackTrace();
-                        }
-                    }
+                }
+            }
+            if(sleep){
+                try {
+                    Runtime.getRuntime().gc();
+                    Thread.sleep(200);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -80,10 +77,6 @@ public class BestEffortBroadcast  implements Deliverer, Acknowledger {
             if(sendWindow.get(i) <= oldWindow){
                 return;
             }
-        }
-        // If we get here, all sliding windows have been updated
-        for(int i = (oldWindow-slidingWindowSize)+1; i <= oldWindow; i++){
-            logger.logBroadcast(i);
         }
     }
 

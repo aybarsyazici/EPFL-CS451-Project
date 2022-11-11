@@ -1,6 +1,7 @@
 package cs451;
 
 import cs451.broadcast.BestEffortBroadcast;
+import cs451.broadcast.UniformReliableBroadcast;
 import cs451.links.PerfectLinks;
 import cs451.Message.Message;
 
@@ -16,7 +17,7 @@ import java.util.concurrent.locks.ReentrantLock;
 
 public class Process implements Deliverer, Logger{
     private final byte id;
-    private final BestEffortBroadcast broadcast;
+    private final UniformReliableBroadcast broadcast;
     private final String output;
 
     private final ConcurrentLinkedQueue<String> logs;
@@ -42,7 +43,7 @@ public class Process implements Deliverer, Logger{
         logs = new ConcurrentLinkedQueue<>();
         this.hostSize = hostList.size();
         this.writing = new AtomicBoolean(false);
-        this.broadcast = new BestEffortBroadcast(id, port, hostList, extraMemory, slidingWindowSize, this, this);
+        this.broadcast = new UniformReliableBroadcast(id, port, hostList, slidingWindowSize, this, this);
         // Copy logs to a new queue
         // Dequeue from logs and write to file
         logChecker = new Timer();
