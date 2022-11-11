@@ -70,6 +70,7 @@ public class BestEffortBroadcast  implements Deliverer, Acknowledger {
     public void rebroadcast(Message message){
         for(byte hostId : hosts.keySet()){
             if(hostId == id) continue;
+            if(hostId == message.getOriginalSender()) continue; // Don't send to the original sender
             Message newMessage = new Message(message, id, hostId, false);
             perfectLinks.send(newMessage, hosts.get(hostId));
         }

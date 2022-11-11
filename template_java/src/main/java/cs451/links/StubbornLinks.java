@@ -172,7 +172,7 @@ public class StubbornLinks implements Deliverer {
                         acknowledger.slideSendWindow(originalMessage.getReceiverId());
                     }
                     count += 1;
-                    if (count % 5000 == 0) {
+                    if (count % 1000 == 0) {
                         System.out.println("Sent " + count + " messages.");
                     }
                 }

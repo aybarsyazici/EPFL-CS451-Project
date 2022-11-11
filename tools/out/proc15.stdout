@@ -1,0 +1,495 @@
+My PID: 29895
+
+From a new terminal type `kill -SIGINT 29895` or `kill -SIGTERM 29895` to stop processing packets
+
+OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/out/proc15.output
+My ID: 15
+
+List of resolved hosts is:
+==========================
+0
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11001
+
+1
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11002
+
+2
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11003
+
+3
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11004
+
+4
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11005
+
+5
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11006
+
+6
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11007
+
+7
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11008
+
+8
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11009
+
+9
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11010
+
+10
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11011
+
+11
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11012
+
+12
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11013
+
+13
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11014
+
+14
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11015
+
+Sliding window size: 15000
+UDPReceiver: Created socket on port 11015
+THREAD NUMBER: 10
+15
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11016
+
+16
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11017
+
+17
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11018
+
+18
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11019
+
+19
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11020
+
+
+Path to output:
+===============
+/Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/out/proc15.output
+
+Deleted old output file: false
+
+Path to config:
+===============
+./out/config
+
+===============
+Doing some initialization
+
+Broadcasting and delivering messages...
+
+Number of messages: 16000
+Process ID: 15
+Process 14 received 5000 messages
+Process 14 received 10000 messages
+Process 14 received 15000 messages
+Process 14 received 20000 messages
+Process 14 received 25000 messages
+Process 14 received 30000 messages
+Process 14 received 35000 messages
+Process 14 received 40000 messages
+Process 14 received 45000 messages
+Sent 1000 messages.
+Sent 2000 messages.
+Process 14 received 50000 messages
+Process 14 received 55000 messages
+Sent 3000 messages.
+Process 14 received 60000 messages
+Sent 4000 messages.
+Process 14 received 65000 messages
+Process 14 received 70000 messages
+Sent 5000 messages.
+Sent 6000 messages.
+Sent 7000 messages.
+Sent 8000 messages.
+Sent 9000 messages.
+Sent 10000 messages.
+Sent 11000 messages.
+Sent 12000 messages.
+Sent 13000 messages.
+Sent 14000 messages.
+Sent 15000 messages.
+Sent 16000 messages.
+Sent 17000 messages.
+Sent 18000 messages.
+Sent 19000 messages.
+Sent 20000 messages.
+Sent 21000 messages.
+Process 14 received 75000 messages
+Process 14 received 80000 messages
+Sent 22000 messages.
+Process 14 received 85000 messages
+Sent 23000 messages.
+Sent 24000 messages.
+Process 14 received 90000 messages
+Sent 25000 messages.
+Process 14 received 95000 messages
+Sent 26000 messages.
+Sent 27000 messages.
+Process 14 received 100000 messages
+Sent 28000 messages.
+Process 14 received 105000 messages
+Sent 29000 messages.
+Sent 30000 messages.
+Sent 31000 messages.
+Process 14 received 110000 messages
+Process 14 received 115000 messages
+Sent 32000 messages.
+Sent 33000 messages.
+Sent 34000 messages.
+Sent 35000 messages.
+Sent 36000 messages.
+Sent 37000 messages.
+Process 14 received 120000 messages
+Sent 38000 messages.
+Sent 39000 messages.
+Sent 40000 messages.
+Sent 41000 messages.
+Sent 42000 messages.
+Sent 43000 messages.
+Sent 44000 messages.
+Sent 45000 messages.
+Sent 46000 messages.
+Sent 47000 messages.
+Sent 48000 messages.
+Sent 49000 messages.
+Sent 50000 messages.
+Sent 51000 messages.
+Sent 52000 messages.
+Sent 53000 messages.
+Sent 54000 messages.
+Sent 55000 messages.
+Process 14 received 125000 messages
+Process 14 received 130000 messages
+Process 14 received 135000 messages
+Sent 56000 messages.
+Sent 57000 messages.
+Process 14 received 140000 messages
+Sent 58000 messages.
+Sent 59000 messages.
+Sent 60000 messages.
+Sent 61000 messages.
+Sent 62000 messages.
+Sent 63000 messages.
+Sent 64000 messages.
+Sent 65000 messages.
+Sent 66000 messages.
+Sent 67000 messages.
+Sent 68000 messages.
+Sent 69000 messages.
+Sent 70000 messages.
+Sent 71000 messages.
+Process 14 received 145000 messages
+Sent 72000 messages.
+Sent 73000 messages.
+Sent 74000 messages.
+Sent 75000 messages.
+Process 14 received 150000 messages
+Sent 76000 messages.
+Sent 77000 messages.
+Sent 78000 messages.
+Process 14 received 155000 messages
+Process 14 received 160000 messages
+Sent 79000 messages.
+Sent 80000 messages.
+Sent 81000 messages.
+Sent 82000 messages.
+Sent 83000 messages.
+Sent 84000 messages.
+Process 14 received 165000 messages
+Process 14 received 170000 messages
+Sent 85000 messages.
+Sent 86000 messages.
+Sent 87000 messages.
+Sent 88000 messages.
+Sent 89000 messages.
+Process 14 received 175000 messages
+Sent 90000 messages.
+Sent 91000 messages.
+Sent 92000 messages.
+Sent 93000 messages.
+Sent 94000 messages.
+Sent 95000 messages.
+Sent 96000 messages.
+Sent 97000 messages.
+Process 14 received 180000 messages
+Sent 98000 messages.
+Process 14 received 185000 messages
+Process 14 received 190000 messages
+Sent 99000 messages.
+Sent 100000 messages.
+Sent 101000 messages.
+Sent 102000 messages.
+Sent 103000 messages.
+Sent 104000 messages.
+Sent 105000 messages.
+Sent 106000 messages.
+Sent 107000 messages.
+Sent 108000 messages.
+Sent 109000 messages.
+Sent 110000 messages.
+Sent 111000 messages.
+Sent 112000 messages.
+Sent 113000 messages.
+Sent 114000 messages.
+Sent 115000 messages.
+Sent 116000 messages.
+Sent 117000 messages.
+Sent 118000 messages.
+Sent 119000 messages.
+Sent 120000 messages.
+Process 14 received 195000 messages
+Process 14 received 200000 messages
+Sent 121000 messages.
+Sent 122000 messages.
+Sent 123000 messages.
+Sent 124000 messages.
+Sent 125000 messages.
+Sent 126000 messages.
+Sent 127000 messages.
+Sent 128000 messages.
+Process 14 received 205000 messages
+Sent 129000 messages.
+Sent 130000 messages.
+Sent 131000 messages.
+Process 14 received 210000 messages
+Sent 132000 messages.
+Sent 133000 messages.
+Sent 134000 messages.
+Process 14 received 215000 messages
+Sent 135000 messages.
+Sent 136000 messages.
+Sent 137000 messages.
+Sent 138000 messages.
+Sent 139000 messages.
+Sent 140000 messages.
+Sent 141000 messages.
+Sent 142000 messages.
+Sent 143000 messages.
+Sent 144000 messages.
+Sent 145000 messages.
+Sent 146000 messages.
+Sent 147000 messages.
+Sent 148000 messages.
+Sent 149000 messages.
+Sent 150000 messages.
+Sent 151000 messages.
+Sent 152000 messages.
+Sent 153000 messages.
+Sent 154000 messages.
+Sent 155000 messages.
+Sent 156000 messages.
+Sent 157000 messages.
+Sent 158000 messages.
+Process 14 received 220000 messages
+Process 14 received 225000 messages
+Sent 159000 messages.
+Process 14 received 230000 messages
+Sent 160000 messages.
+Sent 161000 messages.
+Sent 162000 messages.
+Sent 163000 messages.
+Sent 164000 messages.
+Sent 165000 messages.
+Sent 166000 messages.
+Process 14 received 235000 messages
+Sent 167000 messages.
+Sent 168000 messages.
+Sent 169000 messages.
+Sent 170000 messages.
+Process 14 received 240000 messages
+Sent 171000 messages.
+Sent 172000 messages.
+Sent 173000 messages.
+Sent 174000 messages.
+Sent 175000 messages.
+Sent 176000 messages.
+Sent 177000 messages.
+Sent 178000 messages.
+Process 14 received 245000 messages
+Sent 179000 messages.
+Sent 180000 messages.
+Sent 181000 messages.
+Sent 182000 messages.
+Sent 183000 messages.
+Sent 184000 messages.
+Sent 185000 messages.
+Sent 186000 messages.
+Process 14 received 250000 messages
+Sent 187000 messages.
+Sent 188000 messages.
+Sent 189000 messages.
+Sent 190000 messages.
+Sent 191000 messages.
+Sent 192000 messages.
+Sent 193000 messages.
+Sent 194000 messages.
+Sent 195000 messages.
+Sent 196000 messages.
+Sent 197000 messages.
+Sent 198000 messages.
+Sent 199000 messages.
+Sent 200000 messages.
+Process 14 received 255000 messages
+Sent 201000 messages.
+Sent 202000 messages.
+Sent 203000 messages.
+Sent 204000 messages.
+Sent 205000 messages.
+Sent 206000 messages.
+Process 14 received 260000 messages
+Sent 207000 messages.
+Sent 208000 messages.
+Sent 209000 messages.
+Sent 210000 messages.
+Sent 211000 messages.
+Sent 212000 messages.
+Sent 213000 messages.
+Sent 214000 messages.
+Sent 215000 messages.
+Sent 216000 messages.
+Sent 217000 messages.
+Sent 218000 messages.
+Sent 219000 messages.
+Sent 220000 messages.
+Sent 221000 messages.
+Sent 222000 messages.
+Process 14 received 265000 messages
+Sent 223000 messages.
+Sent 224000 messages.
+Sent 225000 messages.
+Sent 226000 messages.
+Process 14 received 270000 messages
+Sent 227000 messages.
+Sent 228000 messages.
+Sent 229000 messages.
+Sent 230000 messages.
+Sent 231000 messages.
+Sent 232000 messages.
+Sent 233000 messages.
+Sent 234000 messages.
+Sent 235000 messages.
+Sent 236000 messages.
+Process 14 received 275000 messages
+Sent 237000 messages.
+Sent 238000 messages.
+Sent 239000 messages.
+Sent 240000 messages.
+Sent 241000 messages.
+Sent 242000 messages.
+Sent 243000 messages.
+Sent 244000 messages.
+Sent 245000 messages.
+Sent 246000 messages.
+Process 14 received 280000 messages
+Sent 247000 messages.
+Sent 248000 messages.
+Sent 249000 messages.
+Sent 250000 messages.
+Sent 251000 messages.
+Sent 252000 messages.
+Sent 253000 messages.
+Sent 254000 messages.
+Sent 255000 messages.
+Sent 256000 messages.
+Sent 257000 messages.
+Sent 258000 messages.
+Sent 259000 messages.
+Sent 260000 messages.
+Sent 261000 messages.
+Sent 262000 messages.
+Sent 263000 messages.
+Sent 264000 messages.
+Sent 265000 messages.
+Sent 266000 messages.
+Sent 267000 messages.
+Sent 268000 messages.
+Sent 269000 messages.
+Sent 270000 messages.
+Sent 271000 messages.
+Sent 272000 messages.
+Sent 273000 messages.
+Sent 274000 messages.
+Sent 275000 messages.
+Sent 276000 messages.
+Sent 277000 messages.
+Sent 278000 messages.
+Sent 279000 messages.
+Process 14 received 285000 messages
+Sent 280000 messages.
+Sent 281000 messages.
+Sliding window of 6 is increased by 1.
+Sliding window of 16 is increased by 1.
+Sent 282000 messages.
+Sent 283000 messages.
+Sliding window of 11 is increased by 1.
+Sent 284000 messages.
+Sliding window of 15 is increased by 1.
+Sent 285000 messages.
+Sliding window of 0 is increased by 1.
+Process 14 received 290000 messages
+Sent 286000 messages.
+Sliding window of 3 is increased by 1.
+Sliding window of 18 is increased by 1.
+Sent 287000 messages.
+Sliding window of 2 is increased by 1.
+Sent 288000 messages.
+Sliding window of 7 is increased by 1.
+Process 14 received 295000 messages
+Sent 289000 messages.
+Sliding window of 8 is increased by 1.
+Sent 290000 messages.
+Sliding window of 17 is increased by 1.
+Sent 291000 messages.
+Sent 292000 messages.
+Sliding window of 19 is increased by 1.
+Process 14 received 300000 messages
+Sliding window of 5 is increased by 1.
+Sent 293000 messages.
+Sent 294000 messages.
+Sliding window of 9 is increased by 1.
+Sent 295000 messages.
+Sent 296000 messages.
+Sliding window of 12 is increased by 1.
+Sent 297000 messages.
+Sent 298000 messages.
+Sliding window of 1 is increased by 1.
+Sent 299000 messages.
+Sent 300000 messages.
+Sliding window of 10 is increased by 1.
+Sliding window of 4 is increased by 1.
+Sent 301000 messages.
+Sent 302000 messages.
+Sliding window of 13 is increased by 1.
+Sent 303000 messages.
+Sent 304000 messages.
+Immediately stopping network packet processing.
+Writing output.

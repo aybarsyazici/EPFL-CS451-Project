@@ -48,15 +48,14 @@ public class UniformReliableBroadcast implements Deliverer {
     public void deliver(Message message) {
         deliverer.deliver(message);
         // this.confirmDeliver(message);
-        // beb.rebroadcast(message); // I deliver the message so I need to broadcast it
+        beb.rebroadcast(message); // I deliver the message so I need to broadcast it
     }
 
     @Override
     public void confirmDeliver(Message message){
-        Map.Entry key = new AbstractMap.SimpleEntry<>(message.getOriginalSender(), message.getId());
+        Map.Entry<Byte, Integer> key = new AbstractMap.SimpleEntry<>(message.getOriginalSender(), message.getId());
         this.pending.computeIfAbsent(key, k -> new HashSet<>());
         if(this.pending.get(key).add(message.getSenderId())){
-            // System.out.println("Confirmed " + message.getSenderId() + " received message " + message.getId() + " from " + message.getOriginalSender());
             if(this.pending.get(key).size() >= (hostSize/2)){
                 this.deliverer.deliver(message);
                 this.pending.get(key).clear();

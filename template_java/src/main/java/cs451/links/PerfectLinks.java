@@ -82,6 +82,9 @@ public class PerfectLinks implements Deliverer {
                 }
             }
         }
+//        if(message.getOriginalSender() != message.getSenderId()){
+//            confirmDeliver(message);
+//        }
     }
 
     @Override
