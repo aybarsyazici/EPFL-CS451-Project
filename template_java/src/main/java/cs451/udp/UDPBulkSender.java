@@ -14,18 +14,17 @@ public class UDPBulkSender extends Thread{
     private int port;
     private UDPObserver observer;
     private byte[] buffer;
-    private byte receiverId;
-    private List<Integer> messageIds;
+    private MessagePackage messagePackage;
 
-    public UDPBulkSender(String ip, int port, byte receiverId, byte[] buffer, List<Integer> messageIds, DatagramSocket socket, UDPObserver udpObserver) {
+    public UDPBulkSender(String ip, int port, MessagePackage messagePackage, DatagramSocket socket, UDPObserver udpObserver) {
         try {
             this.port = port;
             this.address = InetAddress.getByName(ip);
             this.socket = socket;
-            this.buffer = buffer;
             this.observer = udpObserver;
-            this.receiverId = receiverId;
-            this.messageIds = messageIds;
+            this.messagePackage = messagePackage;
+            this.buffer = this.messagePackage.toBytes();
+
         }
         catch (Exception e){
             e.printStackTrace();
@@ -40,10 +39,13 @@ public class UDPBulkSender extends Thread{
         catch (Exception e){
             e.printStackTrace();
         }
-        for(int msgId: messageIds) {
-            observer.onUDPSenderExecuted(receiverId, msgId);
+        // System.out.println("Sent messages length: " + this.messagePackage.getMessages().size());
+        for(Message message: this.messagePackage.getMessages()) {
+            observer.onUDPSenderExecuted(message);
+            // System.out.println("Sent message " + message);
         }
         buffer = null;
+        messagePackage = null;
     }
 
     public void close(){

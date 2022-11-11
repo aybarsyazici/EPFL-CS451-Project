@@ -134,6 +134,9 @@ public class Process implements Deliverer, Logger{
         }
     }
 
+    @Override
+    public void confirmDeliver(Message message){} // Not used
+
 
     private int calcWindowSize(int hostSize){
         //return Math.min(255000/hostSize, 2000);

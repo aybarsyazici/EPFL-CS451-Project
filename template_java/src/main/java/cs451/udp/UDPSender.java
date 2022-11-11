@@ -12,6 +12,7 @@ public class UDPSender extends Thread{
     private InetAddress address;
     private int port;
     private byte[] buf;
+    private Message message;
 
     private UDPObserver observer;
     private int messageId;
@@ -30,6 +31,7 @@ public class UDPSender extends Thread{
             this.buf = message.toByteArray();
             this.messageId = message.getId();
             this.receiverId = message.getReceiverId();
+            this.message = message;
             this.observer = udpObserver;
         }
         catch (Exception e){
@@ -45,7 +47,7 @@ public class UDPSender extends Thread{
         catch (Exception e){
             e.printStackTrace();
         }
-        observer.onUDPSenderExecuted(this.receiverId, this.messageId);
+        observer.onUDPSenderExecuted(this.message);
         buf = null;
     }
 

@@ -60,13 +60,19 @@ public class BestEffortBroadcast  implements Deliverer, Acknowledger {
             if(sleep){
                 try {
                     Runtime.getRuntime().gc();
-                    Thread.sleep(200);
+                    Thread.sleep(1000);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
         }
-
+    }
+    public void rebroadcast(Message message){
+        for(byte hostId : hosts.keySet()){
+            if(hostId == id) continue;
+            Message newMessage = new Message(message, id, hostId, false);
+            perfectLinks.send(newMessage, hosts.get(hostId));
+        }
     }
 
     @Override
@@ -94,5 +100,10 @@ public class BestEffortBroadcast  implements Deliverer, Acknowledger {
     @Override
     public void deliver(Message message) {
         deliverer.deliver(message);
+    }
+
+    @Override
+    public void confirmDeliver(Message message){
+        deliverer.confirmDeliver(message);
     }
 }

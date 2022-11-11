@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MessagePackage implements Serializable {
-    private List<Message> messages;
+    private final List<Message> messages;
 
     public MessagePackage(){
         this.messages = new ArrayList<>();
@@ -46,7 +46,7 @@ public class MessagePackage implements Serializable {
     }
 
     public List<Message> getMessages(){
-        return messages;
+        return this.messages;
     }
 
     // get all message ids
@@ -60,5 +60,14 @@ public class MessagePackage implements Serializable {
 
     public int size(){
         return messages.size();
+    }
+
+    // Create copy of message package
+    public MessagePackage copy(){
+        List<Message> messagesCopy = new ArrayList<>();
+        for(Message message : messages){
+            messagesCopy.add(message.copy());
+        }
+        return new MessagePackage(messagesCopy);
     }
 }

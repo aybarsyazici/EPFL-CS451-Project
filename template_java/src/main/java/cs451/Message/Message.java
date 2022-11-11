@@ -3,6 +3,7 @@ package cs451.Message;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
+import java.util.Objects;
 
 public class Message implements Serializable {
     public static final int BYTE_SIZE = 8;
@@ -36,6 +37,14 @@ public class Message implements Serializable {
         this.ack = true;
     }
 
+    public Message(Message message, byte newSender, byte newReceiver, Boolean ack){
+        this.id = message.getId();
+        this.senderId = newSender;
+        this.receiverId = newReceiver;
+        this.originalSender = message.getOriginalSender();
+        this.ack = ack;
+    }
+
     public int getId() {
         return id;
     }
@@ -55,6 +64,7 @@ public class Message implements Serializable {
         return ack;
     }
 
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -62,7 +72,16 @@ public class Message implements Serializable {
 
         Message message = (Message) o;
 
-        return id == message.getId() && originalSender == message.getOriginalSender();
+        return id == message.getId()
+                && originalSender == message.getOriginalSender()
+                && senderId == message.getSenderId()
+                && receiverId == message.getReceiverId()
+                && ack == message.isAckMessage();
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(this.id, this.originalSender, this.getSenderId(), this.getReceiverId(), this.ack);
     }
 
     @Override
@@ -92,6 +111,15 @@ public class Message implements Serializable {
         byte originalSender = buffer.get();
         byte ack = buffer.get();
         return new Message(id, senderId, receiverId, originalSender, ack == 1);
+    }
+
+    public Message swapSenderReceiver(){
+        return new Message(this.id, this.receiverId, this.senderId, this.originalSender, false);
+    }
+
+    // Copy message
+    public Message copy(){
+        return new Message(this.id, this.senderId, this.receiverId, this.originalSender, this.ack);
     }
 
 }

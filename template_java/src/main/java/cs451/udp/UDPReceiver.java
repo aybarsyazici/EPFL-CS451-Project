@@ -38,15 +38,15 @@ public class UDPReceiver extends Thread{
         running = true;
         while(running){
             try {
-                usedMemory.set(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
-                if (usedMemory.get() >= maxMemory){
-                    count++;
-                    if(count==5){
-                        count = 0;
-                        Runtime.getRuntime().gc();
-                    }
-                    continue;
-                }
+//                usedMemory.set(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
+//                if (usedMemory.get() >= maxMemory){
+//                    count++;
+//                    if(count==5){
+//                        count = 0;
+//                        Runtime.getRuntime().gc();
+//                    }
+//                    continue;
+//                }
                 socket.receive(packet);
                 MessagePackage messagePackage = MessagePackage.fromBytes(packet.getData());
                 for(Message message : messagePackage.getMessages()){

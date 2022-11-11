@@ -18,7 +18,7 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     private final UDPReceiver receiver;
     private final Deliverer deliverer;
     private final ExecutorService pool;
-    private final ConcurrentHashMap<Map.Entry<Byte,Integer>, Boolean> messagesInTheQueue;
+    private final ConcurrentHashMap<Message, Boolean> messagesInTheQueue;
     private final DatagramSocket[] sockets;
     // These sockets will be used by udp senders to send messages, each udp sender runs in a separate thread
     // and each thread has its own socket
@@ -51,15 +51,13 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     void send(MessagePackage messagePackage, Host host){ // Create a new sender and send message
         int socketId = ThreadLocalRandom.current().nextInt(sockets.length); // Choose a socket to send the message
         for (Message message : messagePackage.getMessages()){
-            messagesInTheQueue.put(Map.entry(message.getReceiverId(), message.getId()), true);
+            messagesInTheQueue.put(message, true);
         }
         pool.submit(
                 new UDPBulkSender(
                         host.getIp(),
                         host.getPort(),
-                        (byte)host.getId(),
-                        messagePackage.toBytes(),
-                        messagePackage.getMessageIds(),
+                        messagePackage.copy(),
                         sockets[socketId],
                         this));
     }
@@ -85,18 +83,20 @@ public class FairLossLinks implements Deliverer, UDPObserver {
         return tasksToDo >= THREAD_NUMBER*5;
     }
 
-    Boolean isInQueue(byte receiverId, int messageId){
-        return messagesInTheQueue.containsKey(Map.entry(receiverId, messageId));
+    Boolean isInQueue(Message message){
+        return messagesInTheQueue.containsKey(message);
     }
 
     @Override
     public void deliver(Message message) {
         deliverer.deliver(message);
     }
-
     @Override
-    public void onUDPSenderExecuted(byte receiverId, int messageId) {
+    public void confirmDeliver(Message message){}
+    @Override
+    public void onUDPSenderExecuted(Message message) {
         // System.out.println("Message with id: " + messageId + " has been sent.");
-        messagesInTheQueue.remove(Map.entry(receiverId, messageId));
+        messagesInTheQueue.remove(message);
+
     }
 }

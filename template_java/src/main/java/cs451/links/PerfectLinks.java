@@ -23,7 +23,7 @@ public class PerfectLinks implements Deliverer {
                         boolean extraMemory,
                         Acknowledger acknowledger,
                         int messageCount) {
-        this.stubbornLinks = new StubbornLinks(port, this, hosts.size(), slidingWindowSize, extraMemory, acknowledger, messageCount);
+        this.stubbornLinks = new StubbornLinks(port, hosts, this, hosts.size(), slidingWindowSize, extraMemory, acknowledger, messageCount);
         this.slidingWindowSize = slidingWindowSize;
         this.hosts = hosts;
         this.deliverer = deliverer;
@@ -33,7 +33,7 @@ public class PerfectLinks implements Deliverer {
         for(int i = 0; i < hosts.size(); i++){
             this.slidingWindowStart[i] = 0;
             this.deliveredMessageCount[i] = 0;
-            this.delivered[i] = new HashSet();
+            this.delivered[i] = new HashSet<>();
         }
     }
 
@@ -61,7 +61,7 @@ public class PerfectLinks implements Deliverer {
                 send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
             }
         }
-        if(message.getId() > slidingWindowStart[message.getOriginalSender()] && message.getId() <= slidingWindowStart[message.getOriginalSender()] + slidingWindowSize){
+        else if(message.getId() > slidingWindowStart[message.getOriginalSender()] && message.getId() <= slidingWindowStart[message.getOriginalSender()] + slidingWindowSize){
             send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
             if(message.getOriginalSender() != message.getSenderId()){
                 send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
@@ -70,11 +70,8 @@ public class PerfectLinks implements Deliverer {
                 deliverer.deliver(message);
                 delivered[message.getOriginalSender()].add(message.getId());
                 deliveredMessageCount[message.getOriginalSender()] += 1;
-                if(deliveredMessageCount[message.getOriginalSender()] < slidingWindowSize){
-                    return;
-                }
                 // Check if this process has delivered all the messages in the sliding window
-                if(delivered[message.getOriginalSender()].size() == slidingWindowSize){
+                if(delivered[message.getOriginalSender()].size() >= slidingWindowSize){
                     // If yes, then increment the sliding window start
                     slidingWindowStart[message.getOriginalSender()] += slidingWindowSize;
                     // printSlidingWindows();
@@ -86,6 +83,9 @@ public class PerfectLinks implements Deliverer {
             }
         }
     }
+
+    @Override
+    public void confirmDeliver(Message message){}
 
     private void printSlidingWindows(){
         System.out.print("{ ");

@@ -1,5 +1,7 @@
 package cs451.udp;
 
+import cs451.Message.Message;
+
 public interface UDPObserver {
-    void onUDPSenderExecuted(byte receiverId, int messageId);
+    void onUDPSenderExecuted(Message message);
 }

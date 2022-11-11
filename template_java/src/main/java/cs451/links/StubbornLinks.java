@@ -10,7 +10,6 @@ import cs451.Message.MessagePackage;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicLong;
 
 public class StubbornLinks implements Deliverer {
     private final FairLossLinks fairLoss;
@@ -19,27 +18,24 @@ public class StubbornLinks implements Deliverer {
     private final int[] messagesDelivered;
 
     private final int slidingWindowSize;
-    private final ConcurrentHashMap<Byte, ConcurrentHashMap<Integer,MessageExtension>> messageToBeSent;
-    private final ConcurrentHashMap<Byte, ConcurrentHashMap<Integer,MessageExtension>> ackMessagesToBeSent;
+    private final ConcurrentHashMap<Byte, ConcurrentHashMap<Message, Boolean>> messageToBeSent;
+    private final ConcurrentHashMap<Byte, ConcurrentHashMap<Message, Boolean>> ackMessagesToBeSent;
     private int count;
-    // We need to keep the list of the messages we have already sent
-    // Pass through the array -> check if they have been received by the other end.
-    // if they are not received we send them again
-    // Repeat continuously till they have been acknowledged, i.e., received and delivered by the other end.
     private final Runnable msgSendThread;
     private final Runnable ackMsgSendThread;
     private final int maxMemory;
     private AtomicBoolean isRunning;
-    private final int messageCount;
+
+    private final HashMap<Byte, Host> hosts;
 
     Acknowledger acknowledger;
 
-    public StubbornLinks(int port, Deliverer deliverer, int hostSize, int slidingWindowSize, boolean extraMemory, Acknowledger acknowledger, int messageCount) {
+    public StubbornLinks(int port, HashMap<Byte, Host> hosts, Deliverer deliverer, int hostSize, int slidingWindowSize, boolean extraMemory, Acknowledger acknowledger, int messageCount) {
         this.maxMemory = 1800000000 / hostSize; // 200Mb is left for the non heap memories of the programs
         this.fairLoss = new FairLossLinks(port, this, hostSize, maxMemory, extraMemory);
         this.deliverer = deliverer;
+        this.hosts = hosts;
         this.acknowledger = acknowledger;
-        this.messageCount = messageCount;
         this.messageToBeSent = new ConcurrentHashMap<>();
         this.ackMessagesToBeSent = new ConcurrentHashMap<>();
         this.slidingWindows = new int[hostSize]; // Keep the sliding window of each host
@@ -57,14 +53,17 @@ public class StubbornLinks implements Deliverer {
         this.ackMsgSendThread = () -> {
             while(isRunning.get()){
                 try {
-                    for (var host : ackMessagesToBeSent.keySet()) {
-                        sendAckMessagesToBeSent(new ArrayList<>(ackMessagesToBeSent.get(host).values()));
+                    for (byte hostId : ackMessagesToBeSent.keySet()) {
+                        if(ackMessagesToBeSent.get(hostId).size() > 0){
+                            var temp = Collections.list(ackMessagesToBeSent.get(hostId).keys());
+                            sendAckMessagesToBeSent(temp, this.hosts.get(hostId));
+                        }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 try{
-                    Thread.sleep(100);
+                    Thread.sleep(200);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -74,14 +73,17 @@ public class StubbornLinks implements Deliverer {
         this.msgSendThread = () -> {
             while(isRunning.get()){
                 try {
-                    for (var host : messageToBeSent.keySet()) {
-                        sendMessagesToBeSent(new ArrayList<>(messageToBeSent.get(host).values()));
+                    for (byte hostId : messageToBeSent.keySet()) {
+                        if(messageToBeSent.get(hostId).size() > 0){
+                            var temp = Collections.list(messageToBeSent.get(hostId).keys());
+                            sendMessagesToBeSent(temp, this.hosts.get(hostId));
+                        }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 try{
-                    Thread.sleep(150);
+                    Thread.sleep(1000);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -90,30 +92,20 @@ public class StubbornLinks implements Deliverer {
         };
     }
 
-    private void sendMessagesToBeSent(ArrayList<MessageExtension> messages){
+    private void sendMessagesToBeSent(List<Message> messages, Host host){
         if(messages.size() == 0) return;
-        var usedMemory = new AtomicLong(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
-        if (usedMemory.get() > maxMemory) {
-            return;
-        }
         List<Message> messagesToSend = new ArrayList<>();
-        Host host = messages.get(0).getHost();
         (messages).
                 forEach(m -> {
-                    if (!fairLoss.isInQueue(m.getMessage().getReceiverId(),m.getMessage().getId())) {
-                        usedMemory.set(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
-                        if (usedMemory.get() > maxMemory) {
+                    if (!fairLoss.isInQueue(m)) {
+                        var slidingWindowSize = slidingWindows[m.getReceiverId()];
+                        if(m.getOriginalSender() == m.getSenderId() &&
+                                m.getId() > slidingWindowSize){
                             return;
                         }
-                        var slidingWindowSize = slidingWindows[m.getMessage().getReceiverId()];
-                        if(m.getMessage().getOriginalSender() == m.getMessage().getSenderId() &&
-                                m.getMessage().getId() > slidingWindowSize){
-                            // System.out.println("Message " + me.getMessage().getId() + " is not in the sliding window of " + me.getMessage().getReceiverId() + " which is " + slidingWindowSize);
-                            return;
-                        }
-                        messagesToSend.add(m.getMessage());
+                        messagesToSend.add(m);
                         if(messagesToSend.size() == 8){
-                            fairLoss.send(new MessagePackage(messagesToSend), m.getHost());
+                            fairLoss.send(new MessagePackage(messagesToSend), host);
                             messagesToSend.clear();
                         }
                     }
@@ -123,25 +115,21 @@ public class StubbornLinks implements Deliverer {
         }
     }
 
-    private void sendAckMessagesToBeSent(ArrayList<MessageExtension> messages) {
-        if (fairLoss.isQueueFull()) {
-            // System.out.println("Queue IS full.");
-            return;
-        }
+    private void sendAckMessagesToBeSent(List<Message> messages, Host host) {
         List<Message> messagesToSend = new ArrayList<>();
         (messages).
                 forEach(m -> {
-                    if (!fairLoss.isInQueue(m.getMessage().getReceiverId(),m.getMessage().getId())) {
-                        messagesToSend.add(m.getMessage());
-                        ackMessagesToBeSent.get(m.getMessage().getReceiverId()).remove(m.getMessage().getId());
+                    if (!fairLoss.isInQueue(m)){
+                        messagesToSend.add(m);
+                        ackMessagesToBeSent.get(m.getReceiverId()).remove(m);
                         if(messagesToSend.size() == 8){
-                            fairLoss.send(new MessagePackage(messagesToSend), m.getHost());
+                            fairLoss.send(new MessagePackage(messagesToSend), host);
                             messagesToSend.clear();
                         }
                     }
                 });
         if(messagesToSend.size() > 0){
-            fairLoss.send(new MessagePackage(messagesToSend), messages.get(0).getHost());
+            fairLoss.send(new MessagePackage(messagesToSend), host);
         }
     }
 
@@ -154,11 +142,11 @@ public class StubbornLinks implements Deliverer {
     public void send(Message message, Host host) {
         if (message.isAckMessage()) {
             ackMessagesToBeSent.computeIfAbsent(message.getReceiverId(), k -> new ConcurrentHashMap<>());
-            ackMessagesToBeSent.get(message.getReceiverId()).put(message.getId(), new MessageExtension(message, host));
+            ackMessagesToBeSent.get(message.getReceiverId()).put(message, true);
             return;
         }
         messageToBeSent.computeIfAbsent(message.getReceiverId(), k -> new ConcurrentHashMap<>());
-        messageToBeSent.get(message.getReceiverId()).put(message.getId(), new MessageExtension(message, host));
+        messageToBeSent.get(message.getReceiverId()).put(message, true);
     }
 
     public void stop() {
@@ -173,15 +161,15 @@ public class StubbornLinks implements Deliverer {
     @Override
     public void deliver(Message message) {
         if (message.isAckMessage()) { // I have sent this message and received it back.
-            messageToBeSent.computeIfAbsent(message.getSenderId(), k -> new ConcurrentHashMap<>());
-            if (messageToBeSent.get(message.getSenderId()).containsKey(message.getId())) {
-                messageToBeSent.get(message.getSenderId()).remove(message.getId());
-                if(message.getOriginalSender() == message.getReceiverId()){
-                    messagesDelivered[message.getSenderId()]++; // Successfully delivered this message.
-                    if(messagesDelivered[message.getSenderId()] >= slidingWindows[message.getSenderId()]){
-                        System.out.println("Sliding window of " + message.getSenderId() + " is increased by 1.");
-                        slidingWindows[message.getSenderId()] += this.slidingWindowSize;
-                        acknowledger.slideSendWindow(message.getSenderId());
+            Message originalMessage = message.swapSenderReceiver();
+            if (messageToBeSent.get(originalMessage.getReceiverId()).containsKey(originalMessage)) {
+                messageToBeSent.get(originalMessage.getReceiverId()).remove(originalMessage);
+                if(originalMessage.getOriginalSender() == originalMessage.getSenderId()){ // I am the original sender
+                    messagesDelivered[originalMessage.getReceiverId()]++; // Successfully delivered this message.
+                    if(messagesDelivered[originalMessage.getReceiverId()] >= slidingWindows[originalMessage.getReceiverId()]){
+                        System.out.println("Sliding window of " + originalMessage.getReceiverId() + " is increased by 1.");
+                        slidingWindows[originalMessage.getReceiverId()] += this.slidingWindowSize;
+                        acknowledger.slideSendWindow(originalMessage.getReceiverId());
                     }
                     count += 1;
                     if (count % 5000 == 0) {
@@ -193,4 +181,6 @@ public class StubbornLinks implements Deliverer {
             deliverer.deliver(message);
         }
     }
+    @Override
+    public void confirmDeliver(Message message){}
 }
