@@ -57,7 +57,7 @@ public class UniformReliableBroadcast implements Deliverer {
         Map.Entry<Byte, Integer> key = new AbstractMap.SimpleEntry<>(message.getOriginalSender(), message.getId());
         this.pending.computeIfAbsent(key, k -> new HashSet<>());
         if(this.pending.get(key).add(message.getSenderId())){
-            if(this.pending.get(key).size() >= (hostSize/2)){
+            if(this.pending.get(key).size() >= (hostSize/2)-1){
                 /* TODO: Carry this part into PerfectLinks to save some memory
                  * Currently, Perfect Links delivers all of the rebroadcasts without checking if it has already delivered the message
                  * So we need this delivered map here to prevent delivering the same message multiple times
