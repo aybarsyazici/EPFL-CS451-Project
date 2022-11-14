@@ -1,8 +1,8 @@
 package cs451;
 
-import cs451.broadcast.BestEffortBroadcast;
 import cs451.broadcast.UniformReliableBroadcast;
-import cs451.links.PerfectLinks;
+import cs451.interfaces.Deliverer;
+import cs451.interfaces.Logger;
 import cs451.Message.Message;
 
 import java.io.FileOutputStream;
@@ -10,12 +10,10 @@ import java.io.IOException;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicBoolean;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.concurrent.atomic.AtomicIntegerArray;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Process implements Deliverer, Logger{
+public class Process implements Logger {
     private final byte id;
     private final UniformReliableBroadcast broadcast;
     private final String output;
@@ -51,7 +49,7 @@ public class Process implements Deliverer, Logger{
             @Override
             public void run() {
                 try {
-                    if (logs.size() > 3000000/ hostSize && !writing.get()) {
+                    if (logs.size() > 5000 && !writing.get()) {
                         writing.compareAndSet(false, true);
                         // Copy logs to a new queue
                         lock.lock();
@@ -122,21 +120,16 @@ public class Process implements Deliverer, Logger{
         return writing.get();
     }
 
-    @Override
-    public void deliver(Message message) {
+    public void processDeliver(byte sender, int messageId) {
         // System.out.println("HELLO! I'm process " + id + " and I received message: " + message);
         lock.lock();
-        logs.add("d " + (message.getOriginalSender()+1) + " " + message.getId() + "\n");
+        logs.add("d " + (sender+1) + " " + messageId + "\n");
         lock.unlock();
         count += 1;
         if(count % 5000 == 0){
             System.out.println("Process " + id + " received " + count + " messages");
         }
     }
-
-    @Override
-    public void confirmDeliver(Message message){} // Not used
-
 
     private int calcWindowSize(int hostSize){
         // removed all the old code

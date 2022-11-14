@@ -1,29 +1,31 @@
 package cs451.broadcast;
 
-import cs451.Deliverer;
+import cs451.Process;
+import cs451.interfaces.Deliverer;
 import cs451.Host;
-import cs451.Logger;
+import cs451.interfaces.Logger;
 import cs451.Message.Message;
+import cs451.interfaces.UniformDeliverer;
 
 import java.util.*;
 
-public class UniformReliableBroadcast implements Deliverer {
+public class UniformReliableBroadcast implements UniformDeliverer {
     private final byte id;
     private int messageCount;
     private final BestEffortBroadcast beb;
     private final HashMap<Map.Entry<Byte, Integer>, HashSet<Byte>> pending;
     private final HashSet<Map.Entry<Byte,Integer>> delivered;
     private final Logger logger;
-    private final Deliverer deliverer;
+    private final Process process;
 
     private final int hostSize;
 
 
-    public UniformReliableBroadcast(byte id, int port, List<Host> hostList, int slidingWindowSize, Logger logger, Deliverer deliverer){
+    public UniformReliableBroadcast(byte id, int port, List<Host> hostList, int slidingWindowSize, Logger logger, Process process){
         this.id = id;
         this.logger = logger;
         this.hostSize = hostList.size();
-        this.deliverer = deliverer;
+        this.process = process;
         this.delivered = new HashSet<>();
         this.pending = new HashMap<>();
         HashMap<Byte, Host> hostMap = new HashMap<>();
@@ -48,27 +50,11 @@ public class UniformReliableBroadcast implements Deliverer {
 
     @Override
     public void deliver(Message message) {
-        this.confirmDeliver(message);
         beb.rebroadcast(message); // I deliver the message so I need to broadcast it
     }
 
     @Override
-    public void confirmDeliver(Message message){
-        Map.Entry<Byte, Integer> key = new AbstractMap.SimpleEntry<>(message.getOriginalSender(), message.getId());
-        this.pending.computeIfAbsent(key, k -> new HashSet<>());
-        if(this.pending.get(key).add(message.getSenderId())){
-            if(this.pending.get(key).size() >= (hostSize/2)){
-                /* TODO: Carry this part into PerfectLinks to save some memory
-                 * Currently, Perfect Links delivers all of the rebroadcasts without checking if it has already delivered the message
-                 * So we need this delivered map here to prevent delivering the same message multiple times
-                 * Thus, our TODO is that, Perfect Links should also check if the rebroadcast of that message has been delivered as well not just the original message
-                 * */
-                if(this.delivered.add(key)){
-                    this.deliverer.deliver(message);
-                }
-                this.pending.get(key).clear();
-                this.pending.remove(key);
-            }
-        }
+    public void uniformDeliver(byte originalSender, int messageId) {
+        process.processDeliver(originalSender, messageId);
     }
 }

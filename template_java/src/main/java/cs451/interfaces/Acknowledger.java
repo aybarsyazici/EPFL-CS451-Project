@@ -1,4 +1,4 @@
-package cs451;
+package cs451.interfaces;
 
 public interface Acknowledger {
     void slideSendWindow(byte destinationId);

@@ -1,6 +1,6 @@
 package cs451.udp;
 
-import cs451.Deliverer;
+import cs451.interfaces.Deliverer;
 import cs451.Message.Message;
 import cs451.Message.MessagePackage;
 

@@ -1,21 +1,19 @@
 package cs451.broadcast;
 
-import cs451.Acknowledger;
-import cs451.Deliverer;
+import cs451.interfaces.Acknowledger;
+import cs451.interfaces.Deliverer;
 import cs451.Host;
-import cs451.Logger;
 import cs451.Message.Message;
+import cs451.interfaces.UniformDeliverer;
 import cs451.links.PerfectLinks;
 
 import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
-public class BestEffortBroadcast  implements Deliverer, Acknowledger {
+public class BestEffortBroadcast  implements Acknowledger {
     private PerfectLinks perfectLinks;
 
-    private Deliverer deliverer;
+    private UniformDeliverer uniformDeliverer;
     private byte id;
     private int[] lastSentMessageId;
 
@@ -25,9 +23,8 @@ public class BestEffortBroadcast  implements Deliverer, Acknowledger {
 
     private final HashMap<Byte, Host> hosts;
 
-    public BestEffortBroadcast(byte id, int port, HashMap<Byte, Host> hosts, boolean extraMemory, int slidingWindowSize, Deliverer deliverer){
+    public BestEffortBroadcast(byte id, int port, HashMap<Byte, Host> hosts, boolean extraMemory, int slidingWindowSize, UniformDeliverer deliverer){
         this.sendWindow = new AtomicIntegerArray(hosts.size());
-        this.deliverer = deliverer;
         this.lastSentMessageId = new int[hosts.size()];
         this.slidingWindowSize = slidingWindowSize;
         this.id = id;
@@ -36,7 +33,7 @@ public class BestEffortBroadcast  implements Deliverer, Acknowledger {
             sendWindow.set(host.getId(), slidingWindowSize);
             this.lastSentMessageId[host.getId()] = 1;
         }
-        this.perfectLinks = new PerfectLinks(port, this,
+        this.perfectLinks = new PerfectLinks(port, deliverer,
                 this.hosts, slidingWindowSize,false,
                 this, messageCount);
     }
@@ -46,6 +43,7 @@ public class BestEffortBroadcast  implements Deliverer, Acknowledger {
         // Iterate over all hosts
         while(true){
             boolean sleep = true;
+            boolean finished = true;
             for(byte hostId : hosts.keySet()){
                 // Send message to all hosts
                 if(hostId == id) continue;
@@ -55,8 +53,10 @@ public class BestEffortBroadcast  implements Deliverer, Acknowledger {
                         lastSentMessageId[hostId]++;
                         sleep = false;
                     }
+                    finished = false;
                 }
             }
+            if(finished) break;
             if(sleep){
                 try {
                     Runtime.getRuntime().gc();
@@ -98,13 +98,4 @@ public class BestEffortBroadcast  implements Deliverer, Acknowledger {
     @Override
     public void stopSenders() {}
 
-    @Override
-    public void deliver(Message message) {
-        deliverer.deliver(message);
-    }
-
-    @Override
-    public void confirmDeliver(Message message){
-        deliverer.confirmDeliver(message);
-    }
 }

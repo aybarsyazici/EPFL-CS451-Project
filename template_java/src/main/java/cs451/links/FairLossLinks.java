@@ -1,6 +1,6 @@
 package cs451.links;
 
-import cs451.Deliverer;
+import cs451.interfaces.Deliverer;
 import cs451.Host;
 import cs451.Message.Message;
 import cs451.Message.MessagePackage;
@@ -9,7 +9,6 @@ import cs451.udp.UDPObserver;
 import cs451.udp.UDPReceiver;
 
 import java.net.DatagramSocket;
-import java.util.Map;
 import java.util.concurrent.*;
 
 // Implementation of Fair Loss Links using UDP sockets
@@ -26,11 +25,9 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     FairLossLinks(int port, Deliverer deliverer, int hostSize, int maxMemory, boolean extraMemory){
         this.receiver = new UDPReceiver(port, this, maxMemory, hostSize, extraMemory);
         this.deliverer = deliverer;
-        int maxThreads = (900-(5*hostSize))/hostSize; /* 1024 is the total max amount of threads
-        Each process has 5 threads (main, logChecker, messageSender, Receiver and finally the signal handler )
-        so for each running process we by default have 5 threads. We also leave some thread count for threads that Java might be spawning
-        So in total the size of the thread pool at max can be 900 - 5*hostSize, and we divide this between the hosts that we have
-        so that each host has a thread pool of size (900 - 5*hostSize) / hostSize
+        int maxThreads = 100; /* 8 process at max per host
+        Each process has 6 threads (main, logChecker, ackSender, messageSender, Receiver and finally the signal handler )
+        so for each running process we by default have 6 threads. We also leave some thread count for threads that Java might be spawning
         */
         this.THREAD_NUMBER = Math.min(maxThreads, Runtime.getRuntime().availableProcessors());
         this.pool = Executors.newFixedThreadPool(THREAD_NUMBER);
@@ -91,8 +88,7 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     public void deliver(Message message) {
         deliverer.deliver(message);
     }
-    @Override
-    public void confirmDeliver(Message message){}
+
     @Override
     public void onUDPSenderExecuted(Message message) {
         // System.out.println("Message with id: " + messageId + " has been sent.");

@@ -1,4 +1,4 @@
-package cs451;
+package cs451.interfaces;
 
 import cs451.Message.Message;
 

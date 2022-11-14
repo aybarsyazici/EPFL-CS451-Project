@@ -1,10 +1,9 @@
 package cs451.links;
 
-import cs451.Acknowledger;
-import cs451.Deliverer;
+import cs451.interfaces.Acknowledger;
+import cs451.interfaces.Deliverer;
 import cs451.Host;
 import cs451.Message.Message;
-import cs451.Message.MessageExtension;
 import cs451.Message.MessagePackage;
 
 import java.util.*;
@@ -99,8 +98,7 @@ public class StubbornLinks implements Deliverer {
                 forEach(m -> {
                     if (!fairLoss.isInQueue(m)) {
                         var slidingWindowSize = slidingWindows[m.getReceiverId()];
-                        if(m.getOriginalSender() == m.getSenderId() &&
-                                m.getId() > slidingWindowSize){
+                        if(m.getId() > slidingWindowSize){
                             return;
                         }
                         messagesToSend.add(m);
@@ -175,12 +173,13 @@ public class StubbornLinks implements Deliverer {
                     if (count % 1000 == 0) {
                         System.out.println("Sent " + count + " messages.");
                     }
+                    if(count >= 2000){
+                        System.out.println("Received ack for: " + originalMessage);
+                    }
                 }
             }
         } else {
             deliverer.deliver(message);
         }
     }
-    @Override
-    public void confirmDeliver(Message message){}
 }

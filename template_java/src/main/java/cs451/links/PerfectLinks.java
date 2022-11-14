@@ -1,23 +1,23 @@
 package cs451.links;
 
-import cs451.Acknowledger;
-import cs451.Deliverer;
+import cs451.interfaces.Acknowledger;
+import cs451.interfaces.Deliverer;
 import cs451.Host;
 import cs451.Message.Message;
+import cs451.interfaces.UniformDeliverer;
 
 import java.util.*;
 
 public class PerfectLinks implements Deliverer {
     private final StubbornLinks stubbornLinks;
-    private final Deliverer deliverer;
-    private final HashSet<Integer>[] delivered;
+    private final UniformDeliverer uniformDeliverer;
+    private final HashMap<Integer, Set<Byte>>[] delivered;
     private int[] slidingWindowStart;
     private final int slidingWindowSize;
-    private int[] deliveredMessageCount;
     private final HashMap<Byte, Host> hosts;
 
     public PerfectLinks(int port,
-                        Deliverer deliverer,
+                        UniformDeliverer deliverer,
                         HashMap<Byte, Host> hosts,
                         int slidingWindowSize,
                         boolean extraMemory,
@@ -26,14 +26,12 @@ public class PerfectLinks implements Deliverer {
         this.stubbornLinks = new StubbornLinks(port, hosts, this, hosts.size(), slidingWindowSize, extraMemory, acknowledger, messageCount);
         this.slidingWindowSize = slidingWindowSize;
         this.hosts = hosts;
-        this.deliverer = deliverer;
-        delivered = new HashSet[hosts.size()];
+        this.uniformDeliverer = deliverer;
+        delivered = new HashMap[hosts.size()];
         this.slidingWindowStart = new int[hosts.size()];
-        this.deliveredMessageCount = new int[hosts.size()];
         for(int i = 0; i < hosts.size(); i++){
             this.slidingWindowStart[i] = 0;
-            this.deliveredMessageCount[i] = 0;
-            this.delivered[i] = new HashSet<>();
+            this.delivered[i] = new HashMap<>();
         }
     }
 
@@ -66,29 +64,28 @@ public class PerfectLinks implements Deliverer {
             if(message.getOriginalSender() != message.getSenderId()){
                 send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
             }
-            if(!delivered[message.getOriginalSender()].contains(message.getId())){
-                deliverer.deliver(message);
-                delivered[message.getOriginalSender()].add(message.getId());
-                deliveredMessageCount[message.getOriginalSender()] += 1;
+            delivered[message.getOriginalSender()].computeIfAbsent(message.getId(), k -> new HashSet<>());
+            if(delivered[message.getOriginalSender()].get(message.getId()).add(message.getSenderId())){
+                if(delivered[message.getOriginalSender()].get(message.getId()).size() == 1){
+                    uniformDeliverer.deliver(message); // First time getting the message
+                }
                 // Check if this process has delivered all the messages in the sliding window
-                if(delivered[message.getOriginalSender()].size() >= slidingWindowSize){
+                else if(delivered[message.getOriginalSender()].get(message.getId()).size() < (hosts.size()/2)+1) return;
+                if(readyToSlide(message.getOriginalSender())){
+                    System.out.println("Sliding window for process " + message.getOriginalSender());
                     // If yes, then increment the sliding window start
                     slidingWindowStart[message.getOriginalSender()] += slidingWindowSize;
-                    // printSlidingWindows();
                     // Remove all the messages from the delivered map
+                    for(int messageId : delivered[message.getOriginalSender()].keySet()){
+                        uniformDeliverer.uniformDeliver(message.getOriginalSender(),messageId);
+                        delivered[message.getOriginalSender()].get(messageId).clear();
+                    }
                     delivered[message.getOriginalSender()].clear();
-                    deliveredMessageCount[message.getOriginalSender()] = 0;
                     System.gc();
                 }
             }
         }
-        if(message.getOriginalSender() != message.getSenderId()){
-            deliverer.confirmDeliver(message);
-        }
     }
-
-    @Override
-    public void confirmDeliver(Message message){}
 
     private void printSlidingWindows(){
         System.out.print("{ ");
@@ -96,5 +93,18 @@ public class PerfectLinks implements Deliverer {
             System.out.print(i + ": " + slidingWindowStart[i] + " | ");
         }
         System.out.print(" }\n");
+    }
+
+    private boolean readyToSlide(byte originalSender){
+        if(delivered[originalSender].size() < slidingWindowSize){ // We haven't received all the messages in the sliding window
+            return false;
+        }
+        // Check if for all messages I've received in the sliding window, I've received at least hostSize/2 ACKs.
+        for(int messageId: delivered[originalSender].keySet()){
+            if(delivered[originalSender].get(messageId).size() < (hosts.size()/2)+1){
+                return false;
+            }
+        }
+        return true;
     }
 }
