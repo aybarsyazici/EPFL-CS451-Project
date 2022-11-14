@@ -56,15 +56,15 @@ public class PerfectLinks implements Deliverer {
     @Override
     public void deliver(Message message) {
         if(message.getId() <= slidingWindowStart[message.getOriginalSender()]){
-            send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
+            send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
             if(message.getOriginalSender() != message.getSenderId()){
-                send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
+                send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
             }
         }
         else if(message.getId() > slidingWindowStart[message.getOriginalSender()] && message.getId() <= slidingWindowStart[message.getOriginalSender()] + slidingWindowSize){
-            send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
+            send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
             if(message.getOriginalSender() != message.getSenderId()){
-                send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
+                send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
             }
             if(!delivered[message.getOriginalSender()].contains(message.getId())){
                 deliverer.deliver(message);
@@ -82,9 +82,9 @@ public class PerfectLinks implements Deliverer {
                 }
             }
         }
-//        if(message.getOriginalSender() != message.getSenderId()){
-//            confirmDeliver(message);
-//        }
+        if(message.getOriginalSender() != message.getSenderId()){
+            deliverer.confirmDeliver(message);
+        }
     }
 
     @Override

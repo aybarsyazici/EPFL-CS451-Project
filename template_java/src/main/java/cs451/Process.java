@@ -84,7 +84,7 @@ public class Process implements Deliverer, Logger{
 
     public void send(int messageCount){
         broadcast.send(messageCount);
-        System.out.println("Broadcasted all messages!");
+        this.logAllBroadcast(messageCount);
     }
 
     public int getId() {
@@ -139,56 +139,18 @@ public class Process implements Deliverer, Logger{
 
 
     private int calcWindowSize(int hostSize){
-        //return Math.min(255000/hostSize, 2000);
-        if(hostSize <= 3){
-            return 100000;
-        }
-        else if(hostSize <= 5){
-            return 50000;
-        }
-        else if(hostSize <= 8){
-            return 30000;
-        }
-        else if(hostSize <= 10){
-            return 25000;
-        }
-        else if(hostSize <= 20){
-            return 15000;
-        }
-        else if(hostSize <= 30){
-            return 10000;
-        }
-        else if(hostSize <= 40){
-            return 8000;
-        }
-        else if(hostSize <= 50){
-            return 7000;
-        }
-        else if(hostSize <= 60){
-            return 6000;
-        }
-        else if(hostSize <= 70){
-            return 5000;
-        }
-        else if(hostSize <= 80){
-            return 4000;
-        }
-        else if(hostSize <= 90){
-            return 3000;
-        }
-        else{
-            return 2000;
-        }
-
-//            var availableMemory = (1900000000 / hosts.size());
-//            var hostSizeForDivision = Math.max((hosts.size()-1),1);
-//            var temp = Math.min(((availableMemory)/(256*hostSizeForDivision)), 20000);
-//            return Math.max(temp, 2000);
-
+        // removed all the old code
+        return 200;
     }
 
     @Override
     public void logBroadcast(int messageId) {
         logs.add("b " + messageId + "\n");
+    }
+
+    private void logAllBroadcast(int messageCount){
+        for(int i = 0; i < messageCount; i++){
+            logs.add("b " + i + "\n");
+        }
     }
 }

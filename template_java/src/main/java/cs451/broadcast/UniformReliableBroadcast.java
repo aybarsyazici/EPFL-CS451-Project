@@ -12,6 +12,7 @@ public class UniformReliableBroadcast implements Deliverer {
     private int messageCount;
     private final BestEffortBroadcast beb;
     private final HashMap<Map.Entry<Byte, Integer>, HashSet<Byte>> pending;
+    private final HashSet<Map.Entry<Byte,Integer>> delivered;
     private final Logger logger;
     private final Deliverer deliverer;
 
@@ -23,6 +24,7 @@ public class UniformReliableBroadcast implements Deliverer {
         this.logger = logger;
         this.hostSize = hostList.size();
         this.deliverer = deliverer;
+        this.delivered = new HashSet<>();
         this.pending = new HashMap<>();
         HashMap<Byte, Host> hostMap = new HashMap<>();
         for(Host host : hostList){
@@ -46,8 +48,7 @@ public class UniformReliableBroadcast implements Deliverer {
 
     @Override
     public void deliver(Message message) {
-        deliverer.deliver(message);
-        // this.confirmDeliver(message);
+        this.confirmDeliver(message);
         beb.rebroadcast(message); // I deliver the message so I need to broadcast it
     }
 
@@ -57,7 +58,14 @@ public class UniformReliableBroadcast implements Deliverer {
         this.pending.computeIfAbsent(key, k -> new HashSet<>());
         if(this.pending.get(key).add(message.getSenderId())){
             if(this.pending.get(key).size() >= (hostSize/2)){
-                this.deliverer.deliver(message);
+                /* TODO: Carry this part into PerfectLinks to save some memory
+                 * Currently, Perfect Links delivers all of the rebroadcasts without checking if it has already delivered the message
+                 * So we need this delivered map here to prevent delivering the same message multiple times
+                 * Thus, our TODO is that, Perfect Links should also check if the rebroadcast of that message has been delivered as well not just the original message
+                 * */
+                if(this.delivered.add(key)){
+                    this.deliverer.deliver(message);
+                }
                 this.pending.get(key).clear();
                 this.pending.remove(key);
             }
