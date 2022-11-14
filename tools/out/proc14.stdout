@@ -1,0 +1,113 @@
+Listening for transport dt_socket at address: 4777
+My PID: 67466
+
+From a new terminal type `kill -SIGINT 67466` or `kill -SIGTERM 67466` to stop processing packets
+
+OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/out/proc14.output
+My ID: 14
+
+List of resolved hosts is:
+==========================
+0
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11001
+
+1
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11002
+
+2
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11003
+
+3
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11004
+
+4
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11005
+
+5
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11006
+
+6
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11007
+
+7
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11008
+
+8
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11009
+
+9
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11010
+
+10
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11011
+
+11
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11012
+
+12
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11013
+
+13
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11014
+
+Sliding window size: 200
+UDPReceiver: Created socket on port 11014
+THREAD NUMBER: 10
+14
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11015
+
+15
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11016
+
+16
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11017
+
+17
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11018
+
+18
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11019
+
+19
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11020
+
+
+Path to output:
+===============
+/Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/out/proc14.output
+
+Deleted old output file: false
+
+Path to config:
+===============
+./out/config
+
+===============
+Doing some initialization
+
+Broadcasting and delivering messages...
+
+Number of messages: 1000
+Process ID: 14
+Immediately stopping network packet processing.
+Writing output.

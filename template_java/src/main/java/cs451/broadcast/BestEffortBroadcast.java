@@ -33,7 +33,7 @@ public class BestEffortBroadcast  implements Acknowledger {
             sendWindow.set(host.getId(), slidingWindowSize);
             this.lastSentMessageId[host.getId()] = 1;
         }
-        this.perfectLinks = new PerfectLinks(port, deliverer,
+        this.perfectLinks = new PerfectLinks(port, id, deliverer,
                 this.hosts, slidingWindowSize,false,
                 this, messageCount);
     }

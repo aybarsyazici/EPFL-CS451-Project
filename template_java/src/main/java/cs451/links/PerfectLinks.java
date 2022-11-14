@@ -15,8 +15,10 @@ public class PerfectLinks implements Deliverer {
     private int[] slidingWindowStart;
     private final int slidingWindowSize;
     private final HashMap<Byte, Host> hosts;
+    private final byte myId;
 
     public PerfectLinks(int port,
+                        byte myId,
                         UniformDeliverer deliverer,
                         HashMap<Byte, Host> hosts,
                         int slidingWindowSize,
@@ -26,6 +28,7 @@ public class PerfectLinks implements Deliverer {
         this.stubbornLinks = new StubbornLinks(port, hosts, this, hosts.size(), slidingWindowSize, extraMemory, acknowledger, messageCount);
         this.slidingWindowSize = slidingWindowSize;
         this.hosts = hosts;
+        this.myId = myId;
         this.uniformDeliverer = deliverer;
         delivered = new HashMap[hosts.size()];
         this.slidingWindowStart = new int[hosts.size()];
@@ -55,26 +58,21 @@ public class PerfectLinks implements Deliverer {
     public void deliver(Message message) {
         if(message.getId() <= slidingWindowStart[message.getOriginalSender()]){
             send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
-            if(message.getOriginalSender() != message.getSenderId()){
-                send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
-            }
         }
-        else if(message.getId() > slidingWindowStart[message.getOriginalSender()] && message.getId() <= slidingWindowStart[message.getOriginalSender()] + slidingWindowSize){
+         if(message.getId() > slidingWindowStart[message.getOriginalSender()] && message.getId() <= slidingWindowStart[message.getOriginalSender()] + slidingWindowSize){
             send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
-            if(message.getOriginalSender() != message.getSenderId()){
-                send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
-            }
             delivered[message.getOriginalSender()].computeIfAbsent(message.getId(), k -> new HashSet<>());
             if(delivered[message.getOriginalSender()].get(message.getId()).add(message.getSenderId())){
                 if(delivered[message.getOriginalSender()].get(message.getId()).size() == 1){
                     uniformDeliverer.deliver(message); // First time getting the message
                 }
                 // Check if this process has delivered all the messages in the sliding window
-                else if(delivered[message.getOriginalSender()].get(message.getId()).size() < (hosts.size()/2)+1) return;
+                else if(delivered[message.getOriginalSender()].get(message.getId()).size() < (hosts.size()/2)) return;
                 if(readyToSlide(message.getOriginalSender())){
                     System.out.println("Sliding window for process " + message.getOriginalSender());
                     // If yes, then increment the sliding window start
                     slidingWindowStart[message.getOriginalSender()] += slidingWindowSize;
+                    printSlidingWindows();
                     // Remove all the messages from the delivered map
                     for(int messageId : delivered[message.getOriginalSender()].keySet()){
                         uniformDeliverer.uniformDeliver(message.getOriginalSender(),messageId);
@@ -100,9 +98,18 @@ public class PerfectLinks implements Deliverer {
             return false;
         }
         // Check if for all messages I've received in the sliding window, I've received at least hostSize/2 ACKs.
-        for(int messageId: delivered[originalSender].keySet()){
-            if(delivered[originalSender].get(messageId).size() < (hosts.size()/2)+1){
-                return false;
+        if(originalSender == this.myId){
+            for(int messageId: delivered[originalSender].keySet()){
+                if(delivered[originalSender].get(messageId).size() < (hosts.size()/2)-1){
+                    return false;
+                }
+            }
+        }
+        else{
+            for(int messageId: delivered[originalSender].keySet()){
+                if(delivered[originalSender].get(messageId).size() < (hosts.size()/2)){
+                    return false;
+                }
             }
         }
         return true;

@@ -1,0 +1,124 @@
+Listening for transport dt_socket at address: 2553
+My PID: 67469
+
+From a new terminal type `kill -SIGINT 67469` or `kill -SIGTERM 67469` to stop processing packets
+
+OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/out/proc17.output
+My ID: 17
+
+List of resolved hosts is:
+==========================
+0
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11001
+
+1
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11002
+
+2
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11003
+
+3
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11004
+
+4
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11005
+
+5
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11006
+
+6
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11007
+
+7
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11008
+
+8
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11009
+
+9
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11010
+
+10
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11011
+
+11
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11012
+
+12
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11013
+
+13
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11014
+
+14
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11015
+
+15
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11016
+
+16
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11017
+
+Sliding window size: 200
+UDPReceiver: Created socket on port 11017
+THREAD NUMBER: 10
+17
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11018
+
+18
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11019
+
+19
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11020
+
+
+Path to output:
+===============
+/Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/out/proc17.output
+
+Deleted old output file: false
+
+Path to config:
+===============
+./out/config
+
+===============
+Doing some initialization
+
+Broadcasting and delivering messages...
+
+Number of messages: 1000
+Process ID: 17
+Sliding window of 19 is increased by 1.
+Sliding window of 14 is increased by 1.
+Sliding window of 1 is increased by 1.
+Sliding window of 11 is increased by 1.
+Sliding window of 10 is increased by 1.
+Sent 1000 messages.
+Sliding window of 15 is increased by 1.
+Sliding window for process 2
+{ 0: 0 | 1: 0 | 2: 200 | 3: 0 | 4: 0 | 5: 0 | 6: 0 | 7: 0 | 8: 0 | 9: 0 | 10: 0 | 11: 0 | 12: 0 | 13: 0 | 14: 0 | 15: 0 | 16: 0 | 17: 0 | 18: 0 | 19: 0 |  }
+Immediately stopping network packet processing.
+Sliding window for process 1
+{ 0: 0 | 1: 200 | 2: 200 | 3: 0 | 4: 0 | 5: 0 | 6: 0 | 7: 0 | 8: 0 | 9: 0 | 10: 0 | 11: 0 | 12: 0 | 13: 0 | 14: 0 | 15: 0 | 16: 0 | 17: 0 | 18: 0 | 19: 0 |  }
+Writing output.

@@ -173,9 +173,6 @@ public class StubbornLinks implements Deliverer {
                     if (count % 1000 == 0) {
                         System.out.println("Sent " + count + " messages.");
                     }
-                    if(count >= 2000){
-                        System.out.println("Received ack for: " + originalMessage);
-                    }
                 }
             }
         } else {
