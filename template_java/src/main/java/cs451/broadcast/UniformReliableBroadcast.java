@@ -16,16 +16,16 @@ public class UniformReliableBroadcast implements UniformDeliverer {
     private final HashMap<Map.Entry<Byte, Integer>, HashSet<Byte>> pending;
     private final HashSet<Map.Entry<Byte,Integer>> delivered;
     private final Logger logger;
-    private final Process process;
+    private final Deliverer deliverer;
 
     private final int hostSize;
 
 
-    public UniformReliableBroadcast(byte id, int port, List<Host> hostList, int slidingWindowSize, Logger logger, Process process){
+    public UniformReliableBroadcast(byte id, int port, List<Host> hostList, int slidingWindowSize, Logger logger, Deliverer deliverer){
         this.id = id;
         this.logger = logger;
         this.hostSize = hostList.size();
-        this.process = process;
+        this.deliverer = deliverer;
         this.delivered = new HashSet<>();
         this.pending = new HashMap<>();
         HashMap<Byte, Host> hostMap = new HashMap<>();
@@ -54,7 +54,7 @@ public class UniformReliableBroadcast implements UniformDeliverer {
     }
 
     @Override
-    public void uniformDeliver(byte originalSender, int messageId) {
-        process.processDeliver(originalSender, messageId);
+    public void uniformDeliver(Message message) {
+        deliverer.deliver(message);
     }
 }

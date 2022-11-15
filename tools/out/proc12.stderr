@@ -1,11 +1,10 @@
-java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.FutureTask@335322a6[Not completed, task = java.util.concurrent.Executors$RunnableAdapter@11d82442[Wrapped task = Thread[Thread-1418751,5,main]]] rejected from java.util.concurrent.ThreadPoolExecutor@2015e688[Shutting down, pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 1418651]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2070)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:833)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1365)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:123)
-	at cs451.links.FairLossLinks.send(FairLossLinks.java:52)
-	at cs451.links.StubbornLinks.lambda$sendMessagesToBeSent$2(StubbornLinks.java:106)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at cs451.links.StubbornLinks.sendMessagesToBeSent(StubbornLinks.java:98)
-	at cs451.links.StubbornLinks.lambda$new$1(StubbornLinks.java:78)
-	at java.base/java.lang.Thread.run(Thread.java:833)
+java.net.SocketException: Socket closed
+	at java.base/sun.nio.ch.DatagramSocketAdaptor.receive(DatagramSocketAdaptor.java:252)
+	at java.base/java.net.DatagramSocket.receive(DatagramSocket.java:701)
+	at cs451.udp.UDPReceiver.run(UDPReceiver.java:50)
+Caused by: java.nio.channels.AsynchronousCloseException
+	at java.base/sun.nio.ch.DatagramChannelImpl.endRead(DatagramChannelImpl.java:523)
+	at java.base/sun.nio.ch.DatagramChannelImpl.trustedBlockingReceive(DatagramChannelImpl.java:677)
+	at java.base/sun.nio.ch.DatagramChannelImpl.blockingReceive(DatagramChannelImpl.java:635)
+	at java.base/sun.nio.ch.DatagramSocketAdaptor.receive(DatagramSocketAdaptor.java:240)
+	... 2 more

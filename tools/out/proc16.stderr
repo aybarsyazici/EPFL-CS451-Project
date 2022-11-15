@@ -8,14 +8,3 @@ Caused by: java.nio.channels.AsynchronousCloseException
 	at java.base/sun.nio.ch.DatagramChannelImpl.blockingReceive(DatagramChannelImpl.java:635)
 	at java.base/sun.nio.ch.DatagramSocketAdaptor.receive(DatagramSocketAdaptor.java:240)
 	... 2 more
-java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.FutureTask@f25452c[Not completed, task = java.util.concurrent.Executors$RunnableAdapter@26b6895c[Wrapped task = Thread[Thread-2875725,5,main]]] rejected from java.util.concurrent.ThreadPoolExecutor@326e37e9[Shutting down, pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 2875697]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2070)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:833)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1365)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:123)
-	at cs451.links.FairLossLinks.send(FairLossLinks.java:52)
-	at cs451.links.StubbornLinks.lambda$sendMessagesToBeSent$2(StubbornLinks.java:106)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at cs451.links.StubbornLinks.sendMessagesToBeSent(StubbornLinks.java:98)
-	at cs451.links.StubbornLinks.lambda$new$1(StubbornLinks.java:78)
-	at java.base/java.lang.Thread.run(Thread.java:833)

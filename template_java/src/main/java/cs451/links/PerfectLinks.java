@@ -59,23 +59,23 @@ public class PerfectLinks implements Deliverer {
         if(message.getId() <= slidingWindowStart[message.getOriginalSender()]){
             send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
         }
-         if(message.getId() > slidingWindowStart[message.getOriginalSender()] && message.getId() <= slidingWindowStart[message.getOriginalSender()] + slidingWindowSize){
+        if(message.getId() > slidingWindowStart[message.getOriginalSender()] && message.getId() <= slidingWindowStart[message.getOriginalSender()] + slidingWindowSize){
             send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
             delivered[message.getOriginalSender()].computeIfAbsent(message.getId(), k -> new HashSet<>());
             if(delivered[message.getOriginalSender()].get(message.getId()).add(message.getSenderId())){
                 if(delivered[message.getOriginalSender()].get(message.getId()).size() == 1){
                     uniformDeliverer.deliver(message); // First time getting the message
+                    delivered[message.getOriginalSender()].get(message.getId()).add(myId); // I also have the message now
                 }
-                // Check if this process has delivered all the messages in the sliding window
-                else if(message.getOriginalSender() == this.myId && delivered[message.getOriginalSender()].get(message.getId()).size() < (hosts.size()/2)-1) return;
-                else if(delivered[message.getOriginalSender()].get(message.getId()).size() < (hosts.size()/2)) return;
+                if(delivered[message.getOriginalSender()].get(message.getId()).size() == (hosts.size()/2) + 1){
+                    uniformDeliverer.uniformDeliver(message);
+                }
                 if(readyToSlide(message.getOriginalSender())){
                     // If yes, then increment the sliding window start
                     slidingWindowStart[message.getOriginalSender()] += slidingWindowSize;
                     // printSlidingWindows();
                     // Remove all the messages from the delivered map
                     for(int messageId : delivered[message.getOriginalSender()].keySet()){
-                        uniformDeliverer.uniformDeliver(message.getOriginalSender(),messageId);
                         delivered[message.getOriginalSender()].get(messageId).clear();
                     }
                     delivered[message.getOriginalSender()].clear();
@@ -98,18 +98,9 @@ public class PerfectLinks implements Deliverer {
             return false;
         }
         // Check if for all messages I've received in the sliding window, I've received at least hostSize/2 ACKs.
-        if(originalSender == this.myId){
-            for(int messageId: delivered[originalSender].keySet()){
-                if(delivered[originalSender].get(messageId).size() < (hosts.size()/2)-1){
-                    return false;
-                }
-            }
-        }
-        else{
-            for(int messageId: delivered[originalSender].keySet()){
-                if(delivered[originalSender].get(messageId).size() < (hosts.size()/2)){
-                    return false;
-                }
+        for(int messageId: delivered[originalSender].keySet()){
+            if(delivered[originalSender].get(messageId).size() < (hosts.size()/2) + 1){
+                return false;
             }
         }
         return true;

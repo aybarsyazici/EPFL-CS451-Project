@@ -4,6 +4,7 @@ import cs451.broadcast.UniformReliableBroadcast;
 import cs451.interfaces.Deliverer;
 import cs451.interfaces.Logger;
 import cs451.Message.Message;
+import cs451.interfaces.UniformDeliverer;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -13,7 +14,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Process implements Logger {
+public class Process implements Deliverer, Logger {
     private final byte id;
     private final UniformReliableBroadcast broadcast;
     private final String output;
@@ -82,7 +83,7 @@ public class Process implements Logger {
 
     public void send(int messageCount){
         broadcast.send(messageCount);
-        this.logAllBroadcast(messageCount);
+        // this.logAllBroadcast(messageCount);
     }
 
     public int getId() {
@@ -120,9 +121,9 @@ public class Process implements Logger {
         return writing.get();
     }
 
-    public void processDeliver(byte sender, int messageId) {
+    public void deliver (Message message) {
         lock.lock();
-        logs.add("d " + (sender+1) + " " + messageId + "\n");
+        logs.add("d " + (message.getOriginalSender()+1) + " " + message.getId() + "\n");
         lock.unlock();
         count += 1;
         if(count % 5000 == 0){
