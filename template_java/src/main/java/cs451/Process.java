@@ -49,7 +49,7 @@ public class Process implements Logger {
             @Override
             public void run() {
                 try {
-                    if (logs.size() > 5000 && !writing.get()) {
+                    if (logs.size() > 10000 && !writing.get()) {
                         writing.compareAndSet(false, true);
                         // Copy logs to a new queue
                         lock.lock();
@@ -121,7 +121,6 @@ public class Process implements Logger {
     }
 
     public void processDeliver(byte sender, int messageId) {
-        // System.out.println("HELLO! I'm process " + id + " and I received message: " + message);
         lock.lock();
         logs.add("d " + (sender+1) + " " + messageId + "\n");
         lock.unlock();
@@ -132,8 +131,7 @@ public class Process implements Logger {
     }
 
     private int calcWindowSize(int hostSize){
-        // removed all the old code
-        return 200;
+        return Math.max(3200000/(hostSize*hostSize*hostSize),1);
     }
 
     @Override

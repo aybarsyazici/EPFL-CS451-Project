@@ -1,7 +1,7 @@
-Listening for transport dt_socket at address: 6222
-My PID: 67454
+Listening for transport dt_socket at address: 8577
+My PID: 73136
 
-From a new terminal type `kill -SIGINT 67454` or `kill -SIGTERM 67454` to stop processing packets
+From a new terminal type `kill -SIGINT 73136` or `kill -SIGTERM 73136` to stop processing packets
 
 OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/out/proc02.output
 My ID: 2
@@ -16,9 +16,9 @@ Human-readable Port: 11001
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11002
 
-Sliding window size: 200
+Sliding window size: 50
 UDPReceiver: Created socket on port 11002
-THREAD NUMBER: 10
+THREAD NUMBER: 2
 2
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11003
@@ -91,6 +91,86 @@ Human-readable Port: 11019
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11020
 
+20
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11021
+
+21
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11022
+
+22
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11023
+
+23
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11024
+
+24
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11025
+
+25
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11026
+
+26
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11027
+
+27
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11028
+
+28
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11029
+
+29
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11030
+
+30
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11031
+
+31
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11032
+
+32
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11033
+
+33
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11034
+
+34
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11035
+
+35
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11036
+
+36
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11037
+
+37
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11038
+
+38
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11039
+
+39
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11040
+
 
 Path to output:
 ===============
@@ -107,185 +187,129 @@ Doing some initialization
 
 Broadcasting and delivering messages...
 
-Number of messages: 1000
+Number of messages: 5000
 Process ID: 2
-Sliding window of 2 is increased by 1.
-Sliding window of 16 is increased by 1.
-Sliding window of 14 is increased by 1.
-Sliding window of 5 is increased by 1.
-Sliding window of 18 is increased by 1.
 Sent 1000 messages.
-Sliding window of 3 is increased by 1.
-Sliding window of 11 is increased by 1.
-Sliding window of 10 is increased by 1.
-Sliding window of 6 is increased by 1.
-Sliding window of 15 is increased by 1.
 Sent 2000 messages.
-Sliding window for process 2
-{ 0: 0 | 1: 0 | 2: 200 | 3: 0 | 4: 0 | 5: 0 | 6: 0 | 7: 0 | 8: 0 | 9: 0 | 10: 0 | 11: 0 | 12: 0 | 13: 0 | 14: 0 | 15: 0 | 16: 0 | 17: 0 | 18: 0 | 19: 0 |  }
-Sliding window of 19 is increased by 1.
-Sliding window of 9 is increased by 1.
-Sliding window for process 5
-{ 0: 0 | 1: 0 | 2: 200 | 3: 0 | 4: 0 | 5: 200 | 6: 0 | 7: 0 | 8: 0 | 9: 0 | 10: 0 | 11: 0 | 12: 0 | 13: 0 | 14: 0 | 15: 0 | 16: 0 | 17: 0 | 18: 0 | 19: 0 |  }
-Sliding window of 8 is increased by 1.
-Sliding window of 12 is increased by 1.
-Sliding window of 2 is increased by 1.
 Sent 3000 messages.
-Sliding window of 10 is increased by 1.
-Sliding window of 5 is increased by 1.
-Sliding window of 19 is increased by 1.
-Sliding window for process 11
-{ 0: 0 | 1: 0 | 2: 200 | 3: 0 | 4: 0 | 5: 200 | 6: 0 | 7: 0 | 8: 0 | 9: 0 | 10: 0 | 11: 200 | 12: 0 | 13: 0 | 14: 0 | 15: 0 | 16: 0 | 17: 0 | 18: 0 | 19: 0 |  }
-Sliding window for process 6
-{ 0: 0 | 1: 0 | 2: 200 | 3: 0 | 4: 0 | 5: 200 | 6: 200 | 7: 0 | 8: 0 | 9: 0 | 10: 0 | 11: 200 | 12: 0 | 13: 0 | 14: 0 | 15: 0 | 16: 0 | 17: 0 | 18: 0 | 19: 0 |  }
-Sliding window of 18 is increased by 1.
-Sliding window for process 15
-{ 0: 0 | 1: 0 | 2: 200 | 3: 0 | 4: 0 | 5: 200 | 6: 200 | 7: 0 | 8: 0 | 9: 0 | 10: 0 | 11: 200 | 12: 0 | 13: 0 | 14: 0 | 15: 200 | 16: 0 | 17: 0 | 18: 0 | 19: 0 |  }
-Sliding window for process 16
-{ 0: 0 | 1: 0 | 2: 200 | 3: 0 | 4: 0 | 5: 200 | 6: 200 | 7: 0 | 8: 0 | 9: 0 | 10: 0 | 11: 200 | 12: 0 | 13: 0 | 14: 0 | 15: 200 | 16: 200 | 17: 0 | 18: 0 | 19: 0 |  }
-Sliding window for process 10
-{ 0: 0 | 1: 0 | 2: 200 | 3: 0 | 4: 0 | 5: 200 | 6: 200 | 7: 0 | 8: 0 | 9: 0 | 10: 200 | 11: 200 | 12: 0 | 13: 0 | 14: 0 | 15: 200 | 16: 200 | 17: 0 | 18: 0 | 19: 0 |  }
-Sliding window of 8 is increased by 1.
 Sent 4000 messages.
-Sliding window of 9 is increased by 1.
-Sliding window of 12 is increased by 1.
-Sliding window of 7 is increased by 1.
-Sliding window of 6 is increased by 1.
-Sliding window for process 14
-{ 0: 0 | 1: 0 | 2: 200 | 3: 0 | 4: 0 | 5: 200 | 6: 200 | 7: 0 | 8: 0 | 9: 0 | 10: 200 | 11: 200 | 12: 0 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 0 | 19: 0 |  }
-Sliding window for process 19
-{ 0: 0 | 1: 0 | 2: 200 | 3: 0 | 4: 0 | 5: 200 | 6: 200 | 7: 0 | 8: 0 | 9: 0 | 10: 200 | 11: 200 | 12: 0 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 0 | 19: 200 |  }
-Sliding window for process 18
-{ 0: 0 | 1: 0 | 2: 200 | 3: 0 | 4: 0 | 5: 200 | 6: 200 | 7: 0 | 8: 0 | 9: 0 | 10: 200 | 11: 200 | 12: 0 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 200 | 19: 200 |  }
-Sliding window for process 9
-{ 0: 0 | 1: 0 | 2: 200 | 3: 0 | 4: 0 | 5: 200 | 6: 200 | 7: 0 | 8: 0 | 9: 200 | 10: 200 | 11: 200 | 12: 0 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 200 | 19: 200 |  }
-Sliding window for process 3
-{ 0: 0 | 1: 0 | 2: 200 | 3: 200 | 4: 0 | 5: 200 | 6: 200 | 7: 0 | 8: 0 | 9: 200 | 10: 200 | 11: 200 | 12: 0 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 200 | 19: 200 |  }
-Sliding window for process 12
-{ 0: 0 | 1: 0 | 2: 200 | 3: 200 | 4: 0 | 5: 200 | 6: 200 | 7: 0 | 8: 0 | 9: 200 | 10: 200 | 11: 200 | 12: 200 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 200 | 19: 200 |  }
-Sliding window for process 8
-{ 0: 0 | 1: 0 | 2: 200 | 3: 200 | 4: 0 | 5: 200 | 6: 200 | 7: 0 | 8: 200 | 9: 200 | 10: 200 | 11: 200 | 12: 200 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 200 | 19: 200 |  }
-Sliding window of 7 is increased by 1.
-Sent 5000 messages.
-Sliding window for process 2
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 200 | 6: 200 | 7: 0 | 8: 200 | 9: 200 | 10: 200 | 11: 200 | 12: 200 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 200 | 19: 200 |  }
-Sliding window of 8 is increased by 1.
-Sliding window of 18 is increased by 1.
-Sliding window of 10 is increased by 1.
-Sliding window for process 5
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 400 | 6: 200 | 7: 0 | 8: 200 | 9: 200 | 10: 200 | 11: 200 | 12: 200 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 200 | 19: 200 |  }
-Sliding window for process 6
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 400 | 6: 400 | 7: 0 | 8: 200 | 9: 200 | 10: 200 | 11: 200 | 12: 200 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 200 | 19: 200 |  }
-Sliding window for process 7
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 400 | 6: 400 | 7: 200 | 8: 200 | 9: 200 | 10: 200 | 11: 200 | 12: 200 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 200 | 19: 200 |  }
-Sliding window of 19 is increased by 1.
-Sliding window of 9 is increased by 1.
-Sent 6000 messages.
-Sliding window of 5 is increased by 1.
-Sliding window of 12 is increased by 1.
-Sliding window for process 10
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 400 | 6: 400 | 7: 200 | 8: 200 | 9: 200 | 10: 400 | 11: 200 | 12: 200 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 200 | 19: 200 |  }
-Sliding window for process 9
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 400 | 6: 400 | 7: 200 | 8: 200 | 9: 400 | 10: 400 | 11: 200 | 12: 200 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 200 | 19: 200 |  }
-Sliding window for process 18
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 400 | 6: 400 | 7: 200 | 8: 200 | 9: 400 | 10: 400 | 11: 200 | 12: 200 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 400 | 19: 200 |  }
-Sliding window for process 19
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 400 | 6: 400 | 7: 200 | 8: 200 | 9: 400 | 10: 400 | 11: 200 | 12: 200 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 400 | 19: 400 |  }
-Sliding window for process 12
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 400 | 6: 400 | 7: 200 | 8: 200 | 9: 400 | 10: 400 | 11: 200 | 12: 400 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 400 | 19: 400 |  }
-Sliding window for process 7
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 400 | 6: 400 | 7: 400 | 8: 200 | 9: 400 | 10: 400 | 11: 200 | 12: 400 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 400 | 19: 400 |  }
-Sliding window for process 8
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 400 | 6: 400 | 7: 400 | 8: 400 | 9: 400 | 10: 400 | 11: 200 | 12: 400 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 400 | 19: 400 |  }
 Process 1 received 5000 messages
-Sliding window of 2 is increased by 1.
-Sliding window of 6 is increased by 1.
-Sliding window of 7 is increased by 1.
+Sent 5000 messages.
+Sent 6000 messages.
 Sent 7000 messages.
-Sliding window for process 7
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 400 | 6: 400 | 7: 600 | 8: 400 | 9: 400 | 10: 400 | 11: 200 | 12: 400 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 400 | 19: 400 |  }
-Sliding window for process 18
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 400 | 6: 400 | 7: 600 | 8: 400 | 9: 400 | 10: 400 | 11: 200 | 12: 400 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 600 | 19: 400 |  }
-Sliding window for process 5
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 600 | 6: 400 | 7: 600 | 8: 400 | 9: 400 | 10: 400 | 11: 200 | 12: 400 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 600 | 19: 400 |  }
-Sliding window for process 12
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 600 | 6: 400 | 7: 600 | 8: 400 | 9: 400 | 10: 400 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 600 | 19: 400 |  }
-Sliding window for process 6
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 600 | 6: 600 | 7: 600 | 8: 400 | 9: 400 | 10: 400 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 600 | 19: 400 |  }
-Sliding window for process 19
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 600 | 6: 600 | 7: 600 | 8: 400 | 9: 400 | 10: 400 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 600 | 19: 600 |  }
-Sliding window for process 10
-{ 0: 0 | 1: 0 | 2: 400 | 3: 200 | 4: 0 | 5: 600 | 6: 600 | 7: 600 | 8: 400 | 9: 400 | 10: 600 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 600 | 19: 600 |  }
-Sliding window for process 2
-{ 0: 0 | 1: 0 | 2: 600 | 3: 200 | 4: 0 | 5: 600 | 6: 600 | 7: 600 | 8: 400 | 9: 400 | 10: 600 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 600 | 19: 600 |  }
-Sliding window for process 9
-{ 0: 0 | 1: 0 | 2: 600 | 3: 200 | 4: 0 | 5: 600 | 6: 600 | 7: 600 | 8: 400 | 9: 600 | 10: 600 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 600 | 19: 600 |  }
-Sliding window for process 8
-{ 0: 0 | 1: 0 | 2: 600 | 3: 200 | 4: 0 | 5: 600 | 6: 600 | 7: 600 | 8: 600 | 9: 600 | 10: 600 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 600 | 19: 600 |  }
-Sliding window of 12 is increased by 1.
-Sliding window of 18 is increased by 1.
-Sliding window of 8 is increased by 1.
-Sliding window of 10 is increased by 1.
-Sliding window of 7 is increased by 1.
 Sent 8000 messages.
-Sliding window of 2 is increased by 1.
-Sliding window of 5 is increased by 1.
-Sliding window of 6 is increased by 1.
-Sliding window of 9 is increased by 1.
-Sliding window of 19 is increased by 1.
 Sent 9000 messages.
-Sliding window for process 7
-{ 0: 0 | 1: 0 | 2: 600 | 3: 200 | 4: 0 | 5: 600 | 6: 600 | 7: 800 | 8: 600 | 9: 600 | 10: 600 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 600 | 19: 600 |  }
-Sliding window for process 6
-{ 0: 0 | 1: 0 | 2: 600 | 3: 200 | 4: 0 | 5: 600 | 6: 800 | 7: 800 | 8: 600 | 9: 600 | 10: 600 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 600 | 19: 600 |  }
-Sliding window for process 19
-{ 0: 0 | 1: 0 | 2: 600 | 3: 200 | 4: 0 | 5: 600 | 6: 800 | 7: 800 | 8: 600 | 9: 600 | 10: 600 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 600 | 19: 800 |  }
-Sliding window for process 8
-{ 0: 0 | 1: 0 | 2: 600 | 3: 200 | 4: 0 | 5: 600 | 6: 800 | 7: 800 | 8: 800 | 9: 600 | 10: 600 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 600 | 19: 800 |  }
-Sliding window for process 18
-{ 0: 0 | 1: 0 | 2: 600 | 3: 200 | 4: 0 | 5: 600 | 6: 800 | 7: 800 | 8: 800 | 9: 600 | 10: 600 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 800 | 19: 800 |  }
-Sliding window for process 10
-{ 0: 0 | 1: 0 | 2: 600 | 3: 200 | 4: 0 | 5: 600 | 6: 800 | 7: 800 | 8: 800 | 9: 600 | 10: 800 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 800 | 19: 800 |  }
-Sliding window for process 9
-{ 0: 0 | 1: 0 | 2: 600 | 3: 200 | 4: 0 | 5: 600 | 6: 800 | 7: 800 | 8: 800 | 9: 800 | 10: 800 | 11: 200 | 12: 600 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 800 | 19: 800 |  }
-Sliding window for process 12
-{ 0: 0 | 1: 0 | 2: 600 | 3: 200 | 4: 0 | 5: 600 | 6: 800 | 7: 800 | 8: 800 | 9: 800 | 10: 800 | 11: 200 | 12: 800 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 800 | 19: 800 |  }
-Sliding window for process 2
-{ 0: 0 | 1: 0 | 2: 800 | 3: 200 | 4: 0 | 5: 600 | 6: 800 | 7: 800 | 8: 800 | 9: 800 | 10: 800 | 11: 200 | 12: 800 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 800 | 19: 800 |  }
-Sliding window for process 5
-{ 0: 0 | 1: 0 | 2: 800 | 3: 200 | 4: 0 | 5: 800 | 6: 800 | 7: 800 | 8: 800 | 9: 800 | 10: 800 | 11: 200 | 12: 800 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 800 | 19: 800 |  }
-Sliding window of 2 is increased by 1.
-Sliding window of 5 is increased by 1.
-Sliding window of 9 is increased by 1.
-Sliding window of 6 is increased by 1.
-Sliding window of 12 is increased by 1.
 Sent 10000 messages.
-Sliding window of 19 is increased by 1.
-Sliding window of 7 is increased by 1.
-Sliding window for process 7
-{ 0: 0 | 1: 0 | 2: 800 | 3: 200 | 4: 0 | 5: 800 | 6: 800 | 7: 1000 | 8: 800 | 9: 800 | 10: 800 | 11: 200 | 12: 800 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 800 | 19: 800 |  }
-Sliding window of 8 is increased by 1.
-Sliding window of 18 is increased by 1.
-Sliding window for process 6
-{ 0: 0 | 1: 0 | 2: 800 | 3: 200 | 4: 0 | 5: 800 | 6: 1000 | 7: 1000 | 8: 800 | 9: 800 | 10: 800 | 11: 200 | 12: 800 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 800 | 19: 800 |  }
-Sliding window of 10 is increased by 1.
-Sent 11000 messages.
-Sliding window for process 19
-{ 0: 0 | 1: 0 | 2: 800 | 3: 200 | 4: 0 | 5: 800 | 6: 1000 | 7: 1000 | 8: 800 | 9: 800 | 10: 800 | 11: 200 | 12: 800 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 800 | 19: 1000 |  }
-Sliding window for process 8
-{ 0: 0 | 1: 0 | 2: 800 | 3: 200 | 4: 0 | 5: 800 | 6: 1000 | 7: 1000 | 8: 1000 | 9: 800 | 10: 800 | 11: 200 | 12: 800 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 800 | 19: 1000 |  }
-Sliding window for process 9
-{ 0: 0 | 1: 0 | 2: 800 | 3: 200 | 4: 0 | 5: 800 | 6: 1000 | 7: 1000 | 8: 1000 | 9: 1000 | 10: 800 | 11: 200 | 12: 800 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 800 | 19: 1000 |  }
 Process 1 received 10000 messages
-Sliding window for process 18
-{ 0: 0 | 1: 0 | 2: 800 | 3: 200 | 4: 0 | 5: 800 | 6: 1000 | 7: 1000 | 8: 1000 | 9: 1000 | 10: 800 | 11: 200 | 12: 800 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 1000 | 19: 1000 |  }
-Sliding window for process 2
-{ 0: 0 | 1: 0 | 2: 1000 | 3: 200 | 4: 0 | 5: 800 | 6: 1000 | 7: 1000 | 8: 1000 | 9: 1000 | 10: 800 | 11: 200 | 12: 800 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 1000 | 19: 1000 |  }
-Sliding window for process 10
-{ 0: 0 | 1: 0 | 2: 1000 | 3: 200 | 4: 0 | 5: 800 | 6: 1000 | 7: 1000 | 8: 1000 | 9: 1000 | 10: 1000 | 11: 200 | 12: 800 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 1000 | 19: 1000 |  }
-Sliding window for process 5
-{ 0: 0 | 1: 0 | 2: 1000 | 3: 200 | 4: 0 | 5: 1000 | 6: 1000 | 7: 1000 | 8: 1000 | 9: 1000 | 10: 1000 | 11: 200 | 12: 800 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 1000 | 19: 1000 |  }
-Sliding window for process 12
-{ 0: 0 | 1: 0 | 2: 1000 | 3: 200 | 4: 0 | 5: 1000 | 6: 1000 | 7: 1000 | 8: 1000 | 9: 1000 | 10: 1000 | 11: 200 | 12: 1000 | 13: 0 | 14: 200 | 15: 200 | 16: 200 | 17: 0 | 18: 1000 | 19: 1000 |  }
+Sent 11000 messages.
+Sent 12000 messages.
+Sent 13000 messages.
+Sent 14000 messages.
+Process 1 received 15000 messages
+Sent 15000 messages.
+Sent 16000 messages.
+Sent 17000 messages.
+Sent 18000 messages.
+Sent 19000 messages.
+Sent 20000 messages.
+Process 1 received 20000 messages
+Sent 21000 messages.
+Sent 22000 messages.
+Sent 23000 messages.
+Sent 24000 messages.
+Process 1 received 25000 messages
+Sent 25000 messages.
+Sent 26000 messages.
+Sent 27000 messages.
+Sent 28000 messages.
+Sent 29000 messages.
+Process 1 received 30000 messages
+Sent 30000 messages.
+Sent 31000 messages.
+Sent 32000 messages.
+Sent 33000 messages.
+Process 1 received 35000 messages
+Sent 34000 messages.
+Sent 35000 messages.
+Sent 36000 messages.
+Sent 37000 messages.
+Sent 38000 messages.
+Sent 39000 messages.
+Process 1 received 40000 messages
+Sent 40000 messages.
+Sent 41000 messages.
+Sent 42000 messages.
+Sent 43000 messages.
+Sent 44000 messages.
+Process 1 received 45000 messages
+Sent 45000 messages.
+Sent 46000 messages.
+Sent 47000 messages.
+Sent 48000 messages.
+Process 1 received 50000 messages
+Sent 49000 messages.
+Sent 50000 messages.
+Sent 51000 messages.
+Sent 52000 messages.
+Sent 53000 messages.
+Process 1 received 55000 messages
+Sent 54000 messages.
+Sent 55000 messages.
+Sent 56000 messages.
+Sent 57000 messages.
+Process 1 received 60000 messages
+Sent 58000 messages.
+Sent 59000 messages.
+Sent 60000 messages.
+Sent 61000 messages.
+Sent 62000 messages.
+Process 1 received 65000 messages
+Sent 63000 messages.
+Sent 64000 messages.
+Sent 65000 messages.
+Sent 66000 messages.
+Sent 67000 messages.
+Process 1 received 70000 messages
+Sent 68000 messages.
+Sent 69000 messages.
+Sent 70000 messages.
+Sent 71000 messages.
+Sent 72000 messages.
+Process 1 received 75000 messages
+Sent 73000 messages.
+Sent 74000 messages.
+Sent 75000 messages.
+Sent 76000 messages.
+Process 1 received 80000 messages
+Sent 77000 messages.
+Sent 78000 messages.
+Sent 79000 messages.
+Sent 80000 messages.
+Sent 81000 messages.
+Process 1 received 85000 messages
+Sent 82000 messages.
+Sent 83000 messages.
+Sent 84000 messages.
+Sent 85000 messages.
+Sent 86000 messages.
+Sent 87000 messages.
+Process 1 received 90000 messages
+Sent 88000 messages.
+Sent 89000 messages.
+Sent 90000 messages.
+Sent 91000 messages.
+Process 1 received 95000 messages
+Sent 92000 messages.
+Sent 93000 messages.
+Sent 94000 messages.
+Sent 95000 messages.
+Sent 96000 messages.
+Sent 97000 messages.
+Process 1 received 100000 messages
+Sent 98000 messages.
+Sent 99000 messages.
+Sent 100000 messages.
+Sent 101000 messages.
+Process 1 received 105000 messages
 Immediately stopping network packet processing.
 Writing output.

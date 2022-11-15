@@ -1,0 +1,315 @@
+Listening for transport dt_socket at address: 2944
+My PID: 73165
+
+From a new terminal type `kill -SIGINT 73165` or `kill -SIGTERM 73165` to stop processing packets
+
+OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/out/proc31.output
+My ID: 31
+
+List of resolved hosts is:
+==========================
+0
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11001
+
+1
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11002
+
+2
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11003
+
+3
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11004
+
+4
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11005
+
+5
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11006
+
+6
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11007
+
+7
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11008
+
+8
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11009
+
+9
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11010
+
+10
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11011
+
+11
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11012
+
+12
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11013
+
+13
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11014
+
+14
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11015
+
+15
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11016
+
+16
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11017
+
+17
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11018
+
+18
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11019
+
+19
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11020
+
+20
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11021
+
+21
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11022
+
+22
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11023
+
+23
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11024
+
+24
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11025
+
+25
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11026
+
+26
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11027
+
+27
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11028
+
+28
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11029
+
+29
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11030
+
+30
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11031
+
+Sliding window size: 50
+UDPReceiver: Created socket on port 11031
+THREAD NUMBER: 2
+31
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11032
+
+32
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11033
+
+33
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11034
+
+34
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11035
+
+35
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11036
+
+36
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11037
+
+37
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11038
+
+38
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11039
+
+39
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11040
+
+
+Path to output:
+===============
+/Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/out/proc31.output
+
+Deleted old output file: false
+
+Path to config:
+===============
+./out/config
+
+===============
+Doing some initialization
+
+Broadcasting and delivering messages...
+
+Number of messages: 5000
+Process ID: 31
+Sent 1000 messages.
+Sent 2000 messages.
+Sent 3000 messages.
+Sent 4000 messages.
+Process 30 received 5000 messages
+Sent 5000 messages.
+Sent 6000 messages.
+Sent 7000 messages.
+Sent 8000 messages.
+Sent 9000 messages.
+Process 30 received 10000 messages
+Sent 10000 messages.
+Sent 11000 messages.
+Sent 12000 messages.
+Sent 13000 messages.
+Process 30 received 15000 messages
+Sent 14000 messages.
+Sent 15000 messages.
+Sent 16000 messages.
+Sent 17000 messages.
+Sent 18000 messages.
+Sent 19000 messages.
+Sent 20000 messages.
+Process 30 received 20000 messages
+Sent 21000 messages.
+Sent 22000 messages.
+Sent 23000 messages.
+Sent 24000 messages.
+Process 30 received 25000 messages
+Sent 25000 messages.
+Sent 26000 messages.
+Sent 27000 messages.
+Sent 28000 messages.
+Sent 29000 messages.
+Process 30 received 30000 messages
+Sent 30000 messages.
+Sent 31000 messages.
+Sent 32000 messages.
+Sent 33000 messages.
+Process 30 received 35000 messages
+Sent 34000 messages.
+Sent 35000 messages.
+Sent 36000 messages.
+Sent 37000 messages.
+Sent 38000 messages.
+Sent 39000 messages.
+Process 30 received 40000 messages
+Sent 40000 messages.
+Sent 41000 messages.
+Sent 42000 messages.
+Sent 43000 messages.
+Sent 44000 messages.
+Process 30 received 45000 messages
+Sent 45000 messages.
+Sent 46000 messages.
+Sent 47000 messages.
+Sent 48000 messages.
+Process 30 received 50000 messages
+Sent 49000 messages.
+Sent 50000 messages.
+Sent 51000 messages.
+Sent 52000 messages.
+Sent 53000 messages.
+Process 30 received 55000 messages
+Sent 54000 messages.
+Sent 55000 messages.
+Sent 56000 messages.
+Sent 57000 messages.
+Process 30 received 60000 messages
+Sent 58000 messages.
+Sent 59000 messages.
+Sent 60000 messages.
+Sent 61000 messages.
+Sent 62000 messages.
+Process 30 received 65000 messages
+Sent 63000 messages.
+Sent 64000 messages.
+Sent 65000 messages.
+Sent 66000 messages.
+Sent 67000 messages.
+Process 30 received 70000 messages
+Sent 68000 messages.
+Sent 69000 messages.
+Sent 70000 messages.
+Sent 71000 messages.
+Sent 72000 messages.
+Process 30 received 75000 messages
+Sent 73000 messages.
+Sent 74000 messages.
+Sent 75000 messages.
+Sent 76000 messages.
+Process 30 received 80000 messages
+Sent 77000 messages.
+Sent 78000 messages.
+Sent 79000 messages.
+Sent 80000 messages.
+Sent 81000 messages.
+Process 30 received 85000 messages
+Sent 82000 messages.
+Sent 83000 messages.
+Sent 84000 messages.
+Sent 85000 messages.
+Sent 86000 messages.
+Sent 87000 messages.
+Process 30 received 90000 messages
+Sent 88000 messages.
+Sent 89000 messages.
+Sent 90000 messages.
+Sent 91000 messages.
+Process 30 received 95000 messages
+Sent 92000 messages.
+Sent 93000 messages.
+Sent 94000 messages.
+Sent 95000 messages.
+Sent 96000 messages.
+Sent 97000 messages.
+Process 30 received 100000 messages
+Sent 98000 messages.
+Sent 99000 messages.
+Sent 100000 messages.
+Process 30 received 105000 messages
+Sent 101000 messages.
+Immediately stopping network packet processing.
+Writing output.

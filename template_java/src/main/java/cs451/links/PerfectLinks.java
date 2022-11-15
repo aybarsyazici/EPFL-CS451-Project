@@ -67,12 +67,12 @@ public class PerfectLinks implements Deliverer {
                     uniformDeliverer.deliver(message); // First time getting the message
                 }
                 // Check if this process has delivered all the messages in the sliding window
+                else if(message.getOriginalSender() == this.myId && delivered[message.getOriginalSender()].get(message.getId()).size() < (hosts.size()/2)-1) return;
                 else if(delivered[message.getOriginalSender()].get(message.getId()).size() < (hosts.size()/2)) return;
                 if(readyToSlide(message.getOriginalSender())){
-                    System.out.println("Sliding window for process " + message.getOriginalSender());
                     // If yes, then increment the sliding window start
                     slidingWindowStart[message.getOriginalSender()] += slidingWindowSize;
-                    printSlidingWindows();
+                    // printSlidingWindows();
                     // Remove all the messages from the delivered map
                     for(int messageId : delivered[message.getOriginalSender()].keySet()){
                         uniformDeliverer.uniformDeliver(message.getOriginalSender(),messageId);

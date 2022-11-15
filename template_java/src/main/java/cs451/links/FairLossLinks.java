@@ -25,11 +25,10 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     FairLossLinks(int port, Deliverer deliverer, int hostSize, int maxMemory, boolean extraMemory){
         this.receiver = new UDPReceiver(port, this, maxMemory, hostSize, extraMemory);
         this.deliverer = deliverer;
-        int maxThreads = 100; /* 8 process at max per host
+        this.THREAD_NUMBER = 2; /* 8 process at max per host
         Each process has 6 threads (main, logChecker, ackSender, messageSender, Receiver and finally the signal handler )
         so for each running process we by default have 6 threads. We also leave some thread count for threads that Java might be spawning
         */
-        this.THREAD_NUMBER = Math.min(maxThreads, Runtime.getRuntime().availableProcessors());
         this.pool = Executors.newFixedThreadPool(THREAD_NUMBER);
         System.out.println("THREAD NUMBER: " + THREAD_NUMBER);
         // initialize sockets

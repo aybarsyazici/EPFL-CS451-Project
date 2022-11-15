@@ -165,7 +165,7 @@ public class StubbornLinks implements Deliverer {
                 if(originalMessage.getOriginalSender() == originalMessage.getSenderId()){ // I am the original sender
                     messagesDelivered[originalMessage.getReceiverId()]++; // Successfully delivered this message.
                     if(messagesDelivered[originalMessage.getReceiverId()] >= slidingWindows[originalMessage.getReceiverId()]){
-                        System.out.println("Sliding window of " + originalMessage.getReceiverId() + " is increased by 1.");
+                        // System.out.println("Sliding window of " + originalMessage.getReceiverId() + " is increased by 1.");
                         slidingWindows[originalMessage.getReceiverId()] += this.slidingWindowSize;
                         acknowledger.slideSendWindow(originalMessage.getReceiverId());
                     }
