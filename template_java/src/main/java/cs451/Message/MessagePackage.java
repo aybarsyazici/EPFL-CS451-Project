@@ -64,10 +64,7 @@ public class MessagePackage implements Serializable {
 
     // Create copy of message package
     public MessagePackage copy(){
-        List<Message> messagesCopy = new ArrayList<>();
-        for(Message message : messages){
-            messagesCopy.add(message.copy());
-        }
+        List<Message> messagesCopy = new ArrayList<>(messages);
         return new MessagePackage(messagesCopy);
     }
 }

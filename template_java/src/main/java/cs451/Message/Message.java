@@ -81,7 +81,7 @@ public class Message implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.originalSender, this.getSenderId(), this.getReceiverId(), this.ack);
+        return Objects.hash(this.id, this.originalSender, this.senderId, this.receiverId, this.ack);
     }
 
     @Override

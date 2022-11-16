@@ -83,7 +83,7 @@ public class Main {
         System.out.println("Number of messages: " + nmOfMessages);
 
         System.out.println("Process ID: " + (pr.getId()+1));
-        pr.send(nmOfMessages);
+        pr.send();
 
         // After a process finishes broadcasting,
         // it waits forever for the delivery of messages.

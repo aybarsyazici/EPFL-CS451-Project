@@ -1,7 +1,7 @@
 
-crashed_procs = [13, 2, 10, 17, 18, 19, 20, 4, 9]
+crashed_procs = [3, 4, 5, 10]
 
-proc_count = 20
+proc_count = 10
 
 correct = True
 non_crashed_procs = [i for i in range(
@@ -78,10 +78,10 @@ for index in range(1, len(non_crashed_procs)-1):
                 else:
                     seen2.add(line_lower)
 
-        checkIndex = 4 if i < 10 else 5
+        checkIndex = 4 if j < 10 else 5
         for line in seen:
-            if line[0:checkIndex] != "d " + str(i) + " " and line not in seen2:
-                print('In file: ' + stri + ' ' + line + ' not found')
+            if line[0:checkIndex] != "d " + str(j) + " " and line not in seen2:
+                print('In file: ' + strj + ' ' + line + ' not found')
                 correct = False
 
 if correct:

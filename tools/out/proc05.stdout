@@ -1,9 +1,9 @@
-Listening for transport dt_socket at address: 6379
-My PID: 77569
+Listening for transport dt_socket at address: 6121
+My PID: 15093
 
-From a new terminal type `kill -SIGINT 77569` or `kill -SIGTERM 77569` to stop processing packets
+From a new terminal type `kill -SIGINT 15093` or `kill -SIGTERM 15093` to stop processing packets
 
-OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/out/proc05.output
+OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/EPFL-CS451-Project/tools/out/proc05.output
 My ID: 5
 
 List of resolved hosts is:
@@ -28,7 +28,7 @@ Human-readable Port: 11004
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11005
 
-Sliding window size: 400
+Sliding window size: 1600
 UDPReceiver: Created socket on port 11005
 THREAD NUMBER: 2
 5
@@ -51,50 +51,10 @@ Human-readable Port: 11009
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11010
 
-10
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11011
-
-11
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11012
-
-12
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11013
-
-13
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11014
-
-14
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11015
-
-15
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11016
-
-16
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11017
-
-17
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11018
-
-18
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11019
-
-19
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11020
-
 
 Path to output:
 ===============
-/Users/aybarsyazici/Documents/EPFL/distributed/CS451-2022-project/tools/out/proc05.output
+/Users/aybarsyazici/Documents/EPFL/distributed/EPFL-CS451-Project/tools/out/proc05.output
 
 Deleted old output file: false
 
@@ -107,7 +67,7 @@ Doing some initialization
 
 Broadcasting and delivering messages...
 
-Number of messages: 4000
+Number of messages: 25000
 Process ID: 5
 Sent 1000 messages.
 Sent 2000 messages.
@@ -118,57 +78,266 @@ Sent 6000 messages.
 Sent 7000 messages.
 Sent 8000 messages.
 Sent 9000 messages.
-Process 4 received 5000 messages
 Sent 10000 messages.
 Sent 11000 messages.
-Process 4 received 10000 messages
 Sent 12000 messages.
 Sent 13000 messages.
 Sent 14000 messages.
+Process 4 received 5000 messages
 Sent 15000 messages.
 Sent 16000 messages.
 Sent 17000 messages.
 Sent 18000 messages.
-Process 4 received 15000 messages
 Sent 19000 messages.
+Process 4 received 10000 messages
 Sent 20000 messages.
 Sent 21000 messages.
+Process 4 received 15000 messages
 Sent 22000 messages.
 Sent 23000 messages.
 Sent 24000 messages.
 Sent 25000 messages.
-Process 4 received 20000 messages
 Sent 26000 messages.
 Sent 27000 messages.
+Process 4 received 20000 messages
 Sent 28000 messages.
 Sent 29000 messages.
-Process 4 received 25000 messages
 Sent 30000 messages.
 Sent 31000 messages.
 Sent 32000 messages.
 Sent 33000 messages.
 Sent 34000 messages.
-Process 4 received 30000 messages
 Sent 35000 messages.
+Process 4 received 25000 messages
 Sent 36000 messages.
 Sent 37000 messages.
+Process 4 received 30000 messages
+Process 4 received 35000 messages
 Sent 38000 messages.
 Sent 39000 messages.
 Sent 40000 messages.
 Sent 41000 messages.
 Sent 42000 messages.
 Sent 43000 messages.
-Process 4 received 35000 messages
 Sent 44000 messages.
 Sent 45000 messages.
 Sent 46000 messages.
 Sent 47000 messages.
 Sent 48000 messages.
-Process 4 received 40000 messages
 Sent 49000 messages.
+Process 4 received 40000 messages
+Process 4 received 45000 messages
 Sent 50000 messages.
 Sent 51000 messages.
 Sent 52000 messages.
-Process 4 received 45000 messages
+Sent 53000 messages.
+Sent 54000 messages.
+Process 4 received 50000 messages
+Sent 55000 messages.
+Sent 56000 messages.
+Sent 57000 messages.
+Sent 58000 messages.
+Sent 59000 messages.
+Sent 60000 messages.
+Sent 61000 messages.
+Sent 62000 messages.
+Process 4 received 55000 messages
+Sent 63000 messages.
+Sent 64000 messages.
+Process 4 received 60000 messages
+Sent 65000 messages.
+Sent 66000 messages.
+Sent 67000 messages.
+Sent 68000 messages.
+Sent 69000 messages.
+Sent 70000 messages.
+Process 4 received 65000 messages
+Sent 71000 messages.
+Sent 72000 messages.
+Sent 73000 messages.
+Sent 74000 messages.
+Process 4 received 70000 messages
+Sent 75000 messages.
+Process 4 received 75000 messages
+Sent 76000 messages.
+Sent 77000 messages.
+Sent 78000 messages.
+Process 4 received 80000 messages
+Sent 79000 messages.
+Sent 80000 messages.
+Sent 81000 messages.
+Sent 82000 messages.
+Sent 83000 messages.
+Sent 84000 messages.
+Sent 85000 messages.
+Sent 86000 messages.
+Sent 87000 messages.
+Sent 88000 messages.
+Sent 89000 messages.
+Process 4 received 85000 messages
+Process 4 received 90000 messages
+Sent 90000 messages.
+Sent 91000 messages.
+Sent 92000 messages.
+Sent 93000 messages.
+Sent 94000 messages.
+Sent 95000 messages.
+Sent 96000 messages.
+Sent 97000 messages.
+Process 4 received 95000 messages
+Sent 98000 messages.
+Sent 99000 messages.
+Process 4 received 100000 messages
+Sent 100000 messages.
+Process 4 received 105000 messages
+Sent 101000 messages.
+Sent 102000 messages.
+Sent 103000 messages.
+Sent 104000 messages.
+Sent 105000 messages.
+Sent 106000 messages.
+Process 4 received 110000 messages
+Process 4 received 115000 messages
+Sent 107000 messages.
+Sent 108000 messages.
+Process 4 received 120000 messages
+Sent 109000 messages.
+Sent 110000 messages.
+Sent 111000 messages.
+Sent 112000 messages.
+Process 4 received 125000 messages
+Sent 113000 messages.
+Sent 114000 messages.
+Sent 115000 messages.
+Sent 116000 messages.
+Process 4 received 130000 messages
+Sent 117000 messages.
+Sent 118000 messages.
+Sent 119000 messages.
+Sent 120000 messages.
+Process 4 received 135000 messages
+Sent 121000 messages.
+Sent 122000 messages.
+Sent 123000 messages.
+Sent 124000 messages.
+Sent 125000 messages.
+Sent 126000 messages.
+Process 4 received 140000 messages
+Sent 127000 messages.
+Sent 128000 messages.
+Process 4 received 145000 messages
+Sent 129000 messages.
+Sent 130000 messages.
+Sent 131000 messages.
+Sent 132000 messages.
+Sent 133000 messages.
+Sent 134000 messages.
+Sent 135000 messages.
+Sent 136000 messages.
+Process 4 received 150000 messages
+Sent 137000 messages.
+Sent 138000 messages.
+Sent 139000 messages.
+Process 4 received 155000 messages
+Sent 140000 messages.
+Sent 141000 messages.
+Sent 142000 messages.
+Process 4 received 160000 messages
+Sent 143000 messages.
+Sent 144000 messages.
+Process 4 received 165000 messages
+Process 4 received 170000 messages
+Sent 145000 messages.
+Sent 146000 messages.
+Sent 147000 messages.
+Process 4 received 175000 messages
+Sent 148000 messages.
+Sent 149000 messages.
+Sent 150000 messages.
+Sent 151000 messages.
+Sent 152000 messages.
+Process 4 received 180000 messages
+Sent 153000 messages.
+Sent 154000 messages.
+Sent 155000 messages.
+Process 4 received 185000 messages
+Sent 156000 messages.
+Sent 157000 messages.
+Sent 158000 messages.
+Process 4 received 190000 messages
+Sent 159000 messages.
+Sent 160000 messages.
+Sent 161000 messages.
+Sent 162000 messages.
+Sent 163000 messages.
+Sent 164000 messages.
+Sent 165000 messages.
+Sent 166000 messages.
+Sent 167000 messages.
+Sent 168000 messages.
+Process 4 received 195000 messages
+Sent 169000 messages.
+Sent 170000 messages.
+Sent 171000 messages.
+Sent 172000 messages.
+Sent 173000 messages.
+Process 4 received 200000 messages
+Sent 174000 messages.
+Sent 175000 messages.
+Sent 176000 messages.
+Sent 177000 messages.
+Sent 178000 messages.
+Sent 179000 messages.
+Sent 180000 messages.
+Sent 181000 messages.
+Sent 182000 messages.
+Sent 183000 messages.
+Sent 184000 messages.
+Sent 185000 messages.
+Sent 186000 messages.
+Sent 187000 messages.
+Sent 188000 messages.
+Sent 189000 messages.
+Sent 190000 messages.
+Sent 191000 messages.
+Sent 192000 messages.
+Sent 193000 messages.
+Sent 194000 messages.
+Sent 195000 messages.
+Sent 196000 messages.
+Sent 197000 messages.
+Sent 198000 messages.
+Sent 199000 messages.
+Sent 200000 messages.
+Sent 201000 messages.
+Sent 202000 messages.
+Sent 203000 messages.
+Sent 204000 messages.
+Sent 205000 messages.
+Sent 206000 messages.
+Sent 207000 messages.
+Process 4 received 205000 messages
+Sent 208000 messages.
+Sent 209000 messages.
+Sent 210000 messages.
+Process 4 received 210000 messages
+Process 4 received 215000 messages
+Process 4 received 220000 messages
+Sent 211000 messages.
+Sent 212000 messages.
+Sent 213000 messages.
+Sent 214000 messages.
+Process 4 received 225000 messages
+Sent 215000 messages.
+Sent 216000 messages.
+Sent 217000 messages.
+Sent 218000 messages.
+Sent 219000 messages.
+Sent 220000 messages.
+Sent 221000 messages.
+Sent 222000 messages.
+Sent 223000 messages.
+Sent 224000 messages.
+Sent 225000 messages.
 Immediately stopping network packet processing.
 Writing output.

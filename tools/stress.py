@@ -158,7 +158,7 @@ class StressTest:
                     info.handle.send_signal(ProcessInfo.stateToSignal(op))
                     info.state = op
                     successfulAttempts += 1
-                    if(op == ProcessState.TERMINATED):
+                    if (op == ProcessState.TERMINATED):
                         print("Sending {} to process {}".format(
                             ProcessInfo.stateToSignalStr(op), proc))
 
@@ -259,7 +259,7 @@ def startProcesses(processes, runscript, hostsFilePath, configFilePath, outputDi
         # jmx_cmd = ['-Dcom.sun.management.jmxremote', '-Dcom.sun.management.jmxremote.port='+port, '-Dcom.sun.management.jmxremote.rmi.port='+port,
         #           '-Djava.rmi.server.hostname=0.0.0.0', '-Dcom.sun.management.jmxremote.ssl=false', '-Dcom.sun.management.jmxremote.authenticate=false', '-Xmx4g', '-jar', bin_java]
         debug_cmd = [
-        '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:'+port, '-jar', bin_java]
+            '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:'+port, '-jar', bin_java]
 
         procs.append((pid, subprocess.Popen(
             cmd + debug_cmd + cmd_ext, stdout=stdoutFd, stderr=stderrFd)))
@@ -380,9 +380,9 @@ if __name__ == "__main__":
         'attempts': 8,  # How many interferring attempts each threads does
         'attemptsDistribution': {  # Probability with which an interferring thread will
             # select an interferring action (make sure they add up to 1)
-            'STOP': 0.4,
-            'CONT': 0.4,
-            'TERM': 0.2,
+            'STOP': 0.5,
+            'CONT': 0.5,
+            'TERM': 0,
         }
     }
 

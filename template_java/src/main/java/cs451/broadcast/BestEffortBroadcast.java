@@ -8,27 +8,27 @@ import cs451.interfaces.UniformDeliverer;
 import cs451.links.PerfectLinks;
 
 import java.util.HashMap;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
 public class BestEffortBroadcast  implements Acknowledger {
     private PerfectLinks perfectLinks;
-
-    private UniformDeliverer uniformDeliverer;
     private byte id;
     private int[] lastSentMessageId;
-
-    private int messageCount;
+    private final int messageCount;
     private AtomicIntegerArray sendWindow;
     private final int slidingWindowSize;
-
+    private final ConcurrentLinkedQueue<Message> rebroadcastQueue;
     private final HashMap<Byte, Host> hosts;
 
-    public BestEffortBroadcast(byte id, int port, HashMap<Byte, Host> hosts, boolean extraMemory, int slidingWindowSize, UniformDeliverer deliverer){
+    public BestEffortBroadcast(byte id, int port, HashMap<Byte, Host> hosts, boolean extraMemory, int slidingWindowSize, UniformDeliverer deliverer, int messageCount) {
         this.sendWindow = new AtomicIntegerArray(hosts.size());
         this.lastSentMessageId = new int[hosts.size()];
         this.slidingWindowSize = slidingWindowSize;
+        this.messageCount = messageCount;
         this.id = id;
         this.hosts = hosts;
+        this.rebroadcastQueue = new ConcurrentLinkedQueue<>();
         for (Host host : hosts.values()){
             sendWindow.set(host.getId(), slidingWindowSize);
             this.lastSentMessageId[host.getId()] = 1;
@@ -36,55 +36,50 @@ public class BestEffortBroadcast  implements Acknowledger {
         this.perfectLinks = new PerfectLinks(port, id, deliverer,
                 this.hosts, slidingWindowSize,false,
                 this, messageCount);
-    }
-
-    public void send(int messageCount){
-        this.messageCount = messageCount;
-        // Iterate over all hosts
-        while(true){
-            boolean sleep = true;
-            boolean finished = true;
-            for(byte hostId : hosts.keySet()){
-                // Send message to all hosts
-                if(hostId == id) continue;
-                if(lastSentMessageId[hostId] < messageCount + 1){
-                    if(!(lastSentMessageId[hostId] > sendWindow.get(hostId))){
-                        perfectLinks.send(new Message(lastSentMessageId[hostId], id, hostId, id), hosts.get(hostId));
-                        lastSentMessageId[hostId]++;
-                        sleep = false;
+        new Thread(()->{
+            while(true)
+            {
+                while(!rebroadcastQueue.isEmpty()){
+                    Message message = rebroadcastQueue.poll();
+                    for(byte hostId : hosts.keySet()){
+                        if(hostId == id) continue;
+                        if(hostId == message.getOriginalSender()) continue;
+                        Message newMessage = new Message(message, id, hostId, false);
+                        perfectLinks.send(newMessage, hosts.get(hostId));
                     }
-                    finished = false;
                 }
-            }
-            if(finished) break;
-            if(sleep){
-                try {
-                    Runtime.getRuntime().gc();
-                    Thread.sleep(1000);
+                try{
+                    Thread.sleep(500);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
             }
+        }, "Rebroadcaster").start();
+    }
+
+    public void send(){
+        // Iterate over all hosts
+        for(byte hostId : hosts.keySet()){
+            // Send message to all hosts
+            if(hostId == id) continue;
+            while((lastSentMessageId[hostId] < messageCount + 1) && lastSentMessageId[hostId] <= sendWindow.get(hostId)){
+                perfectLinks.send(new Message(lastSentMessageId[hostId], id, hostId, id), hosts.get(hostId));
+                lastSentMessageId[hostId]++;
+            }
         }
     }
     public void rebroadcast(Message message){
-        for(byte hostId : hosts.keySet()){
-            if(hostId == id) continue;
-            // if(hostId == message.getOriginalSender()) continue; // Don't send to the original sender
-            Message newMessage = new Message(message, id, hostId, false);
-            perfectLinks.send(newMessage, hosts.get(hostId));
-        }
+        this.rebroadcastQueue.add(message);
     }
 
     @Override
-    public void slideSendWindow(byte destinationId) {
-        int oldWindow = sendWindow.getAndAdd(destinationId,slidingWindowSize);
-        // iterate over all sliding windows
-        for(int i = 0; i < sendWindow.length(); i++){
-            if(sendWindow.get(i) <= oldWindow){
-                return;
-            }
+    public void slideSendWindow(byte hostId) {
+        var size = sendWindow.addAndGet(hostId,slidingWindowSize);
+        while((lastSentMessageId[hostId] < messageCount + 1) && lastSentMessageId[hostId] <= size){
+            perfectLinks.send(new Message(lastSentMessageId[hostId], id, hostId, id), hosts.get(hostId));
+            lastSentMessageId[hostId]++;
         }
+        // iterate over all sliding windows
     }
 
     public void start(){

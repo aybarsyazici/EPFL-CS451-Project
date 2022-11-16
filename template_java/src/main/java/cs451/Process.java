@@ -42,7 +42,7 @@ public class Process implements Deliverer, Logger {
         logs = new ConcurrentLinkedQueue<>();
         this.hostSize = hostList.size();
         this.writing = new AtomicBoolean(false);
-        this.broadcast = new UniformReliableBroadcast(id, port, hostList, slidingWindowSize, this, this);
+        this.broadcast = new UniformReliableBroadcast(id, port, hostList, slidingWindowSize, this, this, messageCount);
         // Copy logs to a new queue
         // Dequeue from logs and write to file
         logChecker = new Timer();
@@ -81,8 +81,8 @@ public class Process implements Deliverer, Logger {
         }, 5000, 6000);
     }
 
-    public void send(int messageCount){
-        broadcast.send(messageCount);
+    public void send(){
+        broadcast.send();
         // this.logAllBroadcast(messageCount);
     }
 
@@ -132,7 +132,7 @@ public class Process implements Deliverer, Logger {
     }
 
     private int calcWindowSize(int hostSize){
-        return Math.max(3200000/(hostSize*hostSize*hostSize),1);
+        return Math.max(1600000/(hostSize*hostSize*hostSize),1);
     }
 
     @Override

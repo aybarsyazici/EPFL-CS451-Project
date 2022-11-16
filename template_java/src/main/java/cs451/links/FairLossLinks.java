@@ -10,6 +10,7 @@ import cs451.udp.UDPReceiver;
 
 import java.net.DatagramSocket;
 import java.util.concurrent.*;
+import java.util.concurrent.atomic.AtomicInteger;
 
 // Implementation of Fair Loss Links using UDP sockets
 public class FairLossLinks implements Deliverer, UDPObserver {
@@ -17,19 +18,20 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     private final UDPReceiver receiver;
     private final Deliverer deliverer;
     private final ExecutorService pool;
-    private final ConcurrentHashMap<Message, Boolean> messagesInTheQueue;
+    private final AtomicInteger jobCount;
     private final DatagramSocket[] sockets;
     // These sockets will be used by udp senders to send messages, each udp sender runs in a separate thread
     // and each thread has its own socket
 
-    FairLossLinks(int port, Deliverer deliverer, int hostSize, int maxMemory, boolean extraMemory){
-        this.receiver = new UDPReceiver(port, this, maxMemory, hostSize, extraMemory);
+    FairLossLinks(int port, Deliverer deliverer, int hostSize){
+        this.receiver = new UDPReceiver(port, this);
         this.deliverer = deliverer;
         this.THREAD_NUMBER = 2; /* 8 process at max per host
         Each process has 6 threads (main, logChecker, ackSender, messageSender, Receiver and finally the signal handler )
         so for each running process we by default have 6 threads. We also leave some thread count for threads that Java might be spawning
         */
         this.pool = Executors.newFixedThreadPool(THREAD_NUMBER);
+        this.jobCount = new AtomicInteger(0);
         System.out.println("THREAD NUMBER: " + THREAD_NUMBER);
         // initialize sockets
         sockets = new DatagramSocket[THREAD_NUMBER];
@@ -41,14 +43,11 @@ public class FairLossLinks implements Deliverer, UDPObserver {
                 e.printStackTrace();
             }
         }
-        messagesInTheQueue = new ConcurrentHashMap<>();
     }
 
     void send(MessagePackage messagePackage, Host host){ // Create a new sender and send message
         int socketId = ThreadLocalRandom.current().nextInt(sockets.length); // Choose a socket to send the message
-        for (Message message : messagePackage.getMessages()){
-            messagesInTheQueue.put(message, true);
-        }
+        this.jobCount.addAndGet(1);
         pool.submit(
                 new UDPBulkSender(
                         host.getIp(),
@@ -70,18 +69,10 @@ public class FairLossLinks implements Deliverer, UDPObserver {
         }
     }
 
-    boolean isQueueFull(){
-        ThreadPoolExecutor threadPoolExecutor = (ThreadPoolExecutor) this.pool;
-        int activeCount = threadPoolExecutor.getActiveCount();
-        long taskCount = threadPoolExecutor.getTaskCount();
-        long completedTaskCount = threadPoolExecutor.getCompletedTaskCount();
-        long tasksToDo = taskCount - completedTaskCount - activeCount;
-        return tasksToDo >= THREAD_NUMBER*5;
+    public boolean isQueueFull(){
+        return this.jobCount.get() > THREAD_NUMBER * 500;
     }
 
-    Boolean isInQueue(Message message){
-        return messagesInTheQueue.containsKey(message);
-    }
 
     @Override
     public void deliver(Message message) {
@@ -91,7 +82,10 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     @Override
     public void onUDPSenderExecuted(Message message) {
         // System.out.println("Message with id: " + messageId + " has been sent.");
-        messagesInTheQueue.remove(message);
+    }
 
+    @Override
+    public void onUDPBulkSenderExecuted(){
+        this.jobCount.decrementAndGet();
     }
 }
