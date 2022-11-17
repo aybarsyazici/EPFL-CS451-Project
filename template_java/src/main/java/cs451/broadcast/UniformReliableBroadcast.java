@@ -24,7 +24,7 @@ public class UniformReliableBroadcast implements UniformDeliverer {
         this.slidingWindowSize = slidingWindowSize;
         for(Host host : hostList){
             hostMap.put((byte)host.getId(), host);
-            this.lastDeliveredMessageId[host.getId()] = 1;
+            this.lastDeliveredMessageId[host.getId()] = 0;
         }
         this.beb = new BestEffortBroadcast(id, port, hostMap, false, slidingWindowSize, this, messageCount);
     }

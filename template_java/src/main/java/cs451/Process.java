@@ -140,7 +140,7 @@ public class Process implements Deliverer, Logger {
     }
 
     private void logAllBroadcast(int messageCount){
-        for(int i = 0; i < messageCount; i++){
+        for(int i = 1; i < messageCount+1; i++){
             logs.add("b " + i + "\n");
         }
     }
