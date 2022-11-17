@@ -1,9 +1,3 @@
-java.lang.NullPointerException: Cannot invoke "cs451.Message.Message.getReceiverId()" because "m" is null
-	at cs451.links.StubbornLinks.lambda$sendMessagesToBeSent$1(StubbornLinks.java:94)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at cs451.links.StubbornLinks.sendMessagesToBeSent(StubbornLinks.java:92)
-	at cs451.links.StubbornLinks.lambda$new$0(StubbornLinks.java:71)
-	at java.base/java.lang.Thread.run(Thread.java:833)
 java.net.SocketException: Socket closed
 	at java.base/sun.nio.ch.DatagramSocketAdaptor.receive(DatagramSocketAdaptor.java:252)
 	at java.base/java.net.DatagramSocket.receive(DatagramSocket.java:701)

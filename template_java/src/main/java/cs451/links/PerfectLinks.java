@@ -66,7 +66,9 @@ public class PerfectLinks implements Deliverer {
             // For each process(original sender) there is one HashMap, where the key is the message id and the value is a set of hosts that have seen this message.
             if (delivered[message.getOriginalSender()].get(message.getId()).add(message.getSenderId())) {
                 if (delivered[message.getOriginalSender()].get(message.getId()).size() == 1) {
-                    uniformDeliverer.deliver(message); // First time getting the message
+                    if(message.getOriginalSender() != myId){
+                        uniformDeliverer.deliver(message); // First time getting the message
+                    }
                     delivered[message.getOriginalSender()].get(message.getId()).add(myId); // I also have the message now
                 }
                 if (delivered[message.getOriginalSender()].get(message.getId()).size() == (hosts.size() / 2) + 1) {
@@ -108,5 +110,9 @@ public class PerfectLinks implements Deliverer {
             }
         }
         return true;
+    }
+
+    public HashMap<Integer, Set<Byte>> getDelivered(byte origSender){
+        return this.delivered[origSender];
     }
 }

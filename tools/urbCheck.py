@@ -1,5 +1,5 @@
 
-crashed_procs = [3, 4, 5, 10]
+crashed_procs = [1, 2, 4, 5]
 
 proc_count = 10
 
@@ -80,7 +80,7 @@ for index in range(1, len(non_crashed_procs)-1):
 
         checkIndex = 4 if j < 10 else 5
         for line in seen:
-            if line[0:checkIndex] != "d " + str(j) + " " and line not in seen2:
+            if line not in seen2:
                 print('In file: ' + strj + ' ' + line + ' not found')
                 correct = False
 

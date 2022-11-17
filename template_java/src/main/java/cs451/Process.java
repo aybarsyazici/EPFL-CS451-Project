@@ -25,9 +25,8 @@ public class Process implements Deliverer, Logger {
     private final AtomicBoolean writing;
 
     private final Timer logChecker;
-    private final int hostSize;
     private AtomicBoolean sendersStopped;
-
+    private final int messageCount;
     Lock lock = new ReentrantLock();
 
 
@@ -40,7 +39,7 @@ public class Process implements Deliverer, Logger {
         int slidingWindowSize = calcWindowSize(hostList.size());
         System.out.println("Sliding window size: " + slidingWindowSize);
         logs = new ConcurrentLinkedQueue<>();
-        this.hostSize = hostList.size();
+        this.messageCount = messageCount;
         this.writing = new AtomicBoolean(false);
         this.broadcast = new UniformReliableBroadcast(id, port, hostList, slidingWindowSize, this, this, messageCount);
         // Copy logs to a new queue
@@ -82,8 +81,8 @@ public class Process implements Deliverer, Logger {
     }
 
     public void send(){
+        this.logAllBroadcast(this.messageCount);
         broadcast.send();
-        // this.logAllBroadcast(messageCount);
     }
 
     public int getId() {
