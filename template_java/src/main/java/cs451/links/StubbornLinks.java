@@ -25,11 +25,9 @@ public class StubbornLinks implements Deliverer {
     private final ConcurrentHashMap<Byte, ConcurrentHashMap<Message, Boolean>> ackMessagesToBeSent;
     private int count;
     private final Runnable msgSendThread;
+    private final Runnable ackSendThread;
     private final AtomicBoolean isRunning;
-
     private final HashMap<Byte, Host> hosts;
-
-    private byte startHost;
     private final Lock lock;
     private final int messageCount;
 
@@ -41,7 +39,6 @@ public class StubbornLinks implements Deliverer {
         this.lock = new ReentrantLock();
         this.hosts = hosts;
         this.messageCount = messageCount;
-        this.startHost = 0;
         this.acknowledger = acknowledger;
         this.messageToBeSent = new List[hostSize];
         this.ackMessagesToBeSent = new ConcurrentHashMap<>();
@@ -59,24 +56,37 @@ public class StubbornLinks implements Deliverer {
         this.msgSendThread = () -> {
             while(isRunning.get()){
                 try {
+                    for (var host = 0; host < hostSize; host++) {
+                        if(messageToBeSent[host].size() > 0){
+                            var temp = new ArrayList<>(messageToBeSent[host]);
+                            sendMessagesToBeSent(temp, this.hosts.get((byte)host));
+                        }
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                try{
+                    Thread.sleep(1000);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        };
+        this.ackSendThread = () -> {
+            while(isRunning.get()){
+                try {
                     for (byte hostId : ackMessagesToBeSent.keySet()) {
                         if(ackMessagesToBeSent.get(hostId).size() > 0){
                             var temp = Collections.list(ackMessagesToBeSent.get(hostId).keys());
                             sendAckMessagesToBeSent(temp, this.hosts.get(hostId));
                         }
                     }
-                    for (var host = startHost; host < hostSize; host++) {
-                        if(messageToBeSent[host].size() > 0){
-                            var temp = new ArrayList<>(messageToBeSent[host]);
-                            sendMessagesToBeSent(temp, this.hosts.get((byte)host));
-                        }
-                    }
-                    this.startHost = (byte) ((this.startHost+1)%hostSize);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
                 try{
-                    Thread.sleep(500);
+                    Thread.sleep(300);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -90,7 +100,7 @@ public class StubbornLinks implements Deliverer {
         List<Message> messagesToSend = new ArrayList<>();
         (messages).
                 forEach(m -> {
-                    if (!fairLoss.isQueueFull()) {
+                    if (!fairLoss.isinQueue(m)) {
                         var slidingWindowSize = slidingWindows.get(m.getReceiverId());
                         if(m.getSenderId() == m.getOriginalSender() && m.getId() > slidingWindowSize){
                             return;
@@ -111,7 +121,7 @@ public class StubbornLinks implements Deliverer {
         List<Message> messagesToSend = new ArrayList<>();
         (messages).
                 forEach(m -> {
-                    if (!fairLoss.isQueueFull()){
+                    if (!fairLoss.isinQueue(m)) {
                         messagesToSend.add(m);
                         ackMessagesToBeSent.get(m.getReceiverId()).remove(m);
                         if(messagesToSend.size() == 8){
@@ -128,7 +138,7 @@ public class StubbornLinks implements Deliverer {
     public void start() {
         fairLoss.start();
         new Thread(msgSendThread, "Message send thread").start();
-        // new Thread(ackMsgSendThread, "Ack message send thread").start();
+        new Thread(ackSendThread, "Ack message send thread").start();
     }
 
     public void send(Message message, Host host) {

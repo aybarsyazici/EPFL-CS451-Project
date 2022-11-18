@@ -39,12 +39,29 @@ public class BestEffortBroadcast  implements Acknowledger {
 
     public void send(){
         // Iterate over all hosts
-        for(byte hostId : hosts.keySet()){
-            // Send message to all hosts
-            if(hostId == id) continue;
-            while((lastSentMessageId[hostId] < messageCount + 1) && lastSentMessageId[hostId] <= sendWindow.get(hostId)){
-                perfectLinks.send(new Message(lastSentMessageId[hostId], id, hostId, id), hosts.get(hostId));
-                lastSentMessageId[hostId]++;
+        while(true){
+            boolean sleep = true;
+            boolean finished = true;
+            for(byte hostId : hosts.keySet()){
+                // Send message to all hosts
+                if(hostId == id) continue;
+                if(lastSentMessageId[hostId] < messageCount + 1){
+                    if(!(lastSentMessageId[hostId] > sendWindow.get(hostId))){
+                        perfectLinks.send(new Message(lastSentMessageId[hostId], id, hostId, id), hosts.get(hostId));
+                        lastSentMessageId[hostId]++;
+                        sleep = false;
+                    }
+                    finished = false;
+                }
+            }
+            if(finished) break;
+            if(sleep){
+                try {
+                    Runtime.getRuntime().gc();
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }
@@ -58,11 +75,7 @@ public class BestEffortBroadcast  implements Acknowledger {
 
     @Override
     public void slideSendWindow(byte hostId) {
-        var size = sendWindow.addAndGet(hostId,slidingWindowSize);
-        while((lastSentMessageId[hostId] < messageCount + 1) && lastSentMessageId[hostId] <= size){
-            perfectLinks.send(new Message(lastSentMessageId[hostId], id, hostId, id), hosts.get(hostId));
-            lastSentMessageId[hostId]++;
-        }
+        sendWindow.addAndGet(hostId,slidingWindowSize);
     }
 
     public void start(){

@@ -37,6 +37,9 @@ public class UDPBulkSender extends Thread{
             e.printStackTrace();
         }
         observer.onUDPBulkSenderExecuted();
+        for(Message message: messagePackage.getMessages()){
+            observer.onUDPSenderExecuted(message);
+        }
     }
 
     public void close(){
