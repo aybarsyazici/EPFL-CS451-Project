@@ -7,6 +7,8 @@ import cs451.Message.MessagePackage;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.SocketException;
+import java.util.ArrayList;
+import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class UDPReceiver extends Thread{
@@ -15,10 +17,9 @@ public class UDPReceiver extends Thread{
     private DatagramSocket socket;
     private final Deliverer deliverer;
     private final DatagramPacket packet;
-    private int count;
 
     public UDPReceiver(int port, Deliverer deliverer){
-        this.count = 0;
+
         this.deliverer = deliverer;
         this.packet = new DatagramPacket(buf, buf.length);
         try{

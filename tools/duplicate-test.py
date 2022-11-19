@@ -1,6 +1,6 @@
-for i in range(1,21):
+for i in range(1, 100):
     stri = str(i)
-    if(i< 10):
+    if (i < 10):
         stri = "0" + stri
     try:
         with open('./out/proc'+stri+'.output') as f:

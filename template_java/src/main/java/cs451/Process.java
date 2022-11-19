@@ -131,7 +131,7 @@ public class Process implements Deliverer, Logger {
     }
 
     private int calcWindowSize(int hostSize){
-        return Math.max(80000/(hostSize*hostSize),1);
+        return Math.max(80000/(hostSize*hostSize),50);
     }
 
     @Override

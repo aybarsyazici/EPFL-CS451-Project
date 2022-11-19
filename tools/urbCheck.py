@@ -1,7 +1,14 @@
 
-crashed_procs = [1, 2, 3, 5]
+crashed_procs = [14, 20, 36,
+                 29, 11, 31,
+                 49, 12, 48,
+                 26, 35, 22,
+                 23, 9, 27,
+                 16, 46, 19,
+                 18, 5, 24,
+                 32, 8, 10]
 
-proc_count = 10
+proc_count = 50
 
 correct = True
 non_crashed_procs = [i for i in range(
@@ -16,34 +23,37 @@ for crashed in crashed_procs:
 
     seenRef = set()
 
-    with open('./out/proc'+str_crashed+'.output') as f:
-        count = 0
-        for line in f:
-            line_lower = line.lower()
-            if line_lower in seenRef:
-                print(line)
-            else:
-                seenRef.add(line_lower)
-                count += 1
-
-    for i in non_crashed_procs:
-        stri = str(i)
-        if (i < 10):
-            stri = "0" + stri
-        with open('./out/proc'+stri+'.output') as f:
-            seen = set()
+    try:
+        with open('./out/proc'+str_crashed+'.output') as f:
+            count = 0
             for line in f:
                 line_lower = line.lower()
-                if line_lower in seen:
+                if line_lower in seenRef:
                     print(line)
                 else:
-                    seen.add(line_lower)
+                    seenRef.add(line_lower)
+                    count += 1
 
-        checkIndex = 4 if i < 10 else 5
-        for line in seenRef:
-            if line[0:checkIndex] != "d " + str(i) + " " and line not in seen:
-                print('In file: ' + stri + ' ' + line + ' not found')
-                correct = False
+        for i in non_crashed_procs:
+            stri = str(i)
+            if (i < 10):
+                stri = "0" + stri
+            with open('./out/proc'+stri+'.output') as f:
+                seen = set()
+                for line in f:
+                    line_lower = line.lower()
+                    if line_lower in seen:
+                        print(line)
+                    else:
+                        seen.add(line_lower)
+
+            checkIndex = 4 if i < 10 else 5
+            for line in seenRef:
+                if line[0:checkIndex] != "d " + str(i) + " " and line not in seen:
+                    print('In file: ' + stri + ' ' + line + ' not found')
+                    correct = False
+    except:
+        print('File not found: ' + str_crashed)
 
 if correct:
     print('UNIFORM delivery correct')

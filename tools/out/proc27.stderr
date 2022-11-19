@@ -1,0 +1,11 @@
+java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.FutureTask@2b0ac9d2[Not completed, task = java.util.concurrent.Executors$RunnableAdapter@2bd666d1[Wrapped task = Thread[Thread-2546,10,main]]] rejected from java.util.concurrent.ThreadPoolExecutor@1a376c65[Shutting down, pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 1507]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2070)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:833)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1365)
+	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:123)
+	at cs451.links.FairLossLinks.send(FairLossLinks.java:65)
+	at cs451.links.StubbornLinks.lambda$sendAckMessagesToBeSent$4(StubbornLinks.java:163)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at cs451.links.StubbornLinks.sendAckMessagesToBeSent(StubbornLinks.java:157)
+	at cs451.links.StubbornLinks.lambda$new$1(StubbornLinks.java:91)
+	at java.base/java.lang.Thread.run(Thread.java:833)

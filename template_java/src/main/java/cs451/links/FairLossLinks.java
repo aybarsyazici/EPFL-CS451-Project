@@ -19,15 +19,19 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     private final Deliverer deliverer;
     private final ExecutorService pool;
     private final AtomicInteger jobCount;
-    private final ConcurrentHashMap<Message, Boolean> inQueue;
+    private final boolean[][][] inAckQueue;
+    private final boolean[][][] inSendQueue;
+    private final int slidingWindowSize;
     private final DatagramSocket[] sockets;
     // These sockets will be used by udp senders to send messages, each udp sender runs in a separate thread
     // and each thread has its own socket
 
-    FairLossLinks(int port, Deliverer deliverer, int hostSize){
+    FairLossLinks(int port, Deliverer deliverer, int hostSize, int slidingWindowSize){
         this.receiver = new UDPReceiver(port, this);
         this.deliverer = deliverer;
-        this.inQueue = new ConcurrentHashMap<>();
+        this.inAckQueue = new boolean[hostSize][hostSize][slidingWindowSize*5];
+        this.inSendQueue = new boolean[hostSize][hostSize][slidingWindowSize*5];
+        this.slidingWindowSize = slidingWindowSize;
         this.THREAD_NUMBER = 2; /* 8 process at max per host
         Each process has 6 threads (main, logChecker, ackSender, messageSender, Receiver and finally the signal handler )
         so for each running process we by default have 6 threads. We also leave some thread count for threads that Java might be spawning
@@ -51,7 +55,12 @@ public class FairLossLinks implements Deliverer, UDPObserver {
         int socketId = ThreadLocalRandom.current().nextInt(sockets.length); // Choose a socket to send the message
         this.jobCount.addAndGet(1);
         for(Message message: messagePackage.getMessages()){
-            this.inQueue.put(message, false);
+            if(message.isAckMessage()){
+                this.inAckQueue[message.getOriginalSender()][message.getReceiverId()][(message.getId()-1)%slidingWindowSize*5] = true;
+            }
+            else{
+                this.inSendQueue[message.getOriginalSender()][message.getReceiverId()][(message.getId()-1)%slidingWindowSize*5] = true;
+            }
         }
         pool.submit(
                 new UDPBulkSender(
@@ -80,7 +89,18 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     }
 
     public boolean isinQueue(Message message){
-        return this.inQueue.containsKey(message);
+        try{
+            if(message.isAckMessage()){
+                return this.inAckQueue[message.getOriginalSender()][message.getReceiverId()][(message.getId()-1)%slidingWindowSize*5];
+            }
+            else{
+                return this.inSendQueue[message.getOriginalSender()][message.getReceiverId()][(message.getId()-1)%slidingWindowSize*5];
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return false;
+        }
     }
 
     @Override
@@ -90,7 +110,12 @@ public class FairLossLinks implements Deliverer, UDPObserver {
 
     @Override
     public void onUDPSenderExecuted(Message message) {
-        this.inQueue.remove(message);
+        if(message.isAckMessage()){
+            this.inAckQueue[message.getOriginalSender()][message.getReceiverId()][(message.getId()-1)%slidingWindowSize*5] = false;
+        }
+        else{
+            this.inSendQueue[message.getOriginalSender()][message.getReceiverId()][(message.getId()-1)%slidingWindowSize*5] = false;
+        }
     }
 
     @Override

@@ -59,15 +59,24 @@ public class PerfectLinks implements Deliverer {
         if (message.getId() <= slidingWindowStart[message.getOriginalSender()]) { // Message has already been delivered by this process
             // Inform the sender that the message has been delivered but don't deliver it again.
             send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
+            if(message.getSenderId() != message.getOriginalSender() && message.getOriginalSender() != myId){
+                send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
+            }
         }
         if (message.getId() > slidingWindowStart[message.getOriginalSender()] && message.getId() <= slidingWindowStart[message.getOriginalSender()] + slidingWindowSize) {
             send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
+            if(message.getSenderId() != message.getOriginalSender() && message.getOriginalSender() != myId){
+                send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
+            }
             delivered[message.getOriginalSender()].computeIfAbsent(message.getId(), k -> new HashSet<>());
             // For each process(original sender) there is one HashMap, where the key is the message id and the value is a set of hosts that have seen this message.
             if (delivered[message.getOriginalSender()].get(message.getId()).add(message.getSenderId())) {
                 if (delivered[message.getOriginalSender()].get(message.getId()).size() == 1) {
                     if(message.getOriginalSender() != myId){
                         uniformDeliverer.deliver(message); // First time getting the message
+                    }
+                    if(message.getOriginalSender() != message.getSenderId()){
+                        delivered[message.getOriginalSender()].get(message.getId()).add(message.getOriginalSender());
                     }
                     delivered[message.getOriginalSender()].get(message.getId()).add(myId); // I also have the message now
                 }
@@ -76,17 +85,7 @@ public class PerfectLinks implements Deliverer {
                     // Then it's safe to deliver the message
                     uniformDeliverer.uniformDeliver(message);
                 }
-                if (readyToSlide(message.getOriginalSender())) { // Can we slide the window for this process?
-                    // If yes, then increment the sliding window start
-                    slidingWindowStart[message.getOriginalSender()] += slidingWindowSize;
-                    // printSlidingWindows();
-                    // Remove all the messages from the delivered map
-                    for (int messageId : delivered[message.getOriginalSender()].keySet()) {
-                        delivered[message.getOriginalSender()].get(messageId).clear();
-                    }
-                    delivered[message.getOriginalSender()].clear();
-                    System.gc();
-                }
+                slideWindow(message.getOriginalSender());
             }
         }
     }
@@ -99,9 +98,26 @@ public class PerfectLinks implements Deliverer {
         System.out.print(" }\n");
     }
 
+    public void slideWindow(byte originalSender){
+        if (readyToSlide(originalSender)) { // Can we slide the window for this process?
+            // If yes, then increment the sliding window start
+            slidingWindowStart[originalSender] += slidingWindowSize;
+            // printSlidingWindows();
+            // Remove all the messages from the delivered map
+            for (int messageId : delivered[originalSender].keySet()) {
+                delivered[originalSender].get(messageId).clear();
+            }
+            delivered[originalSender].clear();
+            System.gc();
+        }
+    }
+
     private boolean readyToSlide(byte originalSender) {
         if (delivered[originalSender].size() < slidingWindowSize) { // We haven't received all the messages in the sliding window
             return false;
+        }
+        if(originalSender != myId && stubbornLinks.getRebroadcastCount(originalSender) >= hosts.size()*slidingWindowSize ){
+            return false; // We still have a lot of rebroadcast messages to deliver to this process, wait for them to be delivered to save memory
         }
         // We have received all the messages. But are they all delivered? (i.e. have we received an ACK from at least half the hosts)
         for (int messageId : delivered[originalSender].keySet()) {
