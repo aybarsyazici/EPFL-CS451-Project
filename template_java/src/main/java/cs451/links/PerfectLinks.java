@@ -12,6 +12,7 @@ public class PerfectLinks implements Deliverer {
     private final StubbornLinks stubbornLinks;
     private final UniformDeliverer uniformDeliverer;
     private final HashMap<Integer, Set<Byte>>[] delivered;
+    private final boolean[][] deliveredBooleanMap;
     private int[] slidingWindowStart;
     private final int slidingWindowSize;
     private final HashMap<Byte, Host> hosts;
@@ -31,6 +32,7 @@ public class PerfectLinks implements Deliverer {
         this.myId = myId;
         this.uniformDeliverer = deliverer;
         delivered = new HashMap[hosts.size()];
+        this.deliveredBooleanMap = new boolean[hosts.size()][slidingWindowSize];
         this.slidingWindowStart = new int[hosts.size()];
         for (int i = 0; i < hosts.size(); i++) {
             this.slidingWindowStart[i] = 0;
@@ -80,10 +82,12 @@ public class PerfectLinks implements Deliverer {
                     }
                     delivered[message.getOriginalSender()].get(message.getId()).add(myId); // I also have the message now
                 }
-                if (delivered[message.getOriginalSender()].get(message.getId()).size() == (hosts.size() / 2) + 1) {
+                if (delivered[message.getOriginalSender()].get(message.getId()).size() >= (hosts.size() / 2) + 1
+                        && !deliveredBooleanMap[message.getOriginalSender()][(message.getId()-1) % slidingWindowSize]) {
                     // If the number of hosts that have seen the message is greater than the number of hosts/2 + 1
                     // Then it's safe to deliver the message
                     uniformDeliverer.uniformDeliver(message);
+                    deliveredBooleanMap[message.getOriginalSender()][(message.getId()-1) % slidingWindowSize] = true;
                 }
                 slideWindow(message.getOriginalSender());
             }
@@ -106,6 +110,7 @@ public class PerfectLinks implements Deliverer {
             // Remove all the messages from the delivered map
             for (int messageId : delivered[originalSender].keySet()) {
                 delivered[originalSender].get(messageId).clear();
+                deliveredBooleanMap[originalSender][(messageId-1) % slidingWindowSize] = false;
             }
             delivered[originalSender].clear();
             System.gc();

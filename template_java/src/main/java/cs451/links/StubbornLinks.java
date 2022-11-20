@@ -75,7 +75,7 @@ public class StubbornLinks implements Deliverer {
                     e.printStackTrace();
                 }
                 try{
-                    Thread.sleep(1000);
+                    Thread.sleep(400);
                 }
                 catch (Exception e){
                     e.printStackTrace();

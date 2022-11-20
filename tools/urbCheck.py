@@ -1,14 +1,7 @@
 
-crashed_procs = [14, 20, 36,
-                 29, 11, 31,
-                 49, 12, 48,
-                 26, 35, 22,
-                 23, 9, 27,
-                 16, 46, 19,
-                 18, 5, 24,
-                 32, 8, 10]
+crashed_procs = [1, 7, 8, 9]
 
-proc_count = 50
+proc_count = 10
 
 correct = True
 non_crashed_procs = [i for i in range(

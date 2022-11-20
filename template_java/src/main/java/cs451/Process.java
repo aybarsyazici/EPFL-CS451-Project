@@ -131,6 +131,24 @@ public class Process implements Deliverer, Logger {
     }
 
     private int calcWindowSize(int hostSize){
+        if(hostSize == 3){
+            return 6000;
+        }
+        if(hostSize == 4){
+            return 2500;
+        }
+        if(hostSize == 5){
+            return 2000;
+        }
+        if(hostSize == 6){
+            return 1500;
+        }
+        if(hostSize == 7){
+            return 1000;
+        }
+        if(hostSize == 8){
+            return 800;
+        }
         return Math.max(80000/(hostSize*hostSize),50);
     }
 
