@@ -77,11 +77,10 @@ public class Process implements Deliverer, Logger {
                     }
                 }
             }
-        }, 5000, 6000);
+        }, 0, 6000);
     }
 
     public void send(){
-        this.logAllBroadcast(this.messageCount);
         broadcast.send();
     }
 
@@ -131,8 +130,11 @@ public class Process implements Deliverer, Logger {
     }
 
     private int calcWindowSize(int hostSize){
+        if(hostSize == 2){
+            return 7000;
+        }
         if(hostSize == 3){
-            return 6000;
+            return 3000;
         }
         if(hostSize == 4){
             return 2500;
@@ -149,12 +151,17 @@ public class Process implements Deliverer, Logger {
         if(hostSize == 8){
             return 800;
         }
-        return Math.max(80000/(hostSize*hostSize),50);
+        if(hostSize == 32){
+            return 40;
+        }
+        return Math.max(40960/(hostSize*hostSize),20);
     }
 
     @Override
     public void logBroadcast(int messageId) {
+        lock.lock();
         logs.add("b " + messageId + "\n");
+        lock.unlock();
     }
 
     private void logAllBroadcast(int messageCount){

@@ -75,7 +75,7 @@ public class StubbornLinks implements Deliverer {
                     e.printStackTrace();
                 }
                 try{
-                    Thread.sleep(400);
+                    Thread.sleep(1000);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -95,7 +95,7 @@ public class StubbornLinks implements Deliverer {
                     e.printStackTrace();
                 }
                 try{
-                    Thread.sleep(300);
+                    Thread.sleep(500);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -115,7 +115,7 @@ public class StubbornLinks implements Deliverer {
                     e.printStackTrace();
                 }
                 try{
-                    Thread.sleep(300);
+                    Thread.sleep(500);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -128,11 +128,9 @@ public class StubbornLinks implements Deliverer {
         if(messages.size() == 0) return;
         List<Message> messagesToSend = new ArrayList<>();
         // Get memory usage
-        AtomicLong memory = new AtomicLong(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
         (messages).
                 forEach(m -> {
                     if (!fairLoss.isinQueue(m)) {
-                        if(memory.get() > 50*1024*1024) return;
                         var slidingWindowSize = slidingWindows.get(m.getReceiverId());
                         if(m.getSenderId() == m.getOriginalSender() && m.getId() > slidingWindowSize){
                             return;
@@ -143,7 +141,6 @@ public class StubbornLinks implements Deliverer {
                             messagesToSend.clear();
                         }
                     }
-                    memory.set(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
                 });
         if(messagesToSend.size() > 0){
             fairLoss.send(new MessagePackage(messagesToSend), host);
@@ -152,10 +149,8 @@ public class StubbornLinks implements Deliverer {
 
     private void sendAckMessagesToBeSent(List<Message> messages, Host host) {
         List<Message> messagesToSend = new ArrayList<>();
-        AtomicLong memory = new AtomicLong(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
         (messages).
                 forEach(m -> {
-                    if(memory.get() > 55*1024*1024) return;
                     if (!fairLoss.isinQueue(m)) {
                         messagesToSend.add(m);
                         ackMessagesToBeSent.get(m.getReceiverId()).remove(m);
@@ -164,7 +159,6 @@ public class StubbornLinks implements Deliverer {
                             messagesToSend.clear();
                         }
                     }
-                    memory.set(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
                 });
         if(messagesToSend.size() > 0){
             fairLoss.send(new MessagePackage(messagesToSend), host);

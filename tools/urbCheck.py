@@ -1,5 +1,5 @@
 
-crashed_procs = [1, 7, 8, 9]
+crashed_procs = [5, 6, 8, 9]
 
 proc_count = 10
 

@@ -4,6 +4,7 @@ import cs451.interfaces.Acknowledger;
 import cs451.interfaces.Deliverer;
 import cs451.Host;
 import cs451.Message.Message;
+import cs451.interfaces.Logger;
 import cs451.interfaces.UniformDeliverer;
 import cs451.links.PerfectLinks;
 
@@ -16,18 +17,22 @@ public class BestEffortBroadcast  implements Acknowledger {
     private PerfectLinks perfectLinks;
     private byte id;
     private int[] lastSentMessageId;
+    private int lastBroadcastedMessageId;
     private final int messageCount;
     private AtomicIntegerArray sendWindow;
     private final int slidingWindowSize;
     private final HashMap<Byte, Host> hosts;
+    private final Logger logger;
 
-    public BestEffortBroadcast(byte id, int port, HashMap<Byte, Host> hosts, boolean extraMemory, int slidingWindowSize, UniformDeliverer deliverer, int messageCount) {
+    public BestEffortBroadcast(byte id, int port, HashMap<Byte, Host> hosts, boolean extraMemory, int slidingWindowSize, UniformDeliverer deliverer, int messageCount, Logger logger) {
         this.sendWindow = new AtomicIntegerArray(hosts.size());
         this.lastSentMessageId = new int[hosts.size()];
         this.slidingWindowSize = slidingWindowSize;
+        this.logger = logger;
         this.messageCount = messageCount;
         this.id = id;
         this.hosts = hosts;
+        this.lastBroadcastedMessageId = 1;
         for (Host host : hosts.values()){
             sendWindow.set(host.getId(), slidingWindowSize);
             this.lastSentMessageId[host.getId()] = 1;
@@ -47,6 +52,10 @@ public class BestEffortBroadcast  implements Acknowledger {
                 if(hostId == id) continue;
                 if(lastSentMessageId[hostId] < messageCount + 1){
                     if(!(lastSentMessageId[hostId] > sendWindow.get(hostId))){
+                        if(lastBroadcastedMessageId == lastSentMessageId[hostId]){
+                            this.logger.logBroadcast(lastBroadcastedMessageId);
+                            lastBroadcastedMessageId++;
+                        }
                         perfectLinks.send(new Message(lastSentMessageId[hostId], id, hostId, id), hosts.get(hostId));
                         lastSentMessageId[hostId]++;
                         sleep = false;

@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 
 import argparse
-import os, atexit
+import os
+import atexit
 import textwrap
 
 
@@ -12,16 +13,18 @@ from enum import Enum
 
 from collections import defaultdict, OrderedDict
 
+
 def check_positive(value):
     ivalue = int(value)
     if ivalue <= 0:
-        raise argparse.ArgumentTypeError("{} is an invalid positive int value".format(value))
+        raise argparse.ArgumentTypeError(
+            "{} is an invalid positive int value".format(value))
     return ivalue
 
 
 def checkProcess(filePath):
     i = 1
-    nextMessage = defaultdict(lambda : 1)
+    nextMessage = defaultdict(lambda: 1)
     filename = os.path.basename(filePath)
 
     with open(filePath) as f:
@@ -32,7 +35,8 @@ def checkProcess(filePath):
             if tokens[0] == 'b':
                 msg = int(tokens[1])
                 if msg != i:
-                    print("File {}, Line {}: Messages broadcast out of order. Expected message {} but broadcast message {}".format(filename, lineNumber, i, msg))
+                    print("File {}, Line {}: Messages broadcast out of order. Expected message {} but broadcast message {}".format(
+                        filename, lineNumber, i, msg))
                     return False
                 i += 1
 
@@ -41,12 +45,14 @@ def checkProcess(filePath):
                 sender = int(tokens[1])
                 msg = int(tokens[2])
                 if msg != nextMessage[sender]:
-                    print("File {}, Line {}: Message delivered out of order. Expected message {}, but delivered message {}".format(filename, lineNumber, nextMessage[sender], msg))
+                    print("File {}, Line {}: Message delivered out of order. Expected message {}, but delivered message {}".format(
+                        filename, lineNumber, nextMessage[sender], msg))
                     return False
                 else:
                     nextMessage[sender] = msg + 1
 
     return True
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
@@ -62,7 +68,7 @@ if __name__ == "__main__":
     parser.add_argument('output', nargs='+')
 
     results = parser.parse_args()
-
+    results.output = results.output[1:]
     if len(results.output) != results.proc_num:
         print("Not as many output files as number of processes")
         exit(1)
@@ -73,6 +79,3 @@ if __name__ == "__main__":
             print("Validation OK")
         else:
             print("Validation failed!")
-
-
-
