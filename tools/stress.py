@@ -139,6 +139,7 @@ class StressTest:
         random.shuffle(selectOp)
 
         successfulAttempts = 0
+        count = 0
         while successfulAttempts < self.attempts:
             proc = random.choice(selectProc)
             op = random.choice(selectOp)
@@ -159,6 +160,7 @@ class StressTest:
                     info.state = op
                     successfulAttempts += 1
                     if (op == ProcessState.TERMINATED):
+                        count += 1
                         print("Sending {} to process {}".format(
                             ProcessInfo.stateToSignalStr(op), proc))
 
@@ -169,6 +171,7 @@ class StressTest:
 
                     # if len(terminatedProcs) == maxTerminatedProcesses:
                     #     break
+        print("Terminated {} processes".format(count))
 
     def remainingUnterminatedProcesses(self):
         remaining = []
@@ -258,7 +261,7 @@ def startProcesses(processes, runscript, hostsFilePath, configFilePath, outputDi
         print("____________")
         # jmx_cmd = ['-Dcom.sun.management.jmxremote', '-Dcom.sun.management.jmxremote.port='+port, '-Dcom.sun.management.jmxremote.rmi.port='+port,
         #           '-Djava.rmi.server.hostname=0.0.0.0', '-Dcom.sun.management.jmxremote.ssl=false', '-Dcom.sun.management.jmxremote.authenticate=false', '-Xmx4g', '-jar', bin_java]
-        # '-XX:MaxRAM=50m'
+        # '-XX:MaxRAM=35m'
         debug_cmd = [
             '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:'+port, '-XX:MaxRAM=35m', '-jar', bin_java]
 
@@ -381,9 +384,9 @@ if __name__ == "__main__":
         'attempts': 8,  # How many interferring attempts each threads does
         'attemptsDistribution': {  # Probability with which an interferring thread will
             # select an interferring action (make sure they add up to 1)
-            'STOP': 0.25,
-            'CONT': 0.25,
-            'TERM': 0.5,
+            'STOP': 0.5,
+            'CONT': 0.5,
+            'TERM': 0,
         }
     }
 

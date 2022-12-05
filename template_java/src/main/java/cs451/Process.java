@@ -154,7 +154,7 @@ public class Process implements Deliverer, Logger {
         if(hostSize == 32){
             return 40;
         }
-        return Math.max(40960/(hostSize*hostSize),20);
+        return Math.max(40960/(hostSize*hostSize),5);
     }
 
     @Override

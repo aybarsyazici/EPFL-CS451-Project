@@ -1,0 +1,23 @@
+java.lang.NullPointerException: Cannot invoke "cs451.Message.Message.isAckMessage()" because "message" is null
+	at cs451.links.FairLossLinks.isinQueue(FairLossLinks.java:93)
+	at cs451.links.StubbornLinks.lambda$sendMessagesToBeSent$3(StubbornLinks.java:133)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at cs451.links.StubbornLinks.sendMessagesToBeSent(StubbornLinks.java:132)
+	at cs451.links.StubbornLinks.lambda$new$2(StubbornLinks.java:111)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "cs451.Message.Message.getReceiverId()" because "m" is null
+	at cs451.links.StubbornLinks.lambda$sendMessagesToBeSent$3(StubbornLinks.java:134)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at cs451.links.StubbornLinks.sendMessagesToBeSent(StubbornLinks.java:132)
+	at cs451.links.StubbornLinks.lambda$new$2(StubbornLinks.java:111)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
