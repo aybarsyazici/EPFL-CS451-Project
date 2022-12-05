@@ -1,7 +1,7 @@
-Listening for transport dt_socket at address: 7676
-My PID: 2871
+Listening for transport dt_socket at address: 8882
+My PID: 73990
 
-From a new terminal type `kill -SIGINT 2871` or `kill -SIGTERM 2871` to stop processing packets
+From a new terminal type `kill -SIGINT 73990` or `kill -SIGTERM 73990` to stop processing packets
 
 OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/EPFL-CS451-Project/tools/out/proc15.output
 My ID: 15
@@ -68,7 +68,7 @@ Human-readable Port: 11014
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11015
 
-Sliding window size: 10
+Sliding window size: 102
 UDPReceiver: Created socket on port 11015
 THREAD NUMBER: 2
 15
@@ -91,182 +91,6 @@ Human-readable Port: 11019
 Human-readable IP: 127.0.0.1
 Human-readable Port: 11020
 
-20
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11021
-
-21
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11022
-
-22
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11023
-
-23
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11024
-
-24
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11025
-
-25
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11026
-
-26
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11027
-
-27
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11028
-
-28
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11029
-
-29
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11030
-
-30
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11031
-
-31
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11032
-
-32
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11033
-
-33
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11034
-
-34
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11035
-
-35
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11036
-
-36
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11037
-
-37
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11038
-
-38
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11039
-
-39
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11040
-
-40
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11041
-
-41
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11042
-
-42
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11043
-
-43
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11044
-
-44
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11045
-
-45
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11046
-
-46
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11047
-
-47
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11048
-
-48
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11049
-
-49
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11050
-
-50
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11051
-
-51
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11052
-
-52
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11053
-
-53
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11054
-
-54
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11055
-
-55
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11056
-
-56
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11057
-
-57
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11058
-
-58
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11059
-
-59
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11060
-
-60
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11061
-
-61
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11062
-
-62
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11063
-
-63
-Human-readable IP: 127.0.0.1
-Human-readable Port: 11064
-
 
 Path to output:
 ===============
@@ -276,22 +100,13 @@ Deleted old output file: false
 
 Path to config:
 ===============
-./out/config
+./out/proc15.config
 
 ===============
 Doing some initialization
 
 Broadcasting and delivering messages...
 
-Number of messages: 1024
 Process ID: 15
-Sent 1000 messages.
-Sent 2000 messages.
-Sent 3000 messages.
-Process 14 received 5000 messages
-Sent 4000 messages.
-Sent 5000 messages.
-Sent 6000 messages.
-Process 14 received 10000 messages
 Immediately stopping network packet processing.
 Writing output.

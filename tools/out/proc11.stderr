@@ -1,28 +1,10 @@
-java.lang.NullPointerException: Cannot invoke "cs451.Message.Message.isAckMessage()" because "message" is null
-	at cs451.links.FairLossLinks.isinQueue(FairLossLinks.java:93)
-	at cs451.links.StubbornLinks.lambda$sendMessagesToBeSent$3(StubbornLinks.java:133)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at cs451.links.StubbornLinks.sendMessagesToBeSent(StubbornLinks.java:132)
-	at cs451.links.StubbornLinks.lambda$new$2(StubbornLinks.java:111)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-java.lang.NullPointerException: Cannot invoke "cs451.Message.Message.getReceiverId()" because "m" is null
-	at cs451.links.StubbornLinks.lambda$sendMessagesToBeSent$3(StubbornLinks.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at cs451.links.StubbornLinks.sendMessagesToBeSent(StubbornLinks.java:132)
-	at cs451.links.StubbornLinks.lambda$new$2(StubbornLinks.java:111)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-java.lang.NullPointerException
-java.lang.NullPointerException
-java.lang.NullPointerException
-java.lang.NullPointerException
-java.util.concurrent.RejectedExecutionException: Task java.util.concurrent.FutureTask@2b0ac9d2[Not completed, task = java.util.concurrent.Executors$RunnableAdapter@2bd666d1[Wrapped task = Thread[Thread-488725,10,main]]] rejected from java.util.concurrent.ThreadPoolExecutor@1a376c65[Terminated, pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 488185]
-	at java.base/java.util.concurrent.ThreadPoolExecutor$AbortPolicy.rejectedExecution(ThreadPoolExecutor.java:2070)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.reject(ThreadPoolExecutor.java:833)
-	at java.base/java.util.concurrent.ThreadPoolExecutor.execute(ThreadPoolExecutor.java:1365)
-	at java.base/java.util.concurrent.AbstractExecutorService.submit(AbstractExecutorService.java:123)
-	at cs451.links.FairLossLinks.send(FairLossLinks.java:65)
-	at cs451.links.StubbornLinks.lambda$sendAckMessagesToBeSent$4(StubbornLinks.java:158)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at cs451.links.StubbornLinks.sendAckMessagesToBeSent(StubbornLinks.java:153)
-	at cs451.links.StubbornLinks.lambda$new$1(StubbornLinks.java:91)
-	at java.base/java.lang.Thread.run(Thread.java:833)
+java.net.SocketException: Socket closed
+	at java.base/sun.nio.ch.DatagramSocketAdaptor.receive(DatagramSocketAdaptor.java:252)
+	at java.base/java.net.DatagramSocket.receive(DatagramSocket.java:701)
+	at cs451.udp.UDPReceiver.run(UDPReceiver.java:40)
+Caused by: java.nio.channels.AsynchronousCloseException
+	at java.base/sun.nio.ch.DatagramChannelImpl.endRead(DatagramChannelImpl.java:523)
+	at java.base/sun.nio.ch.DatagramChannelImpl.trustedBlockingReceive(DatagramChannelImpl.java:677)
+	at java.base/sun.nio.ch.DatagramChannelImpl.blockingReceive(DatagramChannelImpl.java:635)
+	at java.base/sun.nio.ch.DatagramSocketAdaptor.receive(DatagramSocketAdaptor.java:240)
+	... 2 more

@@ -1,39 +1,10 @@
-java.lang.NullPointerException: Cannot invoke "cs451.Message.Message.isAckMessage()" because "message" is null
-	at cs451.links.FairLossLinks.isinQueue(FairLossLinks.java:93)
-	at cs451.links.StubbornLinks.lambda$sendMessagesToBeSent$3(StubbornLinks.java:133)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at cs451.links.StubbornLinks.sendMessagesToBeSent(StubbornLinks.java:132)
-	at cs451.links.StubbornLinks.lambda$new$2(StubbornLinks.java:111)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-java.lang.NullPointerException: Cannot invoke "cs451.Message.Message.getReceiverId()" because "m" is null
-	at cs451.links.StubbornLinks.lambda$sendMessagesToBeSent$3(StubbornLinks.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at cs451.links.StubbornLinks.sendMessagesToBeSent(StubbornLinks.java:132)
-	at cs451.links.StubbornLinks.lambda$new$2(StubbornLinks.java:111)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-java.lang.NullPointerException: Cannot invoke "cs451.Message.Message.isAckMessage()" because "message" is null
-	at cs451.links.FairLossLinks.isinQueue(FairLossLinks.java:93)
-	at cs451.links.StubbornLinks.lambda$sendMessagesToBeSent$3(StubbornLinks.java:133)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at cs451.links.StubbornLinks.sendMessagesToBeSent(StubbornLinks.java:132)
-	at cs451.links.StubbornLinks.lambda$new$2(StubbornLinks.java:111)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-java.lang.NullPointerException: Cannot invoke "cs451.Message.Message.getReceiverId()" because "m" is null
-	at cs451.links.StubbornLinks.lambda$sendMessagesToBeSent$3(StubbornLinks.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at cs451.links.StubbornLinks.sendMessagesToBeSent(StubbornLinks.java:132)
-	at cs451.links.StubbornLinks.lambda$new$2(StubbornLinks.java:111)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-java.lang.NullPointerException: Cannot invoke "cs451.Message.Message.isAckMessage()" because "message" is null
-	at cs451.links.FairLossLinks.isinQueue(FairLossLinks.java:93)
-	at cs451.links.StubbornLinks.lambda$sendMessagesToBeSent$3(StubbornLinks.java:133)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at cs451.links.StubbornLinks.sendMessagesToBeSent(StubbornLinks.java:132)
-	at cs451.links.StubbornLinks.lambda$new$2(StubbornLinks.java:111)
-	at java.base/java.lang.Thread.run(Thread.java:833)
-java.lang.NullPointerException: Cannot invoke "cs451.Message.Message.getReceiverId()" because "m" is null
-	at cs451.links.StubbornLinks.lambda$sendMessagesToBeSent$3(StubbornLinks.java:134)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at cs451.links.StubbornLinks.sendMessagesToBeSent(StubbornLinks.java:132)
-	at cs451.links.StubbornLinks.lambda$new$2(StubbornLinks.java:111)
-	at java.base/java.lang.Thread.run(Thread.java:833)
+java.net.SocketException: Socket closed
+	at java.base/sun.nio.ch.DatagramSocketAdaptor.receive(DatagramSocketAdaptor.java:252)
+	at java.base/java.net.DatagramSocket.receive(DatagramSocket.java:701)
+	at cs451.udp.UDPReceiver.run(UDPReceiver.java:40)
+Caused by: java.nio.channels.AsynchronousCloseException
+	at java.base/sun.nio.ch.DatagramChannelImpl.endRead(DatagramChannelImpl.java:523)
+	at java.base/sun.nio.ch.DatagramChannelImpl.trustedBlockingReceive(DatagramChannelImpl.java:677)
+	at java.base/sun.nio.ch.DatagramChannelImpl.blockingReceive(DatagramChannelImpl.java:635)
+	at java.base/sun.nio.ch.DatagramSocketAdaptor.receive(DatagramSocketAdaptor.java:240)
+	... 2 more
