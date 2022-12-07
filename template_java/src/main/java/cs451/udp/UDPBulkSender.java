@@ -9,16 +9,18 @@ import java.net.InetAddress;
 import java.util.List;
 
 public class UDPBulkSender extends Thread{
+    private int proposalSetSize;
     private DatagramSocket socket;
     private InetAddress address;
     private int port;
     private UDPObserver observer;
     private MessagePackage messagePackage;
-    public UDPBulkSender(String ip, int port, MessagePackage messagePackage, DatagramSocket socket, UDPObserver udpObserver) {
+    public UDPBulkSender(String ip, int port, MessagePackage messagePackage, DatagramSocket socket, UDPObserver udpObserver, int proposalSetSize) {
         try {
             this.port = port;
             this.address = InetAddress.getByName(ip);
             this.socket = socket;
+            this.proposalSetSize = proposalSetSize;
             this.observer = udpObserver;
             this.messagePackage = messagePackage;
         }
@@ -28,7 +30,7 @@ public class UDPBulkSender extends Thread{
     }
 
     public void run(){
-        var buffer = messagePackage.toBytes();
+        var buffer = messagePackage.toBytes(proposalSetSize);
         DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, port);
         try {
             socket.send(packet);
@@ -40,6 +42,7 @@ public class UDPBulkSender extends Thread{
         for(Message message: messagePackage.getMessages()){
             observer.onUDPSenderExecuted(message);
         }
+
     }
 
     public void close(){

@@ -16,10 +16,10 @@ public class MessagePackage implements Serializable {
     }
 
     // Convert to bytes to send through DatagramPacket
-    public byte[] toBytes(){
+    public byte[] toBytes(int proposalSetSize){
         byte[] bytes = new byte[0];
         for(Message message : messages){
-            byte[] messageBytes = message.toByteArray();
+            byte[] messageBytes = message.toByteArray(proposalSetSize);
             byte[] newBytes = new byte[bytes.length + messageBytes.length];
             System.arraycopy(bytes, 0, newBytes, 0, bytes.length);
             System.arraycopy(messageBytes, 0, newBytes, bytes.length, messageBytes.length);
@@ -29,14 +29,13 @@ public class MessagePackage implements Serializable {
     }
 
     // Convert from byte array received through datagram packet
-    public static MessagePackage fromBytes(byte[] bytes){
+    public static MessagePackage fromBytes(byte[] bytes, int proposalSetSize){
         MessagePackage messagePackage = new MessagePackage();
-        int i = 0;
-        while(i < bytes.length){
-            byte[] messageBytes = new byte[Message.BYTE_SIZE];
-            System.arraycopy(bytes, i, messageBytes, 0, Message.BYTE_SIZE);
-            messagePackage.addMessage(Message.fromByteArray(messageBytes));
-            i += Message.BYTE_SIZE;
+        int messageSize = 88 + proposalSetSize*4*8;
+        for(int i = 0; i < bytes.length; i += messageSize){
+            byte[] messageBytes = new byte[messageSize];
+            System.arraycopy(bytes, i, messageBytes, 0, messageSize);
+            messagePackage.addMessage(Message.fromByteArray(messageBytes, proposalSetSize));
         }
         return messagePackage;
     }

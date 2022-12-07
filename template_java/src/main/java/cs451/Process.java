@@ -1,10 +1,7 @@
 package cs451;
 
-import cs451.broadcast.UniformReliableBroadcast;
-import cs451.interfaces.Deliverer;
-import cs451.interfaces.Logger;
-import cs451.Message.Message;
-import cs451.interfaces.UniformDeliverer;
+import cs451.broadcast.BestEffortBroadcast;
+
 
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -14,34 +11,28 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
-public class Process implements Deliverer, Logger {
+public class Process {
     private final byte id;
-    private final UniformReliableBroadcast broadcast;
+    private final BestEffortBroadcast broadcast;
     private final String output;
 
     private final ConcurrentLinkedQueue<String> logs;
     private ConcurrentLinkedQueue<String> intermediateLogs;
-    private long count;
     private final AtomicBoolean writing;
 
     private final Timer logChecker;
-    private AtomicBoolean sendersStopped;
-    private final int messageCount;
     Lock lock = new ReentrantLock();
 
 
     public Process(byte id, int port,
-                   List<Host> hostList, String output, boolean extraMemory, int messageCount) {
+                   List<Host> hostList, String output, int proposalSetSize, int latticeRoundCount) {
         this.id = id;
         this.output = output;
-        this.count = 0;
-        this.sendersStopped = new AtomicBoolean(false);
         int slidingWindowSize = calcWindowSize(hostList.size());
         System.out.println("Sliding window size: " + slidingWindowSize);
         logs = new ConcurrentLinkedQueue<>();
-        this.messageCount = messageCount;
         this.writing = new AtomicBoolean(false);
-        this.broadcast = new UniformReliableBroadcast(id, port, hostList, slidingWindowSize, this, this, messageCount);
+        this.broadcast = new BestEffortBroadcast(id, port, hostList,  this, proposalSetSize, latticeRoundCount);
         // Copy logs to a new queue
         // Dequeue from logs and write to file
         logChecker = new Timer();
@@ -71,17 +62,12 @@ public class Process implements Deliverer, Logger {
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                finally {
-                    if(sendersStopped.get()){
-                        System.gc();
-                    }
-                }
             }
         }, 0, 6000);
     }
 
-    public void send(){
-        broadcast.send();
+    public void send(Set<Integer> proposals){
+        broadcast.broadcast(proposals);
     }
 
     public int getId() {
@@ -119,14 +105,19 @@ public class Process implements Deliverer, Logger {
         return writing.get();
     }
 
-    public void deliver (Message message) {
+    public void deliver (int round, Set<Integer> proposalSet) {
         lock.lock();
-        logs.add("d " + (message.getOriginalSender()+1) + " " + message.getId() + "\n");
-        lock.unlock();
-        count += 1;
-        if(count % 5000 == 0){
-            System.out.println("Process " + id + " received " + count + " messages");
+        System.out.println("DECIDED: " + round + " " + proposalSet);
+        StringBuilder toAdd = new StringBuilder();
+        for(int i = 0; i < proposalSet.size(); i++){
+            if(i == proposalSet.size()-1){
+                toAdd.append(proposalSet.toArray()[i]);
+            } else {
+                toAdd.append(proposalSet.toArray()[i]).append(" ");
+            }
         }
+        logs.add(toAdd.toString() + "\n");
+        lock.unlock();
     }
 
     private int calcWindowSize(int hostSize){
@@ -157,16 +148,13 @@ public class Process implements Deliverer, Logger {
         return Math.max(40960/(hostSize*hostSize),5);
     }
 
-    @Override
-    public void logBroadcast(int messageId) {
-        lock.lock();
-        logs.add("b " + messageId + "\n");
-        lock.unlock();
-    }
-
     private void logAllBroadcast(int messageCount){
         for(int i = 1; i < messageCount+1; i++){
             logs.add("b " + i + "\n");
         }
+    }
+
+    public int getCurrentLatticeRound(){
+        return broadcast.getLatticeRound();
     }
 }

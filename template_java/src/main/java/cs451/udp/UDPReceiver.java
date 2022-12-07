@@ -12,15 +12,17 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class UDPReceiver extends Thread{
+    public final int proposalSetSize;
     private boolean running;
-    private byte[] buf = new byte[64];
+    private byte[] buf;
     private DatagramSocket socket;
     private final Deliverer deliverer;
     private final DatagramPacket packet;
 
-    public UDPReceiver(int port, Deliverer deliverer){
-
+    public UDPReceiver(int port, Deliverer deliverer, int proposalSetSize){
+        this.proposalSetSize = proposalSetSize;
         this.deliverer = deliverer;
+        this.buf = new byte[88 + proposalSetSize*4*8];
         this.packet = new DatagramPacket(buf, buf.length);
         try{
             this.socket = new DatagramSocket(port);
@@ -35,22 +37,12 @@ public class UDPReceiver extends Thread{
         running = true;
         while(running){
             try {
-//                usedMemory.set(Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory());
-//                if (usedMemory.get() >= maxMemory){
-//                    count++;
-//                    if(count==5){
-//                        count = 0;
-//                        Runtime.getRuntime().gc();
-//                    }
-//                    continue;
-//                }
                 socket.receive(packet);
-                MessagePackage messagePackage = MessagePackage.fromBytes(packet.getData());
+                MessagePackage messagePackage = MessagePackage.fromBytes(packet.getData(),proposalSetSize);
                 for(Message message : messagePackage.getMessages()){
                     if(message.getId() == 0) continue;
                     deliverer.deliver(message);
                 }
-                messagePackage = null;
             }
             catch (Exception e){
                 e.printStackTrace();

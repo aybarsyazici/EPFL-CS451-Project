@@ -337,7 +337,7 @@ def startProcesses(processes, runscript, hostsFilePath, configFilePaths, outputD
         #           '-Djava.rmi.server.hostname=0.0.0.0', '-Dcom.sun.management.jmxremote.ssl=false', '-Dcom.sun.management.jmxremote.authenticate=false', '-Xmx4g', '-jar', bin_java]
         # '-XX:MaxRAM=35m'
         debug_cmd = [
-            '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:'+port, '-XX:MaxRAM=35m', '-jar', bin_java]
+            '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:'+port, '-XX:MaxRAM=60m', '-jar', bin_java]
 
         procs.append(
             (pid, subprocess.Popen(cmd + debug_cmd +
@@ -523,9 +523,9 @@ if __name__ == "__main__":
         "attempts": 8,  # How many interferring attempts each threads does
         "attemptsDistribution": {  # Probability with which an interferring thread will
             # select an interferring action (make sure they add up to 1)
-            "STOP": 0.25,
-            "CONT": 0.25,
-            "TERM": 0.5,
+            "STOP": 0.5,
+            "CONT": 0.5,
+            "TERM": 0,
         },
     }
 

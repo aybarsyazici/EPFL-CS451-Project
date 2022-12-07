@@ -4,40 +4,33 @@ import cs451.interfaces.Acknowledger;
 import cs451.interfaces.Deliverer;
 import cs451.Host;
 import cs451.Message.Message;
+import cs451.interfaces.LatticeDeliverer;
 import cs451.interfaces.UniformDeliverer;
 
 import java.util.*;
 
 public class PerfectLinks implements Deliverer {
     private final StubbornLinks stubbornLinks;
-    private final UniformDeliverer uniformDeliverer;
-    private final HashMap<Integer, Set<Byte>>[] delivered;
-    private final boolean[][] deliveredBooleanMap;
-    private int[] slidingWindowStart;
-    private final int slidingWindowSize;
+    private final LatticeDeliverer deliverer;
+    private final HashSet<Byte> delivered;
     private final HashMap<Byte, Host> hosts;
     private final byte myId;
+    private int ackCount;
+    private int nackCount;
 
     public PerfectLinks(int port,
                         byte myId,
-                        UniformDeliverer deliverer,
+                        LatticeDeliverer deliverer,
                         HashMap<Byte, Host> hosts,
-                        int slidingWindowSize,
                         boolean extraMemory,
-                        Acknowledger acknowledger,
-                        int messageCount) {
-        this.stubbornLinks = new StubbornLinks(port, hosts, this, hosts.size(), slidingWindowSize, extraMemory, acknowledger, messageCount);
-        this.slidingWindowSize = slidingWindowSize;
+                        int proposalSetSize) {
+        this.stubbornLinks = new StubbornLinks(port, hosts, this, hosts.size(), extraMemory, proposalSetSize);
         this.hosts = hosts;
+        this.ackCount = 0;
+        this.nackCount = 0;
         this.myId = myId;
-        this.uniformDeliverer = deliverer;
-        delivered = new HashMap[hosts.size()];
-        this.deliveredBooleanMap = new boolean[hosts.size()][slidingWindowSize];
-        this.slidingWindowStart = new int[hosts.size()];
-        for (int i = 0; i < hosts.size(); i++) {
-            this.slidingWindowStart[i] = 0;
-            this.delivered[i] = new HashMap<>();
-        }
+        this.deliverer = deliverer;
+        delivered = new HashSet<>();
     }
 
     public void send(Message message, Host host) {
@@ -58,82 +51,68 @@ public class PerfectLinks implements Deliverer {
 
     @Override
     public void deliver(Message message) {
-        if (message.getId() <= slidingWindowStart[message.getOriginalSender()]) { // Message has already been delivered by this process
-            // Inform the sender that the message has been delivered but don't deliver it again.
-            send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
-            if(message.getSenderId() != message.getOriginalSender() && message.getOriginalSender() != myId){
-                send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
-            }
-        }
-        if (message.getId() > slidingWindowStart[message.getOriginalSender()] && message.getId() <= slidingWindowStart[message.getOriginalSender()] + slidingWindowSize) {
-            send(new Message(message, message.getReceiverId(), message.getSenderId()), hosts.get(message.getSenderId())); // Send ACK message
-            if(message.getSenderId() != message.getOriginalSender() && message.getOriginalSender() != myId){
-                send(new Message(message, message.getReceiverId(), message.getOriginalSender()), hosts.get(message.getOriginalSender())); // Send ACK message
-            }
-            delivered[message.getOriginalSender()].computeIfAbsent(message.getId(), k -> new HashSet<>());
-            // For each process(original sender) there is one HashMap, where the key is the message id and the value is a set of hosts that have seen this message.
-            if (delivered[message.getOriginalSender()].get(message.getId()).add(message.getSenderId())) {
-                if (delivered[message.getOriginalSender()].get(message.getId()).size() == 1) {
-                    if(message.getOriginalSender() != myId){
-                        uniformDeliverer.deliver(message); // First time getting the message
+        if(message.getLatticeRound() == deliverer.getLatticeRound()){ // The message I got is from the same round
+            if(message.isAckMessage() && message.getId() == deliverer.getActiveProposalNumber()){
+                if(delivered.add(message.getSenderId())) {
+                    if (message.getAck() == 1) ackCount++;
+                    else if (message.getAck() == 2) nackCount++;
+                    if(ackCount + nackCount >= hosts.size()/2){
+                        if(nackCount == 0){
+                            deliverer.decide();
+                        }
+                        else {
+                            deliverer.broadcastNewProposal();
+                        }
+                        ackCount = 0;
+                        nackCount = 0;
+                        delivered.clear();
                     }
-                    if(message.getOriginalSender() != message.getSenderId()){
-                        delivered[message.getOriginalSender()].get(message.getId()).add(message.getOriginalSender());
+                }
+            }
+            else{
+                // Compare the message's proposal set to the current proposal set
+                // If the message's proposal set is a subset of the current proposal set, then send an ACK
+                // If the message's proposal set is a superset of the current proposal set, then send a NACK
+                for(int proposal : message.getProposals()){
+                    if(!deliverer.getCurrentProposal().contains(proposal)){
+                        // Send a NACK
+                        deliverer.updateProposals(message.getProposals());
+                        send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)2, deliverer.getCurrentProposal()), hosts.get(message.getSenderId()));
+                        return;
                     }
-                    delivered[message.getOriginalSender()].get(message.getId()).add(myId); // I also have the message now
                 }
-                if (delivered[message.getOriginalSender()].get(message.getId()).size() >= (hosts.size() / 2) + 1
-                        && !deliveredBooleanMap[message.getOriginalSender()][(message.getId()-1) % slidingWindowSize]) {
-                    // If the number of hosts that have seen the message is greater than the number of hosts/2 + 1
-                    // Then it's safe to deliver the message
-                    uniformDeliverer.uniformDeliver(message);
-                    deliveredBooleanMap[message.getOriginalSender()][(message.getId()-1) % slidingWindowSize] = true;
+                // Send an ACK
+                deliverer.updateProposals(message.getProposals());
+                send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)1, deliverer.getCurrentProposal()), hosts.get(message.getSenderId()));
+            }
+        }
+        else{
+            if(message.isAckMessage()) {
+                if(message.getLatticeRound() > deliverer.getLatticeRound()){
+                    // Because I am behind, I haven't yet sent proposals for this round, thus it should be impossible for me to receive an ACK message
+                    System.out.println("SHOULD NEVER HAPPEN");
                 }
-                slideWindow(message.getOriginalSender());
+                // Because I am ahead, I have already decided on a proposal for this round, thus I don't care for the ACK or NACK messages I receive after I have decided.
+                return;
+            }
+            // If we get here the message I receive is a proposal and is from a different round
+            if(message.getLatticeRound() > deliverer.getLatticeRound()) { // It's from a future round, so we save it for now and wait for the round to come, don't forget to send an ACK message
+                deliverer.getProposal(message.getLatticeRound()).addAll(message.getProposals());
+                send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)1, deliverer.getCurrentProposal()), hosts.get(message.getSenderId()));
+            }
+            if(message.getLatticeRound() < deliverer.getLatticeRound()){ // It's from a previous round,
+                for(int proposal : message.getProposals()){
+                    if(!deliverer.getProposal(message.getLatticeRound()).contains(proposal)){
+                        // Send a NACK
+                        deliverer.getProposal(message.getLatticeRound()).addAll(message.getProposals());
+                        send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)2, deliverer.getProposal(message.getLatticeRound())), hosts.get(message.getSenderId()));
+                        return;
+                    }
+                }
+                // Send an ACK
+                deliverer.getProposal(message.getLatticeRound()).addAll(message.getProposals());
+                send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)1, deliverer.getProposal(message.getLatticeRound())), hosts.get(message.getSenderId()));
             }
         }
-    }
-
-    private void printSlidingWindows() {
-        System.out.print("{ ");
-        for (int i = 0; i < hosts.size(); i++) {
-            System.out.print(i + ": " + slidingWindowStart[i] + " | ");
-        }
-        System.out.print(" }\n");
-    }
-
-    public void slideWindow(byte originalSender){
-        if (readyToSlide(originalSender)) { // Can we slide the window for this process?
-            // If yes, then increment the sliding window start
-            slidingWindowStart[originalSender] += slidingWindowSize;
-            // printSlidingWindows();
-            // Remove all the messages from the delivered map
-            for (int messageId : delivered[originalSender].keySet()) {
-                delivered[originalSender].get(messageId).clear();
-                deliveredBooleanMap[originalSender][(messageId-1) % slidingWindowSize] = false;
-            }
-            delivered[originalSender].clear();
-            System.gc();
-        }
-    }
-
-    private boolean readyToSlide(byte originalSender) {
-        if (delivered[originalSender].size() < slidingWindowSize) { // We haven't received all the messages in the sliding window
-            return false;
-        }
-        if(originalSender != myId && stubbornLinks.getRebroadcastCount(originalSender) >= hosts.size()*slidingWindowSize ){
-            return false; // We still have a lot of rebroadcast messages to deliver to this process, wait for them to be delivered to save memory
-        }
-        // We have received all the messages. But are they all delivered? (i.e. have we received an ACK from at least half the hosts)
-        for (int messageId : delivered[originalSender].keySet()) {
-            if (delivered[originalSender].get(messageId).size() < (hosts.size() / 2) + 1) {
-                return false; // This message is yet to be delivered!
-            }
-        }
-        return true;
-    }
-
-    public HashMap<Integer, Set<Byte>> getDelivered(byte origSender){
-        return this.delivered[origSender];
     }
 }

@@ -1,48 +1,58 @@
 package cs451.Message;
 
+import com.sun.source.tree.Tree;
+
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
-import java.util.Objects;
+import java.util.*;
 
 public class Message implements Serializable {
-    public static final int BYTE_SIZE = 8;
     private final int id;
+    private final int latticeRound;
+
     private final byte senderId;
     private final byte receiverId;
-    private final byte originalSender;
-    private final Boolean ack;
+    private final byte ack; // 0 means the message is a proposal, 1 means message is ack, 2 means message is n_ack
+    private final Set<Integer> proposals;
+    private final int hashCode;
 
-    public Message(int id, byte senderId, byte receiverId, byte originalSender) {
+    public Message(int id, byte senderId, byte receiverId, int latticeRound, Set<Integer> proposals) {
         this.id = id;
         this.senderId = senderId;
         this.receiverId = receiverId;
-        this.originalSender = originalSender;
-        this.ack = false;
+        this.latticeRound = latticeRound;
+        this.ack = 0;
+        this.proposals = proposals;
+        this.hashCode = Objects.hash(this.id, this.latticeRound, this.senderId, this.receiverId, this.ack);
     }
 
-    public Message(int id, byte senderId, byte receiverId, byte originalSender, Boolean ack) {
+    public Message(int id, byte senderId, byte receiverId, int latticeRound, byte ack, Set<Integer> proposals) {
         this.id = id;
         this.senderId = senderId;
         this.receiverId = receiverId;
-        this.originalSender = originalSender;
+        this.latticeRound = latticeRound;
         this.ack = ack;
+        this.proposals = proposals;
+        this.hashCode = Objects.hash(this.id, this.latticeRound, this.senderId, this.receiverId, this.ack);
     }
 
-    public Message(Message message, byte newSender, byte newReceiver){
+    public Message(Message message, byte newSender, byte newReceiver, byte ack){
         this.id = message.getId();
         this.senderId = newSender;
         this.receiverId = newReceiver;
-        this.originalSender = message.getOriginalSender();
-        this.ack = true;
+        this.latticeRound = message.getLatticeRound();
+        this.ack = ack;
+        this.proposals = message.copyProposals();
+        this.hashCode = Objects.hash(this.id, this.latticeRound, this.senderId, this.receiverId, this.ack);
     }
 
-    public Message(Message message, byte newSender, byte newReceiver, Boolean ack){
-        this.id = message.getId();
-        this.senderId = newSender;
-        this.receiverId = newReceiver;
-        this.originalSender = message.getOriginalSender();
-        this.ack = ack;
+    public Set<Integer> getProposals() {
+        return proposals;
+    }
+
+    private Set<Integer> copyProposals(){
+        return new HashSet<>(this.proposals);
     }
 
     public int getId() {
@@ -57,13 +67,15 @@ public class Message implements Serializable {
         return receiverId;
     }
 
-    public byte getOriginalSender() {
-        return originalSender;
+    public int getLatticeRound() {
+        return latticeRound;
     }
     public Boolean isAckMessage(){
-        return ack;
+        return this.ack != 0;
     }
-
+    public byte getAck(){
+        return this.ack;
+    }
 
     @Override
     public boolean equals(Object o) {
@@ -73,53 +85,78 @@ public class Message implements Serializable {
         Message message = (Message) o;
 
         return id == message.getId()
-                && originalSender == message.getOriginalSender()
+                && latticeRound == message.getLatticeRound()
                 && senderId == message.getSenderId()
                 && receiverId == message.getReceiverId()
-                && ack == message.isAckMessage();
+                && ack == message.getAck();
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(this.id, this.originalSender, this.senderId, this.receiverId, this.ack);
+        return this.hashCode;
     }
 
     @Override
     public String toString() {
         return "Message{" +
-                "id=" + id +
+                "proposalCount=" + id +
                 ", senderId=" + senderId +
                 ", receiverId=" + receiverId +
-                ", originalSender=" + originalSender +
+                ", latticeRound=" + latticeRound +
                 ", isAck=" + ack +
+                ", proposals=" + proposals +
                 '}';
     }
 
     // Convert object to byteArray
-    public byte[] toByteArray() {
-        byte[] bytes = new byte[8];
-        ByteBuffer.wrap(bytes).order(ByteOrder.BIG_ENDIAN).putInt(id).put(senderId).put(receiverId).put(originalSender).put(ack ? (byte) 1 : (byte) 0);
-        return bytes;
+    public byte[] toByteArray(int proposalSetSize) {
+        byte[] byteArray = new byte[11 + proposalSetSize*4];
+        ByteBuffer byteBuffer = ByteBuffer.wrap(byteArray);
+        byteBuffer.order(ByteOrder.BIG_ENDIAN);
+        byteBuffer.putInt(this.id);
+        byteBuffer.put(this.senderId);
+        byteBuffer.put(this.receiverId);
+        byteBuffer.putInt(this.latticeRound);
+        byteBuffer.put(this.ack);
+        for (Integer proposal : this.proposals) {
+            byteBuffer.putInt(proposal);
+        }
+        return byteArray;
     }
 
     // Convert byteArray to object
-    public static Message fromByteArray(byte[] bytes) {
-        ByteBuffer buffer = ByteBuffer.wrap(bytes).order(ByteOrder.BIG_ENDIAN);
-        int id = buffer.getInt();
-        byte senderId = buffer.get();
-        byte receiverId = buffer.get();
-        byte originalSender = buffer.get();
-        byte ack = buffer.get();
-        return new Message(id, senderId, receiverId, originalSender, ack == 1);
+    public static Message fromByteArray(byte[] bytes, int proposalSetSize) {
+        ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
+        byteBuffer.order(ByteOrder.BIG_ENDIAN);
+        int id = byteBuffer.getInt();
+        byte senderId = byteBuffer.get();
+        byte receiverId = byteBuffer.get();
+        int latticeRound = byteBuffer.getInt();
+        byte ack = byteBuffer.get();
+        Set<Integer> proposals = new HashSet<>();
+        for (int i = 0; i < proposalSetSize; i++) {
+            int proposal = byteBuffer.getInt();
+            if(proposal != 0){
+                proposals.add(proposal);
+            }
+        }
+        return new Message(id, senderId, receiverId, latticeRound, ack, proposals);
     }
 
     public Message swapSenderReceiver(){
-        return new Message(this.id, this.receiverId, this.senderId, this.originalSender, false);
+        return new Message(this.id, this.receiverId, this.senderId, this.latticeRound, (byte)0,this.copyProposals());
     }
 
     // Copy message
     public Message copy(){
-        return new Message(this.id, this.senderId, this.receiverId, this.originalSender, this.ack);
+        return new Message(this.id, this.senderId, this.receiverId, this.latticeRound, this.ack, this.copyProposals());
     }
 
+    public String printSet(){
+        StringBuilder sb = new StringBuilder();
+        for (int proposal : proposals) {
+            sb.append(proposal).append(" ");
+        }
+        return sb.toString();
+    }
 }

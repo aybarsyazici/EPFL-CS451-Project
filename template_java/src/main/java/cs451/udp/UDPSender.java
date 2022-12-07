@@ -18,7 +18,7 @@ public class UDPSender extends Thread{
     private int messageId;
     private byte receiverId;
 
-    public UDPSender(String ip, int port, Message message, DatagramSocket socket, UDPObserver udpObserver) {
+    public UDPSender(String ip, int port, Message message, DatagramSocket socket, UDPObserver udpObserver, int proposalSetSize) {
         try {
             this.port = port;
             this.address = InetAddress.getByName(ip);
@@ -28,7 +28,7 @@ public class UDPSender extends Thread{
             // oos.writeObject(message);
             // this.buf = baos.toByteArray();
             // oos.close();
-            this.buf = message.toByteArray();
+            this.buf = message.toByteArray(proposalSetSize);
             this.messageId = message.getId();
             this.receiverId = message.getReceiverId();
             this.message = message;

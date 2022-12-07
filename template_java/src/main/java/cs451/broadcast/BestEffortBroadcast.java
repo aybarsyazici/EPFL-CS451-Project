@@ -1,105 +1,103 @@
 package cs451.broadcast;
 
-import cs451.interfaces.Acknowledger;
-import cs451.interfaces.Deliverer;
+import cs451.Process;
+import cs451.interfaces.*;
 import cs451.Host;
 import cs451.Message.Message;
-import cs451.interfaces.Logger;
-import cs451.interfaces.UniformDeliverer;
 import cs451.links.PerfectLinks;
 
 import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
-public class BestEffortBroadcast  implements Acknowledger {
-    private PerfectLinks perfectLinks;
-    private byte id;
-    private int[] lastSentMessageId;
-    private int lastBroadcastedMessageId;
-    private final int messageCount;
-    private AtomicIntegerArray sendWindow;
-    private final int slidingWindowSize;
-    private final HashMap<Byte, Host> hosts;
-    private final Logger logger;
+public class BestEffortBroadcast implements LatticeDeliverer {
+    private final PerfectLinks perfectLinks;
+    private final byte id;
+    private final List<Host> hosts;
+    private final Process process;
+    private int activeProposalNumber;
+    private int currentlatticeRound;
+    private Set<Integer>[] proposals;
 
-    public BestEffortBroadcast(byte id, int port, HashMap<Byte, Host> hosts, boolean extraMemory, int slidingWindowSize, UniformDeliverer deliverer, int messageCount, Logger logger) {
-        this.sendWindow = new AtomicIntegerArray(hosts.size());
-        this.lastSentMessageId = new int[hosts.size()];
-        this.slidingWindowSize = slidingWindowSize;
-        this.logger = logger;
-        this.messageCount = messageCount;
+    public BestEffortBroadcast(byte id,
+                               int port,
+                               List<Host> hostList,
+                               Process process,
+                               int proposalSetSize,
+                               int latticeRoundCount) {
+        this.process = process;
         this.id = id;
-        this.hosts = hosts;
-        this.lastBroadcastedMessageId = 1;
-        for (Host host : hosts.values()){
-            sendWindow.set(host.getId(), slidingWindowSize);
-            this.lastSentMessageId[host.getId()] = 1;
+        this.activeProposalNumber = 0;
+        this.currentlatticeRound = 0;
+        this.hosts = hostList;
+        this.proposals = new Set[latticeRoundCount];
+        for(int i = 0; i < latticeRoundCount; i++){
+            this.proposals[i] = new HashSet<>();
         }
-        this.perfectLinks = new PerfectLinks(port, id, deliverer,
-                this.hosts, slidingWindowSize,false,
-                this, messageCount);
+        HashMap<Byte,Host> hostMap = new HashMap<>();
+        for(Host host : hostList){
+            hostMap.put((byte)host.getId(), host);
+        }
+        this.perfectLinks = new PerfectLinks(port, id, this,
+                hostMap,false,
+                proposalSetSize);
     }
 
-    public void send(){
+    public void broadcast(Set<Integer> proposals){
         // Iterate over all hosts
-        while(true){
-            boolean sleep = true;
-            boolean finished = true;
-            for(byte hostId : hosts.keySet()){
-                // Send message to all hosts
-                if(hostId == id) continue;
-                if(lastSentMessageId[hostId] < messageCount + 1){
-                    if(!(lastSentMessageId[hostId] > sendWindow.get(hostId))){
-                        if(lastBroadcastedMessageId == lastSentMessageId[hostId]){
-                            this.logger.logBroadcast(lastBroadcastedMessageId);
-                            lastBroadcastedMessageId++;
-                        }
-                        perfectLinks.send(new Message(lastSentMessageId[hostId], id, hostId, id), hosts.get(hostId));
-                        lastSentMessageId[hostId]++;
-                        sleep = false;
-                    }
-                    finished = false;
-                }
-            }
-            if(finished) break;
-            if(sleep){
-                try {
-                    Runtime.getRuntime().gc();
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-            }
+        this.activeProposalNumber++;
+        this.proposals[this.currentlatticeRound].addAll(proposals);
+        for(Host host : this.hosts){
+            // Send message to all hosts
+            if(host.getId() == id) continue; // Don't send it to yourself
+            perfectLinks.send(new Message(this.activeProposalNumber, id, (byte)host.getId(), this.currentlatticeRound, this.proposals[this.currentlatticeRound]), host);
         }
     }
-    public void rebroadcast(Message message){
-        for(byte hostId : hosts.keySet()){
-            if(hostId == id) continue;
-            Message newMessage = new Message(message, id, hostId, false);
-            perfectLinks.send(newMessage, hosts.get(hostId));
-        }
-    }
-
-    @Override
-    public void slideSendWindow(byte hostId) {
-        sendWindow.addAndGet(hostId,slidingWindowSize);
-    }
-
     public void start(){
         perfectLinks.start();
     }
-
     public void stop(){
         perfectLinks.stop();
     }
-
     @Override
-    public void stopSenders() {}
-
-    public HashMap<Integer, Set<Byte>> getDelivered(byte origSender){
-        return perfectLinks.getDelivered(origSender);
+    public void decide() {
+        process.deliver(currentlatticeRound, proposals[currentlatticeRound]);
+        activeProposalNumber = 0;
+        currentlatticeRound++; // Move to the next round
+    }
+    @Override
+    public int getActiveProposalNumber() {
+        return this.activeProposalNumber;
+    }
+    @Override
+    public Set<Integer> getCurrentProposal() {
+        return this.proposals[currentlatticeRound];
+    }
+    @Override
+    public Set<Integer> getProposal(int latticeRound) {
+        return this.proposals[latticeRound];
+    }
+    @Override
+    public void updateProposals(Set<Integer> proposals) {
+        this.proposals[currentlatticeRound].addAll(proposals);
     }
 
+    @Override
+    public void broadcastNewProposal() {
+        // Iterate over all hosts
+        this.activeProposalNumber++;
+        for(Host host : this.hosts){
+            // Send message to all hosts
+            if(host.getId() == id) continue; // Don't send it to yourself
+            perfectLinks.send(new Message(this.activeProposalNumber, id, (byte)host.getId(), this.currentlatticeRound, this.proposals[this.currentlatticeRound]), host);
+        }
+    }
+
+    @Override
+    public int getLatticeRound() {
+        return this.currentlatticeRound;
+    }
 }

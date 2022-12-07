@@ -1,4 +1,5 @@
-proc_count = 20
+proc_count = 100
+crashed_procs = []
 
 for i in range(1, proc_count+1):
     stri = str(i)
@@ -7,6 +8,7 @@ for i in range(1, proc_count+1):
     allLines = []
     try:
         with open('./out/proc'+stri+'.output') as f:
+            reading_line_count = 0
             for line in f:
                 # line contains numbers seperated by spaces
                 # add them all into an array
@@ -14,6 +16,7 @@ for i in range(1, proc_count+1):
                 # convert the numbers from string to int
                 numbers = [int(i) for i in numbers]
                 allLines.append(numbers)
+                reading_line_count += 1
         #  Now check all these lines with other output files
         try:
             for j in range(i, proc_count+1):
@@ -42,6 +45,7 @@ for i in range(1, proc_count+1):
             print()
     except:
         print("File " + stri + " has not been found, has it crashed?")
-    print("File " + stri + " is a-okay! :)")
+    print("File " + stri + " is a-okay! :) lineCount: " +
+          str(len(allLines)) + " " + ("" if i not in crashed_procs else " (crashed)"))
 
 print("All a-okay! :)")

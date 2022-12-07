@@ -1,7 +1,10 @@
 package cs451;
 
 import java.io.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+import java.util.TreeSet;
 
 public class Main {
 
@@ -32,6 +35,7 @@ public class Main {
         parser.parse();
 
         initSignalHandlers();
+
         BufferedReader brTest = null;
         String text = null;
         try {
@@ -41,7 +45,12 @@ public class Main {
             throw new RuntimeException(e);
         }
 
-        int nmOfMessages = Integer.parseInt(text);
+        // Test will contain 3 numbers seperated with spaces
+        // assign the first number to latticeRoundCount and the 3rd number to proposalSetSize
+        String[] test = text.split(" ");
+        int latticeRoundCount = Integer.parseInt(test[0]);
+        int lineCount = Integer.parseInt(test[1]);
+        int proposalSetSize = Integer.parseInt(test[2]);
 
         // example
         long pid = ProcessHandle.current().pid();
@@ -61,7 +70,7 @@ public class Main {
             System.out.println("Human-readable Port: " + host.getPort());
             System.out.println();
             if(host.getId() == (parser.myId()-1)){
-                pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), false, nmOfMessages);
+                pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), proposalSetSize,latticeRoundCount);
             }
         }
         System.out.println();
@@ -80,15 +89,37 @@ public class Main {
         System.out.println("Doing some initialization\n");
         pr.startProcessing();
         System.out.println("Broadcasting and delivering messages...\n");
-        System.out.println("Number of messages: " + nmOfMessages);
 
         System.out.println("Process ID: " + (pr.getId()+1));
-        pr.send();
+
 
         // After a process finishes broadcasting,
         // it waits forever for the delivery of messages.
+        int currentRound = 0;
         while (true) {
-            // Sleep for 1 hour
+            if(currentRound == latticeRoundCount){
+                break;
+            }
+            if(pr.getCurrentLatticeRound() == currentRound){
+                try{
+                    text = brTest.readLine();
+                    // The text will contain lineCount many numbers seperated by spaces
+                    // Add them all into a set of integers and call pr.send on that set
+                    String[] numbers = text.split(" ");
+                    Set<Integer> set = new HashSet<>();
+                    for(String number: numbers){
+                        set.add(Integer.parseInt(number));
+                    }
+                    pr.send(set);
+                    currentRound += 1;
+                }
+                catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+            Thread.sleep(150);
+        }
+        while(true){
             Thread.sleep(60 * 60 * 1000);
         }
     }
