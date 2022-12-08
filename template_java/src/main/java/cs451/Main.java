@@ -71,7 +71,7 @@ public class Main {
             System.out.println();
             if(host.getId() == (parser.myId()-1)){
                 System.out.println("ProposalSetSize: " + proposalSetSize);
-                pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), proposalSetSize,latticeRoundCount);
+                pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), 8, proposalSetSize,latticeRoundCount);
             }
         }
         System.out.println();
@@ -97,12 +97,14 @@ public class Main {
         // After a process finishes broadcasting,
         // it waits forever for the delivery of messages.
         int currentRound = 0;
-        while (true) {
-            if(currentRound == latticeRoundCount){
-                break;
-            }
-            if(pr.getCurrentLatticeRound() == currentRound){
+        var run = true;
+        while (run) {
+            while(currentRound < pr.getMaxLatticeRound()){
                 try{
+                    if(currentRound == latticeRoundCount){
+                        run = false;
+                        break;
+                    }
                     System.out.println("Starting Round " + currentRound );
                     text = brTest.readLine();
                     // The text will contain lineCount many numbers seperated by spaces
@@ -112,7 +114,7 @@ public class Main {
                     for(String number: numbers){
                         set.add(Integer.parseInt(number));
                     }
-                    pr.send(set);
+                    pr.send(currentRound, set);
                     currentRound += 1;
                 }
                 catch (IOException e) {

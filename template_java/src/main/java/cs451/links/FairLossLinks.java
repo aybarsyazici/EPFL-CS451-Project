@@ -9,6 +9,7 @@ import cs451.udp.UDPObserver;
 import cs451.udp.UDPReceiver;
 
 import java.net.DatagramSocket;
+import java.util.Arrays;
 import java.util.concurrent.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -21,6 +22,7 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     private final ExecutorService pool;
     private final AtomicInteger jobCount;
     private final ConcurrentHashMap<Message, Future> inQueue;
+    private final ConcurrentLinkedQueue<UDPBulkSender> toRun;
     private final DatagramSocket[] sockets;
     // These sockets will be used by udp senders to send messages, each udp sender runs in a separate thread
     // and each thread has its own socket
@@ -36,6 +38,7 @@ public class FairLossLinks implements Deliverer, UDPObserver {
         */
         this.pool = Executors.newFixedThreadPool(THREAD_NUMBER);
         this.jobCount = new AtomicInteger(0);
+        this.toRun = new ConcurrentLinkedQueue<>();
         System.out.println("THREAD NUMBER: " + THREAD_NUMBER);
         // initialize sockets
         sockets = new DatagramSocket[THREAD_NUMBER];
@@ -58,14 +61,14 @@ public class FairLossLinks implements Deliverer, UDPObserver {
                             host.getIp(),
                             host.getPort(),
                             buffer,
-                            sockets[socketId]
+                            sockets[socketId],
+                            messagePackage.copy(),
+                            this
                     )
             );
             for(Message message: messagePackage.getMessages()){
                 this.inQueue.put(message, futureTask);
             }
-            this.jobCount.addAndGet(1);
-
         }
         catch (Exception e){
             e.printStackTrace();
@@ -101,10 +104,9 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     }
 
     @Override
-    public int getCurrentRound() {
-        return deliverer.getCurrentRound();
+    public int getMaxLatticeRound() {
+        return deliverer.getMaxLatticeRound();
     }
-
     public int getJobCount(){
         return this.jobCount.get();
     }

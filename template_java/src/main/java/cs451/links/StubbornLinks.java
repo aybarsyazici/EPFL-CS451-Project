@@ -18,6 +18,7 @@ public class StubbornLinks implements Deliverer {
     private final ConcurrentHashMap<Byte, ConcurrentHashMap<Message, Boolean>> messageToBeSent;
     private final ConcurrentHashMap<Byte, ConcurrentHashMap<Message, Boolean>> ackMessagesToBeSent;
     private int count;
+    private final int hostSize;
     private final Runnable msgSendThread;
     private final Runnable ackSendThread;
     private final AtomicBoolean isRunning;
@@ -28,16 +29,20 @@ public class StubbornLinks implements Deliverer {
         this.fairLoss = new FairLossLinks(port, this, proposalSetSize);
         this.perfectLinks = perfectLinks;
         this.hosts = hosts;
+        this.hostSize = hosts.size();
         this.messageToBeSent = new ConcurrentHashMap<>();
         this.ackMessagesToBeSent = new ConcurrentHashMap<>();
+        Random rand = new Random(); //instance of random class
         // this.runnerTasks = new ConcurrentHashMap<>();
         this.count = 0;
         this.isRunning = new AtomicBoolean(true);
         this.msgSendThread = () -> {
             while(isRunning.get()){
                 try {
-                    for (byte hostId : messageToBeSent.keySet()) {
-                        if(messageToBeSent.get(hostId).size() > 0){
+                    var startIndex = 0;
+                    for (int i = 0; i < hostSize; i++) {
+                        byte hostId = (byte)((startIndex + i)%hostSize);
+                        if(messageToBeSent.containsKey(hostId) && messageToBeSent.get(hostId).size() > 0){
                             var temp = Collections.list(messageToBeSent.get(hostId).keys());
                             sendMessagesToBeSent(temp, this.hosts.get(hostId));
                         }
@@ -56,8 +61,10 @@ public class StubbornLinks implements Deliverer {
         this.ackSendThread = () -> {
             while(isRunning.get()){
                 try {
-                    for (byte hostId : ackMessagesToBeSent.keySet()) {
-                        if(ackMessagesToBeSent.get(hostId).size() > 0){
+                    var startIndex = 0;
+                    for (int i = 0; i < hostSize; i++) {
+                        byte hostId = (byte)((startIndex + i)%hostSize);
+                        if(ackMessagesToBeSent.containsKey(hostId) && ackMessagesToBeSent.get(hostId).size() > 0){
                             var temp = Collections.list(ackMessagesToBeSent.get(hostId).keys());
                             sendAckMessagesToBeSent(temp, this.hosts.get(hostId));
                         }
@@ -78,15 +85,18 @@ public class StubbornLinks implements Deliverer {
     private void sendMessagesToBeSent(List<Message> messages, Host host){
         if(messages.size() == 0) return;
         List<Message> messagesToSend = new ArrayList<>();
-        // Get memory usage
         (messages).
                 forEach(m -> {
-                        if (!fairLoss.isinQueue(m)) {
-                        messagesToSend.add(m);
-                        if(messagesToSend.size() == 1){
-                            fairLoss.send(new MessagePackage(messagesToSend), host);
-                            messagesToSend.clear();
+                        if(!m.isDeliveredMessage() && perfectLinks.isDelivered(m.getLatticeRound())){
+                            messageToBeSent.get(m.getReceiverId()).remove(m);
+                            return;
                         }
+                        if (!fairLoss.isinQueue(m)) {
+                            messagesToSend.add(m);
+                            if(messagesToSend.size() == 8){
+                                fairLoss.send(new MessagePackage(messagesToSend), host);
+                                messagesToSend.clear();
+                            }
                     }
                 });
         if(messagesToSend.size() > 0){
@@ -101,7 +111,7 @@ public class StubbornLinks implements Deliverer {
                     if (!fairLoss.isinQueue(m)) {
                         messagesToSend.add(m);
                         ackMessagesToBeSent.get(m.getReceiverId()).remove(m);
-                        if(messagesToSend.size() == 1){
+                        if(messagesToSend.size() == 8){
                             fairLoss.send(new MessagePackage(messagesToSend), host);
                             messagesToSend.clear();
                         }
@@ -125,7 +135,7 @@ public class StubbornLinks implements Deliverer {
     }
 
     public void send(Message message, Host host) {
-        if (message.isAckMessage()) {
+        if (message.isAckMessage() || message.isDeliveredAck()) {
             ackMessagesToBeSent.computeIfAbsent(message.getReceiverId(), k -> new ConcurrentHashMap<>());
             ackMessagesToBeSent.get(message.getReceiverId()).put(message, true);
         }
@@ -140,36 +150,32 @@ public class StubbornLinks implements Deliverer {
         fairLoss.stop();
     }
 
-    public void clearSendArray(){
-        for (byte hostId : messageToBeSent.keySet()) {
-            messageToBeSent.get(hostId).clear();
-        }
-    }
-
     public void stopSenders(){
         this.isRunning.compareAndSet(true, false);
     }
 
     @Override
-    public int getCurrentRound(){
-        return perfectLinks.getCurrentRound();
-    }
-
-    @Override
     public void deliver(Message message) {
+        if(message.isDeliveredAck()){
+            Message originalMessage = message.swapSenderReceiver();
+            messageToBeSent.get(originalMessage.getReceiverId()).remove(originalMessage);
+            return;
+        }
         if (message.isAckMessage()) { // I have sent this message and received it back
             Message originalMessage = message.swapSenderReceiver();
             var removal = messageToBeSent.get(originalMessage.getReceiverId()).remove(originalMessage);
             if (removal != null && removal) {
-                perfectLinks.deliver(message);
                 count += 1;
                 if (count % 1000 == 0) {
                     System.out.println("Sent " + count + " messages.");
                 }
             }
         }
-        else{
-            perfectLinks.deliver(message);
-        }
+        perfectLinks.deliver(message);
+    }
+
+    @Override
+    public int getMaxLatticeRound() {
+        return perfectLinks.getMaxLatticeRound();
     }
 }

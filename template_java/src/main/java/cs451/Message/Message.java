@@ -12,8 +12,19 @@ public class Message implements Serializable {
     private final byte senderId;
     private final byte receiverId;
     private final byte ack; // 0 means the message is a proposal, 1 means message is ack, 2 means message is n_ack
-    private final Set<Integer> proposals;
+    // 3 will mean that this processing is telling that he has delivered the given lattice round
+    // 4 will be the ack message associated with 3
+    private Set<Integer> proposals;
     private final int hashCode;
+
+    public Message(int id, byte senderId, byte receiverId, int latticeRound, boolean ack){
+        this.id = id;
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.latticeRound = latticeRound;
+        this.ack = ack ? (byte)4 : (byte)3;
+        this.hashCode = Objects.hash(this.id, this.latticeRound, this.senderId, this.receiverId, this.ack);
+    }
 
     public Message(int id, byte senderId, byte receiverId, int latticeRound, Set<Integer> proposals) {
         this.id = id;
@@ -71,6 +82,14 @@ public class Message implements Serializable {
     public Boolean isAckMessage(){
         return this.ack == 1 || this.ack == 2;
     }
+
+    public Boolean isDeliveredMessage(){
+        return this.ack == 3;
+    }
+    public Boolean isDeliveredAck(){
+        return this.ack == 4;
+    }
+
     public byte getAck(){
         return this.ack;
     }
@@ -115,8 +134,10 @@ public class Message implements Serializable {
         buffer.put(senderId);
         buffer.put(receiverId);
         buffer.put(ack);
-        for (Integer proposal : proposals) {
-            buffer.putInt(proposal);
+        if(proposals != null){
+            for (Integer proposal : proposals) {
+                buffer.putInt(proposal);
+            }
         }
         return buffer.array();
     }
@@ -141,7 +162,8 @@ public class Message implements Serializable {
     }
 
     public Message swapSenderReceiver(){
-        return new Message(this.id, this.receiverId, this.senderId, this.latticeRound, (byte)0,this.getProposals());
+        var ack = this.isAckMessage() ? (byte)0 : (byte)3;
+        return new Message(this.id, this.receiverId, this.senderId, this.latticeRound, ack, this.getProposals());
     }
 
     // Copy message

@@ -18,12 +18,12 @@ public class UDPReceiver extends Thread{
     private DatagramSocket socket;
     private final Deliverer deliverer;
     private final DatagramPacket packet;
-    private final ConcurrentLinkedQueue<Message> messages;
+    private final ConcurrentLinkedQueue<MessagePackage> messages;
 
     public UDPReceiver(int port, Deliverer deliverer, int proposalSetSize){
         this.proposalSetSize = proposalSetSize;
         this.deliverer = deliverer;
-        this.buf = new byte[(11 + proposalSetSize*4)];
+        this.buf = new byte[8*(11 + proposalSetSize*4)];
         this.messages = new ConcurrentLinkedQueue<>();
         this.packet = new DatagramPacket(buf, buf.length);
         try{
@@ -37,10 +37,12 @@ public class UDPReceiver extends Thread{
         new Thread(()->{
             while(running){
                 while(messages.size() > 0){
-                    deliverer.deliver(messages.poll());
+                    for(Message message : messages.poll().getMessages()){
+                        deliverer.deliver(message);
+                    }
                 }
                 try{
-                    Thread.sleep(1000);
+                    Thread.sleep(100);
                 }
                 catch (Exception e){
                     e.printStackTrace();
@@ -53,11 +55,8 @@ public class UDPReceiver extends Thread{
         while(running){
             try {
                 socket.receive(packet);
-                MessagePackage messagePackage = MessagePackage.fromBytes(packet.getData(),proposalSetSize);
-                for(Message message : messagePackage.getMessages()){
-                    if(message.getId() == 0) continue;
-                    messages.add(message);
-                }
+                MessagePackage msgPackage = MessagePackage.fromBytes(packet.getData(),this.proposalSetSize);
+                this.messages.add(msgPackage);
             }
             catch (Exception e){
                 e.printStackTrace();

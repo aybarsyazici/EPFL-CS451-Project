@@ -12,24 +12,30 @@ import java.util.*;
 public class PerfectLinks implements Deliverer {
     private final StubbornLinks stubbornLinks;
     private final LatticeDeliverer deliverer;
-    private final HashSet<Byte> delivered;
+    private final HashSet<Byte>[] delivered;
+    private final int parallelRoundCount;
     private final HashMap<Byte, Host> hosts;
     private final byte myId;
-    private int ackCount;
-    private int nackCount;
+    private int[] ackCount;
+    private int[] nackCount;
 
     public PerfectLinks(int port,
                         byte myId,
                         LatticeDeliverer deliverer,
                         HashMap<Byte, Host> hosts,
+                        int parallelRoundCount,
                         int proposalSetSize) {
         this.stubbornLinks = new StubbornLinks(port, hosts, this, proposalSetSize);
         this.hosts = hosts;
-        this.ackCount = 0;
-        this.nackCount = 0;
+        this.parallelRoundCount = parallelRoundCount;
+        this.ackCount = new int[parallelRoundCount];
+        this.nackCount = new int[parallelRoundCount];
         this.myId = myId;
         this.deliverer = deliverer;
-        delivered = new HashSet<>();
+        delivered = new HashSet[parallelRoundCount];
+        for(int i = 0; i < parallelRoundCount; i++){
+            delivered[i] = new HashSet<>();
+        }
     }
 
     public void send(Message message, Host host) {
@@ -49,33 +55,42 @@ public class PerfectLinks implements Deliverer {
     }
 
     @Override
-    public int getCurrentRound(){
-        return deliverer.getLatticeRound();
+    public int getMaxLatticeRound(){
+        return deliverer.getMaxLatticeRound();
+    }
+
+    public boolean isDelivered(int latticeRound){
+        return deliverer.isDelivered(latticeRound);
     }
 
     @Override
     public void deliver(Message message) {
-        if(message.getLatticeRound() == deliverer.getLatticeRound()){ // The message I got is from the same round
-            if(message.isAckMessage() && message.getId() == deliverer.getActiveProposalNumber()){
-                if(delivered.add(message.getSenderId())) {
+        if(message.isDeliveredMessage()){
+            deliverer.incrementDeliveredAck(message.getLatticeRound(), message.getSenderId());
+            send(new Message(1,myId,message.getSenderId(),message.getLatticeRound(),true),hosts.get(message.getSenderId()));
+        }
+        else if(deliverer.getMinLatticeRound() <= message.getLatticeRound() && message.getLatticeRound() < deliverer.getMaxLatticeRound()){
+            if(message.isAckMessage()){
+                if(message.getId() != deliverer.getActiveProposalNumber(message.getLatticeRound())){return;}
+                if(isDelivered(message.getLatticeRound())) return;
+                if(delivered[message.getLatticeRound()%parallelRoundCount].add(message.getSenderId())) {
                     if (message.getAck() == 1) {
-                        ackCount++;
+                        ackCount[message.getLatticeRound()%parallelRoundCount]++;
                     }
                     else if (message.getAck() == 2) {
-                        nackCount++;
-                        deliverer.updateCurrentProposal(message.getProposals());
+                        nackCount[message.getLatticeRound()%parallelRoundCount]++;
+                        deliverer.getProposal(message.getLatticeRound()).addAll(message.getProposals());
                     }
-                    if(ackCount + nackCount >= hosts.size()/2){
-                        delivered.clear();
-                        stubbornLinks.clearSendArray();
-                        if(nackCount == 0){
-                            deliverer.decide();
+                    if(ackCount[message.getLatticeRound()%parallelRoundCount] + nackCount[message.getLatticeRound()%parallelRoundCount] >= hosts.size()/2){
+                        delivered[message.getLatticeRound()%parallelRoundCount].clear();
+                        if(nackCount[message.getLatticeRound()%parallelRoundCount] == 0){
+                            deliverer.decide(message.getLatticeRound());
                         }
                         else {
-                            deliverer.broadcastNewProposal();
+                            deliverer.broadcastNewProposal(message.getLatticeRound());
                         }
-                        ackCount = 0;
-                        nackCount = 0;
+                        ackCount[message.getLatticeRound()%parallelRoundCount] = 0;
+                        nackCount[message.getLatticeRound()%parallelRoundCount] = 0;
                     }
                 }
             }
@@ -83,21 +98,21 @@ public class PerfectLinks implements Deliverer {
                 // Compare the message's proposal set to the current proposal set
                 // If the message's proposal set is a subset of the current proposal set, then send an ACK
                 for(int proposal : message.getProposals()){
-                    if(!deliverer.getCurrentProposal().contains(proposal)){
+                    if(!deliverer.getProposal(message.getLatticeRound()).contains(proposal)){
                         // Send a NACK
-                        deliverer.updateCurrentProposal(message.getProposals());
-                        send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)2, deliverer.getCurrentProposal()), hosts.get(message.getSenderId()));
+                        deliverer.getProposal(message.getLatticeRound()).addAll(message.getProposals());
+                        send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)2, deliverer.getProposal(message.getLatticeRound())), hosts.get(message.getSenderId()));
                         return;
                     }
                 }
                 // Send an ACK
-                deliverer.updateCurrentProposal(message.getProposals());
-                send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)1, deliverer.getCurrentProposal()), hosts.get(message.getSenderId()));
+                deliverer.getProposal(message.getLatticeRound()).addAll(message.getProposals());
+                send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)1, deliverer.getProposal(message.getLatticeRound())), hosts.get(message.getSenderId()));
             }
         }
         else{
             if(message.isAckMessage()) {
-                if(message.getLatticeRound() > deliverer.getLatticeRound()){
+                if(message.getLatticeRound() >= deliverer.getMaxLatticeRound()){
                     // Because I am behind, I haven't yet sent proposals for this round, thus it should be impossible for me to receive an ACK message
                     System.out.println("SHOULD NEVER HAPPEN" + message);
                 }
@@ -105,11 +120,11 @@ public class PerfectLinks implements Deliverer {
                 return;
             }
             // If we get here the message I receive is a proposal and is from a different round
-            if(message.getLatticeRound() > deliverer.getLatticeRound()) { // It's from a future round, so we save it for now and wait for the round to come, don't forget to send an ACK message
+            if(message.getLatticeRound() >= deliverer.getMaxLatticeRound()) { // It's from a future round, so we save it for now and wait for the round to come, don't forget to send an ACK message
                 deliverer.getProposal(message.getLatticeRound()).addAll(message.getProposals());
                 send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)1, deliverer.getProposal(message.getLatticeRound())), hosts.get(message.getSenderId()));
             }
-            if(message.getLatticeRound() < deliverer.getLatticeRound()){ // It's from a previous round,
+            if(message.getLatticeRound() < deliverer.getMinLatticeRound()){ // It's from a previous round,
                 for(int proposal : message.getProposals()){
                     if(!deliverer.getProposal(message.getLatticeRound()).contains(proposal)){
                         // Send a NACK

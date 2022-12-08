@@ -25,14 +25,14 @@ public class Process {
 
 
     public Process(byte id, int port,
-                   List<Host> hostList, String output, int proposalSetSize, int latticeRoundCount) {
+                   List<Host> hostList, String output, int parallelRoundCount, int proposalSetSize, int latticeRoundCount) {
         this.id = id;
         this.output = output;
         int slidingWindowSize = calcWindowSize(hostList.size());
         System.out.println("Sliding window size: " + slidingWindowSize);
         logs = new ConcurrentLinkedQueue<>();
         this.writing = new AtomicBoolean(false);
-        this.broadcast = new BestEffortBroadcast(id, port, hostList,  this, proposalSetSize, latticeRoundCount);
+        this.broadcast = new BestEffortBroadcast(id, port, hostList,  this, parallelRoundCount, proposalSetSize, latticeRoundCount);
         // Copy logs to a new queue
         // Dequeue from logs and write to file
         logChecker = new Timer();
@@ -66,8 +66,8 @@ public class Process {
         }, 0, 6000);
     }
 
-    public void send(Set<Integer> proposals){
-        broadcast.broadcast(proposals);
+    public void send(int round, Set<Integer> proposals){
+        broadcast.broadcast(round, proposals);
     }
 
     public int getId() {
@@ -154,7 +154,7 @@ public class Process {
         }
     }
 
-    public int getCurrentLatticeRound(){
-        return broadcast.getLatticeRound();
+    public int getMaxLatticeRound(){
+        return broadcast.getMaxLatticeRound();
     }
 }
