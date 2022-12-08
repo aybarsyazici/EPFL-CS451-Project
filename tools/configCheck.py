@@ -38,6 +38,12 @@ for i in range(1, proc_count+1):
                     print("Number " + str(number) + " in file proc" + stri + ".output at line " +
                           str(reading_line_count+1) + " is not present in any config file")
                     exit()
+            self_config = configNumberArray[i-1]
+            for config_number in self_config:
+                if str(config_number) not in numbersToCheck:
+                    print("Number " + str(config_number) + " in file proc" + stri + ".config at line " +
+                          str(reading_line_count+1) + " is not present in output file")
+                    exit()
             reading_line_count += 1
 
 print("All numbers in output files are present in config files")
