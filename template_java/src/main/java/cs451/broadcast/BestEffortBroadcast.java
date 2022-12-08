@@ -10,7 +10,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
 public class BestEffortBroadcast implements LatticeDeliverer {
@@ -18,8 +20,8 @@ public class BestEffortBroadcast implements LatticeDeliverer {
     private final byte id;
     private final List<Host> hosts;
     private final Process process;
-    private int activeProposalNumber;
-    private int currentlatticeRound;
+    private AtomicInteger activeProposalNumber;
+    private AtomicInteger currentlatticeRound;
     private Set<Integer>[] proposals;
 
     public BestEffortBroadcast(byte id,
@@ -30,30 +32,34 @@ public class BestEffortBroadcast implements LatticeDeliverer {
                                int latticeRoundCount) {
         this.process = process;
         this.id = id;
-        this.activeProposalNumber = 0;
-        this.currentlatticeRound = 0;
+        this.activeProposalNumber = new AtomicInteger(0);
+        this.currentlatticeRound = new AtomicInteger(0);
         this.hosts = hostList;
         this.proposals = new Set[latticeRoundCount];
         for(int i = 0; i < latticeRoundCount; i++){
-            this.proposals[i] = new HashSet<>();
+            this.proposals[i] = ConcurrentHashMap.newKeySet();
         }
         HashMap<Byte,Host> hostMap = new HashMap<>();
         for(Host host : hostList){
             hostMap.put((byte)host.getId(), host);
         }
         this.perfectLinks = new PerfectLinks(port, id, this,
-                hostMap,false,
+                hostMap,
                 proposalSetSize);
     }
 
     public void broadcast(Set<Integer> proposals){
         // Iterate over all hosts
-        this.activeProposalNumber++;
-        this.proposals[this.currentlatticeRound].addAll(proposals);
+        var proposalNumber = activeProposalNumber.incrementAndGet();
+        var latticeRound = currentlatticeRound.get();
+        this.proposals[latticeRound].addAll(proposals);
+        System.out.println("Broadcasting proposal " + proposalNumber + " round " + latticeRound + " with " + this.proposals[latticeRound].size() + " elements");
+        System.out.println("__________________________");
+        var currentProposals = this.getProposal(latticeRound);
         for(Host host : this.hosts){
             // Send message to all hosts
             if(host.getId() == id) continue; // Don't send it to yourself
-            perfectLinks.send(new Message(this.activeProposalNumber, id, (byte)host.getId(), this.currentlatticeRound, this.proposals[this.currentlatticeRound]), host);
+            perfectLinks.send(new Message(proposalNumber, id, (byte)host.getId(), latticeRound, currentProposals), host);
         }
     }
     public void start(){
@@ -64,40 +70,58 @@ public class BestEffortBroadcast implements LatticeDeliverer {
     }
     @Override
     public void decide() {
-        process.deliver(currentlatticeRound, proposals[currentlatticeRound]);
-        activeProposalNumber = 0;
-        currentlatticeRound++; // Move to the next round
+        activeProposalNumber.set(0);
+        var round = currentlatticeRound.getAndIncrement();         // Move to the next round
+        process.deliver(round, this.proposals[round]);
     }
     @Override
     public int getActiveProposalNumber() {
-        return this.activeProposalNumber;
+        return this.activeProposalNumber.get();
     }
     @Override
     public Set<Integer> getCurrentProposal() {
-        return this.proposals[currentlatticeRound];
+        return this.proposals[currentlatticeRound.get()];
     }
+
+    @Override
+    public Set<Integer> getCopyOfCurrentProposal(){
+        return Set.copyOf(this.proposals[currentlatticeRound.get()]);
+    }
+
+    @Override
+    public Set<Integer> getCopyOfProposal(int latticeRound){
+        return Set.copyOf(this.proposals[latticeRound]);
+    }
+
     @Override
     public Set<Integer> getProposal(int latticeRound) {
         return this.proposals[latticeRound];
     }
     @Override
-    public void updateProposals(Set<Integer> proposals) {
-        this.proposals[currentlatticeRound].addAll(proposals);
+    public void updateCurrentProposal(Set<Integer> proposals) {
+        this.proposals[currentlatticeRound.get()].addAll(proposals);
     }
-
+    @Override
+    public void setProposals(Set<Integer> proposals, int latticeRound) {
+        this.proposals[latticeRound] = proposals;
+    }
     @Override
     public void broadcastNewProposal() {
         // Iterate over all hosts
-        this.activeProposalNumber++;
+        var proposalNumber = activeProposalNumber.incrementAndGet();
+        var latticeRound = currentlatticeRound.get();
+        System.out.println("Broadcasting NEW proposal " + proposalNumber + " round " + latticeRound + " with " + this.proposals[proposalNumber].size() + " elements");
+        System.out.println("__________________________");
+        var currentProposals = this.getProposal(latticeRound);
         for(Host host : this.hosts){
             // Send message to all hosts
             if(host.getId() == id) continue; // Don't send it to yourself
-            perfectLinks.send(new Message(this.activeProposalNumber, id, (byte)host.getId(), this.currentlatticeRound, this.proposals[this.currentlatticeRound]), host);
+            perfectLinks.send(new Message(proposalNumber, id, (byte)host.getId(), latticeRound, currentProposals), host);
         }
     }
 
     @Override
     public int getLatticeRound() {
-        return this.currentlatticeRound;
+        return this.currentlatticeRound.get();
     }
 }

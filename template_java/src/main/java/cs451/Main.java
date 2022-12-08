@@ -70,6 +70,7 @@ public class Main {
             System.out.println("Human-readable Port: " + host.getPort());
             System.out.println();
             if(host.getId() == (parser.myId()-1)){
+                System.out.println("ProposalSetSize: " + proposalSetSize);
                 pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), proposalSetSize,latticeRoundCount);
             }
         }
@@ -102,6 +103,7 @@ public class Main {
             }
             if(pr.getCurrentLatticeRound() == currentRound){
                 try{
+                    System.out.println("Starting Round " + currentRound );
                     text = brTest.readLine();
                     // The text will contain lineCount many numbers seperated by spaces
                     // Add them all into a set of integers and call pr.send on that set
@@ -117,7 +119,7 @@ public class Main {
                     e.printStackTrace();
                 }
             }
-            Thread.sleep(150);
+            Thread.sleep(200);
         }
         while(true){
             Thread.sleep(60 * 60 * 1000);

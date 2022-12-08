@@ -15,39 +15,31 @@ import java.util.concurrent.locks.ReentrantLock;
 public class StubbornLinks implements Deliverer {
     private final FairLossLinks fairLoss;
     private final PerfectLinks perfectLinks;
-    private final List<Message>[] messageToBeSent;
+    private final ConcurrentHashMap<Byte, ConcurrentHashMap<Message, Boolean>> messageToBeSent;
     private final ConcurrentHashMap<Byte, ConcurrentHashMap<Message, Boolean>> ackMessagesToBeSent;
     private int count;
     private final Runnable msgSendThread;
     private final Runnable ackSendThread;
     private final AtomicBoolean isRunning;
     private final HashMap<Byte, Host> hosts;
-    private final Lock lock;
-
     public StubbornLinks(int port, HashMap<Byte, Host> hosts,
                          PerfectLinks perfectLinks,
-                         int hostSize,
-                         boolean extraMemory,
                          int proposalSetSize) {
-        this.fairLoss = new FairLossLinks(port, this, hostSize, proposalSetSize);
+        this.fairLoss = new FairLossLinks(port, this, proposalSetSize);
         this.perfectLinks = perfectLinks;
-        this.lock = new ReentrantLock();
         this.hosts = hosts;
-        this.messageToBeSent = new List[hostSize];
+        this.messageToBeSent = new ConcurrentHashMap<>();
         this.ackMessagesToBeSent = new ConcurrentHashMap<>();
-        for(int i = 0; i < hostSize; i++){
-            this.messageToBeSent[i] = new ArrayList<>();
-        }
         // this.runnerTasks = new ConcurrentHashMap<>();
         this.count = 0;
         this.isRunning = new AtomicBoolean(true);
         this.msgSendThread = () -> {
             while(isRunning.get()){
                 try {
-                    for (var host = 0; host < hostSize; host++) {
-                        if(messageToBeSent[host].size() > 0){
-                            var temp = new ArrayList<>(messageToBeSent[host]);
-                            sendMessagesToBeSent(temp, this.hosts.get((byte)host));
+                    for (byte hostId : messageToBeSent.keySet()) {
+                        if(messageToBeSent.get(hostId).size() > 0){
+                            var temp = Collections.list(messageToBeSent.get(hostId).keys());
+                            sendMessagesToBeSent(temp, this.hosts.get(hostId));
                         }
                     }
                 } catch (Exception e) {
@@ -89,9 +81,9 @@ public class StubbornLinks implements Deliverer {
         // Get memory usage
         (messages).
                 forEach(m -> {
-                    if (!fairLoss.isinQueue(m)) {
+                        if (!fairLoss.isinQueue(m)) {
                         messagesToSend.add(m);
-                        if(messagesToSend.size() == 8){
+                        if(messagesToSend.size() == 1){
                             fairLoss.send(new MessagePackage(messagesToSend), host);
                             messagesToSend.clear();
                         }
@@ -109,7 +101,7 @@ public class StubbornLinks implements Deliverer {
                     if (!fairLoss.isinQueue(m)) {
                         messagesToSend.add(m);
                         ackMessagesToBeSent.get(m.getReceiverId()).remove(m);
-                        if(messagesToSend.size() == 8){
+                        if(messagesToSend.size() == 1){
                             fairLoss.send(new MessagePackage(messagesToSend), host);
                             messagesToSend.clear();
                         }
@@ -138,9 +130,8 @@ public class StubbornLinks implements Deliverer {
             ackMessagesToBeSent.get(message.getReceiverId()).put(message, true);
         }
         else{
-            lock.lock();
-            messageToBeSent[message.getReceiverId()].add(message);
-            lock.unlock();
+            messageToBeSent.computeIfAbsent(message.getReceiverId(), k -> new ConcurrentHashMap<>());
+            messageToBeSent.get(message.getReceiverId()).put(message, true);
         }
     }
 
@@ -149,24 +140,36 @@ public class StubbornLinks implements Deliverer {
         fairLoss.stop();
     }
 
+    public void clearSendArray(){
+        for (byte hostId : messageToBeSent.keySet()) {
+            messageToBeSent.get(hostId).clear();
+        }
+    }
+
     public void stopSenders(){
         this.isRunning.compareAndSet(true, false);
     }
 
     @Override
+    public int getCurrentRound(){
+        return perfectLinks.getCurrentRound();
+    }
+
+    @Override
     public void deliver(Message message) {
-        if (message.isAckMessage()) { // I have sent this message and received it back.
+        if (message.isAckMessage()) { // I have sent this message and received it back
             Message originalMessage = message.swapSenderReceiver();
-            lock.lock();
-            boolean removal = messageToBeSent[originalMessage.getReceiverId()].remove(originalMessage);
-            lock.unlock();
-            if (removal) {
+            var removal = messageToBeSent.get(originalMessage.getReceiverId()).remove(originalMessage);
+            if (removal != null && removal) {
+                perfectLinks.deliver(message);
                 count += 1;
                 if (count % 1000 == 0) {
                     System.out.println("Sent " + count + " messages.");
                 }
             }
         }
-        perfectLinks.deliver(message);
+        else{
+            perfectLinks.deliver(message);
+        }
     }
 }

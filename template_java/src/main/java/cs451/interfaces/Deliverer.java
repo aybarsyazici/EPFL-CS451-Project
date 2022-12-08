@@ -4,4 +4,6 @@ import cs451.Message.Message;
 
 public interface Deliverer {
     void deliver(Message message);
+
+    public int getCurrentRound();
 }

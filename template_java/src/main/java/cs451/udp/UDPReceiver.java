@@ -18,11 +18,13 @@ public class UDPReceiver extends Thread{
     private DatagramSocket socket;
     private final Deliverer deliverer;
     private final DatagramPacket packet;
+    private final ConcurrentLinkedQueue<Message> messages;
 
     public UDPReceiver(int port, Deliverer deliverer, int proposalSetSize){
         this.proposalSetSize = proposalSetSize;
         this.deliverer = deliverer;
-        this.buf = new byte[88 + proposalSetSize*4*8];
+        this.buf = new byte[(11 + proposalSetSize*4)];
+        this.messages = new ConcurrentLinkedQueue<>();
         this.packet = new DatagramPacket(buf, buf.length);
         try{
             this.socket = new DatagramSocket(port);
@@ -31,17 +33,30 @@ public class UDPReceiver extends Thread{
         catch (SocketException e){
             e.printStackTrace();
         }
+        this.running = true;
+        new Thread(()->{
+            while(running){
+                while(messages.size() > 0){
+                    deliverer.deliver(messages.poll());
+                }
+                try{
+                    Thread.sleep(1000);
+                }
+                catch (Exception e){
+                    e.printStackTrace();
+                }
+            }
+        }).start();
     }
 
     public void run(){
-        running = true;
         while(running){
             try {
                 socket.receive(packet);
                 MessagePackage messagePackage = MessagePackage.fromBytes(packet.getData(),proposalSetSize);
                 for(Message message : messagePackage.getMessages()){
                     if(message.getId() == 0) continue;
-                    deliverer.deliver(message);
+                    messages.add(message);
                 }
             }
             catch (Exception e){
@@ -53,32 +68,5 @@ public class UDPReceiver extends Thread{
     public void haltReceiving(){
         running = false;
         socket.close();
-    }
-
-    private long calculateExtraMemory(int hostSize){
-        if(hostSize <= 5){
-            return 200000000; //200MB
-        }
-        else if(hostSize <= 8){
-            return 250000000; //250MB
-        }
-        else if(hostSize <= 30){
-            return 300000000; //300MB
-        }
-        else if(hostSize <= 50){
-            return 400000000; //400MB
-        }
-        else if(hostSize <= 60){
-            return 300000000; //300MB
-        }
-        else if(hostSize <= 70){
-            return 250000000; //250MB
-        }
-        else if(hostSize <= 80){
-            return 200000000; //200MB
-        }
-        else{
-            return Math.min(8960000000L/hostSize,100000000);
-        }
     }
 }

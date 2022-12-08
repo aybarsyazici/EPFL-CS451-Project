@@ -22,9 +22,8 @@ public class PerfectLinks implements Deliverer {
                         byte myId,
                         LatticeDeliverer deliverer,
                         HashMap<Byte, Host> hosts,
-                        boolean extraMemory,
                         int proposalSetSize) {
-        this.stubbornLinks = new StubbornLinks(port, hosts, this, hosts.size(), extraMemory, proposalSetSize);
+        this.stubbornLinks = new StubbornLinks(port, hosts, this, proposalSetSize);
         this.hosts = hosts;
         this.ackCount = 0;
         this.nackCount = 0;
@@ -50,13 +49,25 @@ public class PerfectLinks implements Deliverer {
     }
 
     @Override
+    public int getCurrentRound(){
+        return deliverer.getLatticeRound();
+    }
+
+    @Override
     public void deliver(Message message) {
         if(message.getLatticeRound() == deliverer.getLatticeRound()){ // The message I got is from the same round
             if(message.isAckMessage() && message.getId() == deliverer.getActiveProposalNumber()){
                 if(delivered.add(message.getSenderId())) {
-                    if (message.getAck() == 1) ackCount++;
-                    else if (message.getAck() == 2) nackCount++;
+                    if (message.getAck() == 1) {
+                        ackCount++;
+                    }
+                    else if (message.getAck() == 2) {
+                        nackCount++;
+                        deliverer.updateCurrentProposal(message.getProposals());
+                    }
                     if(ackCount + nackCount >= hosts.size()/2){
+                        delivered.clear();
+                        stubbornLinks.clearSendArray();
                         if(nackCount == 0){
                             deliverer.decide();
                         }
@@ -65,24 +76,22 @@ public class PerfectLinks implements Deliverer {
                         }
                         ackCount = 0;
                         nackCount = 0;
-                        delivered.clear();
                     }
                 }
             }
             else{
                 // Compare the message's proposal set to the current proposal set
                 // If the message's proposal set is a subset of the current proposal set, then send an ACK
-                // If the message's proposal set is a superset of the current proposal set, then send a NACK
                 for(int proposal : message.getProposals()){
                     if(!deliverer.getCurrentProposal().contains(proposal)){
                         // Send a NACK
-                        deliverer.updateProposals(message.getProposals());
+                        deliverer.updateCurrentProposal(message.getProposals());
                         send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)2, deliverer.getCurrentProposal()), hosts.get(message.getSenderId()));
                         return;
                     }
                 }
                 // Send an ACK
-                deliverer.updateProposals(message.getProposals());
+                deliverer.updateCurrentProposal(message.getProposals());
                 send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)1, deliverer.getCurrentProposal()), hosts.get(message.getSenderId()));
             }
         }
@@ -90,7 +99,7 @@ public class PerfectLinks implements Deliverer {
             if(message.isAckMessage()) {
                 if(message.getLatticeRound() > deliverer.getLatticeRound()){
                     // Because I am behind, I haven't yet sent proposals for this round, thus it should be impossible for me to receive an ACK message
-                    System.out.println("SHOULD NEVER HAPPEN");
+                    System.out.println("SHOULD NEVER HAPPEN" + message);
                 }
                 // Because I am ahead, I have already decided on a proposal for this round, thus I don't care for the ACK or NACK messages I receive after I have decided.
                 return;
@@ -98,7 +107,7 @@ public class PerfectLinks implements Deliverer {
             // If we get here the message I receive is a proposal and is from a different round
             if(message.getLatticeRound() > deliverer.getLatticeRound()) { // It's from a future round, so we save it for now and wait for the round to come, don't forget to send an ACK message
                 deliverer.getProposal(message.getLatticeRound()).addAll(message.getProposals());
-                send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)1, deliverer.getCurrentProposal()), hosts.get(message.getSenderId()));
+                send(new Message(message.getId(), myId, message.getSenderId(), message.getLatticeRound(), (byte)1, deliverer.getProposal(message.getLatticeRound())), hosts.get(message.getSenderId()));
             }
             if(message.getLatticeRound() < deliverer.getLatticeRound()){ // It's from a previous round,
                 for(int proposal : message.getProposals()){

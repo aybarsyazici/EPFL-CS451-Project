@@ -31,7 +31,7 @@ public class MessagePackage implements Serializable {
     // Convert from byte array received through datagram packet
     public static MessagePackage fromBytes(byte[] bytes, int proposalSetSize){
         MessagePackage messagePackage = new MessagePackage();
-        int messageSize = 88 + proposalSetSize*4*8;
+        int messageSize = 11 + proposalSetSize*4;
         for(int i = 0; i < bytes.length; i += messageSize){
             byte[] messageBytes = new byte[messageSize];
             System.arraycopy(bytes, i, messageBytes, 0, messageSize);

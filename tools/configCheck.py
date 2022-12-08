@@ -1,4 +1,4 @@
-proc_count = 10
+proc_count = 50
 for i in range(1, proc_count+1):
     stri = str(i)
     if (i < 10):

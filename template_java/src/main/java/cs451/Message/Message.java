@@ -1,7 +1,5 @@
 package cs451.Message;
 
-import com.sun.source.tree.Tree;
-
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
@@ -71,7 +69,7 @@ public class Message implements Serializable {
         return latticeRound;
     }
     public Boolean isAckMessage(){
-        return this.ack != 0;
+        return this.ack == 1 || this.ack == 2;
     }
     public byte getAck(){
         return this.ack;
@@ -110,41 +108,40 @@ public class Message implements Serializable {
 
     // Convert object to byteArray
     public byte[] toByteArray(int proposalSetSize) {
-        byte[] byteArray = new byte[11 + proposalSetSize*4];
-        ByteBuffer byteBuffer = ByteBuffer.wrap(byteArray);
-        byteBuffer.order(ByteOrder.BIG_ENDIAN);
-        byteBuffer.putInt(this.id);
-        byteBuffer.put(this.senderId);
-        byteBuffer.put(this.receiverId);
-        byteBuffer.putInt(this.latticeRound);
-        byteBuffer.put(this.ack);
-        for (Integer proposal : this.proposals) {
-            byteBuffer.putInt(proposal);
+        ByteBuffer buffer = ByteBuffer.allocate(4 + 4 + 1 + 1 + 1 + proposalSetSize * 4);
+        buffer.order(ByteOrder.BIG_ENDIAN);
+        buffer.putInt(id);
+        buffer.putInt(latticeRound);
+        buffer.put(senderId);
+        buffer.put(receiverId);
+        buffer.put(ack);
+        for (Integer proposal : proposals) {
+            buffer.putInt(proposal);
         }
-        return byteArray;
+        return buffer.array();
     }
 
     // Convert byteArray to object
     public static Message fromByteArray(byte[] bytes, int proposalSetSize) {
-        ByteBuffer byteBuffer = ByteBuffer.wrap(bytes);
-        byteBuffer.order(ByteOrder.BIG_ENDIAN);
-        int id = byteBuffer.getInt();
-        byte senderId = byteBuffer.get();
-        byte receiverId = byteBuffer.get();
-        int latticeRound = byteBuffer.getInt();
-        byte ack = byteBuffer.get();
+        ByteBuffer buffer = ByteBuffer.wrap(bytes);
+        buffer.order(ByteOrder.BIG_ENDIAN);
+        int id = buffer.getInt();
+        int latticeRound = buffer.getInt();
+        byte senderId = buffer.get();
+        byte receiverId = buffer.get();
+        byte ack = buffer.get();
         Set<Integer> proposals = new HashSet<>();
         for (int i = 0; i < proposalSetSize; i++) {
-            int proposal = byteBuffer.getInt();
-            if(proposal != 0){
-                proposals.add(proposal);
+            int value = buffer.getInt();
+            if(value != 0){
+                proposals.add(value);
             }
         }
         return new Message(id, senderId, receiverId, latticeRound, ack, proposals);
     }
 
     public Message swapSenderReceiver(){
-        return new Message(this.id, this.receiverId, this.senderId, this.latticeRound, (byte)0,this.copyProposals());
+        return new Message(this.id, this.receiverId, this.senderId, this.latticeRound, (byte)0,this.getProposals());
     }
 
     // Copy message

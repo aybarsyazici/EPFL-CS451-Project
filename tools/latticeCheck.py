@@ -1,4 +1,4 @@
-proc_count = 100
+proc_count = 50
 crashed_procs = []
 
 for i in range(1, proc_count+1):

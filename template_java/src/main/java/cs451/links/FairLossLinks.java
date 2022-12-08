@@ -20,17 +20,17 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     private final Deliverer deliverer;
     private final ExecutorService pool;
     private final AtomicInteger jobCount;
-    private final ConcurrentHashMap<Message, Boolean> inQueue;
+    private final ConcurrentHashMap<Message, Future> inQueue;
     private final DatagramSocket[] sockets;
     // These sockets will be used by udp senders to send messages, each udp sender runs in a separate thread
     // and each thread has its own socket
 
-    FairLossLinks(int port, Deliverer deliverer, int hostSize, int proposalSetSize){
+    FairLossLinks(int port, Deliverer deliverer, int proposalSetSize) {
         this.receiver = new UDPReceiver(port, this, proposalSetSize);
         this.deliverer = deliverer;
         this.proposalSetSize = proposalSetSize;
         this.inQueue = new ConcurrentHashMap<>();
-        this.THREAD_NUMBER = 2; /* 8 process at max per host
+        this.THREAD_NUMBER = 1; /* 8 process at max per host
         Each process has 6 threads (main, logChecker, ackSender, messageSender, Receiver and finally the signal handler )
         so for each running process we by default have 6 threads. We also leave some thread count for threads that Java might be spawning
         */
@@ -51,19 +51,25 @@ public class FairLossLinks implements Deliverer, UDPObserver {
 
     void send(MessagePackage messagePackage, Host host){ // Create a new sender and send message
         int socketId = ThreadLocalRandom.current().nextInt(sockets.length); // Choose a socket to send the message
-        this.jobCount.addAndGet(1);
-        for(Message message: messagePackage.getMessages()){
-            this.inQueue.put(message, true);
+        try{
+            byte[] buffer = messagePackage.toBytes(proposalSetSize);
+            var futureTask = pool.submit(
+                    new UDPBulkSender(
+                            host.getIp(),
+                            host.getPort(),
+                            buffer,
+                            sockets[socketId]
+                    )
+            );
+            for(Message message: messagePackage.getMessages()){
+                this.inQueue.put(message, futureTask);
+            }
+            this.jobCount.addAndGet(1);
+
         }
-        pool.submit(
-                new UDPBulkSender(
-                        host.getIp(),
-                        host.getPort(),
-                        messagePackage.copy(),
-                        sockets[socketId],
-                        this,
-                        proposalSetSize)
-        );
+        catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
     void start(){
@@ -84,12 +90,23 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     }
 
     public boolean isinQueue(Message message){
-        return this.inQueue.containsKey(message);
+        var temp = this.inQueue.get(message);
+        if(temp != null) return !temp.isDone();
+        return false;
     }
 
     @Override
     public void deliver(Message message) {
         deliverer.deliver(message);
+    }
+
+    @Override
+    public int getCurrentRound() {
+        return deliverer.getCurrentRound();
+    }
+
+    public int getJobCount(){
+        return this.jobCount.get();
     }
 
     @Override

@@ -40,7 +40,7 @@ public class Process {
             @Override
             public void run() {
                 try {
-                    if (logs.size() > 10000 && !writing.get()) {
+                    if (logs.size() > 25 && !writing.get()) {
                         writing.compareAndSet(false, true);
                         // Copy logs to a new queue
                         lock.lock();
