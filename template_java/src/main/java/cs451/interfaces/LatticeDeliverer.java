@@ -13,4 +13,5 @@ public interface LatticeDeliverer {
     int getMinLatticeRound();
     boolean isDelivered(int latticeRound);
     void incrementDeliveredAck(int latticeRound, byte senderId);
+    Set<Integer> getAcceptedValue(int latticeRound);
 }

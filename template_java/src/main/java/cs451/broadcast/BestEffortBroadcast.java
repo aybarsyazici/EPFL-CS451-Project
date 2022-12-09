@@ -27,6 +27,7 @@ public class BestEffortBroadcast implements LatticeDeliverer {
     private final boolean readyToDeliver[];
     private final boolean selfDelivered[];
     private final Set<Integer>[] proposals;
+    private final Set<Integer>[] acceptedValues;
     private final Set<Byte>[] proposalDeliveredAcks;
     private final int latticeRoundCount;
 
@@ -49,11 +50,15 @@ public class BestEffortBroadcast implements LatticeDeliverer {
         this.readyToDeliver = new boolean[latticeRoundCount];
         this.selfDelivered = new boolean[latticeRoundCount];
         this.proposalDeliveredAcks = new HashSet[latticeRoundCount];
-        this.proposals = new Set[latticeRoundCount];
-        for(int i = 0; i < latticeRoundCount; i++){
+        this.acceptedValues = new Set[latticeRoundCount];
+        this.proposals = new Set[parallelRoundCount];
+        for(int i = 0; i < parallelRoundCount; i++){
             this.proposals[i] = ConcurrentHashMap.newKeySet();
+        }
+        for(int i = 0; i < latticeRoundCount; i++){
             this.readyToDeliver[i] = false;
             this.proposalDeliveredAcks[i] = new HashSet<>();
+            this.acceptedValues[i] = ConcurrentHashMap.newKeySet();
         }
         HashMap<Byte,Host> hostMap = new HashMap<>();
         for(Host host : hostList){
@@ -68,10 +73,12 @@ public class BestEffortBroadcast implements LatticeDeliverer {
     public void broadcast(int round, Set<Integer> proposals){
         // Iterate over all hosts
         var proposalNumber = activeProposalNumber.incrementAndGet(round%parallelRoundCount);
-        this.proposals[round].addAll(proposals);
-        System.out.println("Broadcasting proposal " + proposalNumber + " round " + round + " with " + this.proposals[round].size() + " elements");
-        System.out.println("__________________________");
+        this.proposals[round%parallelRoundCount].addAll(proposals);
+        this.proposals[round%parallelRoundCount].addAll(this.acceptedValues[round]);
         var currentProposals = this.getProposal(round);
+        this.acceptedValues[round].addAll(currentProposals);
+        System.out.println("Broadcasting proposal " + proposalNumber + " round " + round + " with " + this.proposals[round%parallelRoundCount].size() + " elements");
+        System.out.println("__________________________");
         for(Host host : this.hosts){
             // Send message to all hosts
             if(host.getId() == id) continue; // Don't send it to yourself
@@ -99,9 +106,10 @@ public class BestEffortBroadcast implements LatticeDeliverer {
         this.readyToDeliver[latticeRound] = true;
         while(lastDecidedLatticeRound.get() < latticeRoundCount && readyToDeliver[lastDecidedLatticeRound.get()]){
             var round = lastDecidedLatticeRound.getAndIncrement();
-            process.deliver(round, this.proposals[round]);
+            process.deliver(round, getProposal(round));
             this.selfDelivered[round] = true;
             broadcastDelivered(round);
+            this.proposals[round%parallelRoundCount].clear();
             checkForDeletion();
             maxLatticeRound.incrementAndGet(); // Allow for next round to be broadcast.
         }
@@ -113,24 +121,26 @@ public class BestEffortBroadcast implements LatticeDeliverer {
 
     @Override
     public Set<Integer> getCopyOfProposal(int latticeRound){
-        return Set.copyOf(this.proposals[latticeRound]);
+        return Set.copyOf(this.proposals[latticeRound % parallelRoundCount]);
     }
 
     @Override
     public Set<Integer> getProposal(int latticeRound) {
-        return this.proposals[latticeRound];
+        return this.proposals[latticeRound % parallelRoundCount];
     }
     @Override
     public void setProposals(Set<Integer> proposals, int latticeRound) {
-        this.proposals[latticeRound] = proposals;
+        this.proposals[latticeRound % parallelRoundCount] = proposals;
     }
     @Override
     public void broadcastNewProposal(int latticeRound) {
         // Iterate over all hosts
         var proposalNumber = activeProposalNumber.incrementAndGet(latticeRound%parallelRoundCount);
-        System.out.println("Broadcasting NEW proposal " + proposalNumber + " round " + latticeRound + " with " + this.proposals[latticeRound].size() + " elements");
-        System.out.println("__________________________");
+        this.proposals[latticeRound%parallelRoundCount].addAll(this.acceptedValues[latticeRound]);
         var currentProposals = this.getProposal(latticeRound);
+        this.acceptedValues[latticeRound].addAll(currentProposals);
+        System.out.println("Broadcasting NEW proposal " + proposalNumber + " round " + latticeRound + " with " + currentProposals.size() + " elements");
+        System.out.println("__________________________");
         for(Host host : this.hosts){
             // Send message to all hosts
             if(host.getId() == id) continue; // Don't send it to yourself
@@ -154,19 +164,24 @@ public class BestEffortBroadcast implements LatticeDeliverer {
 
     @Override
     public void incrementDeliveredAck(int latticeRound, byte senderId){
-        if(this.proposalDeliveredAcks[latticeRound].add(senderId)){
+        if(this.proposalDeliveredAcks[latticeRound] != null && this.proposalDeliveredAcks[latticeRound].add(senderId)){
             checkForDeletion();
         }
+    }
+    @Override
+    public Set<Integer> getAcceptedValue(int latticeRound){
+        return this.acceptedValues[latticeRound];
     }
 
     private void checkForDeletion(){
         var round = 0;
         while(round < lastDecidedLatticeRound.get()){
-            if(selfDelivered[round] && this.proposalDeliveredAcks[round].size() == hosts.size() - 1){
-                System.out.println("Cleared proposal set for round " + round);
-                this.proposals[round].clear();
-                this.proposals[round] = null;
+            if(selfDelivered[round] && this.proposalDeliveredAcks[round] != null && this.proposalDeliveredAcks[round].size() == hosts.size() - 1){
+                System.out.println("Cleared accepted value set for round " + round);
+                this.acceptedValues[round].clear();
+                this.acceptedValues[round] = null;
                 this.proposalDeliveredAcks[round].clear();
+                this.proposalDeliveredAcks[round] = null;
             }
             round++;
         }
