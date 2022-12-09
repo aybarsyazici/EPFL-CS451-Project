@@ -13,12 +13,12 @@ public class UDPBulkSender implements Runnable{
     private DatagramSocket socket;
     private InetAddress address;
     private int port;
-    private final byte[] buffer;
     private final MessagePackage messagePackage;
+    private final int proposalSetSize;
     private final UDPObserver observer;
-    public UDPBulkSender(String ip, int port, byte[] buf, DatagramSocket socket, MessagePackage messagePackage, UDPObserver observer) {
-        this.buffer = buf;
+    public UDPBulkSender(String ip, int port, DatagramSocket socket, MessagePackage messagePackage, UDPObserver observer, int proposalSetSize) {
         this.messagePackage = messagePackage;
+        this.proposalSetSize = proposalSetSize;
         this.observer = observer;
         try {
             this.port = port;
@@ -32,6 +32,7 @@ public class UDPBulkSender implements Runnable{
 
     public void run(){
         try {
+            byte[] buffer = messagePackage.toBytes(proposalSetSize);
             DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, port);
             socket.send(packet);
             for(Message message : messagePackage.getMessages()){
@@ -39,16 +40,13 @@ public class UDPBulkSender implements Runnable{
             }
         }
         catch (Exception e){
+            System.out.println("ERROR while sending to: "+messagePackage.getMessages().get(0).getReceiverId());
             e.printStackTrace();
         }
     }
 
     public MessagePackage getMessagePackage(){
         return this.messagePackage;
-    }
-
-    public byte[] getBuffer(){
-        return this.buffer;
     }
 
     public void close(){

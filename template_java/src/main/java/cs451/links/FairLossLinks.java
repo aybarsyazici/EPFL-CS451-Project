@@ -60,10 +60,10 @@ public class FairLossLinks implements Deliverer, UDPObserver {
                     new UDPBulkSender(
                             host.getIp(),
                             host.getPort(),
-                            buffer,
                             sockets[socketId],
                             messagePackage.copy(),
-                            this
+                            this,
+                            proposalSetSize
                     )
             );
             for(Message message: messagePackage.getMessages()){
@@ -93,9 +93,7 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     }
 
     public boolean isinQueue(Message message){
-        var temp = this.inQueue.get(message);
-        if(temp != null) return !temp.isDone();
-        return false;
+        return this.inQueue.containsKey(message);
     }
 
     @Override
