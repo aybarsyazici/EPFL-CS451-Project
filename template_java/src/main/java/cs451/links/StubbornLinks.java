@@ -156,22 +156,30 @@ public class StubbornLinks implements Deliverer {
 
     @Override
     public void deliver(Message message) {
-        if(message.isDeliveredAck()){
-            Message originalMessage = message.swapSenderReceiver();
-            messageToBeSent.get(originalMessage.getReceiverId()).remove(originalMessage);
-            return;
-        }
-        if (message.isAckMessage()) { // I have sent this message and received it back
-            Message originalMessage = message.swapSenderReceiver();
-            var removal = messageToBeSent.get(originalMessage.getReceiverId()).remove(originalMessage);
-            if (removal != null && removal) {
-                count += 1;
-                if (count % 1000 == 0) {
-                    System.out.println("Sent " + count + " messages.");
+        try{
+            if(message.isDeliveredAck()){
+                Message originalMessage = message.swapSenderReceiver();
+                messageToBeSent.get(originalMessage.getReceiverId()).remove(originalMessage);
+                return;
+            }
+            if (message.isAckMessage()) { // I have sent this message and received it back
+                Message originalMessage = message.swapSenderReceiver();
+                var removal = messageToBeSent.get(originalMessage.getReceiverId()).remove(originalMessage);
+                if (removal != null && removal) {
+                    count += 1;
+                    if (count % 1000 == 0) {
+                        System.out.println("Sent " + count + " messages.");
+                    }
                 }
             }
+            perfectLinks.deliver(message);
         }
-        perfectLinks.deliver(message);
+        catch (Exception e){
+            e.printStackTrace();
+            System.out.println("ERROR IN STUBBORN LINKS DELIVER MSG: " + message.printWithoutSet());
+            System.out.println("ERROR IN STUBBORN LINKS DELIVER ORGMESSG: " + message.swapSenderReceiver().printWithoutSet());
+
+        }
     }
 
     @Override

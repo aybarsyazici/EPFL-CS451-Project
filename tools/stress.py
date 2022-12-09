@@ -337,7 +337,7 @@ def startProcesses(processes, runscript, hostsFilePath, configFilePaths, outputD
         #           '-Djava.rmi.server.hostname=0.0.0.0', '-Dcom.sun.management.jmxremote.ssl=false', '-Dcom.sun.management.jmxremote.authenticate=false', '-Xmx4g', '-jar', bin_java]
         # '-XX:MaxRAM=35m'
         debug_cmd = [
-            '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:'+port, '-XX:MaxRAM=35m', '-jar', bin_java]
+            '-agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:'+port, '-Xmx64m', '-jar', bin_java]
 
         procs.append(
             (pid, subprocess.Popen(cmd + debug_cmd +

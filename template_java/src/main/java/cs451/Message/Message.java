@@ -15,6 +15,7 @@ public class Message implements Serializable {
     // 3 will mean that this processing is telling that he has delivered the given lattice round
     // 4 will be the ack message associated with 3
     private Set<Integer> proposals;
+    private List<Integer> receivedProposals;
     private final int hashCode;
 
     public Message(int id, byte senderId, byte receiverId, int latticeRound, boolean ack){
@@ -46,22 +47,18 @@ public class Message implements Serializable {
         this.hashCode = Objects.hash(this.id, this.latticeRound, this.senderId, this.receiverId, this.ack);
     }
 
-    public Message(Message message, byte newSender, byte newReceiver, byte ack){
-        this.id = message.getId();
-        this.senderId = newSender;
-        this.receiverId = newReceiver;
-        this.latticeRound = message.getLatticeRound();
+    public Message(int id, byte senderId, byte receiverId, int latticeRound, byte ack, List<Integer> receivedProposals) {
+        this.id = id;
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.latticeRound = latticeRound;
         this.ack = ack;
-        this.proposals = message.copyProposals();
+        this.receivedProposals = receivedProposals;
         this.hashCode = Objects.hash(this.id, this.latticeRound, this.senderId, this.receiverId, this.ack);
     }
 
     public Set<Integer> getProposals() {
         return proposals;
-    }
-
-    private Set<Integer> copyProposals(){
-        return new HashSet<>(this.proposals);
     }
 
     public int getId() {
@@ -94,6 +91,14 @@ public class Message implements Serializable {
         return this.ack;
     }
 
+    public List<Integer> getReceivedProposals() {
+        return receivedProposals;
+    }
+
+    public void setReceivedProposals(List<Integer> receivedProposals) {
+        this.receivedProposals = receivedProposals;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -121,7 +126,17 @@ public class Message implements Serializable {
                 ", receiverId=" + receiverId +
                 ", latticeRound=" + latticeRound +
                 ", isAck=" + ack +
-                ", proposals=" + proposals +
+                ", proposals="  + ((proposals != null) ? proposals : receivedProposals ) +
+                '}';
+    }
+
+    public String printWithoutSet(){
+        return "Message{" +
+                "proposalCount=" + id +
+                ", senderId=" + senderId +
+                ", receiverId=" + receiverId +
+                ", latticeRound=" + latticeRound +
+                ", isAck=" + ack +
                 '}';
     }
 
@@ -139,6 +154,11 @@ public class Message implements Serializable {
                 buffer.putInt(proposal);
             }
         }
+        else if(receivedProposals != null){
+            for (Integer proposal : receivedProposals) {
+                buffer.putInt(proposal);
+            }
+        }
         return buffer.array();
     }
 
@@ -151,7 +171,7 @@ public class Message implements Serializable {
         byte senderId = buffer.get();
         byte receiverId = buffer.get();
         byte ack = buffer.get();
-        Set<Integer> proposals = new HashSet<>();
+        List<Integer> proposals = new ArrayList<>();
         for (int i = 0; i < proposalSetSize; i++) {
             int value = buffer.getInt();
             if(value != 0){
@@ -164,11 +184,6 @@ public class Message implements Serializable {
     public Message swapSenderReceiver(){
         var ack = this.isAckMessage() ? (byte)0 : (byte)3;
         return new Message(this.id, this.receiverId, this.senderId, this.latticeRound, ack, this.getProposals());
-    }
-
-    // Copy message
-    public Message copy(){
-        return new Message(this.id, this.senderId, this.receiverId, this.latticeRound, this.ack, this.copyProposals());
     }
 
     public String printSet(){

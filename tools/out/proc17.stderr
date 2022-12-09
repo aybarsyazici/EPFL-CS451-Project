@@ -1,0 +1,5 @@
+java.net.SocketException: Socket closed
+	at java.base/java.net.PlainDatagramSocketImpl.receive0(Native Method)
+	at java.base/java.net.AbstractPlainDatagramSocketImpl.receive(AbstractPlainDatagramSocketImpl.java:200)
+	at java.base/java.net.DatagramSocket.receive(DatagramSocket.java:814)
+	at cs451.udp.UDPReceiver.run(UDPReceiver.java:58)

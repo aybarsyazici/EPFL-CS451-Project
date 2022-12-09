@@ -1,0 +1,647 @@
+Listening for transport dt_socket at address: 4071
+My PID: 2485
+
+From a new terminal type `kill -SIGINT 2485` or `kill -SIGTERM 2485` to stop processing packets
+
+OUTPUT:  /root/tools/out/proc42.output
+My ID: 42
+
+List of resolved hosts is:
+==========================
+0
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11001
+
+1
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11002
+
+2
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11003
+
+3
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11004
+
+4
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11005
+
+5
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11006
+
+6
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11007
+
+7
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11008
+
+8
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11009
+
+9
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11010
+
+10
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11011
+
+11
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11012
+
+12
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11013
+
+13
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11014
+
+14
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11015
+
+15
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11016
+
+16
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11017
+
+17
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11018
+
+18
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11019
+
+19
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11020
+
+20
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11021
+
+21
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11022
+
+22
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11023
+
+23
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11024
+
+24
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11025
+
+25
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11026
+
+26
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11027
+
+27
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11028
+
+28
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11029
+
+29
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11030
+
+30
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11031
+
+31
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11032
+
+32
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11033
+
+33
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11034
+
+34
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11035
+
+35
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11036
+
+36
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11037
+
+37
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11038
+
+38
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11039
+
+39
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11040
+
+40
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11041
+
+41
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11042
+
+ProposalSetSize: 1000
+Sliding window size: 16
+UDPReceiver: Created socket on port 11042
+THREAD NUMBER: 1
+42
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11043
+
+43
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11044
+
+44
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11045
+
+45
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11046
+
+46
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11047
+
+47
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11048
+
+48
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11049
+
+49
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11050
+
+
+Path to output:
+===============
+/root/tools/out/proc42.output
+
+Deleted old output file: false
+
+Path to config:
+===============
+./out/proc42.config
+
+===============
+Doing some initialization
+
+Broadcasting and delivering messages...
+
+Process ID: 42
+Starting Round 0
+Broadcasting proposal 1 round 0 with 81 elements
+__________________________
+Starting Round 1
+Broadcasting proposal 1 round 1 with 100 elements
+__________________________
+Starting Round 2
+Broadcasting proposal 1 round 2 with 100 elements
+__________________________
+Starting Round 3
+Broadcasting proposal 1 round 3 with 52 elements
+__________________________
+Starting Round 4
+Broadcasting proposal 1 round 4 with 45 elements
+__________________________
+Starting Round 5
+Broadcasting proposal 1 round 5 with 24 elements
+__________________________
+Starting Round 6
+Broadcasting proposal 1 round 6 with 29 elements
+__________________________
+Starting Round 7
+Broadcasting proposal 1 round 7 with 75 elements
+__________________________
+Broadcasting NEW proposal 2 round 3 with 842 elements
+__________________________
+Broadcasting NEW proposal 2 round 0 with 909 elements
+__________________________
+Broadcasting NEW proposal 2 round 1 with 915 elements
+__________________________
+Broadcasting NEW proposal 2 round 2 with 893 elements
+__________________________
+Broadcasting NEW proposal 2 round 7 with 875 elements
+__________________________
+Broadcasting NEW proposal 2 round 4 with 875 elements
+__________________________
+Broadcasting NEW proposal 2 round 5 with 872 elements
+__________________________
+DECIDED: 0 915
+Broadcasting DELIVERY OF: 0
+DECIDED: 1 929
+Broadcasting DELIVERY OF: 1
+DECIDED: 2 921
+Broadcasting DELIVERY OF: 2
+DECIDED: 3 873
+Broadcasting DELIVERY OF: 3
+DECIDED: 4 898
+Broadcasting DELIVERY OF: 4
+DECIDED: 5 890
+Broadcasting DELIVERY OF: 5
+DECIDED: 6 906
+Broadcasting DELIVERY OF: 6
+DECIDED: 7 896
+Broadcasting DELIVERY OF: 7
+Starting Round 8
+Broadcasting proposal 1 round 8 with 676 elements
+__________________________
+Starting Round 9
+Broadcasting proposal 1 round 9 with 665 elements
+__________________________
+Starting Round 10
+Broadcasting proposal 1 round 10 with 631 elements
+__________________________
+Starting Round 11
+Broadcasting proposal 1 round 11 with 534 elements
+__________________________
+Starting Round 12
+Broadcasting proposal 1 round 12 with 714 elements
+__________________________
+Starting Round 13
+Broadcasting proposal 1 round 13 with 680 elements
+__________________________
+Starting Round 14
+Broadcasting proposal 1 round 14 with 684 elements
+__________________________
+Starting Round 15
+Broadcasting proposal 1 round 15 with 698 elements
+__________________________
+Broadcasting NEW proposal 2 round 15 with 782 elements
+__________________________
+Broadcasting NEW proposal 2 round 14 with 772 elements
+__________________________
+Broadcasting NEW proposal 2 round 13 with 788 elements
+__________________________
+Broadcasting NEW proposal 2 round 8 with 839 elements
+__________________________
+Broadcasting NEW proposal 2 round 9 with 770 elements
+__________________________
+Broadcasting NEW proposal 2 round 12 with 813 elements
+__________________________
+Broadcasting NEW proposal 2 round 11 with 722 elements
+__________________________
+Broadcasting NEW proposal 2 round 10 with 791 elements
+__________________________
+Sent 1000 messages.
+DECIDED: 8 855
+Broadcasting DELIVERY OF: 8
+DECIDED: 9 804
+Broadcasting DELIVERY OF: 9
+DECIDED: 10 841
+Broadcasting DELIVERY OF: 10
+DECIDED: 11 796
+Broadcasting DELIVERY OF: 11
+DECIDED: 12 848
+Broadcasting DELIVERY OF: 12
+DECIDED: 13 820
+Broadcasting DELIVERY OF: 13
+DECIDED: 14 815
+Broadcasting DELIVERY OF: 14
+DECIDED: 15 827
+Broadcasting DELIVERY OF: 15
+Starting Round 16
+Broadcasting proposal 1 round 16 with 731 elements
+__________________________
+Starting Round 17
+Broadcasting proposal 1 round 17 with 570 elements
+__________________________
+Starting Round 18
+Broadcasting proposal 1 round 18 with 584 elements
+__________________________
+Starting Round 19
+Broadcasting proposal 1 round 19 with 598 elements
+__________________________
+Starting Round 20
+Broadcasting proposal 1 round 20 with 555 elements
+__________________________
+Starting Round 21
+Broadcasting proposal 1 round 21 with 500 elements
+__________________________
+Starting Round 22
+Broadcasting proposal 1 round 22 with 401 elements
+__________________________
+Starting Round 23
+Broadcasting proposal 1 round 23 with 562 elements
+__________________________
+Broadcasting NEW proposal 2 round 23 with 722 elements
+__________________________
+Broadcasting NEW proposal 2 round 22 with 555 elements
+__________________________
+Broadcasting NEW proposal 2 round 19 with 740 elements
+__________________________
+Broadcasting NEW proposal 2 round 21 with 657 elements
+__________________________
+Broadcasting NEW proposal 2 round 20 with 734 elements
+__________________________
+Broadcasting NEW proposal 2 round 18 with 684 elements
+__________________________
+Broadcasting NEW proposal 2 round 17 with 691 elements
+__________________________
+Broadcasting NEW proposal 2 round 16 with 846 elements
+__________________________
+DECIDED: 16 856
+Broadcasting DELIVERY OF: 16
+DECIDED: 17 699
+Broadcasting DELIVERY OF: 17
+DECIDED: 18 708
+Broadcasting DELIVERY OF: 18
+DECIDED: 19 751
+Broadcasting DELIVERY OF: 19
+DECIDED: 20 766
+Broadcasting DELIVERY OF: 20
+DECIDED: 21 688
+Broadcasting DELIVERY OF: 21
+DECIDED: 22 650
+Broadcasting DELIVERY OF: 22
+DECIDED: 23 729
+Broadcasting DELIVERY OF: 23
+Starting Round 24
+Broadcasting proposal 1 round 24 with 611 elements
+__________________________
+Starting Round 25
+Broadcasting proposal 1 round 25 with 547 elements
+__________________________
+Starting Round 26
+Broadcasting proposal 1 round 26 with 508 elements
+__________________________
+Starting Round 27
+Broadcasting proposal 1 round 27 with 581 elements
+__________________________
+Starting Round 28
+Broadcasting proposal 1 round 28 with 524 elements
+__________________________
+Starting Round 29
+Broadcasting proposal 1 round 29 with 549 elements
+__________________________
+Starting Round 30
+Broadcasting proposal 1 round 30 with 510 elements
+__________________________
+Starting Round 31
+Broadcasting proposal 1 round 31 with 459 elements
+__________________________
+Sent 2000 messages.
+Broadcasting NEW proposal 2 round 24 with 805 elements
+__________________________
+Broadcasting NEW proposal 2 round 25 with 737 elements
+__________________________
+Broadcasting NEW proposal 2 round 26 with 714 elements
+__________________________
+Broadcasting NEW proposal 2 round 27 with 730 elements
+__________________________
+Broadcasting NEW proposal 2 round 31 with 701 elements
+__________________________
+Broadcasting NEW proposal 2 round 30 with 715 elements
+__________________________
+Broadcasting NEW proposal 2 round 29 with 717 elements
+__________________________
+Broadcasting NEW proposal 2 round 28 with 728 elements
+__________________________
+Broadcasting NEW proposal 3 round 25 with 768 elements
+__________________________
+Broadcasting NEW proposal 3 round 24 with 822 elements
+__________________________
+Cleared proposal set for round 0
+Cleared proposal set for round 1
+Cleared proposal set for round 4
+Cleared proposal set for round 5
+Cleared proposal set for round 3
+Cleared proposal set for round 2
+Cleared proposal set for round 6
+Cleared proposal set for round 7
+DECIDED: 24 869
+Broadcasting DELIVERY OF: 24
+DECIDED: 25 812
+Broadcasting DELIVERY OF: 25
+DECIDED: 26 820
+Broadcasting DELIVERY OF: 26
+DECIDED: 27 854
+Broadcasting DELIVERY OF: 27
+DECIDED: 28 869
+Broadcasting DELIVERY OF: 28
+DECIDED: 29 837
+Broadcasting DELIVERY OF: 29
+DECIDED: 30 816
+Broadcasting DELIVERY OF: 30
+DECIDED: 31 819
+Broadcasting DELIVERY OF: 31
+Starting Round 32
+Broadcasting proposal 1 round 32 with 539 elements
+__________________________
+Starting Round 33
+Broadcasting proposal 1 round 33 with 551 elements
+__________________________
+Starting Round 34
+Broadcasting proposal 1 round 34 with 552 elements
+__________________________
+Starting Round 35
+Broadcasting proposal 1 round 35 with 572 elements
+__________________________
+Starting Round 36
+Broadcasting proposal 1 round 36 with 696 elements
+__________________________
+Starting Round 37
+Broadcasting proposal 1 round 37 with 599 elements
+__________________________
+Starting Round 38
+Broadcasting proposal 1 round 38 with 650 elements
+__________________________
+Starting Round 39
+Broadcasting proposal 1 round 39 with 504 elements
+__________________________
+Sent 3000 messages.
+Broadcasting NEW proposal 2 round 39 with 663 elements
+__________________________
+Broadcasting NEW proposal 2 round 36 with 722 elements
+__________________________
+Broadcasting NEW proposal 2 round 38 with 731 elements
+__________________________
+Broadcasting NEW proposal 2 round 34 with 608 elements
+__________________________
+Broadcasting NEW proposal 2 round 32 with 658 elements
+__________________________
+Broadcasting NEW proposal 2 round 35 with 656 elements
+__________________________
+Broadcasting NEW proposal 2 round 37 with 724 elements
+__________________________
+Broadcasting NEW proposal 2 round 33 with 662 elements
+__________________________
+Cleared proposal set for round 8
+Cleared proposal set for round 9
+Cleared proposal set for round 11
+Cleared proposal set for round 12
+Cleared proposal set for round 10
+Cleared proposal set for round 14
+Cleared proposal set for round 13
+DECIDED: 32 788
+Broadcasting DELIVERY OF: 32
+DECIDED: 33 764
+Broadcasting DELIVERY OF: 33
+DECIDED: 34 740
+Broadcasting DELIVERY OF: 34
+DECIDED: 35 742
+Broadcasting DELIVERY OF: 35
+DECIDED: 36 819
+Broadcasting DELIVERY OF: 36
+DECIDED: 37 777
+Broadcasting DELIVERY OF: 37
+DECIDED: 38 834
+Broadcasting DELIVERY OF: 38
+DECIDED: 39 765
+Broadcasting DELIVERY OF: 39
+Starting Round 40
+Broadcasting proposal 1 round 40 with 672 elements
+__________________________
+Starting Round 41
+Broadcasting proposal 1 round 41 with 714 elements
+__________________________
+Starting Round 42
+Broadcasting proposal 1 round 42 with 628 elements
+__________________________
+Starting Round 43
+Broadcasting proposal 1 round 43 with 748 elements
+__________________________
+Starting Round 44
+Broadcasting proposal 1 round 44 with 652 elements
+__________________________
+Starting Round 45
+Broadcasting proposal 1 round 45 with 643 elements
+__________________________
+Starting Round 46
+Broadcasting proposal 1 round 46 with 606 elements
+__________________________
+Starting Round 47
+Broadcasting proposal 1 round 47 with 618 elements
+__________________________
+Cleared proposal set for round 15
+Broadcasting NEW proposal 2 round 45 with 754 elements
+__________________________
+Broadcasting NEW proposal 2 round 40 with 716 elements
+__________________________
+Broadcasting NEW proposal 2 round 42 with 739 elements
+__________________________
+Broadcasting NEW proposal 2 round 47 with 789 elements
+__________________________
+Broadcasting NEW proposal 2 round 46 with 722 elements
+__________________________
+Broadcasting NEW proposal 2 round 41 with 752 elements
+__________________________
+Broadcasting NEW proposal 2 round 44 with 729 elements
+__________________________
+Broadcasting NEW proposal 2 round 43 with 836 elements
+__________________________
+Sent 4000 messages.
+Cleared proposal set for round 16
+Cleared proposal set for round 17
+Cleared proposal set for round 22
+Cleared proposal set for round 20
+Cleared proposal set for round 18
+Cleared proposal set for round 21
+Cleared proposal set for round 19
+Broadcasting NEW proposal 3 round 46 with 827 elements
+__________________________
+Broadcasting NEW proposal 3 round 44 with 787 elements
+__________________________
+Broadcasting NEW proposal 3 round 40 with 816 elements
+__________________________
+Broadcasting NEW proposal 3 round 42 with 797 elements
+__________________________
+Cleared proposal set for round 23
+DECIDED: 40 862
+Broadcasting DELIVERY OF: 40
+DECIDED: 41 838
+Broadcasting DELIVERY OF: 41
+DECIDED: 42 856
+Broadcasting DELIVERY OF: 42
+DECIDED: 43 895
+Broadcasting DELIVERY OF: 43
+DECIDED: 44 838
+Broadcasting DELIVERY OF: 44
+DECIDED: 45 875
+Broadcasting DELIVERY OF: 45
+DECIDED: 46 884
+Broadcasting DELIVERY OF: 46
+DECIDED: 47 887
+Broadcasting DELIVERY OF: 47
+Starting Round 48
+Broadcasting proposal 1 round 48 with 781 elements
+__________________________
+Starting Round 49
+Broadcasting proposal 1 round 49 with 777 elements
+__________________________
+Cleared proposal set for round 24
+Cleared proposal set for round 25
+Cleared proposal set for round 26
+Cleared proposal set for round 28
+Cleared proposal set for round 30
+Cleared proposal set for round 27
+Cleared proposal set for round 29
+Broadcasting NEW proposal 2 round 49 with 843 elements
+__________________________
+Broadcasting NEW proposal 2 round 48 with 869 elements
+__________________________
+Cleared proposal set for round 31
+DECIDED: 48 896
+Broadcasting DELIVERY OF: 48
+DECIDED: 49 845
+Broadcasting DELIVERY OF: 49
+Cleared proposal set for round 32
+Cleared proposal set for round 33
+Cleared proposal set for round 37
+Cleared proposal set for round 34
+Cleared proposal set for round 38
+Cleared proposal set for round 36
+Cleared proposal set for round 35
+Cleared proposal set for round 39
+Cleared proposal set for round 40
+Cleared proposal set for round 41
+Cleared proposal set for round 45
+Cleared proposal set for round 43
+Cleared proposal set for round 44
+Cleared proposal set for round 46
+Cleared proposal set for round 42
+Cleared proposal set for round 47
+Cleared proposal set for round 49
+Cleared proposal set for round 48
+Immediately stopping network packet processing.
+Writing output.

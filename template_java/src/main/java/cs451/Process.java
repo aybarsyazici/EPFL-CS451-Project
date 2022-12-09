@@ -107,14 +107,10 @@ public class Process {
 
     public void deliver (int round, Set<Integer> proposalSet) {
         lock.lock();
-        System.out.println("DECIDED: " + round + " " + proposalSet);
+        System.out.println("DECIDED: " + round + " " + proposalSet.size());
         StringBuilder toAdd = new StringBuilder();
-        for(int i = 0; i < proposalSet.size(); i++){
-            if(i == proposalSet.size()-1){
-                toAdd.append(proposalSet.toArray()[i]);
-            } else {
-                toAdd.append(proposalSet.toArray()[i]).append(" ");
-            }
+        for(Integer i : proposalSet){
+            toAdd.append(i).append(" ");
         }
         logs.add(toAdd.toString() + "\n");
         lock.unlock();

@@ -6,6 +6,7 @@ for i in range(1, proc_count+1):
     if (i < 10):
         stri = "0" + stri
     allLines = []
+    okay = True
     try:
         with open('./out/proc'+stri+'.output') as f:
             reading_line_count = 0
@@ -38,6 +39,7 @@ for i in range(1, proc_count+1):
                         if not (set(numbers).issubset(allLines[lineCount]) or set(allLines[lineCount]).issubset(numbers)):
                             print("Line " + str(lineCount) + " in file " + stri +
                                   " is not a subset of line " + str(lineCount) + " in file " + strj)
+                            okay = False
                             exit()
 
                         lineCount += 1
@@ -45,7 +47,7 @@ for i in range(1, proc_count+1):
             print()
     except:
         print("File " + stri + " has not been found, has it crashed?")
-    print("File " + stri + " is a-okay! :) lineCount: " +
+    print("File " + stri + " is " + ("a-okay! :)" if okay else "not okay :(") + " lineCount: " +
           str(len(allLines)) + " " + ("" if i not in crashed_procs else " (crashed)"))
 
 print("All a-okay! :)")

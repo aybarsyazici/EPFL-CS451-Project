@@ -38,6 +38,7 @@ public class UDPReceiver extends Thread{
             while(running){
                 while(messages.size() > 0){
                     for(Message message : messages.poll().getMessages()){
+                        if(message.getId() == 0) continue;
                         deliverer.deliver(message);
                     }
                 }

@@ -25,6 +25,7 @@ public class BestEffortBroadcast implements LatticeDeliverer {
     private final AtomicInteger maxLatticeRound;
     private final AtomicInteger lastDecidedLatticeRound;
     private final boolean readyToDeliver[];
+    private final boolean selfDelivered[];
     private final Set<Integer>[] proposals;
     private final Set<Byte>[] proposalDeliveredAcks;
     private final int latticeRoundCount;
@@ -46,6 +47,7 @@ public class BestEffortBroadcast implements LatticeDeliverer {
         this.lastDecidedLatticeRound = new AtomicInteger(0);
         this.hosts = hostList;
         this.readyToDeliver = new boolean[latticeRoundCount];
+        this.selfDelivered = new boolean[latticeRoundCount];
         this.proposalDeliveredAcks = new HashSet[latticeRoundCount];
         this.proposals = new Set[latticeRoundCount];
         for(int i = 0; i < latticeRoundCount; i++){
@@ -98,6 +100,7 @@ public class BestEffortBroadcast implements LatticeDeliverer {
         while(lastDecidedLatticeRound.get() < latticeRoundCount && readyToDeliver[lastDecidedLatticeRound.get()]){
             var round = lastDecidedLatticeRound.getAndIncrement();
             process.deliver(round, this.proposals[round]);
+            this.selfDelivered[round] = true;
             broadcastDelivered(round);
             checkForDeletion();
             maxLatticeRound.incrementAndGet(); // Allow for next round to be broadcast.
@@ -159,7 +162,7 @@ public class BestEffortBroadcast implements LatticeDeliverer {
     private void checkForDeletion(){
         var round = 0;
         while(round < lastDecidedLatticeRound.get()){
-            if(this.proposalDeliveredAcks[round].size() == hosts.size() - 1){
+            if(selfDelivered[round] && this.proposalDeliveredAcks[round].size() == hosts.size() - 1){
                 System.out.println("Cleared proposal set for round " + round);
                 this.proposals[round].clear();
                 this.proposals[round] = null;

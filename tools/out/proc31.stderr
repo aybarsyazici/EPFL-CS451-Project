@@ -1,0 +1,11 @@
+java.lang.NullPointerException
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:127)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:829)
+java.net.SocketException: Socket closed
+	at java.base/java.net.PlainDatagramSocketImpl.receive0(Native Method)
+	at java.base/java.net.AbstractPlainDatagramSocketImpl.receive(AbstractPlainDatagramSocketImpl.java:200)
+	at java.base/java.net.DatagramSocket.receive(DatagramSocket.java:814)
+	at cs451.udp.UDPReceiver.run(UDPReceiver.java:58)
