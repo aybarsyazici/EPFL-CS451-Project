@@ -71,7 +71,7 @@ public class Main {
             System.out.println();
             if(host.getId() == (parser.myId()-1)){
                 System.out.println("ProposalSetSize: " + proposalSetSize);
-                pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), 8, proposalSetSize,latticeRoundCount);
+                pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), 4, proposalSetSize,latticeRoundCount);
             }
         }
         System.out.println();
@@ -93,9 +93,6 @@ public class Main {
 
         System.out.println("Process ID: " + (pr.getId()+1));
 
-
-        // After a process finishes broadcasting,
-        // it waits forever for the delivery of messages.
         int currentRound = 0;
         var run = true;
         while (run) {
@@ -114,6 +111,7 @@ public class Main {
                     for(String number: numbers){
                         set.add(Integer.parseInt(number));
                     }
+                    System.out.println("Proposing Round " + currentRound + " " + set);
                     pr.send(currentRound, set);
                     currentRound += 1;
                 }

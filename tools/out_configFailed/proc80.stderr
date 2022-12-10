@@ -1,0 +1,1099 @@
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException: Cannot invoke "java.util.Collection.iterator()" because "c" is null
+	at java.base/java.util.AbstractCollection.containsAll(AbstractCollection.java:308)
+	at cs451.links.PerfectLinks.deliver(PerfectLinks.java:107)
+	at cs451.links.StubbornLinks.deliver(StubbornLinks.java:175)
+	at cs451.links.FairLossLinks.deliver(FairLossLinks.java:101)
+	at cs451.udp.UDPReceiver.lambda$new$0(UDPReceiver.java:42)
+	at java.base/java.lang.Thread.run(Thread.java:833)
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.lang.NullPointerException
+java.net.SocketException: Socket closed
+	at java.base/sun.nio.ch.DatagramSocketAdaptor.receive(DatagramSocketAdaptor.java:252)
+	at java.base/java.net.DatagramSocket.receive(DatagramSocket.java:701)
+	at cs451.udp.UDPReceiver.run(UDPReceiver.java:58)
+Caused by: java.nio.channels.AsynchronousCloseException
+	at java.base/sun.nio.ch.DatagramChannelImpl.endRead(DatagramChannelImpl.java:523)
+	at java.base/sun.nio.ch.DatagramChannelImpl.trustedBlockingReceive(DatagramChannelImpl.java:677)
+	at java.base/sun.nio.ch.DatagramChannelImpl.blockingReceive(DatagramChannelImpl.java:635)
+	at java.base/sun.nio.ch.DatagramSocketAdaptor.receive(DatagramSocketAdaptor.java:240)
+	... 2 more

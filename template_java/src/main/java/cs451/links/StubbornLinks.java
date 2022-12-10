@@ -82,12 +82,20 @@ public class StubbornLinks implements Deliverer {
         };
     }
 
+    private boolean shouldBeDeleted(Message message){
+        if(!message.isDeliveredMessage()){
+            if(perfectLinks.isDelivered(message.getLatticeRound())) return true;
+            return perfectLinks.getActiveProposalNumber(message.getLatticeRound()) != message.getId();
+        }
+        return false;
+    }
+
     private void sendMessagesToBeSent(List<Message> messages, Host host){
         if(messages.size() == 0) return;
         List<Message> messagesToSend = new ArrayList<>();
         (messages).
                 forEach(m -> {
-                        if(!m.isDeliveredMessage() && perfectLinks.isDelivered(m.getLatticeRound())){
+                        if(shouldBeDeleted(m)){
                             messageToBeSent.get(m.getReceiverId()).remove(m);
                             return;
                         }
@@ -160,19 +168,21 @@ public class StubbornLinks implements Deliverer {
             if(message.isDeliveredAck()){
                 Message originalMessage = message.swapSenderReceiver();
                 messageToBeSent.get(originalMessage.getReceiverId()).remove(originalMessage);
-                return;
             }
-            if (message.isAckMessage()) { // I have sent this message and received it back
+            else if (message.isAckMessage()) { // I have sent this message and received it back
                 Message originalMessage = message.swapSenderReceiver();
                 var removal = messageToBeSent.get(originalMessage.getReceiverId()).remove(originalMessage);
                 if (removal != null && removal) {
+                    perfectLinks.deliver(message);
                     count += 1;
                     if (count % 1000 == 0) {
                         System.out.println("Sent " + count + " messages.");
                     }
                 }
             }
-            perfectLinks.deliver(message);
+            else{
+                perfectLinks.deliver(message);
+            }
         }
         catch (Exception e){
             e.printStackTrace();

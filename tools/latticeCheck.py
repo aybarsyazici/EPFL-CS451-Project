@@ -1,4 +1,14 @@
-proc_count = 50
+import argparse
+
+parser = argparse.ArgumentParser(
+    prog='Lattice Agreement Check',
+    description='Iterates over all the output files to check for the consistency property of the algorithm'
+)
+
+parser.add_argument('proc_count', type=int, help='Number of processes')
+args = parser.parse_args()
+
+proc_count = args.proc_count
 crashed_procs = []
 
 for i in range(1, proc_count+1):

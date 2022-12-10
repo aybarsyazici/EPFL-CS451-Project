@@ -1,0 +1,3378 @@
+Listening for transport dt_socket at address: 9347
+My PID: 56496
+
+From a new terminal type `kill -SIGINT 56496` or `kill -SIGTERM 56496` to stop processing packets
+
+OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/EPFL-CS451-Project/tools/out/proc88.output
+My ID: 88
+
+List of resolved hosts is:
+==========================
+0
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11001
+
+1
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11002
+
+2
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11003
+
+3
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11004
+
+4
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11005
+
+5
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11006
+
+6
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11007
+
+7
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11008
+
+8
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11009
+
+9
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11010
+
+10
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11011
+
+11
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11012
+
+12
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11013
+
+13
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11014
+
+14
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11015
+
+15
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11016
+
+16
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11017
+
+17
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11018
+
+18
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11019
+
+19
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11020
+
+20
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11021
+
+21
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11022
+
+22
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11023
+
+23
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11024
+
+24
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11025
+
+25
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11026
+
+26
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11027
+
+27
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11028
+
+28
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11029
+
+29
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11030
+
+30
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11031
+
+31
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11032
+
+32
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11033
+
+33
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11034
+
+34
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11035
+
+35
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11036
+
+36
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11037
+
+37
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11038
+
+38
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11039
+
+39
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11040
+
+40
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11041
+
+41
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11042
+
+42
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11043
+
+43
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11044
+
+44
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11045
+
+45
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11046
+
+46
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11047
+
+47
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11048
+
+48
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11049
+
+49
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11050
+
+50
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11051
+
+51
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11052
+
+52
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11053
+
+53
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11054
+
+54
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11055
+
+55
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11056
+
+56
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11057
+
+57
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11058
+
+58
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11059
+
+59
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11060
+
+60
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11061
+
+61
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11062
+
+62
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11063
+
+63
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11064
+
+64
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11065
+
+65
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11066
+
+66
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11067
+
+67
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11068
+
+68
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11069
+
+69
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11070
+
+70
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11071
+
+71
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11072
+
+72
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11073
+
+73
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11074
+
+74
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11075
+
+75
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11076
+
+76
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11077
+
+77
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11078
+
+78
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11079
+
+79
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11080
+
+80
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11081
+
+81
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11082
+
+82
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11083
+
+83
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11084
+
+84
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11085
+
+85
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11086
+
+86
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11087
+
+87
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11088
+
+ProposalSetSize: 1000
+Sliding window size: 5
+UDPReceiver: Created socket on port 11088
+THREAD NUMBER: 1
+88
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11089
+
+89
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11090
+
+90
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11091
+
+91
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11092
+
+92
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11093
+
+93
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11094
+
+94
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11095
+
+95
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11096
+
+96
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11097
+
+97
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11098
+
+98
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11099
+
+99
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11100
+
+
+Path to output:
+===============
+/Users/aybarsyazici/Documents/EPFL/distributed/EPFL-CS451-Project/tools/out/proc88.output
+
+Deleted old output file: false
+
+Path to config:
+===============
+./out/proc88.config
+
+===============
+Doing some initialization
+
+Broadcasting and delivering messages...
+
+Process ID: 88
+Starting Round 0
+Proposing Round 0 [284277889, 1090824373, 1461744198, 187463722, 1194819984, 491914923, 810255760, 2133427445]
+Broadcasting proposal 1 round 0 with 8 elements
+__________________________
+Starting Round 1
+Proposing Round 1 [87531510, 458072318, 1566166314, 344951668, 709214891]
+Broadcasting proposal 1 round 1 with 5 elements
+__________________________
+Starting Round 2
+Proposing Round 2 [1628334692, 2123030247]
+Broadcasting proposal 1 round 2 with 2 elements
+__________________________
+Starting Round 3
+Proposing Round 3 [1628416575, 1237075775, 823946934, 1825957977, 816941039]
+Broadcasting proposal 1 round 3 with 5 elements
+__________________________
+Broadcasting NEW proposal 2 round 3 with 405 elements
+__________________________
+Broadcasting NEW proposal 2 round 2 with 411 elements
+__________________________
+Broadcasting NEW proposal 2 round 1 with 421 elements
+__________________________
+Broadcasting NEW proposal 2 round 0 with 428 elements
+__________________________
+DECIDED: 0 428
+Broadcasting DELIVERY OF: 0
+DECIDED: 1 421
+Broadcasting DELIVERY OF: 1
+DECIDED: 2 411
+Broadcasting DELIVERY OF: 2
+DECIDED: 3 405
+Broadcasting DELIVERY OF: 3
+Starting Round 4
+Proposing Round 4 [1347233823, 1846355528, 964824319]
+Broadcasting proposal 1 round 4 with 273 elements
+__________________________
+Starting Round 5
+Proposing Round 5 [2079617090, 1348257414, 1851350739]
+Broadcasting proposal 1 round 5 with 267 elements
+__________________________
+Starting Round 6
+Proposing Round 6 [1051802512, 123993296, 1348257414, 1321182659]
+Broadcasting proposal 1 round 6 with 301 elements
+__________________________
+Starting Round 7
+Proposing Round 7 [1715412119, 1403247962, 440213415, 766942939]
+Broadcasting proposal 1 round 7 with 298 elements
+__________________________
+Broadcasting NEW proposal 2 round 6 with 355 elements
+__________________________
+Broadcasting NEW proposal 2 round 7 with 336 elements
+__________________________
+Broadcasting NEW proposal 2 round 5 with 305 elements
+__________________________
+Broadcasting NEW proposal 2 round 4 with 317 elements
+__________________________
+Sent 1000 messages.
+DECIDED: 4 317
+Broadcasting DELIVERY OF: 4
+DECIDED: 5 305
+Broadcasting DELIVERY OF: 5
+DECIDED: 6 355
+Broadcasting DELIVERY OF: 6
+DECIDED: 7 336
+Broadcasting DELIVERY OF: 7
+Starting Round 8
+Proposing Round 8 [1403792057, 402418010, 351784589, 2005855667]
+Broadcasting proposal 1 round 8 with 232 elements
+__________________________
+Starting Round 9
+Proposing Round 9 [1566166314, 198486416, 950764876, 293864877, 1950049698, 2021598245, 965549222, 822873088]
+Broadcasting proposal 1 round 9 with 237 elements
+__________________________
+Starting Round 10
+Proposing Round 10 [54340558, 1553210608, 542114964, 2030106617, 514909066, 983297492, 917840538]
+Broadcasting proposal 1 round 10 with 224 elements
+__________________________
+Starting Round 11
+Proposing Round 11 [1711398352, 271515109]
+Broadcasting proposal 1 round 11 with 235 elements
+__________________________
+Broadcasting NEW proposal 2 round 8 with 256 elements
+__________________________
+Broadcasting NEW proposal 2 round 10 with 238 elements
+__________________________
+Broadcasting NEW proposal 2 round 11 with 253 elements
+__________________________
+Broadcasting NEW proposal 2 round 9 with 254 elements
+__________________________
+DECIDED: 8 256
+Broadcasting DELIVERY OF: 8
+DECIDED: 9 254
+Broadcasting DELIVERY OF: 9
+DECIDED: 10 238
+Broadcasting DELIVERY OF: 10
+DECIDED: 11 253
+Broadcasting DELIVERY OF: 11
+Starting Round 12
+Proposing Round 12 [1022222125, 999829240, 11017705, 1443665390, 582672654, 957449367, 911047815, 202363285, 1636492037]
+Broadcasting proposal 1 round 12 with 248 elements
+__________________________
+Starting Round 13
+Proposing Round 13 [1745535098, 1811967841, 1476426754, 1881694278]
+Broadcasting proposal 1 round 13 with 243 elements
+__________________________
+Starting Round 14
+Proposing Round 14 [1074163698, 1316935719, 965549222, 1768294570, 2048612358, 338258951]
+Broadcasting proposal 1 round 14 with 265 elements
+__________________________
+Starting Round 15
+Proposing Round 15 [58731376, 1849785671, 1564319318, 1904315855]
+Broadcasting proposal 1 round 15 with 258 elements
+__________________________
+Sent 2000 messages.
+Broadcasting NEW proposal 2 round 14 with 281 elements
+__________________________
+Broadcasting NEW proposal 2 round 15 with 272 elements
+__________________________
+Broadcasting NEW proposal 2 round 12 with 261 elements
+__________________________
+Broadcasting NEW proposal 2 round 13 with 258 elements
+__________________________
+Cleared accepted value set for round 0
+Cleared accepted value set for round 3
+Cleared accepted value set for round 1
+Cleared accepted value set for round 2
+DECIDED: 12 261
+Broadcasting DELIVERY OF: 12
+DECIDED: 13 258
+Broadcasting DELIVERY OF: 13
+DECIDED: 14 281
+Broadcasting DELIVERY OF: 14
+DECIDED: 15 272
+Broadcasting DELIVERY OF: 15
+Starting Round 16
+Proposing Round 16 [599707677, 1384049914, 1071722055, 1745595491, 9257255, 1328367510, 1032183433, 990153355]
+Broadcasting proposal 1 round 16 with 269 elements
+__________________________
+Starting Round 17
+Proposing Round 17 [874275988, 524671997]
+Broadcasting proposal 1 round 17 with 260 elements
+__________________________
+Starting Round 18
+Proposing Round 18 [2128023255, 1633724084, 124660666, 1872852789, 947206476, 396418889, 698594025, 1065972034]
+Broadcasting proposal 1 round 18 with 242 elements
+__________________________
+Starting Round 19
+Proposing Round 19 [770695571]
+Broadcasting proposal 1 round 19 with 262 elements
+__________________________
+Broadcasting NEW proposal 2 round 16 with 286 elements
+__________________________
+Broadcasting NEW proposal 2 round 18 with 256 elements
+__________________________
+Broadcasting NEW proposal 2 round 17 with 281 elements
+__________________________
+Broadcasting NEW proposal 2 round 19 with 278 elements
+__________________________
+Sent 3000 messages.
+Cleared accepted value set for round 4
+Cleared accepted value set for round 5
+Cleared accepted value set for round 6
+Cleared accepted value set for round 7
+DECIDED: 16 286
+Broadcasting DELIVERY OF: 16
+DECIDED: 17 281
+Broadcasting DELIVERY OF: 17
+DECIDED: 18 256
+Broadcasting DELIVERY OF: 18
+DECIDED: 19 278
+Broadcasting DELIVERY OF: 19
+Starting Round 20
+Proposing Round 20 [1270762239, 663670797, 172793727, 917840538]
+Broadcasting proposal 1 round 20 with 262 elements
+__________________________
+Starting Round 21
+Proposing Round 21 [1457293575]
+Broadcasting proposal 1 round 21 with 235 elements
+__________________________
+Starting Round 22
+Proposing Round 22 [2032638323, 1351531223, 1477278577, 941975480, 1713658874]
+Broadcasting proposal 1 round 22 with 245 elements
+__________________________
+Starting Round 23
+Proposing Round 23 [2041322270, 1065870178, 728818981, 1237401063, 1541804686, 1603828849, 2081821325, 1014096062]
+Broadcasting proposal 1 round 23 with 261 elements
+__________________________
+Broadcasting NEW proposal 2 round 21 with 255 elements
+__________________________
+Broadcasting NEW proposal 2 round 20 with 273 elements
+__________________________
+Broadcasting NEW proposal 2 round 22 with 269 elements
+__________________________
+Broadcasting NEW proposal 2 round 23 with 279 elements
+__________________________
+Sent 4000 messages.
+DECIDED: 20 273
+Broadcasting DELIVERY OF: 20
+DECIDED: 21 255
+Broadcasting DELIVERY OF: 21
+DECIDED: 22 269
+Broadcasting DELIVERY OF: 22
+DECIDED: 23 279
+Broadcasting DELIVERY OF: 23
+Cleared accepted value set for round 8
+Cleared accepted value set for round 11
+Cleared accepted value set for round 10
+Cleared accepted value set for round 9
+Starting Round 24
+Proposing Round 24 [1743499, 1071722055, 1242911821, 1716495971]
+Broadcasting proposal 1 round 24 with 247 elements
+__________________________
+Starting Round 25
+Proposing Round 25 [1024542722, 633814084, 159824875, 707111048]
+Broadcasting proposal 1 round 25 with 248 elements
+__________________________
+Starting Round 26
+Proposing Round 26 [547374338, 546696950, 604546780, 124660666, 1539588337, 127978094, 116402431]
+Broadcasting proposal 1 round 26 with 260 elements
+__________________________
+Starting Round 27
+Proposing Round 27 [1253535854]
+Broadcasting proposal 1 round 27 with 242 elements
+__________________________
+Broadcasting NEW proposal 2 round 26 with 279 elements
+__________________________
+Broadcasting NEW proposal 2 round 27 with 269 elements
+__________________________
+Broadcasting NEW proposal 2 round 25 with 265 elements
+__________________________
+Broadcasting NEW proposal 2 round 24 with 259 elements
+__________________________
+DECIDED: 24 259
+Broadcasting DELIVERY OF: 24
+DECIDED: 25 265
+Broadcasting DELIVERY OF: 25
+DECIDED: 26 279
+Broadcasting DELIVERY OF: 26
+DECIDED: 27 269
+Broadcasting DELIVERY OF: 27
+Starting Round 28
+Proposing Round 28 [1193887545, 196814233, 1715412119, 1357970698, 457788949, 2085816511, 1259191105, 1014096062]
+Broadcasting proposal 1 round 28 with 265 elements
+__________________________
+Starting Round 29
+Proposing Round 29 [1392239675, 457031004, 1268006448, 322401182, 416314667, 1128466620]
+Broadcasting proposal 1 round 29 with 262 elements
+__________________________
+Starting Round 30
+Proposing Round 30 [2067418686, 1780010572, 2018679284, 1027553177, 1867302554, 2140506492, 267429212, 1062073697]
+Broadcasting proposal 1 round 30 with 273 elements
+__________________________
+Starting Round 31
+Proposing Round 31 [1084386400, 215359682, 1881625505, 1901472238, 1774884818, 2044804330, 372214308, 815221547]
+Broadcasting proposal 1 round 31 with 261 elements
+__________________________
+Sent 5000 messages.
+Cleared accepted value set for round 12
+Cleared accepted value set for round 15
+Cleared accepted value set for round 13
+Cleared accepted value set for round 14
+DECIDED: 28 265
+Broadcasting DELIVERY OF: 28
+DECIDED: 29 262
+Broadcasting DELIVERY OF: 29
+DECIDED: 30 273
+Broadcasting DELIVERY OF: 30
+DECIDED: 31 261
+Broadcasting DELIVERY OF: 31
+Starting Round 32
+Proposing Round 32 [1872852789, 260060661, 322401182, 1136253459]
+Broadcasting proposal 1 round 32 with 236 elements
+__________________________
+Starting Round 33
+Proposing Round 33 [118543408, 1482296058, 1591589823, 1707177877, 169318686, 1564319318, 1392783743, 1933034905, 111088881]
+Broadcasting proposal 1 round 33 with 245 elements
+__________________________
+Starting Round 34
+Proposing Round 34 [587462342, 172907376, 444900634]
+Broadcasting proposal 1 round 34 with 283 elements
+__________________________
+Starting Round 35
+Proposing Round 35 [955345537, 1976987348, 1872111746, 1409874348, 2018258729, 1076433900, 1061886576, 1477278577, 323408297]
+Broadcasting proposal 1 round 35 with 258 elements
+__________________________
+DECIDED: 32 236
+Broadcasting DELIVERY OF: 32
+DECIDED: 33 245
+Broadcasting DELIVERY OF: 33
+DECIDED: 34 283
+Broadcasting DELIVERY OF: 34
+DECIDED: 35 258
+Broadcasting DELIVERY OF: 35
+Starting Round 36
+Proposing Round 36 [1260005019, 546696950, 2137464556, 392245997]
+Broadcasting proposal 1 round 36 with 265 elements
+__________________________
+Starting Round 37
+Proposing Round 37 [633814084, 65917432, 306702926, 958682846]
+Broadcasting proposal 1 round 37 with 271 elements
+__________________________
+Starting Round 38
+Proposing Round 38 [284277889, 640183291, 703368777, 1167007513, 245522987, 1936179853, 1193448329, 2144181937]
+Broadcasting proposal 1 round 38 with 281 elements
+__________________________
+Starting Round 39
+Proposing Round 39 [1745535098, 1557724698, 2032638323, 1071722055, 904647469, 965067727, 348697524, 1147497835]
+Broadcasting proposal 1 round 39 with 247 elements
+__________________________
+Sent 6000 messages.
+DECIDED: 36 265
+Broadcasting DELIVERY OF: 36
+DECIDED: 37 271
+Broadcasting DELIVERY OF: 37
+DECIDED: 38 281
+Broadcasting DELIVERY OF: 38
+DECIDED: 39 247
+Broadcasting DELIVERY OF: 39
+Starting Round 40
+Proposing Round 40 [4943787, 693989311, 1699226064, 1253535854, 1760844750, 1881694278, 656448479]
+Broadcasting proposal 1 round 40 with 302 elements
+__________________________
+Starting Round 41
+Proposing Round 41 [1010193046, 34780500, 453285987, 1454109425, 780996231, 1986972437, 1048819999, 1281810600]
+Broadcasting proposal 1 round 41 with 252 elements
+__________________________
+Starting Round 42
+Proposing Round 42 [969007714, 223705953, 582672654, 1046816259, 664847319, 899825838, 1699972733]
+Broadcasting proposal 1 round 42 with 244 elements
+__________________________
+Starting Round 43
+Proposing Round 43 [223705953, 874275988, 1138409539, 1764265618, 1484714820, 367704871]
+Broadcasting proposal 1 round 43 with 248 elements
+__________________________
+Cleared accepted value set for round 16
+Cleared accepted value set for round 17
+Cleared accepted value set for round 18
+Cleared accepted value set for round 19
+DECIDED: 40 302
+Broadcasting DELIVERY OF: 40
+DECIDED: 41 252
+Broadcasting DELIVERY OF: 41
+DECIDED: 42 244
+Broadcasting DELIVERY OF: 42
+DECIDED: 43 248
+Broadcasting DELIVERY OF: 43
+Starting Round 44
+Proposing Round 44 [491914923, 1603828849, 543669676]
+Broadcasting proposal 1 round 44 with 149 elements
+__________________________
+Starting Round 45
+Proposing Round 45 [920140090, 720648887, 1388450337, 1605947756, 1950049698, 2038711176, 693847829, 1713658874, 943239974]
+Broadcasting proposal 1 round 45 with 141 elements
+__________________________
+Starting Round 46
+Proposing Round 46 [568275055, 251837136, 1225136114, 1311598149, 1571346130, 780996231, 348697524, 1782164134, 295456419]
+Broadcasting proposal 1 round 46 with 141 elements
+__________________________
+Starting Round 47
+Proposing Round 47 [43598698, 1784572192]
+Broadcasting proposal 1 round 47 with 133 elements
+__________________________
+Broadcasting NEW proposal 2 round 47 with 150 elements
+__________________________
+Broadcasting NEW proposal 2 round 46 with 151 elements
+__________________________
+Broadcasting NEW proposal 2 round 45 with 170 elements
+__________________________
+Broadcasting NEW proposal 2 round 44 with 168 elements
+__________________________
+Sent 7000 messages.
+Cleared accepted value set for round 20
+Cleared accepted value set for round 23
+Cleared accepted value set for round 21
+Cleared accepted value set for round 22
+Broadcasting NEW proposal 3 round 44 with 184 elements
+__________________________
+Broadcasting NEW proposal 3 round 45 with 175 elements
+__________________________
+Broadcasting NEW proposal 3 round 47 with 159 elements
+__________________________
+Broadcasting NEW proposal 3 round 46 with 163 elements
+__________________________
+DECIDED: 44 184
+Broadcasting DELIVERY OF: 44
+DECIDED: 45 175
+Broadcasting DELIVERY OF: 45
+DECIDED: 46 163
+Broadcasting DELIVERY OF: 46
+DECIDED: 47 159
+Broadcasting DELIVERY OF: 47
+Starting Round 48
+Proposing Round 48 [1952996248, 1997109065, 714531298, 1181241943, 345495128]
+Broadcasting proposal 1 round 48 with 122 elements
+__________________________
+Starting Round 49
+Proposing Round 49 [1539588337]
+Broadcasting proposal 1 round 49 with 142 elements
+__________________________
+Starting Round 50
+Proposing Round 50 [1948728483, 703368777, 1334661688, 487311805, 1633711193, 977515194, 1870778191, 1484193033]
+Broadcasting proposal 1 round 50 with 150 elements
+__________________________
+Starting Round 51
+Proposing Round 51 [1976987348, 391883149]
+Broadcasting proposal 1 round 51 with 129 elements
+__________________________
+Sent 8000 messages.
+Broadcasting NEW proposal 2 round 50 with 172 elements
+__________________________
+Broadcasting NEW proposal 2 round 51 with 167 elements
+__________________________
+Broadcasting NEW proposal 2 round 48 with 143 elements
+__________________________
+Broadcasting NEW proposal 2 round 49 with 155 elements
+__________________________
+Cleared accepted value set for round 27
+Cleared accepted value set for round 24
+Cleared accepted value set for round 25
+Cleared accepted value set for round 26
+DECIDED: 48 143
+Broadcasting DELIVERY OF: 48
+DECIDED: 49 155
+Broadcasting DELIVERY OF: 49
+DECIDED: 50 172
+Broadcasting DELIVERY OF: 50
+DECIDED: 51 167
+Broadcasting DELIVERY OF: 51
+Starting Round 52
+Proposing Round 52 [667643690, 1948728483, 1840877826, 1564319318, 186618211, 1554762903, 1378934717, 159824875]
+Broadcasting proposal 1 round 52 with 153 elements
+__________________________
+Starting Round 53
+Proposing Round 53 [1195103064, 1605947756, 857158768, 935018220, 113971123, 1584392711, 440213415, 416314667, 1008752943, 990153355]
+Broadcasting proposal 1 round 53 with 147 elements
+__________________________
+Starting Round 54
+Proposing Round 54 [400560567, 1817363615, 1378934717]
+Broadcasting proposal 1 round 54 with 158 elements
+__________________________
+Starting Round 55
+Proposing Round 55 [706712922, 1555585773, 1676848676, 501119337, 1362784338, 1692304102, 2087313121, 1716495971, 1032183433, 1934898666]
+Broadcasting proposal 1 round 55 with 122 elements
+__________________________
+Broadcasting NEW proposal 2 round 54 with 190 elements
+__________________________
+Broadcasting NEW proposal 2 round 55 with 148 elements
+__________________________
+Broadcasting NEW proposal 2 round 53 with 175 elements
+__________________________
+Broadcasting NEW proposal 2 round 52 with 185 elements
+__________________________
+Sent 9000 messages.
+Cleared accepted value set for round 31
+Cleared accepted value set for round 29
+Cleared accepted value set for round 30
+Cleared accepted value set for round 28
+Broadcasting NEW proposal 3 round 53 with 179 elements
+__________________________
+Broadcasting NEW proposal 3 round 52 with 191 elements
+__________________________
+Broadcasting NEW proposal 3 round 54 with 201 elements
+__________________________
+Broadcasting NEW proposal 3 round 55 with 166 elements
+__________________________
+DECIDED: 52 191
+Broadcasting DELIVERY OF: 52
+DECIDED: 53 179
+Broadcasting DELIVERY OF: 53
+DECIDED: 54 201
+Broadcasting DELIVERY OF: 54
+DECIDED: 55 166
+Broadcasting DELIVERY OF: 55
+Starting Round 56
+Proposing Round 56 [521521078, 1320763135, 1719929315, 1018790736, 1357970698, 1769748771, 548157187]
+Broadcasting proposal 1 round 56 with 153 elements
+__________________________
+Starting Round 57
+Proposing Round 57 [1555585773, 703368777, 1870403050, 600337712, 1311598149, 171200764, 1889238423, 1146660997, 172907376]
+Broadcasting proposal 1 round 57 with 157 elements
+__________________________
+Starting Round 58
+Proposing Round 58 [1034535593, 1816803306, 197529702, 1525876051, 431756350, 1787453807, 751917162, 433797840, 690737494]
+Broadcasting proposal 1 round 58 with 138 elements
+__________________________
+Starting Round 59
+Proposing Round 59 [304330003, 170689150, 1461744198, 289482182, 654477195, 1064746525]
+Broadcasting proposal 1 round 59 with 146 elements
+__________________________
+Sent 10000 messages.
+Broadcasting NEW proposal 2 round 56 with 185 elements
+__________________________
+Broadcasting NEW proposal 2 round 57 with 195 elements
+__________________________
+Broadcasting NEW proposal 2 round 59 with 175 elements
+__________________________
+Broadcasting NEW proposal 2 round 58 with 169 elements
+__________________________
+Cleared accepted value set for round 34
+Cleared accepted value set for round 35
+Cleared accepted value set for round 32
+Cleared accepted value set for round 33
+DECIDED: 56 185
+Broadcasting DELIVERY OF: 56
+DECIDED: 57 195
+Broadcasting DELIVERY OF: 57
+DECIDED: 58 169
+Broadcasting DELIVERY OF: 58
+DECIDED: 59 175
+Broadcasting DELIVERY OF: 59
+Starting Round 60
+Proposing Round 60 [284277889, 1022222125, 232804774, 490000526, 564409423]
+Broadcasting proposal 1 round 60 with 128 elements
+__________________________
+Starting Round 61
+Proposing Round 61 [420514789, 915490795, 1752306681, 1070298438, 1425906387, 1672790155]
+Broadcasting proposal 1 round 61 with 140 elements
+__________________________
+Starting Round 62
+Proposing Round 62 [1780010572, 1004257438, 240251661, 856247605, 1286196999, 1713658874, 1191043170, 215686308]
+Broadcasting proposal 1 round 62 with 109 elements
+__________________________
+Starting Round 63
+Proposing Round 63 [1721025347, 874275988, 978815630, 1810607153, 1378934717]
+Broadcasting proposal 1 round 63 with 140 elements
+__________________________
+Broadcasting NEW proposal 2 round 63 with 172 elements
+__________________________
+Broadcasting NEW proposal 2 round 60 with 162 elements
+__________________________
+Broadcasting NEW proposal 2 round 61 with 173 elements
+__________________________
+Broadcasting NEW proposal 2 round 62 with 147 elements
+__________________________
+Sent 11000 messages.
+Cleared accepted value set for round 36
+Cleared accepted value set for round 38
+Cleared accepted value set for round 39
+Cleared accepted value set for round 37
+DECIDED: 60 162
+Broadcasting DELIVERY OF: 60
+DECIDED: 61 173
+Broadcasting DELIVERY OF: 61
+DECIDED: 62 147
+Broadcasting DELIVERY OF: 62
+DECIDED: 63 172
+Broadcasting DELIVERY OF: 63
+Starting Round 64
+Proposing Round 64 [65917432]
+Broadcasting proposal 1 round 64 with 143 elements
+__________________________
+Starting Round 65
+Proposing Round 65 [909074012, 272849424, 11492154, 1903232052, 83889094, 1237886015, 1577691630, 983753977, 902727745]
+Broadcasting proposal 1 round 65 with 149 elements
+__________________________
+Starting Round 66
+Proposing Round 66 [1498981529, 1117362852]
+Broadcasting proposal 1 round 66 with 139 elements
+__________________________
+Starting Round 67
+Proposing Round 67 [1699887270, 1348257414]
+Broadcasting proposal 1 round 67 with 137 elements
+__________________________
+Broadcasting NEW proposal 2 round 67 with 177 elements
+__________________________
+Broadcasting NEW proposal 2 round 66 with 167 elements
+__________________________
+Broadcasting NEW proposal 2 round 65 with 185 elements
+__________________________
+Broadcasting NEW proposal 2 round 64 with 173 elements
+__________________________
+Sent 12000 messages.
+DECIDED: 64 173
+Broadcasting DELIVERY OF: 64
+DECIDED: 65 185
+Broadcasting DELIVERY OF: 65
+DECIDED: 66 167
+Broadcasting DELIVERY OF: 66
+DECIDED: 67 177
+Broadcasting DELIVERY OF: 67
+Starting Round 68
+Proposing Round 68 [1863893256, 599310825, 1645124051]
+Broadcasting proposal 1 round 68 with 145 elements
+__________________________
+Starting Round 69
+Proposing Round 69 [1611931113]
+Broadcasting proposal 1 round 69 with 143 elements
+__________________________
+Starting Round 70
+Proposing Round 70 [1816803306, 997241761, 1067970820, 373399426, 1188332531, 133272825, 1812140441, 210643427]
+Broadcasting proposal 1 round 70 with 154 elements
+__________________________
+Starting Round 71
+Proposing Round 71 [877286584, 754368373, 1948728483, 1926780541, 1644847276, 904647469, 1948385094, 360551585, 851819913, 1070298438]
+Broadcasting proposal 1 round 71 with 141 elements
+__________________________
+Cleared accepted value set for round 40
+Cleared accepted value set for round 41
+Cleared accepted value set for round 42
+Cleared accepted value set for round 43
+Broadcasting NEW proposal 2 round 71 with 169 elements
+__________________________
+Broadcasting NEW proposal 2 round 68 with 178 elements
+__________________________
+Broadcasting NEW proposal 2 round 69 with 166 elements
+__________________________
+Broadcasting NEW proposal 2 round 70 with 185 elements
+__________________________
+DECIDED: 68 178
+Broadcasting DELIVERY OF: 68
+DECIDED: 69 166
+Broadcasting DELIVERY OF: 69
+DECIDED: 70 185
+Broadcasting DELIVERY OF: 70
+DECIDED: 71 169
+Broadcasting DELIVERY OF: 71
+Starting Round 72
+Proposing Round 72 [1295287749, 599310825, 730074215, 567622001, 1016779084, 27911967, 1198832728, 210643427]
+Broadcasting proposal 1 round 72 with 125 elements
+__________________________
+Starting Round 73
+Proposing Round 73 [470939445, 2079617090, 459716009]
+Broadcasting proposal 1 round 73 with 141 elements
+__________________________
+Starting Round 74
+Proposing Round 74 [568275055, 1628334692, 1649174966, 1800135697, 854001193, 296166921, 1229194523]
+Broadcasting proposal 1 round 74 with 145 elements
+__________________________
+Starting Round 75
+Proposing Round 75 [1525876051, 551437149, 1960488639, 728818981, 1905584866, 1699226064, 2007425404, 1994013856, 667779376]
+Broadcasting proposal 1 round 75 with 127 elements
+__________________________
+Sent 13000 messages.
+Cleared accepted value set for round 44
+Broadcasting NEW proposal 2 round 74 with 176 elements
+__________________________
+Broadcasting NEW proposal 2 round 75 with 154 elements
+__________________________
+Broadcasting NEW proposal 2 round 72 with 162 elements
+__________________________
+Broadcasting NEW proposal 2 round 73 with 172 elements
+__________________________
+Cleared accepted value set for round 46
+Cleared accepted value set for round 45
+Cleared accepted value set for round 47
+DECIDED: 72 162
+Broadcasting DELIVERY OF: 72
+DECIDED: 73 172
+Broadcasting DELIVERY OF: 73
+DECIDED: 74 176
+Broadcasting DELIVERY OF: 74
+DECIDED: 75 154
+Broadcasting DELIVERY OF: 75
+Starting Round 76
+Proposing Round 76 [1024542722, 2028168523, 9257255]
+Broadcasting proposal 1 round 76 with 124 elements
+__________________________
+Starting Round 77
+Proposing Round 77 [1644847276, 1881625505, 453285987, 1237886015, 993260504, 536124280, 770695571, 1198832728, 1753617371, 1147497835]
+Broadcasting proposal 1 round 77 with 153 elements
+__________________________
+Starting Round 78
+Proposing Round 78 [2108307952]
+Broadcasting proposal 1 round 78 with 158 elements
+__________________________
+Starting Round 79
+Proposing Round 79 [425294682, 387119894, 65917432, 654477195, 1260573448, 392245997, 562697526, 791835934, 656439677, 818665301]
+Broadcasting proposal 1 round 79 with 130 elements
+__________________________
+Sent 14000 messages.
+Broadcasting NEW proposal 2 round 78 with 195 elements
+__________________________
+Broadcasting NEW proposal 2 round 76 with 154 elements
+__________________________
+Broadcasting NEW proposal 2 round 77 with 189 elements
+__________________________
+Broadcasting NEW proposal 2 round 79 with 164 elements
+__________________________
+Cleared accepted value set for round 48
+Cleared accepted value set for round 50
+Cleared accepted value set for round 51
+Cleared accepted value set for round 49
+DECIDED: 76 154
+Broadcasting DELIVERY OF: 76
+DECIDED: 77 189
+Broadcasting DELIVERY OF: 77
+DECIDED: 78 195
+Broadcasting DELIVERY OF: 78
+DECIDED: 79 164
+Broadcasting DELIVERY OF: 79
+Starting Round 80
+Proposing Round 80 [1193887545, 651662547, 1242911821, 60766757, 855630484]
+Broadcasting proposal 1 round 80 with 124 elements
+__________________________
+Starting Round 81
+Proposing Round 81 [1620104855, 1378934717]
+Broadcasting proposal 1 round 81 with 115 elements
+__________________________
+Starting Round 82
+Proposing Round 82 [1051454923, 2127420335, 854316681, 1463320861, 1647489402, 656293602, 827143233, 594130308, 469306919]
+Broadcasting proposal 1 round 82 with 147 elements
+__________________________
+Starting Round 83
+Proposing Round 83 [284277889, 1178884276, 855256552, 1227193073, 1787453807, 988350974, 157612991]
+Broadcasting proposal 1 round 83 with 125 elements
+__________________________
+Broadcasting NEW proposal 2 round 82 with 180 elements
+__________________________
+Broadcasting NEW proposal 2 round 81 with 157 elements
+__________________________
+Broadcasting NEW proposal 2 round 80 with 164 elements
+__________________________
+Broadcasting NEW proposal 2 round 83 with 171 elements
+__________________________
+Sent 15000 messages.
+Cleared accepted value set for round 52
+DECIDED: 80 164
+Broadcasting DELIVERY OF: 80
+DECIDED: 81 157
+Broadcasting DELIVERY OF: 81
+DECIDED: 82 180
+Broadcasting DELIVERY OF: 82
+DECIDED: 83 171
+Broadcasting DELIVERY OF: 83
+Starting Round 84
+Proposing Round 84 [1384287616, 1605947756, 1335901990, 2030106617, 256143439, 1986972437, 1554762903, 1030213097, 2013042435]
+Broadcasting proposal 1 round 84 with 144 elements
+__________________________
+Starting Round 85
+Proposing Round 85 [2013042435]
+Broadcasting proposal 1 round 85 with 122 elements
+__________________________
+Starting Round 86
+Proposing Round 86 [251837136, 1639042338, 1461744198, 1511014697]
+Broadcasting proposal 1 round 86 with 109 elements
+__________________________
+Starting Round 87
+Proposing Round 87 [683749521, 542366274, 1090824373, 140515379, 1787453807, 1025148381, 113971123, 965549222, 906164396]
+Broadcasting proposal 1 round 87 with 139 elements
+__________________________
+Cleared accepted value set for round 53
+Cleared accepted value set for round 55
+Cleared accepted value set for round 54
+Broadcasting NEW proposal 2 round 85 with 166 elements
+__________________________
+Broadcasting NEW proposal 2 round 84 with 181 elements
+__________________________
+Broadcasting NEW proposal 2 round 86 with 151 elements
+__________________________
+Broadcasting NEW proposal 2 round 87 with 172 elements
+__________________________
+Sent 16000 messages.
+Broadcasting NEW proposal 3 round 84 with 187 elements
+__________________________
+Broadcasting NEW proposal 3 round 85 with 176 elements
+__________________________
+Broadcasting NEW proposal 3 round 87 with 174 elements
+__________________________
+Broadcasting NEW proposal 3 round 86 with 154 elements
+__________________________
+Cleared accepted value set for round 56
+Cleared accepted value set for round 57
+Cleared accepted value set for round 58
+Cleared accepted value set for round 59
+DECIDED: 84 187
+Broadcasting DELIVERY OF: 84
+DECIDED: 85 176
+Broadcasting DELIVERY OF: 85
+DECIDED: 86 154
+Broadcasting DELIVERY OF: 86
+DECIDED: 87 174
+Broadcasting DELIVERY OF: 87
+Starting Round 88
+Proposing Round 88 [1501771491, 426204934, 854316681, 1067970820, 1629748727, 494650131, 697939765, 2090237817]
+Broadcasting proposal 1 round 88 with 140 elements
+__________________________
+Starting Round 89
+Proposing Round 89 [1051802512, 1057486868, 1351531223, 993260504, 1982979741, 478163327, 244295904, 1636492037]
+Broadcasting proposal 1 round 89 with 126 elements
+__________________________
+Starting Round 90
+Proposing Round 90 [863937247, 1159995046, 1067970820, 988350974, 2056061866, 230249217, 833728665, 1722989659, 1357970698, 1117362852]
+Broadcasting proposal 1 round 90 with 120 elements
+__________________________
+Starting Round 91
+Proposing Round 91 [1553210608, 1237886015]
+Broadcasting proposal 1 round 91 with 116 elements
+__________________________
+Broadcasting NEW proposal 2 round 89 with 174 elements
+__________________________
+Broadcasting NEW proposal 2 round 88 with 175 elements
+__________________________
+Broadcasting NEW proposal 2 round 91 with 159 elements
+__________________________
+Broadcasting NEW proposal 2 round 90 with 156 elements
+__________________________
+Sent 17000 messages.
+Cleared accepted value set for round 60
+DECIDED: 88 175
+Broadcasting DELIVERY OF: 88
+DECIDED: 89 174
+Broadcasting DELIVERY OF: 89
+DECIDED: 90 156
+Broadcasting DELIVERY OF: 90
+DECIDED: 91 159
+Broadcasting DELIVERY OF: 91
+Starting Round 92
+Proposing Round 92 [1268006448, 1846355528, 1903232052, 656448479]
+Broadcasting proposal 1 round 92 with 137 elements
+__________________________
+Starting Round 93
+Proposing Round 93 [1891799103]
+Broadcasting proposal 1 round 93 with 123 elements
+__________________________
+Starting Round 94
+Proposing Round 94 [2105400301, 251837136, 2019952485, 189351213, 1553210608, 143299564, 1984173309, 1589915144, 1995627518, 1084044802]
+Broadcasting proposal 1 round 94 with 165 elements
+__________________________
+Starting Round 95
+Proposing Round 95 [106456634, 1995907669, 123993296, 440610570, 1051590706, 1819244083, 1288477634, 1030213097, 2072319898, 653287375]
+Broadcasting proposal 1 round 95 with 151 elements
+__________________________
+Cleared accepted value set for round 63
+Cleared accepted value set for round 62
+Cleared accepted value set for round 61
+Broadcasting NEW proposal 2 round 93 with 169 elements
+__________________________
+Broadcasting NEW proposal 2 round 92 with 195 elements
+__________________________
+Broadcasting NEW proposal 2 round 94 with 202 elements
+__________________________
+Broadcasting NEW proposal 2 round 95 with 186 elements
+__________________________
+Sent 18000 messages.
+DECIDED: 92 195
+Broadcasting DELIVERY OF: 92
+DECIDED: 93 169
+Broadcasting DELIVERY OF: 93
+DECIDED: 94 202
+Broadcasting DELIVERY OF: 94
+DECIDED: 95 186
+Broadcasting DELIVERY OF: 95
+Starting Round 96
+Proposing Round 96 [1625792787, 1227193073, 1903232052, 683577992, 1315144891, 1138264176, 677517496, 1472659626, 1716605598]
+Broadcasting proposal 1 round 96 with 116 elements
+__________________________
+Starting Round 97
+Proposing Round 97 [955345537, 1157541038, 1295287749, 1591589823, 11492154, 679282378, 176390590, 1070298438, 1306061701]
+Broadcasting proposal 1 round 97 with 162 elements
+__________________________
+Starting Round 98
+Proposing Round 98 [1392239675, 417436465, 1745535098, 40009587, 1745595491, 123265537, 810255760, 1970753705, 983297492, 74059253]
+Broadcasting proposal 1 round 98 with 139 elements
+__________________________
+Starting Round 99
+Proposing Round 99 [540137296, 1915184358, 1553210608, 1508161137, 1139038460, 1163577186, 1800135697, 969318858, 788075126]
+Broadcasting proposal 1 round 99 with 125 elements
+__________________________
+Cleared accepted value set for round 64
+Broadcasting NEW proposal 2 round 96 with 156 elements
+__________________________
+Broadcasting NEW proposal 2 round 97 with 189 elements
+__________________________
+Broadcasting NEW proposal 2 round 99 with 155 elements
+__________________________
+Broadcasting NEW proposal 2 round 98 with 190 elements
+__________________________
+Cleared accepted value set for round 65
+Cleared accepted value set for round 66
+Cleared accepted value set for round 67
+Broadcasting NEW proposal 3 round 96 with 159 elements
+__________________________
+Broadcasting NEW proposal 3 round 99 with 156 elements
+__________________________
+Broadcasting NEW proposal 3 round 97 with 193 elements
+__________________________
+Broadcasting NEW proposal 3 round 98 with 192 elements
+__________________________
+Sent 19000 messages.
+Cleared accepted value set for round 68
+DECIDED: 96 159
+Broadcasting DELIVERY OF: 96
+DECIDED: 97 193
+Broadcasting DELIVERY OF: 97
+DECIDED: 98 192
+Broadcasting DELIVERY OF: 98
+DECIDED: 99 156
+Broadcasting DELIVERY OF: 99
+Starting Round 100
+Proposing Round 100 [599310825, 610900200, 492960451, 252860896, 798112150, 1326856608, 950764876, 1297602688, 679282378, 1587106770]
+Broadcasting proposal 1 round 100 with 124 elements
+__________________________
+Starting Round 101
+Proposing Round 101 [261810763, 401094954, 1625792787, 1652563013, 1362784338, 1425906387, 1722454917]
+Broadcasting proposal 1 round 101 with 141 elements
+__________________________
+Starting Round 102
+Proposing Round 102 [275860817, 994182853, 123265537, 1904315855]
+Broadcasting proposal 1 round 102 with 136 elements
+__________________________
+Starting Round 103
+Proposing Round 103 [760434128, 2120834317, 470939445, 1784517419, 113971123, 1140882778, 351784589, 2123333781, 1611931113, 1250949136]
+Broadcasting proposal 1 round 103 with 140 elements
+__________________________
+Cleared accepted value set for round 69
+Cleared accepted value set for round 70
+Cleared accepted value set for round 71
+Broadcasting NEW proposal 2 round 100 with 177 elements
+__________________________
+Broadcasting NEW proposal 2 round 103 with 185 elements
+__________________________
+Broadcasting NEW proposal 2 round 101 with 175 elements
+__________________________
+Broadcasting NEW proposal 2 round 102 with 165 elements
+__________________________
+DECIDED: 100 177
+Broadcasting DELIVERY OF: 100
+DECIDED: 101 175
+Broadcasting DELIVERY OF: 101
+DECIDED: 102 165
+Broadcasting DELIVERY OF: 102
+DECIDED: 103 185
+Broadcasting DELIVERY OF: 103
+Sent 20000 messages.
+Starting Round 104
+Proposing Round 104 [1157541038, 714300770, 1384360647, 101637979, 215686308, 1891100776]
+Broadcasting proposal 1 round 104 with 125 elements
+__________________________
+Starting Round 105
+Proposing Round 105 [1817363615, 1722454917]
+Broadcasting proposal 1 round 105 with 147 elements
+__________________________
+Starting Round 106
+Proposing Round 106 [582824840, 1508161137, 977515194, 2144181937, 1736526879]
+Broadcasting proposal 1 round 106 with 132 elements
+__________________________
+Starting Round 107
+Proposing Round 107 [1454109425]
+Broadcasting proposal 1 round 107 with 129 elements
+__________________________
+Cleared accepted value set for round 72
+Broadcasting NEW proposal 2 round 104 with 169 elements
+__________________________
+Broadcasting NEW proposal 2 round 107 with 163 elements
+__________________________
+Broadcasting NEW proposal 2 round 106 with 167 elements
+__________________________
+Broadcasting NEW proposal 2 round 105 with 202 elements
+__________________________
+Cleared accepted value set for round 73
+Cleared accepted value set for round 74
+Cleared accepted value set for round 75
+DECIDED: 104 169
+Broadcasting DELIVERY OF: 104
+DECIDED: 105 202
+Broadcasting DELIVERY OF: 105
+DECIDED: 106 167
+Broadcasting DELIVERY OF: 106
+DECIDED: 107 163
+Broadcasting DELIVERY OF: 107
+Starting Round 108
+Proposing Round 108 [1498981529, 1002547591]
+Broadcasting proposal 1 round 108 with 128 elements
+__________________________
+Starting Round 109
+Proposing Round 109 [633814084, 1393178591, 1558990517, 1444812497, 1609930218]
+Broadcasting proposal 1 round 109 with 121 elements
+__________________________
+Starting Round 110
+Proposing Round 110 [614685938, 1346922426, 338444264, 431675310, 1169288485, 487311805, 918920620, 564409423, 1952918745, 1970753705]
+Broadcasting proposal 1 round 110 with 133 elements
+__________________________
+Starting Round 111
+Proposing Round 111 [1015242176, 1521696479, 693847829]
+Broadcasting proposal 1 round 111 with 141 elements
+__________________________
+Sent 21000 messages.
+Broadcasting NEW proposal 2 round 111 with 191 elements
+__________________________
+Broadcasting NEW proposal 2 round 110 with 172 elements
+__________________________
+Broadcasting NEW proposal 2 round 108 with 169 elements
+__________________________
+Broadcasting NEW proposal 2 round 109 with 170 elements
+__________________________
+Cleared accepted value set for round 76
+Cleared accepted value set for round 77
+Cleared accepted value set for round 79
+Cleared accepted value set for round 78
+Broadcasting NEW proposal 3 round 109 with 178 elements
+__________________________
+Broadcasting NEW proposal 3 round 110 with 173 elements
+__________________________
+DECIDED: 108 169
+Broadcasting DELIVERY OF: 108
+Broadcasting NEW proposal 3 round 111 with 197 elements
+__________________________
+Starting Round 112
+Proposing Round 112 [1227193073, 2016044512, 1564319318]
+Broadcasting proposal 1 round 112 with 148 elements
+__________________________
+Broadcasting NEW proposal 2 round 112 with 181 elements
+__________________________
+DECIDED: 109 178
+Broadcasting DELIVERY OF: 109
+DECIDED: 110 173
+Broadcasting DELIVERY OF: 110
+DECIDED: 111 197
+Broadcasting DELIVERY OF: 111
+Sent 22000 messages.
+Starting Round 113
+Proposing Round 113 [1998247509]
+Broadcasting proposal 1 round 113 with 138 elements
+__________________________
+Starting Round 114
+Proposing Round 114 [1157541038, 863937247, 323169889, 1539588337, 1620104855, 988350974, 1138264176, 1210133979, 1752306681, 662976399]
+Broadcasting proposal 1 round 114 with 140 elements
+__________________________
+Starting Round 115
+Proposing Round 115 [417436465, 2112035409, 492960451, 317234448, 1083497965, 1754569613, 360551585, 816941039, 1722454917]
+Broadcasting proposal 1 round 115 with 144 elements
+__________________________
+Cleared accepted value set for round 80
+Broadcasting NEW proposal 2 round 113 with 165 elements
+__________________________
+Broadcasting NEW proposal 2 round 114 with 176 elements
+__________________________
+Broadcasting NEW proposal 2 round 115 with 178 elements
+__________________________
+Broadcasting NEW proposal 3 round 112 with 185 elements
+__________________________
+Cleared accepted value set for round 81
+Cleared accepted value set for round 82
+Cleared accepted value set for round 83
+DECIDED: 112 185
+Broadcasting DELIVERY OF: 112
+DECIDED: 113 165
+Broadcasting DELIVERY OF: 113
+DECIDED: 114 176
+Broadcasting DELIVERY OF: 114
+DECIDED: 115 178
+Broadcasting DELIVERY OF: 115
+Starting Round 116
+Proposing Round 116 [651662547, 2085816511, 888346940]
+Broadcasting proposal 1 round 116 with 138 elements
+__________________________
+Starting Round 117
+Proposing Round 117 [2112035409]
+Broadcasting proposal 1 round 117 with 131 elements
+__________________________
+Starting Round 118
+Proposing Round 118 [1863893256, 1008458444]
+Broadcasting proposal 1 round 118 with 111 elements
+__________________________
+Starting Round 119
+Proposing Round 119 [849627058, 1297602688, 1418198351, 1973214822, 698594025, 770695571]
+Broadcasting proposal 1 round 119 with 129 elements
+__________________________
+Sent 23000 messages.
+Broadcasting NEW proposal 2 round 116 with 166 elements
+__________________________
+Broadcasting NEW proposal 2 round 119 with 176 elements
+__________________________
+Broadcasting NEW proposal 2 round 117 with 168 elements
+__________________________
+Broadcasting NEW proposal 2 round 118 with 160 elements
+__________________________
+Cleared accepted value set for round 84
+Cleared accepted value set for round 85
+Cleared accepted value set for round 86
+Cleared accepted value set for round 87
+DECIDED: 116 166
+Broadcasting DELIVERY OF: 116
+DECIDED: 117 168
+Broadcasting DELIVERY OF: 117
+DECIDED: 118 160
+Broadcasting DELIVERY OF: 118
+DECIDED: 119 176
+Broadcasting DELIVERY OF: 119
+Starting Round 120
+Proposing Round 120 [2010258946, 714300770, 1405969000, 1752306681, 1065972034, 1995627518]
+Broadcasting proposal 1 round 120 with 120 elements
+__________________________
+Starting Round 121
+Proposing Round 121 [2120834317, 1054393708, 1541804686, 1084044802]
+Broadcasting proposal 1 round 121 with 120 elements
+__________________________
+Starting Round 122
+Proposing Round 122 [997241761, 1179387055]
+Broadcasting proposal 1 round 122 with 109 elements
+__________________________
+Starting Round 123
+Proposing Round 123 [1034535593, 215970859, 65917432, 746523513, 1540492440, 662976399, 1637375316, 159824875]
+Broadcasting proposal 1 round 123 with 124 elements
+__________________________
+Broadcasting NEW proposal 2 round 122 with 151 elements
+__________________________
+Broadcasting NEW proposal 2 round 123 with 168 elements
+__________________________
+Broadcasting NEW proposal 2 round 120 with 150 elements
+__________________________
+Broadcasting NEW proposal 2 round 121 with 163 elements
+__________________________
+Sent 24000 messages.
+Broadcasting NEW proposal 3 round 123 with 172 elements
+__________________________
+Broadcasting NEW proposal 3 round 121 with 167 elements
+__________________________
+Broadcasting NEW proposal 3 round 122 with 155 elements
+__________________________
+DECIDED: 120 150
+Broadcasting DELIVERY OF: 120
+Cleared accepted value set for round 88
+Starting Round 124
+Proposing Round 124 [983222878]
+Broadcasting proposal 1 round 124 with 131 elements
+__________________________
+Cleared accepted value set for round 89
+Cleared accepted value set for round 90
+Cleared accepted value set for round 91
+Broadcasting NEW proposal 2 round 124 with 165 elements
+__________________________
+DECIDED: 121 167
+Broadcasting DELIVERY OF: 121
+DECIDED: 122 155
+Broadcasting DELIVERY OF: 122
+DECIDED: 123 172
+Broadcasting DELIVERY OF: 123
+Starting Round 125
+Proposing Round 125 [610900200, 920140090, 567622001, 1692304102, 958682846, 543669676, 367704871, 917840538, 459716009]
+Broadcasting proposal 1 round 125 with 137 elements
+__________________________
+Starting Round 126
+Proposing Round 126 [1510792572, 1305132983]
+Broadcasting proposal 1 round 126 with 121 elements
+__________________________
+Starting Round 127
+Proposing Round 127 [1384360647, 513483708, 215686308]
+Broadcasting proposal 1 round 127 with 150 elements
+__________________________
+Sent 25000 messages.
+Broadcasting NEW proposal 2 round 125 with 170 elements
+__________________________
+Broadcasting NEW proposal 2 round 126 with 157 elements
+__________________________
+Broadcasting NEW proposal 2 round 127 with 189 elements
+__________________________
+Broadcasting NEW proposal 3 round 124 with 168 elements
+__________________________
+Cleared accepted value set for round 92
+Cleared accepted value set for round 93
+Cleared accepted value set for round 94
+Cleared accepted value set for round 95
+DECIDED: 124 168
+Broadcasting DELIVERY OF: 124
+DECIDED: 125 170
+Broadcasting DELIVERY OF: 125
+DECIDED: 126 157
+Broadcasting DELIVERY OF: 126
+DECIDED: 127 189
+Broadcasting DELIVERY OF: 127
+Starting Round 128
+Proposing Round 128 [1392239675, 400330495, 215359682, 1145921803, 1676848676, 433797840, 1897456484, 1891799103, 1444812497, 1215470157]
+Broadcasting proposal 1 round 128 with 141 elements
+__________________________
+Starting Round 129
+Proposing Round 129 [495762348, 1816803306, 827143233, 822873088]
+Broadcasting proposal 1 round 129 with 137 elements
+__________________________
+Starting Round 130
+Proposing Round 130 [1577691630]
+Broadcasting proposal 1 round 130 with 98 elements
+__________________________
+Starting Round 131
+Proposing Round 131 [1816803306, 1909954149, 1750625978, 1897669065, 1316935719, 755427535, 1871901278]
+Broadcasting proposal 1 round 131 with 126 elements
+__________________________
+Broadcasting NEW proposal 2 round 129 with 180 elements
+__________________________
+Broadcasting NEW proposal 2 round 128 with 175 elements
+__________________________
+Broadcasting NEW proposal 2 round 130 with 144 elements
+__________________________
+Broadcasting NEW proposal 2 round 131 with 164 elements
+__________________________
+Sent 26000 messages.
+DECIDED: 128 175
+Broadcasting DELIVERY OF: 128
+DECIDED: 129 180
+Broadcasting DELIVERY OF: 129
+DECIDED: 130 144
+Broadcasting DELIVERY OF: 130
+DECIDED: 131 164
+Broadcasting DELIVERY OF: 131
+Starting Round 132
+Proposing Round 132 [678500147, 728818981, 1159417075, 1692304102]
+Broadcasting proposal 1 round 132 with 143 elements
+__________________________
+Starting Round 133
+Proposing Round 133 [490000526, 367704871]
+Broadcasting proposal 1 round 133 with 115 elements
+__________________________
+Starting Round 134
+Proposing Round 134 [1267489756, 1593482331, 401094954, 854316681, 400330495, 1555585773, 1071722055, 1570991899, 1995226582]
+Broadcasting proposal 1 round 134 with 134 elements
+__________________________
+Starting Round 135
+Proposing Round 135 [1735918651, 1025148381, 1186564497, 709214891]
+Broadcasting proposal 1 round 135 with 130 elements
+__________________________
+Cleared accepted value set for round 99
+Cleared accepted value set for round 98
+Cleared accepted value set for round 97
+Cleared accepted value set for round 96
+Broadcasting NEW proposal 2 round 132 with 177 elements
+__________________________
+Broadcasting NEW proposal 2 round 135 with 147 elements
+__________________________
+Broadcasting NEW proposal 2 round 134 with 154 elements
+__________________________
+Broadcasting NEW proposal 2 round 133 with 138 elements
+__________________________
+Sent 27000 messages.
+Broadcasting NEW proposal 3 round 133 with 155 elements
+__________________________
+DECIDED: 132 177
+Broadcasting DELIVERY OF: 132
+Broadcasting NEW proposal 3 round 134 with 174 elements
+__________________________
+Broadcasting NEW proposal 3 round 135 with 168 elements
+__________________________
+Starting Round 136
+Proposing Round 136 [703368777, 1100558303, 1950049698, 90341465, 779489931, 1948821078, 83651970]
+Broadcasting proposal 1 round 136 with 131 elements
+__________________________
+Cleared accepted value set for round 101
+Cleared accepted value set for round 100
+Cleared accepted value set for round 103
+Cleared accepted value set for round 102
+DECIDED: 133 155
+Broadcasting DELIVERY OF: 133
+DECIDED: 134 174
+Broadcasting DELIVERY OF: 134
+DECIDED: 135 168
+Broadcasting DELIVERY OF: 135
+Broadcasting NEW proposal 2 round 136 with 164 elements
+__________________________
+Starting Round 137
+Proposing Round 137 [997241761, 708861714, 1350840898, 296166921]
+Broadcasting proposal 1 round 137 with 141 elements
+__________________________
+Starting Round 138
+Proposing Round 138 [551437149, 1899360801, 1393178591, 602078388, 1196591018, 833728665, 640798731, 1194673401, 1305132983, 218179599]
+Broadcasting proposal 1 round 138 with 129 elements
+__________________________
+Starting Round 139
+Proposing Round 139 [314652384, 11492154, 1855548990, 1754034197, 1984173309, 1457293575]
+Broadcasting proposal 1 round 139 with 140 elements
+__________________________
+Broadcasting NEW proposal 3 round 136 with 176 elements
+__________________________
+Broadcasting NEW proposal 2 round 137 with 185 elements
+__________________________
+Broadcasting NEW proposal 2 round 138 with 177 elements
+__________________________
+Broadcasting NEW proposal 2 round 139 with 194 elements
+__________________________
+Sent 28000 messages.
+DECIDED: 136 176
+Broadcasting DELIVERY OF: 136
+DECIDED: 137 185
+Broadcasting DELIVERY OF: 137
+DECIDED: 138 177
+Broadcasting DELIVERY OF: 138
+DECIDED: 139 194
+Broadcasting DELIVERY OF: 139
+Starting Round 140
+Proposing Round 140 [284277889, 551437149, 1899061865, 1139027119, 2144181937, 1232285036]
+Broadcasting proposal 1 round 140 with 134 elements
+__________________________
+Starting Round 141
+Proposing Round 141 [83250566, 1282287615, 170689150, 1752306681, 1982979741, 822873088, 1140805649]
+Broadcasting proposal 1 round 141 with 126 elements
+__________________________
+Starting Round 142
+Proposing Round 142 [495762348, 1482296058, 137869475, 1065870178, 1715412119, 2108307952, 256143439, 360551585, 7263971, 2080230418]
+Broadcasting proposal 1 round 142 with 140 elements
+__________________________
+Starting Round 143
+Proposing Round 143 [140187131, 170689150, 2075362821, 1591414076, 1703617827, 1699226064, 2141011556, 965067727, 444900634]
+Broadcasting proposal 1 round 143 with 151 elements
+__________________________
+Cleared accepted value set for round 105
+Cleared accepted value set for round 107
+Cleared accepted value set for round 106
+Cleared accepted value set for round 104
+Broadcasting NEW proposal 2 round 141 with 145 elements
+__________________________
+Broadcasting NEW proposal 2 round 140 with 169 elements
+__________________________
+Broadcasting NEW proposal 2 round 142 with 172 elements
+__________________________
+Broadcasting NEW proposal 2 round 143 with 166 elements
+__________________________
+Sent 29000 messages.
+Broadcasting NEW proposal 3 round 143 with 181 elements
+__________________________
+DECIDED: 140 169
+Broadcasting DELIVERY OF: 140
+Broadcasting NEW proposal 3 round 142 with 198 elements
+__________________________
+Broadcasting NEW proposal 3 round 141 with 164 elements
+__________________________
+Starting Round 144
+Proposing Round 144 [1267489756, 2067418686, 1968321319, 25323460, 1676848676, 365849190, 561866144]
+Broadcasting proposal 1 round 144 with 135 elements
+__________________________
+Cleared accepted value set for round 108
+Cleared accepted value set for round 111
+Cleared accepted value set for round 109
+Cleared accepted value set for round 110
+Broadcasting NEW proposal 2 round 144 with 152 elements
+__________________________
+DECIDED: 141 164
+Broadcasting DELIVERY OF: 141
+DECIDED: 142 198
+Broadcasting DELIVERY OF: 142
+DECIDED: 143 181
+Broadcasting DELIVERY OF: 143
+Starting Round 145
+Proposing Round 145 [54340558, 521231222]
+Broadcasting proposal 1 round 145 with 127 elements
+__________________________
+Starting Round 146
+Proposing Round 146 [1034356087, 346078411, 1197987692, 1286196999]
+Broadcasting proposal 1 round 146 with 151 elements
+__________________________
+Starting Round 147
+Proposing Round 147 [1125089309, 940617318, 1418198351, 1018790736, 1419179580, 1564319318, 519709079, 1425906387, 1008752943, 990153355]
+Broadcasting proposal 1 round 147 with 123 elements
+__________________________
+Broadcasting NEW proposal 2 round 145 with 185 elements
+__________________________
+Broadcasting NEW proposal 2 round 147 with 164 elements
+__________________________
+Broadcasting NEW proposal 3 round 144 with 165 elements
+__________________________
+Broadcasting NEW proposal 2 round 146 with 203 elements
+__________________________
+Sent 30000 messages.
+DECIDED: 144 165
+Broadcasting DELIVERY OF: 144
+DECIDED: 145 185
+Broadcasting DELIVERY OF: 145
+DECIDED: 146 203
+Broadcasting DELIVERY OF: 146
+DECIDED: 147 164
+Broadcasting DELIVERY OF: 147
+Starting Round 148
+Proposing Round 148 [457031004, 492960451, 2108061573, 582824840, 490000526, 810255760, 1953462417, 2080230418]
+Broadcasting proposal 1 round 148 with 130 elements
+__________________________
+Starting Round 149
+Proposing Round 149 [2067418686, 415393687, 1140882778, 1521696479]
+Broadcasting proposal 1 round 149 with 135 elements
+__________________________
+Starting Round 150
+Proposing Round 150 [862407093, 2047791082]
+Broadcasting proposal 1 round 150 with 107 elements
+__________________________
+Starting Round 151
+Proposing Round 151 [767303988, 1139038460, 1288477634, 478163327]
+Broadcasting proposal 1 round 151 with 138 elements
+__________________________
+Cleared accepted value set for round 115
+Cleared accepted value set for round 112
+Cleared accepted value set for round 113
+Cleared accepted value set for round 114
+Broadcasting NEW proposal 2 round 148 with 183 elements
+__________________________
+Broadcasting NEW proposal 2 round 151 with 169 elements
+__________________________
+Broadcasting NEW proposal 2 round 150 with 126 elements
+__________________________
+Broadcasting NEW proposal 2 round 149 with 144 elements
+__________________________
+Sent 31000 messages.
+Broadcasting NEW proposal 3 round 149 with 170 elements
+__________________________
+Broadcasting NEW proposal 3 round 151 with 189 elements
+__________________________
+DECIDED: 148 183
+Broadcasting DELIVERY OF: 148
+Broadcasting NEW proposal 3 round 150 with 145 elements
+__________________________
+Starting Round 152
+Proposing Round 152 [1734202799, 1384049914, 232804774, 1263732197, 2119634399, 1357970698, 1378934717, 2072319898]
+Broadcasting proposal 1 round 152 with 128 elements
+__________________________
+Cleared accepted value set for round 117
+Cleared accepted value set for round 118
+Cleared accepted value set for round 119
+Cleared accepted value set for round 116
+Broadcasting NEW proposal 2 round 152 with 152 elements
+__________________________
+DECIDED: 149 170
+Broadcasting DELIVERY OF: 149
+DECIDED: 150 145
+Broadcasting DELIVERY OF: 150
+DECIDED: 151 189
+Broadcasting DELIVERY OF: 151
+Starting Round 153
+Proposing Round 153 [1274350418, 1003143045]
+Broadcasting proposal 1 round 153 with 156 elements
+__________________________
+Starting Round 154
+Proposing Round 154 [2456273, 849627058, 514909066, 59780189, 1933034905]
+Broadcasting proposal 1 round 154 with 91 elements
+__________________________
+Starting Round 155
+Proposing Round 155 [1605947756, 426724858, 391883149, 1591414076, 1274350418, 1986972437, 1366556920, 1699972733, 548157187, 74059253]
+Broadcasting proposal 1 round 155 with 135 elements
+__________________________
+Broadcasting NEW proposal 3 round 152 with 170 elements
+__________________________
+Broadcasting NEW proposal 2 round 154 with 129 elements
+__________________________
+Broadcasting NEW proposal 2 round 155 with 166 elements
+__________________________
+Broadcasting NEW proposal 2 round 153 with 206 elements
+__________________________
+Sent 32000 messages.
+Broadcasting NEW proposal 3 round 153 with 210 elements
+__________________________
+DECIDED: 152 170
+Broadcasting DELIVERY OF: 152
+Broadcasting NEW proposal 3 round 154 with 136 elements
+__________________________
+Broadcasting NEW proposal 3 round 155 with 173 elements
+__________________________
+Starting Round 156
+Proposing Round 156 [683749521, 49310608, 913224047, 1358798143, 1159995046, 437662764, 698594025, 1043665192, 766942939]
+Broadcasting proposal 1 round 156 with 158 elements
+__________________________
+Cleared accepted value set for round 123
+Cleared accepted value set for round 120
+Cleared accepted value set for round 121
+Cleared accepted value set for round 122
+DECIDED: 153 210
+Broadcasting DELIVERY OF: 153
+DECIDED: 154 136
+Broadcasting DELIVERY OF: 154
+Broadcasting NEW proposal 2 round 156 with 186 elements
+__________________________
+DECIDED: 155 173
+Broadcasting DELIVERY OF: 155
+Starting Round 157
+Proposing Round 157 [780520225, 1421124738, 304912982, 1861968817, 1366556920, 1014096062]
+Broadcasting proposal 1 round 157 with 142 elements
+__________________________
+Starting Round 158
+Proposing Round 158 [170689150, 2019952485, 2085812759, 1138409539, 977515194, 662976399, 1250949136]
+Broadcasting proposal 1 round 158 with 144 elements
+__________________________
+Starting Round 159
+Proposing Round 159 [942408767]
+Broadcasting proposal 1 round 159 with 128 elements
+__________________________
+Sent 33000 messages.
+Broadcasting NEW proposal 2 round 158 with 174 elements
+__________________________
+Broadcasting NEW proposal 2 round 159 with 166 elements
+__________________________
+DECIDED: 156 186
+Broadcasting DELIVERY OF: 156
+Broadcasting NEW proposal 2 round 157 with 172 elements
+__________________________
+Starting Round 160
+Proposing Round 160 [4943787, 172793727, 1639042338, 798112150, 1748309234, 1900838388, 1825957977, 478163327]
+Broadcasting proposal 1 round 160 with 116 elements
+__________________________
+Broadcasting NEW proposal 2 round 160 with 122 elements
+__________________________
+DECIDED: 157 172
+Broadcasting DELIVERY OF: 157
+DECIDED: 158 174
+Broadcasting DELIVERY OF: 158
+DECIDED: 159 166
+Broadcasting DELIVERY OF: 159
+Starting Round 161
+Proposing Round 161 [1169726681, 1491228808, 514909066, 1260573448, 2108307952, 690737494, 1970753705]
+Broadcasting proposal 1 round 161 with 107 elements
+__________________________
+Starting Round 162
+Proposing Round 162 [1827524957, 1909954149, 113971123, 1184901787, 1637375316]
+Broadcasting proposal 1 round 162 with 116 elements
+__________________________
+Starting Round 163
+Proposing Round 163 [495762348, 1743499, 196814233, 1620104855, 638212450, 1366556920, 1674979897]
+Broadcasting proposal 1 round 163 with 147 elements
+__________________________
+Cleared accepted value set for round 124
+Cleared accepted value set for round 127
+Cleared accepted value set for round 125
+Cleared accepted value set for round 126
+Broadcasting NEW proposal 3 round 160 with 149 elements
+__________________________
+Broadcasting NEW proposal 2 round 162 with 155 elements
+__________________________
+Broadcasting NEW proposal 2 round 163 with 182 elements
+__________________________
+Broadcasting NEW proposal 2 round 161 with 148 elements
+__________________________
+Sent 34000 messages.
+Broadcasting NEW proposal 3 round 162 with 163 elements
+__________________________
+Broadcasting NEW proposal 3 round 161 with 151 elements
+__________________________
+Broadcasting NEW proposal 3 round 163 with 185 elements
+__________________________
+DECIDED: 160 149
+Broadcasting DELIVERY OF: 160
+Starting Round 164
+Proposing Round 164 [1047905204, 862407093, 420514789, 1728296502, 1583063357, 27911967, 1871901278, 1288477634, 1819256337, 194763060]
+Broadcasting proposal 1 round 164 with 134 elements
+__________________________
+Cleared accepted value set for round 129
+Cleared accepted value set for round 128
+Cleared accepted value set for round 130
+Cleared accepted value set for round 131
+Broadcasting NEW proposal 2 round 164 with 177 elements
+__________________________
+DECIDED: 161 151
+Broadcasting DELIVERY OF: 161
+DECIDED: 162 163
+Broadcasting DELIVERY OF: 162
+DECIDED: 163 185
+Broadcasting DELIVERY OF: 163
+Starting Round 165
+Proposing Round 165 [755427535, 490000526, 1194673401, 1669221121]
+Broadcasting proposal 1 round 165 with 166 elements
+__________________________
+Starting Round 166
+Proposing Round 166 [2101729519, 815221547]
+Broadcasting proposal 1 round 166 with 97 elements
+__________________________
+Starting Round 167
+Proposing Round 167 [1409874348]
+Broadcasting proposal 1 round 167 with 143 elements
+__________________________
+Sent 35000 messages.
+Broadcasting NEW proposal 2 round 167 with 170 elements
+__________________________
+Broadcasting NEW proposal 2 round 165 with 195 elements
+__________________________
+Broadcasting NEW proposal 2 round 166 with 115 elements
+__________________________
+Broadcasting NEW proposal 3 round 164 with 184 elements
+__________________________
+DECIDED: 164 184
+Broadcasting DELIVERY OF: 164
+DECIDED: 165 195
+Broadcasting DELIVERY OF: 165
+DECIDED: 166 115
+Broadcasting DELIVERY OF: 166
+DECIDED: 167 170
+Broadcasting DELIVERY OF: 167
+Starting Round 168
+Proposing Round 168 [1096619850, 230249217]
+Broadcasting proposal 1 round 168 with 126 elements
+__________________________
+Starting Round 169
+Proposing Round 169 [2128023255, 1549972386, 1015242176, 1103678092, 677517496, 656448479]
+Broadcasting proposal 1 round 169 with 125 elements
+__________________________
+Starting Round 170
+Proposing Round 170 [1570991899]
+Broadcasting proposal 1 round 170 with 115 elements
+__________________________
+Starting Round 171
+Proposing Round 171 [817804383, 101637979, 1874297457, 1950049698, 1170496062, 851819913, 519709079, 2111946238]
+Broadcasting proposal 1 round 171 with 145 elements
+__________________________
+Cleared accepted value set for round 134
+Cleared accepted value set for round 135
+Cleared accepted value set for round 133
+Cleared accepted value set for round 132
+Broadcasting NEW proposal 2 round 168 with 154 elements
+__________________________
+Broadcasting NEW proposal 2 round 169 with 167 elements
+__________________________
+Broadcasting NEW proposal 2 round 170 with 155 elements
+__________________________
+Broadcasting NEW proposal 2 round 171 with 177 elements
+__________________________
+Sent 36000 messages.
+DECIDED: 168 154
+Broadcasting DELIVERY OF: 168
+DECIDED: 169 167
+Broadcasting DELIVERY OF: 169
+DECIDED: 170 155
+Broadcasting DELIVERY OF: 170
+DECIDED: 171 177
+Broadcasting DELIVERY OF: 171
+Starting Round 172
+Proposing Round 172 [1016779084, 1897456484]
+Broadcasting proposal 1 round 172 with 148 elements
+__________________________
+Starting Round 173
+Proposing Round 173 [1711398352, 1539588337, 1237886015, 672302490, 978815630, 835092972, 1571346130, 344951668, 656448479, 2072319898]
+Broadcasting proposal 1 round 173 with 131 elements
+__________________________
+Starting Round 174
+Proposing Round 174 [1254717325, 1378934717, 323775634, 1014096062]
+Broadcasting proposal 1 round 174 with 122 elements
+__________________________
+Starting Round 175
+Proposing Round 175 [294296873, 1639042338, 1439622619, 101637979, 143299564, 1729245242, 2115806625, 1281810600, 323775634, 1785736751]
+Broadcasting proposal 1 round 175 with 132 elements
+__________________________
+Cleared accepted value set for round 136
+Cleared accepted value set for round 137
+Cleared accepted value set for round 138
+Cleared accepted value set for round 139
+Broadcasting NEW proposal 2 round 174 with 134 elements
+__________________________
+Broadcasting NEW proposal 2 round 173 with 143 elements
+__________________________
+Broadcasting NEW proposal 2 round 175 with 141 elements
+__________________________
+Broadcasting NEW proposal 2 round 172 with 178 elements
+__________________________
+Sent 37000 messages.
+Broadcasting NEW proposal 3 round 175 with 166 elements
+__________________________
+Broadcasting NEW proposal 3 round 174 with 158 elements
+__________________________
+Broadcasting NEW proposal 3 round 173 with 157 elements
+__________________________
+Broadcasting NEW proposal 3 round 172 with 183 elements
+__________________________
+DECIDED: 172 183
+Broadcasting DELIVERY OF: 172
+DECIDED: 173 157
+Broadcasting DELIVERY OF: 173
+DECIDED: 174 158
+Broadcasting DELIVERY OF: 174
+DECIDED: 175 166
+Broadcasting DELIVERY OF: 175
+Starting Round 176
+Proposing Round 176 [1195103064, 1721025347, 918037633, 1215470157]
+Broadcasting proposal 1 round 176 with 118 elements
+__________________________
+Starting Round 177
+Proposing Round 177 [1694684834, 1627746667]
+Broadcasting proposal 1 round 177 with 130 elements
+__________________________
+Starting Round 178
+Proposing Round 178 [988335251]
+Broadcasting proposal 1 round 178 with 125 elements
+__________________________
+Starting Round 179
+Proposing Round 179 [815605132, 1633711193, 1003143045]
+Broadcasting proposal 1 round 179 with 128 elements
+__________________________
+Cleared accepted value set for round 140
+Cleared accepted value set for round 143
+Cleared accepted value set for round 142
+Cleared accepted value set for round 141
+Broadcasting NEW proposal 2 round 178 with 160 elements
+__________________________
+Broadcasting NEW proposal 2 round 179 with 156 elements
+__________________________
+Broadcasting NEW proposal 2 round 177 with 162 elements
+__________________________
+Broadcasting NEW proposal 2 round 176 with 144 elements
+__________________________
+Sent 38000 messages.
+Broadcasting NEW proposal 3 round 178 with 168 elements
+__________________________
+Broadcasting NEW proposal 3 round 177 with 166 elements
+__________________________
+DECIDED: 176 144
+Broadcasting DELIVERY OF: 176
+Broadcasting NEW proposal 3 round 179 with 165 elements
+__________________________
+Starting Round 180
+Proposing Round 180 [2098228320, 614685938, 1196342297, 1764265618]
+Broadcasting proposal 1 round 180 with 106 elements
+__________________________
+Cleared accepted value set for round 144
+Cleared accepted value set for round 145
+Cleared accepted value set for round 146
+Cleared accepted value set for round 147
+Broadcasting NEW proposal 2 round 180 with 145 elements
+__________________________
+DECIDED: 177 166
+Broadcasting DELIVERY OF: 177
+DECIDED: 178 168
+Broadcasting DELIVERY OF: 178
+DECIDED: 179 165
+Broadcasting DELIVERY OF: 179
+Starting Round 181
+Proposing Round 181 [651662547, 1985392498, 1643015259, 1299301222, 1194819984, 950764876, 1889238423, 1995627518, 1259191105]
+Broadcasting proposal 1 round 181 with 136 elements
+__________________________
+Starting Round 182
+Proposing Round 182 [136505587, 519927529, 107420369, 2102989254]
+Broadcasting proposal 1 round 182 with 134 elements
+__________________________
+Starting Round 183
+Proposing Round 183 [1024542722, 2047791082, 1463320861, 1224011538, 1263732197, 1995226582, 1014096062]
+Broadcasting proposal 1 round 183 with 175 elements
+__________________________
+Broadcasting NEW proposal 2 round 182 with 161 elements
+__________________________
+Broadcasting NEW proposal 2 round 181 with 157 elements
+__________________________
+Broadcasting NEW proposal 3 round 180 with 151 elements
+__________________________
+Broadcasting NEW proposal 2 round 183 with 204 elements
+__________________________
+Sent 39000 messages.
+DECIDED: 180 151
+Broadcasting DELIVERY OF: 180
+DECIDED: 181 157
+Broadcasting DELIVERY OF: 181
+DECIDED: 182 161
+Broadcasting DELIVERY OF: 182
+DECIDED: 183 204
+Broadcasting DELIVERY OF: 183
+Starting Round 184
+Proposing Round 184 [1549972386, 33599984, 817804383, 110287971, 1195103064, 1036616336, 640798731, 1939118223, 1174350979, 297265480]
+Broadcasting proposal 1 round 184 with 142 elements
+__________________________
+Starting Round 185
+Proposing Round 185 [1169288485, 639904576, 1728296502, 728818981, 154185462, 491995979, 351784589, 1194673401, 756502473, 2072319898]
+Broadcasting proposal 1 round 185 with 129 elements
+__________________________
+Starting Round 186
+Proposing Round 186 [827143233]
+Broadcasting proposal 1 round 186 with 114 elements
+__________________________
+Starting Round 187
+Proposing Round 187 [1825957977, 1484193033]
+Broadcasting proposal 1 round 187 with 117 elements
+__________________________
+Cleared accepted value set for round 151
+Cleared accepted value set for round 150
+Cleared accepted value set for round 148
+Cleared accepted value set for round 149
+Broadcasting NEW proposal 2 round 187 with 152 elements
+__________________________
+Broadcasting NEW proposal 2 round 184 with 177 elements
+__________________________
+Broadcasting NEW proposal 2 round 185 with 153 elements
+__________________________
+Broadcasting NEW proposal 2 round 186 with 159 elements
+__________________________
+Sent 40000 messages.
+Broadcasting NEW proposal 3 round 186 with 163 elements
+__________________________
+DECIDED: 184 177
+Broadcasting DELIVERY OF: 184
+Broadcasting NEW proposal 3 round 185 with 161 elements
+__________________________
+Starting Round 188
+Proposing Round 188 [1333241445, 924765563, 1018790736, 677517496, 1135872495, 260329455, 2094011037, 1817363615, 990153355]
+Broadcasting proposal 1 round 188 with 121 elements
+__________________________
+Cleared accepted value set for round 152
+Cleared accepted value set for round 155
+Cleared accepted value set for round 153
+Cleared accepted value set for round 154
+Broadcasting NEW proposal 2 round 188 with 159 elements
+__________________________
+DECIDED: 185 161
+Broadcasting DELIVERY OF: 185
+DECIDED: 186 163
+Broadcasting DELIVERY OF: 186
+DECIDED: 187 152
+Broadcasting DELIVERY OF: 187
+Starting Round 189
+Proposing Round 189 [1384049914, 1036616336, 1348257414, 1461042543, 338258951, 990153355]
+Broadcasting proposal 1 round 189 with 151 elements
+__________________________
+Starting Round 190
+Proposing Round 190 [1269829408, 1292569882, 1169288485, 478163327]
+Broadcasting proposal 1 round 190 with 143 elements
+__________________________
+Starting Round 191
+Proposing Round 191 [1804502687, 969007714, 425294682, 101637979, 1260573448, 965549222, 1049193572, 2111946238]
+Broadcasting proposal 1 round 191 with 144 elements
+__________________________
+Broadcasting NEW proposal 2 round 191 with 176 elements
+__________________________
+Broadcasting NEW proposal 2 round 189 with 197 elements
+__________________________
+Broadcasting NEW proposal 2 round 190 with 175 elements
+__________________________
+Broadcasting NEW proposal 3 round 188 with 166 elements
+__________________________
+Sent 41000 messages.
+DECIDED: 188 166
+Broadcasting DELIVERY OF: 188
+DECIDED: 189 197
+Broadcasting DELIVERY OF: 189
+DECIDED: 190 175
+Broadcasting DELIVERY OF: 190
+DECIDED: 191 176
+Broadcasting DELIVERY OF: 191
+Starting Round 192
+Proposing Round 192 [400330495, 1900838388, 1140882778]
+Broadcasting proposal 1 round 192 with 113 elements
+__________________________
+Starting Round 193
+Proposing Round 193 [2098228320, 1555585773, 945826486, 1748309234, 899825838, 779489931, 2094011037, 295456419]
+Broadcasting proposal 1 round 193 with 125 elements
+__________________________
+Starting Round 194
+Proposing Round 194 [543669676]
+Broadcasting proposal 1 round 194 with 109 elements
+__________________________
+Starting Round 195
+Proposing Round 195 [855256552, 1995907669, 687117441, 1644847276, 1253535854, 654477195, 1936179853, 429416213]
+Broadcasting proposal 1 round 195 with 137 elements
+__________________________
+Cleared accepted value set for round 156
+Cleared accepted value set for round 157
+Cleared accepted value set for round 159
+Cleared accepted value set for round 158
+Broadcasting NEW proposal 2 round 192 with 155 elements
+__________________________
+Broadcasting NEW proposal 2 round 195 with 167 elements
+__________________________
+Broadcasting NEW proposal 2 round 194 with 140 elements
+__________________________
+Broadcasting NEW proposal 2 round 193 with 163 elements
+__________________________
+Sent 42000 messages.
+DECIDED: 192 155
+Broadcasting DELIVERY OF: 192
+Broadcasting NEW proposal 3 round 193 with 173 elements
+__________________________
+Broadcasting NEW proposal 3 round 194 with 152 elements
+__________________________
+Broadcasting NEW proposal 3 round 195 with 176 elements
+__________________________
+Starting Round 196
+Proposing Round 196 [1815115025, 1948728483, 1643015259, 1903232052, 1728760924, 171200764, 1392783743, 662976399, 2048612358, 2090237817]
+Broadcasting proposal 1 round 196 with 125 elements
+__________________________
+Cleared accepted value set for round 160
+DECIDED: 193 173
+Broadcasting DELIVERY OF: 193
+DECIDED: 194 152
+Broadcasting DELIVERY OF: 194
+DECIDED: 195 176
+Broadcasting DELIVERY OF: 195
+Broadcasting NEW proposal 2 round 196 with 168 elements
+__________________________
+Starting Round 197
+Proposing Round 197 [2128023255, 1962094851, 300535210, 187463722, 874275988, 1986972437, 965549222, 1297896903, 298737106]
+Broadcasting proposal 1 round 197 with 162 elements
+__________________________
+Starting Round 198
+Proposing Round 198 [706712922, 2038711176]
+Broadcasting proposal 1 round 198 with 128 elements
+__________________________
+Starting Round 199
+Proposing Round 199 [1498981529, 300535210, 940617318, 422809996, 1008752943]
+Broadcasting proposal 1 round 199 with 145 elements
+__________________________
+Cleared accepted value set for round 161
+Cleared accepted value set for round 163
+Cleared accepted value set for round 162
+Broadcasting NEW proposal 2 round 198 with 151 elements
+__________________________
+Broadcasting NEW proposal 2 round 199 with 175 elements
+__________________________
+Broadcasting NEW proposal 2 round 197 with 190 elements
+__________________________
+Broadcasting NEW proposal 3 round 196 with 176 elements
+__________________________
+Sent 43000 messages.
+DECIDED: 196 176
+Broadcasting DELIVERY OF: 196
+DECIDED: 197 190
+Broadcasting DELIVERY OF: 197
+DECIDED: 198 151
+Broadcasting DELIVERY OF: 198
+DECIDED: 199 175
+Broadcasting DELIVERY OF: 199
+Starting Round 200
+Proposing Round 200 [676168421, 833728665, 2101729519, 251183830, 2080230418, 1250949136]
+Broadcasting proposal 1 round 200 with 133 elements
+__________________________
+Starting Round 201
+Proposing Round 201 [1510792572, 1954246074, 1445662585, 1149938334, 1539588337, 1886149718, 2137464556, 1065972034, 964824319, 707111048]
+Broadcasting proposal 1 round 201 with 131 elements
+__________________________
+Starting Round 202
+Proposing Round 202 [113971123, 2005855667]
+Broadcasting proposal 1 round 202 with 136 elements
+__________________________
+Starting Round 203
+Proposing Round 203 [1320763135, 1311598149, 299832023, 1840109255, 1645124051, 1239573053]
+Broadcasting proposal 1 round 203 with 122 elements
+__________________________
+Cleared accepted value set for round 164
+Cleared accepted value set for round 167
+Cleared accepted value set for round 165
+Cleared accepted value set for round 166
+Broadcasting NEW proposal 2 round 200 with 166 elements
+__________________________
+Broadcasting NEW proposal 2 round 202 with 172 elements
+__________________________
+Broadcasting NEW proposal 2 round 201 with 172 elements
+__________________________
+Broadcasting NEW proposal 2 round 203 with 173 elements
+__________________________
+Sent 44000 messages.
+Broadcasting NEW proposal 3 round 202 with 175 elements
+__________________________
+DECIDED: 200 166
+Broadcasting DELIVERY OF: 200
+Broadcasting NEW proposal 3 round 201 with 178 elements
+__________________________
+Broadcasting NEW proposal 3 round 203 with 177 elements
+__________________________
+Starting Round 204
+Proposing Round 204 [816610683, 1172248246, 1768294570, 63384488]
+Broadcasting proposal 1 round 204 with 140 elements
+__________________________
+Cleared accepted value set for round 168
+DECIDED: 201 178
+Broadcasting DELIVERY OF: 201
+DECIDED: 202 175
+Broadcasting DELIVERY OF: 202
+DECIDED: 203 177
+Broadcasting DELIVERY OF: 203
+Broadcasting NEW proposal 2 round 204 with 182 elements
+__________________________
+Starting Round 205
+Proposing Round 205 [599707677, 187463722, 1326856608, 1745377599, 494650131, 822873088, 1736526879, 111088881]
+Broadcasting proposal 1 round 205 with 148 elements
+__________________________
+Starting Round 206
+Proposing Round 206 [955345537, 614685938, 2127420335, 752438459, 1065870178, 1071722055, 2087313121, 1541804686, 2033929266, 1716605598]
+Broadcasting proposal 1 round 206 with 147 elements
+__________________________
+Starting Round 207
+Proposing Round 207 [1549972386, 939042955, 640183291, 1047385483, 1852408227, 1840109255]
+Broadcasting proposal 1 round 207 with 130 elements
+__________________________
+Cleared accepted value set for round 169
+Cleared accepted value set for round 171
+Cleared accepted value set for round 170
+Broadcasting NEW proposal 3 round 204 with 190 elements
+__________________________
+Broadcasting NEW proposal 2 round 206 with 179 elements
+__________________________
+Broadcasting NEW proposal 2 round 207 with 152 elements
+__________________________
+Broadcasting NEW proposal 2 round 205 with 180 elements
+__________________________
+Sent 45000 messages.
+DECIDED: 204 190
+Broadcasting DELIVERY OF: 204
+DECIDED: 205 180
+Broadcasting DELIVERY OF: 205
+DECIDED: 206 179
+Broadcasting DELIVERY OF: 206
+DECIDED: 207 152
+Broadcasting DELIVERY OF: 207
+Starting Round 208
+Proposing Round 208 [1311598149, 978815630]
+Broadcasting proposal 1 round 208 with 142 elements
+__________________________
+Starting Round 209
+Proposing Round 209 [2016446768, 1427818730, 311570307, 1133802214, 1839869544, 365849190, 1805803262, 1282531582]
+Broadcasting proposal 1 round 209 with 125 elements
+__________________________
+Starting Round 210
+Proposing Round 210 [1036616336]
+Broadcasting proposal 1 round 210 with 111 elements
+__________________________
+Starting Round 211
+Proposing Round 211 [140515379, 657091982, 1274350418, 1311598149, 1449553823, 820581106, 594130308, 63384488, 983297492]
+Broadcasting proposal 1 round 211 with 138 elements
+__________________________
+Cleared accepted value set for round 172
+Cleared accepted value set for round 173
+Cleared accepted value set for round 174
+Cleared accepted value set for round 175
+Broadcasting NEW proposal 2 round 208 with 167 elements
+__________________________
+Broadcasting NEW proposal 2 round 209 with 166 elements
+__________________________
+Broadcasting NEW proposal 2 round 210 with 151 elements
+__________________________
+Broadcasting NEW proposal 2 round 211 with 170 elements
+__________________________
+Sent 46000 messages.
+DECIDED: 208 167
+Broadcasting DELIVERY OF: 208
+Broadcasting NEW proposal 3 round 210 with 156 elements
+__________________________
+Broadcasting NEW proposal 3 round 211 with 172 elements
+__________________________
+Broadcasting NEW proposal 3 round 209 with 169 elements
+__________________________
+Starting Round 212
+Proposing Round 212 [2047791082, 1167007513, 746523513, 1194819984, 133272825, 564409423, 685731524, 795212538, 244295904]
+Broadcasting proposal 1 round 212 with 133 elements
+__________________________
+Broadcasting NEW proposal 2 round 212 with 172 elements
+__________________________
+DECIDED: 209 169
+Broadcasting DELIVERY OF: 209
+DECIDED: 210 156
+Broadcasting DELIVERY OF: 210
+DECIDED: 211 172
+Broadcasting DELIVERY OF: 211
+Starting Round 213
+Proposing Round 213 [1119980130]
+Broadcasting proposal 1 round 213 with 162 elements
+__________________________
+Starting Round 214
+Proposing Round 214 [514909066, 372214308, 1174350979, 1136646449]
+Broadcasting proposal 1 round 214 with 144 elements
+__________________________
+Starting Round 215
+Proposing Round 215 [714300770, 1067970820, 215970859, 1558990517, 855630484, 1259191105, 2123030247, 59780189]
+Broadcasting proposal 1 round 215 with 153 elements
+__________________________
+Cleared accepted value set for round 176
+Cleared accepted value set for round 178
+Cleared accepted value set for round 177
+Cleared accepted value set for round 179
+Broadcasting NEW proposal 2 round 214 with 166 elements
+__________________________
+Broadcasting NEW proposal 2 round 215 with 181 elements
+__________________________
+Broadcasting NEW proposal 2 round 213 with 187 elements
+__________________________
+DECIDED: 212 172
+Broadcasting DELIVERY OF: 212
+Starting Round 216
+Proposing Round 216 [1734202799, 639904576, 2031403296, 1728760924]
+Broadcasting proposal 1 round 216 with 105 elements
+__________________________
+Sent 47000 messages.
+Broadcasting NEW proposal 2 round 216 with 133 elements
+__________________________
+DECIDED: 213 187
+Broadcasting DELIVERY OF: 213
+DECIDED: 214 166
+Broadcasting DELIVERY OF: 214
+DECIDED: 215 181
+Broadcasting DELIVERY OF: 215
+Starting Round 217
+Proposing Round 217 [425294682, 1508161137, 849627058]
+Broadcasting proposal 1 round 217 with 128 elements
+__________________________
+Starting Round 218
+Proposing Round 218 [1427818730, 2011467975, 1242911821, 2016044512]
+Broadcasting proposal 1 round 218 with 107 elements
+__________________________
+Starting Round 219
+Proposing Round 219 [1593482331, 1815115025, 137869475, 513483708, 186618211]
+Broadcasting proposal 1 round 219 with 117 elements
+__________________________
+Cleared accepted value set for round 180
+Cleared accepted value set for round 181
+Cleared accepted value set for round 182
+Broadcasting NEW proposal 2 round 217 with 170 elements
+__________________________
+Broadcasting NEW proposal 2 round 218 with 141 elements
+__________________________
+Broadcasting NEW proposal 2 round 219 with 153 elements
+__________________________
+Broadcasting NEW proposal 3 round 216 with 141 elements
+__________________________
+Cleared accepted value set for round 183
+Sent 48000 messages.
+DECIDED: 216 141
+Broadcasting DELIVERY OF: 216
+DECIDED: 217 170
+Broadcasting DELIVERY OF: 217
+DECIDED: 218 141
+Broadcasting DELIVERY OF: 218
+DECIDED: 219 153
+Broadcasting DELIVERY OF: 219
+Starting Round 220
+Proposing Round 220 [1893321208, 1411178445, 457031004, 693989311, 1046816259, 1418198351, 751917162, 1030213097, 990153355]
+Broadcasting proposal 1 round 220 with 124 elements
+__________________________
+Starting Round 221
+Proposing Round 221 [2067418686, 2018258729, 1870403050, 289482182, 306702926, 1953291127, 1193448329, 1897456484, 1307235909]
+Broadcasting proposal 1 round 221 with 164 elements
+__________________________
+Starting Round 222
+Proposing Round 222 [1997109065]
+Broadcasting proposal 1 round 222 with 150 elements
+__________________________
+Starting Round 223
+Proposing Round 223 [754368373, 2141011556, 90341465, 323408297, 2013042435]
+Broadcasting proposal 1 round 223 with 111 elements
+__________________________
+Broadcasting NEW proposal 2 round 222 with 193 elements
+__________________________
+Broadcasting NEW proposal 2 round 221 with 194 elements
+__________________________
+Broadcasting NEW proposal 2 round 220 with 161 elements
+__________________________
+Broadcasting NEW proposal 2 round 223 with 151 elements
+__________________________
+Cleared accepted value set for round 186
+Cleared accepted value set for round 184
+Cleared accepted value set for round 185
+Cleared accepted value set for round 187
+Broadcasting NEW proposal 3 round 223 with 156 elements
+__________________________
+Broadcasting NEW proposal 3 round 222 with 194 elements
+__________________________
+Broadcasting NEW proposal 3 round 221 with 195 elements
+__________________________
+DECIDED: 220 161
+Broadcasting DELIVERY OF: 220
+Starting Round 224
+Proposing Round 224 [2098228320, 913224047, 2007425404, 823946934, 820581106, 519709079, 1117362852, 469306919]
+Broadcasting proposal 1 round 224 with 147 elements
+__________________________
+Sent 49000 messages.
+DECIDED: 221 195
+Broadcasting DELIVERY OF: 221
+Broadcasting NEW proposal 2 round 224 with 184 elements
+__________________________
+DECIDED: 222 194
+Broadcasting DELIVERY OF: 222
+DECIDED: 223 156
+Broadcasting DELIVERY OF: 223
+Starting Round 225
+Proposing Round 225 [521521078, 1405969000, 494650131, 491995979, 1729245242]
+Broadcasting proposal 1 round 225 with 143 elements
+__________________________
+Starting Round 226
+Proposing Round 226 [94229853]
+Broadcasting proposal 1 round 226 with 138 elements
+__________________________
+Starting Round 227
+Proposing Round 227 [542366274, 428258482, 422809996]
+Broadcasting proposal 1 round 227 with 135 elements
+__________________________
+Broadcasting NEW proposal 3 round 224 with 186 elements
+__________________________
+Broadcasting NEW proposal 2 round 225 with 178 elements
+__________________________
+Broadcasting NEW proposal 2 round 226 with 164 elements
+__________________________
+Broadcasting NEW proposal 2 round 227 with 177 elements
+__________________________
+Cleared accepted value set for round 190
+Cleared accepted value set for round 189
+Cleared accepted value set for round 188
+Cleared accepted value set for round 191
+DECIDED: 224 186
+Broadcasting DELIVERY OF: 224
+DECIDED: 225 178
+Broadcasting DELIVERY OF: 225
+DECIDED: 226 164
+Broadcasting DELIVERY OF: 226
+DECIDED: 227 177
+Broadcasting DELIVERY OF: 227
+Starting Round 228
+Proposing Round 228 [1121910732, 1002547591, 2123030247]
+Broadcasting proposal 1 round 228 with 117 elements
+__________________________
+Starting Round 229
+Proposing Round 229 [1034356087, 1267489756, 2041322270, 453285987, 365849190, 747441732, 1014096062, 422809996]
+Broadcasting proposal 1 round 229 with 133 elements
+__________________________
+Starting Round 230
+Proposing Round 230 [1781844052, 1711398352, 405126228, 431756350, 1445662585, 111088881]
+Broadcasting proposal 1 round 230 with 159 elements
+__________________________
+Starting Round 231
+Proposing Round 231 [1962094851, 1750625978, 854316681, 1539588337, 940617318, 988350974, 2031417512]
+Broadcasting proposal 1 round 231 with 134 elements
+__________________________
+Sent 50000 messages.
+Broadcasting NEW proposal 2 round 230 with 196 elements
+__________________________
+Broadcasting NEW proposal 2 round 229 with 178 elements
+__________________________
+Broadcasting NEW proposal 2 round 228 with 147 elements
+__________________________
+Broadcasting NEW proposal 2 round 231 with 168 elements
+__________________________
+Cleared accepted value set for round 192
+Cleared accepted value set for round 193
+Cleared accepted value set for round 194
+Cleared accepted value set for round 195
+DECIDED: 228 147
+Broadcasting DELIVERY OF: 228
+Broadcasting NEW proposal 3 round 230 with 200 elements
+__________________________
+Broadcasting NEW proposal 3 round 229 with 182 elements
+__________________________
+Broadcasting NEW proposal 3 round 231 with 171 elements
+__________________________
+Starting Round 232
+Proposing Round 232 [955345537, 963026855, 693989311, 1985392498, 1584392711, 1936179853, 339166473]
+Broadcasting proposal 1 round 232 with 125 elements
+__________________________
+Sent 51000 messages.
+Broadcasting NEW proposal 2 round 232 with 152 elements
+__________________________
+DECIDED: 229 182
+Broadcasting DELIVERY OF: 229
+DECIDED: 230 200
+Broadcasting DELIVERY OF: 230
+DECIDED: 231 171
+Broadcasting DELIVERY OF: 231
+Starting Round 233
+Proposing Round 233 [387847884, 942408767, 856247605, 13938521, 964824319, 929364954, 1713658874, 1699972733, 576775951]
+Broadcasting proposal 1 round 233 with 134 elements
+__________________________
+Starting Round 234
+Proposing Round 234 [1137651678, 1408776235, 133272825, 1159417075, 164313410, 491298929]
+Broadcasting proposal 1 round 234 with 142 elements
+__________________________
+Starting Round 235
+Proposing Round 235 [251837136, 1159417075, 1950049698, 1239573053, 63384488]
+Broadcasting proposal 1 round 235 with 137 elements
+__________________________
+Cleared accepted value set for round 196
+Cleared accepted value set for round 198
+Cleared accepted value set for round 197
+Broadcasting NEW proposal 2 round 233 with 161 elements
+__________________________
+Broadcasting NEW proposal 2 round 234 with 171 elements
+__________________________
+DECIDED: 232 152
+Broadcasting DELIVERY OF: 232
+Broadcasting NEW proposal 2 round 235 with 164 elements
+__________________________
+Starting Round 236
+Proposing Round 236 [657091982, 289482182, 2072319898, 983297492]
+Broadcasting proposal 1 round 236 with 158 elements
+__________________________
+Cleared accepted value set for round 199
+DECIDED: 233 161
+Broadcasting DELIVERY OF: 233
+DECIDED: 234 171
+Broadcasting DELIVERY OF: 234
+DECIDED: 235 164
+Broadcasting DELIVERY OF: 235
+Broadcasting NEW proposal 2 round 236 with 187 elements
+__________________________
+Sent 52000 messages.
+Starting Round 237
+Proposing Round 237 [2096929657, 1350840898, 1577691630, 1699226064, 1722989659, 2108307952, 701808367, 656293602, 941975480, 1306061701]
+Broadcasting proposal 1 round 237 with 151 elements
+__________________________
+Starting Round 238
+Proposing Round 238 [760434128, 899825838, 680229045, 1422277848]
+Broadcasting proposal 1 round 238 with 137 elements
+__________________________
+Starting Round 239
+Proposing Round 239 [1125974687, 458072318, 1905584866, 679282378, 1008458444, 1323959527]
+Broadcasting proposal 1 round 239 with 144 elements
+__________________________
+Broadcasting NEW proposal 2 round 237 with 176 elements
+__________________________
+Broadcasting NEW proposal 2 round 238 with 163 elements
+__________________________
+Broadcasting NEW proposal 2 round 239 with 173 elements
+__________________________
+DECIDED: 236 187
+Broadcasting DELIVERY OF: 236
+Starting Round 240
+Proposing Round 240 [1995907669, 1405969000, 1715412119, 2044804330]
+Broadcasting proposal 1 round 240 with 130 elements
+__________________________
+Cleared accepted value set for round 202
+Cleared accepted value set for round 200
+Cleared accepted value set for round 201
+Cleared accepted value set for round 203
+Broadcasting NEW proposal 3 round 238 with 172 elements
+__________________________
+Broadcasting NEW proposal 3 round 239 with 181 elements
+__________________________
+Broadcasting NEW proposal 3 round 237 with 177 elements
+__________________________
+Broadcasting NEW proposal 2 round 240 with 153 elements
+__________________________
+Sent 53000 messages.
+Broadcasting NEW proposal 3 round 240 with 160 elements
+__________________________
+DECIDED: 237 177
+Broadcasting DELIVERY OF: 237
+DECIDED: 238 172
+Broadcasting DELIVERY OF: 238
+DECIDED: 239 181
+Broadcasting DELIVERY OF: 239
+Starting Round 241
+Proposing Round 241 [667643690, 1637375316]
+Broadcasting proposal 1 round 241 with 166 elements
+__________________________
+Starting Round 242
+Proposing Round 242 [2031403296, 391883149, 267429212, 390452952, 323775634, 929364954, 459716009]
+Broadcasting proposal 1 round 242 with 139 elements
+__________________________
+Starting Round 243
+Proposing Round 243 [1347233823, 1338811290, 1973840257, 294713656, 429416213]
+Broadcasting proposal 1 round 243 with 151 elements
+__________________________
+DECIDED: 240 160
+Broadcasting DELIVERY OF: 240
+Broadcasting NEW proposal 2 round 243 with 177 elements
+__________________________
+Broadcasting NEW proposal 2 round 242 with 169 elements
+__________________________
+Broadcasting NEW proposal 2 round 241 with 197 elements
+__________________________
+Starting Round 244
+Proposing Round 244 [1167007513, 1002547591, 305714736, 491914923, 2141011556, 1939118223, 899825838, 338258951, 339166473]
+Broadcasting proposal 1 round 244 with 139 elements
+__________________________
+Cleared accepted value set for round 207
+Cleared accepted value set for round 205
+Cleared accepted value set for round 206
+Cleared accepted value set for round 204
+Broadcasting NEW proposal 2 round 244 with 161 elements
+__________________________
+DECIDED: 241 197
+Broadcasting DELIVERY OF: 241
+DECIDED: 242 169
+Broadcasting DELIVERY OF: 242
+DECIDED: 243 177
+Broadcasting DELIVERY OF: 243
+Sent 54000 messages.
+Starting Round 245
+Proposing Round 245 [400560567, 1800135697, 1454109425, 1049193572, 2005855667, 251183830, 244295904, 1628238707]
+Broadcasting proposal 1 round 245 with 160 elements
+__________________________
+Starting Round 246
+Proposing Round 246 [2087313121, 186618211, 248786714]
+Broadcasting proposal 1 round 246 with 143 elements
+__________________________
+Starting Round 247
+Proposing Round 247 [1947382419, 326402374, 833728665, 348697524]
+Broadcasting proposal 1 round 247 with 134 elements
+__________________________
+Broadcasting NEW proposal 2 round 247 with 173 elements
+__________________________
+Broadcasting NEW proposal 2 round 245 with 194 elements
+__________________________
+Broadcasting NEW proposal 2 round 246 with 179 elements
+__________________________
+DECIDED: 244 161
+Broadcasting DELIVERY OF: 244
+Starting Round 248
+Proposing Round 248 [1196050747, 1976987348, 140515379, 1237401063, 1188332531, 1311598149, 1645124051, 1232285036]
+Broadcasting proposal 1 round 248 with 138 elements
+__________________________
+Cleared accepted value set for round 208
+Cleared accepted value set for round 209
+Cleared accepted value set for round 210
+Cleared accepted value set for round 211
+Broadcasting NEW proposal 2 round 248 with 157 elements
+__________________________
+DECIDED: 245 194
+Broadcasting DELIVERY OF: 245
+DECIDED: 246 179
+Broadcasting DELIVERY OF: 246
+DECIDED: 247 173
+Broadcasting DELIVERY OF: 247
+Starting Round 249
+Proposing Round 249 [1411178445, 1360049298, 1007142260, 479112937, 74059253]
+Broadcasting proposal 1 round 249 with 141 elements
+__________________________
+Starting Round 250
+Proposing Round 250 [1051454923, 1898551433, 519927529, 1225136114, 1867302554, 2030106617, 1138409539, 1094024844, 823946934, 218179599]
+Broadcasting proposal 1 round 250 with 136 elements
+__________________________
+Starting Round 251
+Proposing Round 251 [1804502687, 2021598245, 221670908, 1028439863, 1587106770, 1819244083, 1048819999, 1008752943, 1672790155]
+Broadcasting proposal 1 round 251 with 137 elements
+__________________________
+Sent 55000 messages.
+Broadcasting NEW proposal 2 round 249 with 154 elements
+__________________________
+Broadcasting NEW proposal 2 round 251 with 164 elements
+__________________________
+Broadcasting NEW proposal 3 round 248 with 166 elements
+__________________________
+Broadcasting NEW proposal 2 round 250 with 155 elements
+__________________________
+Broadcasting NEW proposal 3 round 249 with 168 elements
+__________________________
+Broadcasting NEW proposal 3 round 250 with 174 elements
+__________________________
+Broadcasting NEW proposal 3 round 251 with 177 elements
+__________________________
+DECIDED: 248 166
+Broadcasting DELIVERY OF: 248
+Cleared accepted value set for round 212
+Starting Round 252
+Proposing Round 252 [1549972386]
+Broadcasting proposal 1 round 252 with 120 elements
+__________________________
+Cleared accepted value set for round 214
+Cleared accepted value set for round 215
+Cleared accepted value set for round 213
+Broadcasting NEW proposal 2 round 252 with 141 elements
+__________________________
+DECIDED: 249 168
+Broadcasting DELIVERY OF: 249
+DECIDED: 250 174
+Broadcasting DELIVERY OF: 250
+DECIDED: 251 177
+Broadcasting DELIVERY OF: 251
+Starting Round 253
+Proposing Round 253 [1482296058, 457031004, 602078388, 1995226582, 351784589, 111088881, 902727745]
+Broadcasting proposal 1 round 253 with 117 elements
+__________________________
+Starting Round 254
+Proposing Round 254 [1804502687, 1358798143, 546696950, 230249217, 1900838388, 2108307952, 1170496062, 1819244083]
+Broadcasting proposal 1 round 254 with 138 elements
+__________________________
+Starting Round 255
+Proposing Round 255 [1034535593, 1442454200, 415393687, 1197987692, 917840538]
+Broadcasting proposal 1 round 255 with 124 elements
+__________________________
+Sent 56000 messages.
+Broadcasting NEW proposal 3 round 252 with 148 elements
+__________________________
+Broadcasting NEW proposal 2 round 254 with 163 elements
+__________________________
+Broadcasting NEW proposal 2 round 253 with 152 elements
+__________________________
+Broadcasting NEW proposal 2 round 255 with 156 elements
+__________________________
+Cleared accepted value set for round 217
+Cleared accepted value set for round 216
+Cleared accepted value set for round 218
+Cleared accepted value set for round 219
+DECIDED: 252 148
+Broadcasting DELIVERY OF: 252
+DECIDED: 253 152
+Broadcasting DELIVERY OF: 253
+DECIDED: 254 163
+Broadcasting DELIVERY OF: 254
+DECIDED: 255 156
+Broadcasting DELIVERY OF: 255
+Starting Round 256
+Proposing Round 256 [402418010, 846259450, 941975480]
+Broadcasting proposal 1 round 256 with 154 elements
+__________________________
+Starting Round 257
+Proposing Round 257 [1954246074, 1214784185, 1849785671, 230249217, 429416213]
+Broadcasting proposal 1 round 257 with 116 elements
+__________________________
+Starting Round 258
+Proposing Round 258 [633814084, 400330495, 1872852789, 714531298, 1644847276, 437662764, 1587106770]
+Broadcasting proposal 1 round 258 with 146 elements
+__________________________
+Starting Round 259
+Proposing Round 259 [1845919895, 1333241445, 400330495, 107420369, 1311598149, 672302490, 685731524, 1637375316, 709214891]
+Broadcasting proposal 1 round 259 with 129 elements
+__________________________
+Sent 57000 messages.
+Broadcasting NEW proposal 2 round 256 with 174 elements
+__________________________
+Broadcasting NEW proposal 2 round 259 with 165 elements
+__________________________
+Broadcasting NEW proposal 2 round 258 with 181 elements
+__________________________
+Broadcasting NEW proposal 2 round 257 with 152 elements
+__________________________
+DECIDED: 256 174
+Broadcasting DELIVERY OF: 256
+DECIDED: 257 152
+Broadcasting DELIVERY OF: 257
+DECIDED: 258 181
+Broadcasting DELIVERY OF: 258
+DECIDED: 259 165
+Broadcasting DELIVERY OF: 259
+Starting Round 260
+Proposing Round 260 [1384287616, 877286584, 2051831252, 60766757, 2123333781, 1049193572, 390452952, 1444812497]
+Broadcasting proposal 1 round 260 with 142 elements
+__________________________
+Starting Round 261
+Proposing Round 261 [1445662585, 542114964, 2048612358, 1881694278]
+Broadcasting proposal 1 round 261 with 103 elements
+__________________________
+Starting Round 262
+Proposing Round 262 [712632936, 52679490, 40361651, 415393687, 1224011538, 1541804686, 1210133979, 810255760, 1891100776]
+Broadcasting proposal 1 round 262 with 137 elements
+__________________________
+Starting Round 263
+Proposing Round 263 [999829240, 294296873, 604546780, 1780010572, 115820025, 1250949136]
+Broadcasting proposal 1 round 263 with 139 elements
+__________________________
+Cleared accepted value set for round 220
+Cleared accepted value set for round 222
+Cleared accepted value set for round 223
+Cleared accepted value set for round 221
+Broadcasting NEW proposal 2 round 261 with 130 elements
+__________________________
+Broadcasting NEW proposal 2 round 263 with 157 elements
+__________________________
+Broadcasting NEW proposal 2 round 262 with 166 elements
+__________________________
+Broadcasting NEW proposal 2 round 260 with 156 elements
+__________________________
+Sent 58000 messages.
+Broadcasting NEW proposal 3 round 262 with 171 elements
+__________________________
+Broadcasting NEW proposal 3 round 263 with 168 elements
+__________________________
+Broadcasting NEW proposal 3 round 261 with 137 elements
+__________________________
+DECIDED: 260 156
+Broadcasting DELIVERY OF: 260
+Starting Round 264
+Proposing Round 264 [1034356087, 140187131, 405126228, 2011467975, 217275224, 810255760, 1378934717]
+Broadcasting proposal 1 round 264 with 140 elements
+__________________________
+Cleared accepted value set for round 225
+Cleared accepted value set for round 224
+Cleared accepted value set for round 226
+Cleared accepted value set for round 227
+DECIDED: 261 137
+Broadcasting DELIVERY OF: 261
+DECIDED: 262 171
+Broadcasting DELIVERY OF: 262
+Broadcasting NEW proposal 2 round 264 with 157 elements
+__________________________
+DECIDED: 263 168
+Broadcasting DELIVERY OF: 263
+Starting Round 265
+Proposing Round 265 [1909954149, 1822393017, 1948385094, 2020785643, 822873088]
+Broadcasting proposal 1 round 265 with 153 elements
+__________________________
+Starting Round 266
+Proposing Round 266 [9257255]
+Broadcasting proposal 1 round 266 with 138 elements
+__________________________
+Starting Round 267
+Proposing Round 267 [33599984, 457031004, 1384049914, 1584392711, 274989148, 1541804686, 993260504]
+Broadcasting proposal 1 round 267 with 137 elements
+__________________________
+Sent 59000 messages.
+Broadcasting NEW proposal 3 round 264 with 161 elements
+__________________________
+Broadcasting NEW proposal 2 round 265 with 171 elements
+__________________________
+Broadcasting NEW proposal 2 round 266 with 165 elements
+__________________________
+Broadcasting NEW proposal 2 round 267 with 167 elements
+__________________________
+DECIDED: 264 161
+Broadcasting DELIVERY OF: 264
+DECIDED: 265 171
+Broadcasting DELIVERY OF: 265
+DECIDED: 266 165
+Broadcasting DELIVERY OF: 266
+DECIDED: 267 167
+Broadcasting DELIVERY OF: 267
+Starting Round 268
+Proposing Round 268 [1125974687, 1774884818]
+Broadcasting proposal 1 round 268 with 136 elements
+__________________________
+Starting Round 269
+Proposing Round 269 [572687073, 1304963614, 1310784794, 2007425404, 271515109, 260329455, 1003143045]
+Broadcasting proposal 1 round 269 with 131 elements
+__________________________
+Starting Round 270
+Proposing Round 270 [1694684834, 106456634, 1146997816, 1075321966, 1620104855, 1880160025, 1449553823, 647812758, 1117362852]
+Broadcasting proposal 1 round 270 with 151 elements
+__________________________
+Starting Round 271
+Proposing Round 271 [1157541038, 1152750071, 65917432, 1998247509]
+Broadcasting proposal 1 round 271 with 131 elements
+__________________________
+Cleared accepted value set for round 231
+Cleared accepted value set for round 230
+Cleared accepted value set for round 228
+Cleared accepted value set for round 229
+Broadcasting NEW proposal 2 round 271 with 160 elements
+__________________________
+Broadcasting NEW proposal 2 round 270 with 168 elements
+__________________________
+Broadcasting NEW proposal 2 round 268 with 158 elements
+__________________________
+Broadcasting NEW proposal 2 round 269 with 155 elements
+__________________________
+Sent 60000 messages.
+Broadcasting NEW proposal 3 round 271 with 161 elements
+__________________________
+Broadcasting NEW proposal 3 round 270 with 171 elements
+__________________________
+Broadcasting NEW proposal 3 round 269 with 162 elements
+__________________________
+DECIDED: 268 158
+Broadcasting DELIVERY OF: 268
+Starting Round 272
+Proposing Round 272 [261810763, 892442253]
+Broadcasting proposal 1 round 272 with 151 elements
+__________________________
+Cleared accepted value set for round 233
+Cleared accepted value set for round 232
+Cleared accepted value set for round 234
+Cleared accepted value set for round 235
+DECIDED: 269 162
+Broadcasting DELIVERY OF: 269
+DECIDED: 270 171
+Broadcasting DELIVERY OF: 270
+DECIDED: 271 161
+Broadcasting DELIVERY OF: 271
+Broadcasting NEW proposal 2 round 272 with 175 elements
+__________________________
+Starting Round 273
+Proposing Round 273 [1392239675, 1067970820, 23814791, 561866144, 1952918745]
+Broadcasting proposal 1 round 273 with 159 elements
+__________________________
+Starting Round 274
+Proposing Round 274 [1716495971, 1174350979]
+Broadcasting proposal 1 round 274 with 142 elements
+__________________________
+Starting Round 275
+Proposing Round 275 [1272368870, 604546780, 1149938334, 1304963614, 293864877, 2007425404]
+Broadcasting proposal 1 round 275 with 152 elements
+__________________________
+Sent 61000 messages.
+Broadcasting NEW proposal 3 round 272 with 185 elements
+__________________________
+Broadcasting NEW proposal 2 round 275 with 160 elements
+__________________________
+Broadcasting NEW proposal 2 round 274 with 147 elements
+__________________________
+Broadcasting NEW proposal 2 round 273 with 173 elements
+__________________________
+DECIDED: 272 185
+Broadcasting DELIVERY OF: 272
+DECIDED: 273 173
+Broadcasting DELIVERY OF: 273
+DECIDED: 274 147
+Broadcasting DELIVERY OF: 274
+DECIDED: 275 160
+Broadcasting DELIVERY OF: 275
+Starting Round 276
+Proposing Round 276 [1196050747, 2127420335, 519927529, 1891799103]
+Broadcasting proposal 1 round 276 with 165 elements
+__________________________
+Starting Round 277
+Proposing Round 277 [1745535098, 275860817, 323169889, 2041322270, 1555585773]
+Broadcasting proposal 1 round 277 with 143 elements
+__________________________
+Starting Round 278
+Proposing Round 278 [1292569882, 1734202799, 2018258729, 1187556862, 1418198351, 1637947177, 2033929266, 422809996, 1669221121]
+Broadcasting proposal 1 round 278 with 157 elements
+__________________________
+Starting Round 279
+Proposing Round 279 [1172248246, 1267622868]
+Broadcasting proposal 1 round 279 with 145 elements
+__________________________
+Cleared accepted value set for round 239
+Cleared accepted value set for round 236
+Cleared accepted value set for round 237
+Cleared accepted value set for round 238
+Broadcasting NEW proposal 2 round 277 with 178 elements
+__________________________
+Broadcasting NEW proposal 2 round 276 with 178 elements
+__________________________
+Broadcasting NEW proposal 2 round 278 with 175 elements
+__________________________
+Broadcasting NEW proposal 2 round 279 with 178 elements
+__________________________
+Sent 62000 messages.
+DECIDED: 276 178
+Broadcasting DELIVERY OF: 276
+DECIDED: 277 178
+Broadcasting DELIVERY OF: 277
+DECIDED: 278 175
+Broadcasting DELIVERY OF: 278
+DECIDED: 279 178
+Broadcasting DELIVERY OF: 279
+Starting Round 280
+Proposing Round 280 [1022222125, 1292569882, 1449553823, 1861968817, 1321182659]
+Broadcasting proposal 1 round 280 with 163 elements
+__________________________
+Starting Round 281
+Proposing Round 281 [2098545541, 586298866, 2105400301, 1178158203, 1149938334, 2075362821, 154739678, 1174350979, 1146660997]
+Broadcasting proposal 1 round 281 with 124 elements
+__________________________
+Starting Round 282
+Proposing Round 282 [599310825, 587462342, 210643427]
+Broadcasting proposal 1 round 282 with 141 elements
+__________________________
+Starting Round 283
+Proposing Round 283 [440610570, 1457293575, 1422277848]
+Broadcasting proposal 1 round 283 with 148 elements
+__________________________
+Cleared accepted value set for round 240
+Cleared accepted value set for round 243
+Cleared accepted value set for round 241
+Cleared accepted value set for round 242
+Broadcasting NEW proposal 2 round 280 with 200 elements
+__________________________
+Broadcasting NEW proposal 2 round 282 with 160 elements
+__________________________
+Broadcasting NEW proposal 2 round 281 with 142 elements
+__________________________
+Broadcasting NEW proposal 2 round 283 with 158 elements
+__________________________
+Sent 63000 messages.
+Broadcasting NEW proposal 3 round 283 with 171 elements
+__________________________
+Broadcasting NEW proposal 3 round 282 with 171 elements
+__________________________
+DECIDED: 280 200
+Broadcasting DELIVERY OF: 280
+Broadcasting NEW proposal 3 round 281 with 151 elements
+__________________________
+Starting Round 284
+Proposing Round 284 [1442454200]
+Broadcasting proposal 1 round 284 with 136 elements
+__________________________
+DECIDED: 281 151
+Broadcasting DELIVERY OF: 281
+DECIDED: 282 171
+Broadcasting DELIVERY OF: 282
+DECIDED: 283 171
+Broadcasting DELIVERY OF: 283
+Broadcasting NEW proposal 2 round 284 with 172 elements
+__________________________
+Starting Round 285
+Proposing Round 285 [1827524957, 1501771491, 534094883, 190638698, 1637947177, 1649174966, 1461042543, 256143439, 810255760]
+Broadcasting proposal 1 round 285 with 164 elements
+__________________________
+Starting Round 286
+Proposing Round 286 [1743499, 546696950, 501119337, 1699226064, 305714736, 755427535, 158998032, 1454109425, 217275224]
+Broadcasting proposal 1 round 286 with 152 elements
+__________________________
+Starting Round 287
+Proposing Round 287 [1976987348, 304912982, 1564319318, 1587106770, 1136646449]
+Broadcasting proposal 1 round 287 with 162 elements
+__________________________
+Cleared accepted value set for round 247
+Cleared accepted value set for round 244
+Cleared accepted value set for round 245
+Cleared accepted value set for round 246
+Broadcasting NEW proposal 2 round 285 with 183 elements
+__________________________
+Broadcasting NEW proposal 2 round 286 with 163 elements
+__________________________
+Broadcasting NEW proposal 3 round 284 with 174 elements
+__________________________
+Broadcasting NEW proposal 2 round 287 with 183 elements
+__________________________
+Sent 64000 messages.
+DECIDED: 284 174
+Broadcasting DELIVERY OF: 284
+DECIDED: 285 183
+Broadcasting DELIVERY OF: 285
+DECIDED: 286 163
+Broadcasting DELIVERY OF: 286
+DECIDED: 287 183
+Broadcasting DELIVERY OF: 287
+Starting Round 288
+Proposing Round 288 [1002547591, 1188332531, 2044804330, 210643427]
+Broadcasting proposal 1 round 288 with 153 elements
+__________________________
+Starting Round 289
+Proposing Round 289 [123993296, 780520225]
+Broadcasting proposal 1 round 289 with 145 elements
+__________________________
+Starting Round 290
+Proposing Round 290 [1268006448]
+Broadcasting proposal 1 round 290 with 140 elements
+__________________________
+Starting Round 291
+Proposing Round 291 [567622001, 1403792057, 1729245242, 1703617827, 2028168523, 9257255]
+Broadcasting proposal 1 round 291 with 144 elements
+__________________________
+Cleared accepted value set for round 248
+Cleared accepted value set for round 249
+Cleared accepted value set for round 251
+Cleared accepted value set for round 250
+Broadcasting NEW proposal 2 round 288 with 158 elements
+__________________________
+Broadcasting NEW proposal 2 round 290 with 177 elements
+__________________________
+Broadcasting NEW proposal 2 round 289 with 174 elements
+__________________________
+Broadcasting NEW proposal 2 round 291 with 175 elements
+__________________________
+Sent 65000 messages.
+DECIDED: 288 158
+Broadcasting DELIVERY OF: 288
+DECIDED: 289 174
+Broadcasting DELIVERY OF: 289
+DECIDED: 290 177
+Broadcasting DELIVERY OF: 290
+DECIDED: 291 175
+Broadcasting DELIVERY OF: 291
+Starting Round 292
+Proposing Round 292 [599707677]
+Broadcasting proposal 1 round 292 with 127 elements
+__________________________
+Starting Round 293
+Proposing Round 293 [2084839399, 1384049914, 1753841726, 2076605983, 240251661]
+Broadcasting proposal 1 round 293 with 128 elements
+__________________________
+Starting Round 294
+Proposing Round 294 [1188332531, 2051831252, 1934944879]
+Broadcasting proposal 1 round 294 with 138 elements
+__________________________
+Starting Round 295
+Proposing Round 295 [1929338154, 1452066459, 2141011556, 348697524]
+Broadcasting proposal 1 round 295 with 158 elements
+__________________________
+Broadcasting NEW proposal 2 round 295 with 189 elements
+__________________________
+Broadcasting NEW proposal 2 round 293 with 157 elements
+__________________________
+Broadcasting NEW proposal 2 round 294 with 156 elements
+__________________________
+Broadcasting NEW proposal 2 round 292 with 146 elements
+__________________________
+Cleared accepted value set for round 253
+Cleared accepted value set for round 252
+Cleared accepted value set for round 254
+Cleared accepted value set for round 255
+Broadcasting NEW proposal 3 round 295 with 196 elements
+__________________________
+DECIDED: 292 146
+Broadcasting DELIVERY OF: 292
+Broadcasting NEW proposal 3 round 293 with 159 elements
+__________________________
+Broadcasting NEW proposal 3 round 294 with 164 elements
+__________________________
+Starting Round 296
+Proposing Round 296 [815605132, 1855548990, 1311598149, 1963764597, 983753977, 1781915481, 1753617371, 779489931, 296166921, 1674979897]
+Broadcasting proposal 1 round 296 with 144 elements
+__________________________
+Sent 66000 messages.
+DECIDED: 293 159
+Broadcasting DELIVERY OF: 293
+DECIDED: 294 164
+Broadcasting DELIVERY OF: 294
+DECIDED: 295 196
+Broadcasting DELIVERY OF: 295
+Broadcasting NEW proposal 2 round 296 with 164 elements
+__________________________
+Starting Round 297
+Proposing Round 297 [1034535593, 1482296058, 906346324, 632880459, 1603828849, 1628334692, 1193448329, 1062073697, 709214891]
+Broadcasting proposal 1 round 297 with 145 elements
+__________________________
+Starting Round 298
+Proposing Round 298 [1022222125, 344076115, 311570307, 825873196, 1452066459, 672302490, 1028439863, 827143233, 536124280, 1753617371]
+Broadcasting proposal 1 round 298 with 141 elements
+__________________________
+Starting Round 299
+Proposing Round 299 [599707677, 929364954]
+Broadcasting proposal 1 round 299 with 159 elements
+__________________________
+Cleared accepted value set for round 256
+Cleared accepted value set for round 259
+Cleared accepted value set for round 258
+Cleared accepted value set for round 257
+Broadcasting NEW proposal 2 round 297 with 157 elements
+__________________________
+Broadcasting NEW proposal 2 round 298 with 158 elements
+__________________________
+Broadcasting NEW proposal 2 round 299 with 185 elements
+__________________________
+Broadcasting NEW proposal 3 round 296 with 171 elements
+__________________________
+Sent 67000 messages.
+DECIDED: 296 171
+Broadcasting DELIVERY OF: 296
+DECIDED: 297 157
+Broadcasting DELIVERY OF: 297
+DECIDED: 298 158
+Broadcasting DELIVERY OF: 298
+DECIDED: 299 185
+Broadcasting DELIVERY OF: 299
+Cleared accepted value set for round 261
+Cleared accepted value set for round 260
+Cleared accepted value set for round 262
+Cleared accepted value set for round 263
+Cleared accepted value set for round 265
+Cleared accepted value set for round 264
+Cleared accepted value set for round 266
+Cleared accepted value set for round 267
+Cleared accepted value set for round 268
+Cleared accepted value set for round 270
+Cleared accepted value set for round 269
+Cleared accepted value set for round 271
+Cleared accepted value set for round 272
+Cleared accepted value set for round 275
+Cleared accepted value set for round 274
+Cleared accepted value set for round 273
+Cleared accepted value set for round 276
+Cleared accepted value set for round 279
+Cleared accepted value set for round 277
+Cleared accepted value set for round 278
+Cleared accepted value set for round 280
+Cleared accepted value set for round 281
+Cleared accepted value set for round 283
+Cleared accepted value set for round 282
+Cleared accepted value set for round 284
+Cleared accepted value set for round 285
+Cleared accepted value set for round 286
+Cleared accepted value set for round 287
+Cleared accepted value set for round 288
+Cleared accepted value set for round 291
+Cleared accepted value set for round 290
+Cleared accepted value set for round 289
+Cleared accepted value set for round 292
+Cleared accepted value set for round 294
+Cleared accepted value set for round 295
+Cleared accepted value set for round 293
+Cleared accepted value set for round 296
+ERROR IN PERFECT LINKS DELIVER: Message{proposalCount=2, senderId=71, receiverId=87, latticeRound=296, isAck=0}
+ERROR IN PERFECT LINKS DELIVER: Message{proposalCount=2, senderId=71, receiverId=87, latticeRound=296, isAck=0}
+ERROR IN PERFECT LINKS DELIVER: Message{proposalCount=2, senderId=71, receiverId=87, latticeRound=296, isAck=0}
+ERROR IN PERFECT LINKS DELIVER: Message{proposalCount=2, senderId=71, receiverId=87, latticeRound=296, isAck=0}
+ERROR IN PERFECT LINKS DELIVER: Message{proposalCount=2, senderId=71, receiverId=87, latticeRound=296, isAck=0}
+ERROR IN PERFECT LINKS DELIVER: Message{proposalCount=2, senderId=71, receiverId=87, latticeRound=296, isAck=0}
+ERROR IN PERFECT LINKS DELIVER: Message{proposalCount=2, senderId=71, receiverId=87, latticeRound=296, isAck=0}
+ERROR IN PERFECT LINKS DELIVER: Message{proposalCount=2, senderId=71, receiverId=87, latticeRound=296, isAck=0}
+ERROR IN PERFECT LINKS DELIVER: Message{proposalCount=2, senderId=71, receiverId=87, latticeRound=296, isAck=0}
+Cleared accepted value set for round 298
+Cleared accepted value set for round 299
+Cleared accepted value set for round 297
+ERROR IN PERFECT LINKS DELIVER: Message{proposalCount=1, senderId=71, receiverId=87, latticeRound=298, isAck=0}
+ERROR IN PERFECT LINKS DELIVER: Message{proposalCount=1, senderId=71, receiverId=87, latticeRound=299, isAck=0}
+ERROR IN PERFECT LINKS DELIVER: Message{proposalCount=2, senderId=71, receiverId=87, latticeRound=296, isAck=0}
+Immediately stopping network packet processing.
+Writing output.
