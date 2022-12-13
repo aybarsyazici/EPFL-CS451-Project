@@ -61,6 +61,11 @@ public class PerfectLinks implements Deliverer {
         return deliverer.getMaxLatticeRound();
     }
 
+    @Override
+    public int getMinLatticeRound() {
+        return deliverer.getMinLatticeRound();
+    }
+
     public int getActiveProposalNumber(int latticeRound){
         return deliverer.getActiveProposalNumber(latticeRound%parallelRoundCount);
     }
@@ -76,7 +81,7 @@ public class PerfectLinks implements Deliverer {
                 deliverer.incrementDeliveredAck(message.getLatticeRound(), message.getSenderId());
                 send(new Message(1, myId, message.getSenderId(), message.getLatticeRound(), true), hosts.get(message.getSenderId()));
             }
-            if (message.isAckMessage()){
+            else if (message.isAckMessage()){
                 if(deliverer.getMinLatticeRound() <= message.getLatticeRound() && message.getLatticeRound() < deliverer.getMaxLatticeRound()){
                     if (message.getId() != deliverer.getActiveProposalNumber(message.getLatticeRound())) {
                         return;

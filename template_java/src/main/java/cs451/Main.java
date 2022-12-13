@@ -71,7 +71,7 @@ public class Main {
             System.out.println();
             if(host.getId() == (parser.myId()-1)){
                 System.out.println("ProposalSetSize: " + proposalSetSize);
-                pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), 4, proposalSetSize,latticeRoundCount);
+                pr = new Process((byte)host.getId(), host.getPort(), hostList, parser.output(), hostList.size() >=64 ? 4 : 8, proposalSetSize,latticeRoundCount);
             }
         }
         System.out.println();

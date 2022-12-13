@@ -6,4 +6,6 @@ public interface UDPObserver {
     void onUDPSenderExecuted(Message message);
 
     void onUDPBulkSenderExecuted();
+
+    public int getMinLatticeRound();
 }

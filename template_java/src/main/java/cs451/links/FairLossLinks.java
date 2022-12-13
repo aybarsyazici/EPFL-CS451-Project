@@ -118,4 +118,9 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     public void onUDPBulkSenderExecuted(){
         this.jobCount.decrementAndGet();
     }
+
+    @Override
+    public int getMinLatticeRound() {
+        return this.deliverer.getMinLatticeRound();
+    }
 }

@@ -32,11 +32,17 @@ public class UDPBulkSender implements Runnable{
 
     public void run(){
         try {
+            boolean success = true;
             byte[] buffer = messagePackage.toBytes(proposalSetSize);
-            DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, port);
-            socket.send(packet);
             for(Message message : messagePackage.getMessages()){
                 observer.onUDPSenderExecuted(message);
+                if(message.getAck() == 0 && observer.getMinLatticeRound() > message.getLatticeRound()){
+                    success = false;
+                }
+            }
+            if(success){
+                DatagramPacket packet = new DatagramPacket(buffer, buffer.length, address, port);
+                socket.send(packet);
             }
         }
         catch (Exception e){

@@ -196,4 +196,9 @@ public class StubbornLinks implements Deliverer {
     public int getMaxLatticeRound() {
         return perfectLinks.getMaxLatticeRound();
     }
+    @Override
+    public int getMinLatticeRound() {
+        return perfectLinks.getMinLatticeRound();
+    }
+
 }

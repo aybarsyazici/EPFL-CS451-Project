@@ -1,0 +1,265 @@
+Listening for transport dt_socket at address: 7112
+My PID: 64943
+
+From a new terminal type `kill -SIGINT 64943` or `kill -SIGTERM 64943` to stop processing packets
+
+OUTPUT:  /Users/aybarsyazici/Documents/EPFL/distributed/EPFL-CS451-Project/tools/out/proc07.output
+My ID: 7
+
+List of resolved hosts is:
+==========================
+0
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11001
+
+1
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11002
+
+2
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11003
+
+3
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11004
+
+4
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11005
+
+5
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11006
+
+6
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11007
+
+ProposalSetSize: 1800
+Sliding window size: 16
+UDPReceiver: Created socket on port 11007
+THREAD NUMBER: 1
+7
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11008
+
+8
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11009
+
+9
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11010
+
+10
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11011
+
+11
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11012
+
+12
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11013
+
+13
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11014
+
+14
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11015
+
+15
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11016
+
+16
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11017
+
+17
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11018
+
+18
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11019
+
+19
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11020
+
+20
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11021
+
+21
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11022
+
+22
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11023
+
+23
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11024
+
+24
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11025
+
+25
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11026
+
+26
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11027
+
+27
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11028
+
+28
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11029
+
+29
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11030
+
+30
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11031
+
+31
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11032
+
+32
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11033
+
+33
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11034
+
+34
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11035
+
+35
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11036
+
+36
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11037
+
+37
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11038
+
+38
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11039
+
+39
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11040
+
+40
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11041
+
+41
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11042
+
+42
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11043
+
+43
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11044
+
+44
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11045
+
+45
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11046
+
+46
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11047
+
+47
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11048
+
+48
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11049
+
+49
+Human-readable IP: 127.0.0.1
+Human-readable Port: 11050
+
+
+Path to output:
+===============
+/Users/aybarsyazici/Documents/EPFL/distributed/EPFL-CS451-Project/tools/out/proc07.output
+
+Deleted old output file: false
+
+Path to config:
+===============
+./out/proc07.config
+
+===============
+Doing some initialization
+
+Broadcasting and delivering messages...
+
+Process ID: 7
+Starting Round 0
+Proposing Round 0 [752438459, 2088517710, 487311805, 1027220866, 2103875358, 195256953, 1422277848, 653287375]
+Broadcasting proposal 1 round 0 with 8 elements
+__________________________
+Starting Round 1
+Proposing Round 1 [877990647, 621430136, 54340558, 1899061865, 480494664, 701808367, 662259333, 1981903597, 288335378, 1329644079]
+Broadcasting proposal 1 round 1 with 10 elements
+__________________________
+Starting Round 2
+Proposing Round 2 [2098228320, 1815115025, 877990647, 373399426, 1117936038, 83889094, 1087974350, 1064803502, 1851350739, 1321182659]
+Broadcasting proposal 1 round 2 with 10 elements
+__________________________
+Starting Round 3
+Proposing Round 3 [294678352, 645848526, 394096254, 1587106770, 1285821930, 1584461407]
+Broadcasting proposal 1 round 3 with 6 elements
+__________________________
+Starting Round 4
+Proposing Round 4 [2040695043, 710985298, 1639042338, 158844179, 770348179, 701808367, 41531046, 656448479]
+Broadcasting proposal 1 round 4 with 8 elements
+__________________________
+Starting Round 5
+Proposing Round 5 [1168672809, 519927529, 1002547591, 927503999, 471997674, 1934982045, 1555424924, 295456419]
+Broadcasting proposal 1 round 5 with 8 elements
+__________________________
+Starting Round 6
+Proposing Round 6 [562117925, 225953184, 815331250, 530809576, 902727745]
+Broadcasting proposal 1 round 6 with 5 elements
+__________________________
+Starting Round 7
+Proposing Round 7 [329557138, 1880160025, 2005855667]
+Broadcasting proposal 1 round 7 with 3 elements
+__________________________
+Immediately stopping network packet processing.
+Writing output.

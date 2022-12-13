@@ -9,7 +9,8 @@ parser.add_argument('proc_count', type=int, help='Number of processes')
 args = parser.parse_args()
 
 proc_count = args.proc_count
-crashed_procs = []
+crashed_procs = [30, 36, 19, 32, 23, 1, 25, 17, 8, 28,
+                 40, 16, 10, 2, 18, 21, 44, 5, 38, 12, 42, 3, 31, 7]
 
 for i in range(1, proc_count+1):
     stri = str(i)
