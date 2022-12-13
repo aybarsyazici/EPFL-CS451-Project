@@ -55,7 +55,6 @@ public class FairLossLinks implements Deliverer, UDPObserver {
     void send(MessagePackage messagePackage, Host host){ // Create a new sender and send message
         int socketId = ThreadLocalRandom.current().nextInt(sockets.length); // Choose a socket to send the message
         try{
-            byte[] buffer = messagePackage.toBytes(proposalSetSize);
             var futureTask = pool.submit(
                     new UDPBulkSender(
                             host.getIp(),
